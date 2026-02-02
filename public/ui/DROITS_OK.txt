@@ -1,0 +1,8218 @@
+# file: home/johny/CascadeProjets/CahierDeRecettes
+# owner: johny
+# group: johny
+user::rwx
+group::r-x
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/CahierDeRecettes version plein de bug.zip
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public
+# owner: johny
+# group: johny
+user::rwx
+group::r-x
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/test-mpdf.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/phpinfo.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/logintemp.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/test.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/print
+# owner: johny
+# group: johny
+user::rwx
+group::r-x
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/print/print_selection.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/ajout.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/upload_photo.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/partials
+# owner: johny
+# group: johny
+user::rwx
+group::r-x
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/partials/recettes_list.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/partials/recettes_gallery.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/delete_multiple.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/import_json_form.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/pdf
+# owner: johny
+# group: johny
+user::rwx
+group::r-x
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/pdf/recette_pdf.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/pdf/pdf.css
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/pdf/pdf_selection.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/pdf/template_recette.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/assets
+# owner: johny
+# group: johny
+user::rwx
+group::r-x
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/assets/img
+# owner: johny
+# group: johny
+user::rwx
+group::r-x
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/assets/img/logo-memoire-saveurs.png
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/assets/img/logo-memoire-saveur-fond-sombre.png
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/assets/js
+# owner: johny
+# group: johny
+user::rwx
+group::r-x
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/assets/js/liste_courses.js
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/assets/js/main.js
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/assets/js/liste.js
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/assets/js/selection.js
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/assets/js/gallery.js
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/assets/js/edit-recette.js
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/assets/js/favoris.js
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/assets/js/selection_actions.js
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/assets/css
+# owner: johny
+# group: johny
+user::rwx
+group::r-x
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/assets/css/style.css
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/update_recette.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/test_controller.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/recette.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/test_model.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/ui
+# owner: johny
+# group: johny
+user::rwx
+group::r-x
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/ui/layout_start.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/ui/header.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/ui/DROITS_OK.txt
+# owner: johny
+# group: johny
+user::rw-
+group::rw-
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/ui/footer.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/ui/layout_end.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/admin
+# owner: johny
+# group: johny
+user::rwx
+group::r-x
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/admin/users.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/actions
+# owner: johny
+# group: johny
+user::rwx
+group::r-x
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/actions/toggle_favori.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/import_recette_image.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/favicon.ico
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/add_tag.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/edit_recette.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/test_db.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_290.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_276.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_327.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_271.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_54.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_242.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_227.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_156.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_70.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_294.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_221.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_332.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_18.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_250.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_263.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_69.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_27.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_696e073d50b8a5.07705029.jpeg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_317.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_308.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_69516f16042d53.55993077.jpeg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_256.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_44.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_41.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_260.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_293.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_316.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_24.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_338.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_261.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_329.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_696e06aef14471.45251111.jpeg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_249.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_222.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_286.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_33.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_264.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_26.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_236.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_50.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_237.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_40.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_229.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_326.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_281.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_39.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_304.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_298.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_72.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_31.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_241.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_35.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_315.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_257.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_108.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_328.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_155.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_59.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_273.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_289.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_280.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_314.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_29.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_320.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_245.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_305.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_251.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_83.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_46.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_277.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_84.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_285.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_269.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_330.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_55.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_240.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_255.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_20.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_32.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_302.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_225.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_287.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_45.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_297.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_335.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_64.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_52.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_85.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_58.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_258.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_283.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_25.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_311.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_19.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_310.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_51.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_696e0c9bdf99c9.45946051.jpeg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_246.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_318.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_69516f56249582.55779770.jpeg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_345.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_232.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_154.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_321.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_696e0a20af6416.10854182.jpeg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_34.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_291.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_254.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_62.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_323.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_22.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_300.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_696c09dbd75539.20603749.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_73.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_267.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_325.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_71.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_694ae270a4b9b8.25957801.jpeg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_694d8049421b29.33997741.jpeg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_226.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_694a92ddf141f2.47814235.jpeg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_67.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_252.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_262.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_36.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_347.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_87.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_233.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_303.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_57.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_279.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_223.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_28.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_220.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_37.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_292.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_65.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_230.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_42.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_243.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_68.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_340.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_295.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_274.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_337.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_299.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_266.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_312.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_331.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_259.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_74.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_344.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_61.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_235.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_278.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_253.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_86.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_695178c2a48727.08564540.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_228.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_56.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_336.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_270.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_23.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_272.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_49.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_307.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_282.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_63.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_38.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_21.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_69516f35ca8465.37212883.jpeg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_313.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_341.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_288.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_268.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_30.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_238.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_306.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_43.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_47.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_53.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_231.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_248.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_333.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_339.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_284.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_60.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_6951786a003e71.64672227.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_694a933e872207.77503722.jpeg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_275.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_296.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_239.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_66.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_343.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_322.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_309.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_244.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_234.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_346.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_334.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_301.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_342.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_247.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_324.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_48.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_224.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_109.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/recettes/recette_319.jpg
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/tmp_droits_ok.txt
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/uploads_droits_ok.txt
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/uploads/photos
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/liste_courses.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/ajax
+# owner: johny
+# group: johny
+user::rwx
+group::r-x
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/ajax/toggle_selection.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/index.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/import_json.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/delete_photo.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/ajout_api.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/set_photo_principale.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/remove_tag.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/auth
+# owner: johny
+# group: johny
+user::rwx
+group::r-x
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/auth/login.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/auth/logout.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/auth/auth.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/auth/forgot_password.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/auth/reset_password.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/public/auth/register.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor
+# owner: johny
+# group: johny
+user::rwx
+group::r-x
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/myclabs
+# owner: johny
+# group: johny
+user::rwx
+group::r-x
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/myclabs/deep-copy
+# owner: johny
+# group: johny
+user::rwx
+group::r-x
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/myclabs/deep-copy/LICENSE
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/myclabs/deep-copy/composer.json
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/myclabs/deep-copy/README.md
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/myclabs/deep-copy/src
+# owner: johny
+# group: johny
+user::rwx
+group::r-x
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/myclabs/deep-copy/src/DeepCopy
+# owner: johny
+# group: johny
+user::rwx
+group::r-x
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/myclabs/deep-copy/src/DeepCopy/TypeFilter
+# owner: johny
+# group: johny
+user::rwx
+group::r-x
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/myclabs/deep-copy/src/DeepCopy/TypeFilter/Spl
+# owner: johny
+# group: johny
+user::rwx
+group::r-x
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/myclabs/deep-copy/src/DeepCopy/TypeFilter/Spl/SplDoublyLinkedListFilter.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/myclabs/deep-copy/src/DeepCopy/TypeFilter/Spl/SplDoublyLinkedList.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/myclabs/deep-copy/src/DeepCopy/TypeFilter/Spl/ArrayObjectFilter.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/myclabs/deep-copy/src/DeepCopy/TypeFilter/TypeFilter.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/myclabs/deep-copy/src/DeepCopy/TypeFilter/ShallowCopyFilter.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/myclabs/deep-copy/src/DeepCopy/TypeFilter/Date
+# owner: johny
+# group: johny
+user::rwx
+group::r-x
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/myclabs/deep-copy/src/DeepCopy/TypeFilter/Date/DatePeriodFilter.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/myclabs/deep-copy/src/DeepCopy/TypeFilter/Date/DateIntervalFilter.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/myclabs/deep-copy/src/DeepCopy/TypeFilter/ReplaceFilter.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/myclabs/deep-copy/src/DeepCopy/Filter
+# owner: johny
+# group: johny
+user::rwx
+group::r-x
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/myclabs/deep-copy/src/DeepCopy/Filter/Doctrine
+# owner: johny
+# group: johny
+user::rwx
+group::r-x
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/myclabs/deep-copy/src/DeepCopy/Filter/Doctrine/DoctrineCollectionFilter.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/myclabs/deep-copy/src/DeepCopy/Filter/Doctrine/DoctrineEmptyCollectionFilter.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/myclabs/deep-copy/src/DeepCopy/Filter/Doctrine/DoctrineProxyFilter.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/myclabs/deep-copy/src/DeepCopy/Filter/SetNullFilter.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/myclabs/deep-copy/src/DeepCopy/Filter/KeepFilter.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/myclabs/deep-copy/src/DeepCopy/Filter/ChainableFilter.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/myclabs/deep-copy/src/DeepCopy/Filter/ReplaceFilter.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/myclabs/deep-copy/src/DeepCopy/Filter/Filter.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/myclabs/deep-copy/src/DeepCopy/Reflection
+# owner: johny
+# group: johny
+user::rwx
+group::r-x
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/myclabs/deep-copy/src/DeepCopy/Reflection/ReflectionHelper.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/myclabs/deep-copy/src/DeepCopy/TypeMatcher
+# owner: johny
+# group: johny
+user::rwx
+group::r-x
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/myclabs/deep-copy/src/DeepCopy/TypeMatcher/TypeMatcher.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/myclabs/deep-copy/src/DeepCopy/deep_copy.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/myclabs/deep-copy/src/DeepCopy/Matcher
+# owner: johny
+# group: johny
+user::rwx
+group::r-x
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/myclabs/deep-copy/src/DeepCopy/Matcher/Matcher.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/myclabs/deep-copy/src/DeepCopy/Matcher/Doctrine
+# owner: johny
+# group: johny
+user::rwx
+group::r-x
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/myclabs/deep-copy/src/DeepCopy/Matcher/Doctrine/DoctrineProxyMatcher.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/myclabs/deep-copy/src/DeepCopy/Matcher/PropertyTypeMatcher.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/myclabs/deep-copy/src/DeepCopy/Matcher/PropertyMatcher.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/myclabs/deep-copy/src/DeepCopy/Matcher/PropertyNameMatcher.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/myclabs/deep-copy/src/DeepCopy/DeepCopy.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/myclabs/deep-copy/src/DeepCopy/Exception
+# owner: johny
+# group: johny
+user::rwx
+group::r-x
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/myclabs/deep-copy/src/DeepCopy/Exception/CloneException.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/myclabs/deep-copy/src/DeepCopy/Exception/PropertyException.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/setasign
+# owner: johny
+# group: johny
+user::rwx
+group::r-x
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/setasign/fpdi
+# owner: johny
+# group: johny
+user::rwx
+group::r-x
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/setasign/fpdi/composer.json
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/setasign/fpdi/README.md
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/setasign/fpdi/LICENSE.txt
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/setasign/fpdi/SECURITY.md
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/setasign/fpdi/src
+# owner: johny
+# group: johny
+user::rwx
+group::r-x
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/setasign/fpdi/src/TcpdfFpdi.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/setasign/fpdi/src/FpdiTrait.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/setasign/fpdi/src/Fpdi.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/setasign/fpdi/src/Math
+# owner: johny
+# group: johny
+user::rwx
+group::r-x
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/setasign/fpdi/src/Math/Vector.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/setasign/fpdi/src/Math/Matrix.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/setasign/fpdi/src/FpdfTplTrait.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/setasign/fpdi/src/autoload.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/setasign/fpdi/src/FpdfTpl.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/setasign/fpdi/src/GraphicsState.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/setasign/fpdi/src/Tfpdf
+# owner: johny
+# group: johny
+user::rwx
+group::r-x
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/setasign/fpdi/src/Tfpdf/Fpdi.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/setasign/fpdi/src/Tfpdf/FpdfTpl.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/setasign/fpdi/src/Tcpdf
+# owner: johny
+# group: johny
+user::rwx
+group::r-x
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/setasign/fpdi/src/Tcpdf/Fpdi.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/setasign/fpdi/src/PdfReader
+# owner: johny
+# group: johny
+user::rwx
+group::r-x
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/setasign/fpdi/src/PdfReader/Page.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/setasign/fpdi/src/PdfReader/DataStructure
+# owner: johny
+# group: johny
+user::rwx
+group::r-x
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/setasign/fpdi/src/PdfReader/DataStructure/Rectangle.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/setasign/fpdi/src/PdfReader/PdfReaderException.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/setasign/fpdi/src/PdfReader/PdfReader.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/setasign/fpdi/src/PdfReader/PageBoundaries.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/setasign/fpdi/src/PdfParser
+# owner: johny
+# group: johny
+user::rwx
+group::r-x
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/setasign/fpdi/src/PdfParser/Filter
+# owner: johny
+# group: johny
+user::rwx
+group::r-x
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/setasign/fpdi/src/PdfParser/Filter/Ascii85.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/setasign/fpdi/src/PdfParser/Filter/FlateException.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/setasign/fpdi/src/PdfParser/Filter/Ascii85Exception.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/setasign/fpdi/src/PdfParser/Filter/LzwException.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/setasign/fpdi/src/PdfParser/Filter/FilterInterface.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/setasign/fpdi/src/PdfParser/Filter/Lzw.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/setasign/fpdi/src/PdfParser/Filter/FilterException.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/setasign/fpdi/src/PdfParser/Filter/Flate.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/setasign/fpdi/src/PdfParser/Filter/AsciiHex.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/setasign/fpdi/src/PdfParser/PdfParser.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/setasign/fpdi/src/PdfParser/StreamReader.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/setasign/fpdi/src/PdfParser/Type
+# owner: johny
+# group: johny
+user::rwx
+group::r-x
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/setasign/fpdi/src/PdfParser/Type/PdfType.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/setasign/fpdi/src/PdfParser/Type/PdfNull.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/setasign/fpdi/src/PdfParser/Type/PdfName.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/setasign/fpdi/src/PdfParser/Type/PdfIndirectObjectReference.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/setasign/fpdi/src/PdfParser/Type/PdfToken.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/setasign/fpdi/src/PdfParser/Type/PdfNumeric.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/setasign/fpdi/src/PdfParser/Type/PdfStream.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/setasign/fpdi/src/PdfParser/Type/PdfArray.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/setasign/fpdi/src/PdfParser/Type/PdfBoolean.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/setasign/fpdi/src/PdfParser/Type/PdfTypeException.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/setasign/fpdi/src/PdfParser/Type/PdfString.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/setasign/fpdi/src/PdfParser/Type/PdfDictionary.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/setasign/fpdi/src/PdfParser/Type/PdfIndirectObject.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/setasign/fpdi/src/PdfParser/Type/PdfHexString.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/setasign/fpdi/src/PdfParser/CrossReference
+# owner: johny
+# group: johny
+user::rwx
+group::r-x
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/setasign/fpdi/src/PdfParser/CrossReference/LineReader.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/setasign/fpdi/src/PdfParser/CrossReference/AbstractReader.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/setasign/fpdi/src/PdfParser/CrossReference/FixedReader.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/setasign/fpdi/src/PdfParser/CrossReference/ReaderInterface.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/setasign/fpdi/src/PdfParser/CrossReference/CrossReferenceException.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/setasign/fpdi/src/PdfParser/CrossReference/CrossReference.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/setasign/fpdi/src/PdfParser/Tokenizer.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/setasign/fpdi/src/PdfParser/PdfParserException.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/setasign/fpdi/src/FpdiException.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/setasign/fpdi/src/FpdfTrait.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/autoload.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/composer
+# owner: johny
+# group: johny
+user::rwx
+group::r-x
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/composer/autoload_namespaces.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/composer/platform_check.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/composer/autoload_files.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/composer/autoload_classmap.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/composer/LICENSE
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/composer/autoload_psr4.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/composer/autoload_static.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/composer/installed.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/composer/InstalledVersions.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/composer/autoload_real.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/composer/ClassLoader.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/composer/installed.json
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/paragonie
+# owner: johny
+# group: johny
+user::rwx
+group::r-x
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/paragonie/random_compat
+# owner: johny
+# group: johny
+user::rwx
+group::r-x
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/paragonie/random_compat/other
+# owner: johny
+# group: johny
+user::rwx
+group::r-x
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/paragonie/random_compat/other/build_phar.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/paragonie/random_compat/psalm.xml
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/paragonie/random_compat/LICENSE
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/paragonie/random_compat/psalm-autoload.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/paragonie/random_compat/build-phar.sh
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/paragonie/random_compat/composer.json
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/paragonie/random_compat/dist
+# owner: johny
+# group: johny
+user::rwx
+group::r-x
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/paragonie/random_compat/dist/random_compat.phar.pubkey.asc
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/paragonie/random_compat/dist/random_compat.phar.pubkey
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/paragonie/random_compat/lib
+# owner: johny
+# group: johny
+user::rwx
+group::r-x
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/paragonie/random_compat/lib/random.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/psr
+# owner: johny
+# group: johny
+user::rwx
+group::r-x
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/psr/http-message
+# owner: johny
+# group: johny
+user::rwx
+group::r-x
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/psr/http-message/LICENSE
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/psr/http-message/CHANGELOG.md
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/psr/http-message/composer.json
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/psr/http-message/README.md
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/psr/http-message/docs
+# owner: johny
+# group: johny
+user::rwx
+group::r-x
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/psr/http-message/docs/PSR7-Usage.md
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/psr/http-message/docs/PSR7-Interfaces.md
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/psr/http-message/src
+# owner: johny
+# group: johny
+user::rwx
+group::r-x
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/psr/http-message/src/UploadedFileInterface.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/psr/http-message/src/MessageInterface.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/psr/http-message/src/ResponseInterface.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/psr/http-message/src/ServerRequestInterface.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/psr/http-message/src/StreamInterface.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/psr/http-message/src/RequestInterface.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/psr/http-message/src/UriInterface.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/psr/log
+# owner: johny
+# group: johny
+user::rwx
+group::r-x
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/psr/log/LICENSE
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/psr/log/composer.json
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/psr/log/README.md
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/psr/log/src
+# owner: johny
+# group: johny
+user::rwx
+group::r-x
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/psr/log/src/AbstractLogger.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/psr/log/src/LoggerTrait.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/psr/log/src/LoggerAwareTrait.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/psr/log/src/LoggerInterface.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/psr/log/src/InvalidArgumentException.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/psr/log/src/NullLogger.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/psr/log/src/LoggerAwareInterface.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/psr/log/src/LogLevel.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf
+# owner: johny
+# group: johny
+user::rwx
+group::r-x
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/psr-log-aware-trait
+# owner: johny
+# group: johny
+user::rwx
+group::r-x
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/psr-log-aware-trait/.gitignore
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/psr-log-aware-trait/composer.json
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/psr-log-aware-trait/README.md
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/psr-log-aware-trait/src
+# owner: johny
+# group: johny
+user::rwx
+group::r-x
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/psr-log-aware-trait/src/PsrLogAwareTrait.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/psr-log-aware-trait/src/MpdfPsrLogAwareTrait.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/psr-http-message-shim
+# owner: johny
+# group: johny
+user::rwx
+group::r-x
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/psr-http-message-shim/composer.json
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/psr-http-message-shim/README.md
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/psr-http-message-shim/src
+# owner: johny
+# group: johny
+user::rwx
+group::r-x
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/psr-http-message-shim/src/Request.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/psr-http-message-shim/src/Uri.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/psr-http-message-shim/src/Stream.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/psr-http-message-shim/src/Response.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf
+# owner: johny
+# group: johny
+user::rwx
+group::r-x
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/phpunit.xml
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/ttfonts
+# owner: johny
+# group: johny
+user::rwx
+group::r-x
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/ttfonts/TaiHeritagePro.ttf
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/ttfonts/DejaVuSansCondensed-Bold.ttf
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/ttfonts/DejaVuSansCondensed.ttf
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/ttfonts/ayar.ttf
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/ttfonts/Sun-ExtA.ttf
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/ttfonts/FreeSans.ttf
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/ttfonts/FreeSansBold.ttf
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/ttfonts/DBSILBR.ttf
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/ttfonts/UnBatang_0613.ttf
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/ttfonts/Padauk-book.ttf
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/ttfonts/Uthman.otf
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/ttfonts/DejaVuSerifCondensed-BoldItalic.ttf
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/ttfonts/DejaVuSerifCondensed.ttf
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/ttfonts/Garuda.ttf
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/ttfonts/DejaVuSansCondensed-Oblique.ttf
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/ttfonts/Jomolhari.ttf
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/ttfonts/DhyanaOFL.txt
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/ttfonts/Garuda-Bold.ttf
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/ttfonts/ZawgyiOne.ttf
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/ttfonts/DejaVuSansMono-Oblique.ttf
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/ttfonts/Abyssinica_SIL.ttf
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/ttfonts/FreeMonoBold.ttf
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/ttfonts/Sun-ExtB.ttf
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/ttfonts/DejaVuSerif-Bold.ttf
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/ttfonts/TharlonOFL.txt
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/ttfonts/XB Riyaz.ttf
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/ttfonts/damase_v.2.ttf
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/ttfonts/FreeSerifBoldItalic.ttf
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/ttfonts/TaameyDavidCLM-Medium.ttf
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/ttfonts/Tharlon-Regular.ttf
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/ttfonts/Aegyptus.otf
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/ttfonts/LateefRegOT.ttf
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/ttfonts/Dhyana-Regular.ttf
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/ttfonts/FreeSerifItalic.ttf
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/ttfonts/ocrb10.ttf
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/ttfonts/LohitKannadaOFL.txt
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/ttfonts/Dhyana-Bold.ttf
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/ttfonts/Jomolhari-OFL.txt
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/ttfonts/DejaVuSansMono-BoldOblique.ttf
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/ttfonts/Eeyek-Regular.ttf
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/ttfonts/Lateef font OFL.txt
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/ttfonts/AboriginalSansREGULAR.ttf
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/ttfonts/FreeSerif.ttf
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/ttfonts/lannaalif-v1-03.ttf
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/ttfonts/DejaVuSerif.ttf
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/ttfonts/SyrCOMEdessa_license.txt
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/ttfonts/DejaVuSans-BoldOblique.ttf
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/ttfonts/DejaVuSerifCondensed-Italic.ttf
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/ttfonts/Quivira.otf
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/ttfonts/DejaVuSansMono-Bold.ttf
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/ttfonts/Pothana2000.ttf
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/ttfonts/TaameyDavidCLM-LICENSE.txt
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/ttfonts/DejaVuSansMono.ttf
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/ttfonts/SyrCOMEdessa.otf
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/ttfonts/SundaneseUnicode-1.0.5.ttf
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/ttfonts/Aegean.otf
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/ttfonts/Garuda-BoldOblique.ttf
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/ttfonts/DejaVuinfo.txt
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/ttfonts/GNUFreeFontinfo.txt
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/ttfonts/FreeMono.ttf
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/ttfonts/FreeMonoOblique.ttf
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/ttfonts/Akkadian.otf
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/ttfonts/XB RiyazBdIt.ttf
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/ttfonts/DejaVuSans-Bold.ttf
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/ttfonts/DejaVuSerif-Italic.ttf
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/ttfonts/FreeMonoBoldOblique.ttf
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/ttfonts/KhmerOS.ttf
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/ttfonts/FreeSerifBold.ttf
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/ttfonts/XB RiyazBd.ttf
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/ttfonts/ocrbinfo.txt
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/ttfonts/FreeSansBoldOblique.ttf
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/ttfonts/XW Zar Font Info.txt
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/ttfonts/DejaVuSans-Oblique.ttf
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/ttfonts/Lohit-Kannada.ttf
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/ttfonts/DejaVuSerif-BoldItalic.ttf
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/ttfonts/kaputaunicode.ttf
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/ttfonts/FreeSansOblique.ttf
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/ttfonts/Garuda-Oblique.ttf
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/ttfonts/DejaVuSansCondensed-BoldOblique.ttf
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/ttfonts/DejaVuSans.ttf
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/ttfonts/KhmerOFL.txt
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/ttfonts/DejaVuSerifCondensed-Bold.ttf
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/ttfonts/XB RiyazIt.ttf
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/phpstan-baseline.neon
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/CHANGELOG.md
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/.gitignore
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/composer.json
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/README.md
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data
+# owner: johny
+# group: johny
+user::rwx
+group::r-x
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations
+# owner: johny
+# group: johny
+user::rwx
+group::r-x
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Turkish_Turkey.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Arabic_Jordan.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Serbian_(Latin)_Bosnia_and_Herzegovina.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Spanish_Mexico.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Sami_(Inari)_Finland.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Russian_Russia.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Spanish_Venezuela.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Macedonian_(FYROM)_Macedonia_(FYROM).php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Romansh_Switzerland.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Igbo_Nigeria.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Arabic_Egypt.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/French_Luxembourg.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Spanish_El_Salvador.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/English_Jamaica.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/French_France.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Azeri_(Latin)_Azerbaijan.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Albanian_Albania.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Romanian_Romania.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Danish_Denmark.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Kinyarwanda_Rwanda.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/French_Principality_of_Monaco.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Arabic_Qatar.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Breton_France.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Quechua_Peru.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Polish_Poland.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Frisian_Netherlands.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Portuguese_Portugal.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/English_Canada.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Arabic_Libya.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Kyrgyz_Kyrgyzstan.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Dari_Afghanistan.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Malay_Malaysia.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Spanish_United_States.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Quechua_Ecuador.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Irish_Ireland.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Hausa_(Latin)_Nigeria.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/English_United_Kingdom.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Spanish_Ecuador.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Arabic_Yemen.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Arabic_Bahrain.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Lithuanian_Lithuania.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Invariant_Language_Invariant_Country.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Inuktitut_(Latin)_Canada.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Lower_Sorbian_Germany.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/English_United_States.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Ukrainian_Ukraine.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Arabic_Iraq.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Uzbek_(Cyrillic)_Uzbekistan.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Urdu_Islamic_Republic_of_Pakistan.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/English_India.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Spanish_Costa_Rica.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Sami_(Southern)_Sweden.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/German_Switzerland.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Bosnian_(Latin)_Bosnia_and_Herzegovina.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Spanish_Spain.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Spanish_Puerto_Rico.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Croatian_Croatia.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/English_Ireland.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Bosnian_(Cyrillic)_Bosnia_and_Herzegovina.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Slovak_Slovakia.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Welsh_United_Kingdom.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Mapudungun_Chile.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Spanish_Argentina.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/German_Luxembourg.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Tatar_Russia.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Czech_Czech_Republic.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Spanish_Paraguay.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Tajik_(Cyrillic)_Tajikistan.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/isiXhosa_South_Africa.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Bashkir_Russia.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Alsatian_France.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Sami_(Northern)_Finland.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Croatian_(Latin)_Bosnia_and_Herzegovina.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Kiswahili_Kenya.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Arabic_Syria.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/English_Trinidad_and_Tobago.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Catalan_Spain.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/English_Australia.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Serbian_(Latin)_Serbia.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Sami_(Lule)_Sweden.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Portuguese_Brazil.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/English_Republic_of_the_Philippines.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Arabic_Kuwait.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Mongolian_(Cyrillic)_Mongolia.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Sami_(Northern)_Sweden.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Belarusian_Belarus.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Setswana_South_Africa.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Swedish_Sweden.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/isiZulu_South_Africa.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Sami_(Lule)_Norway.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/French_Belgium.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Turkmen_Turkmenistan.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/French_Canada.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Arabic_Oman.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Arabic_Morocco.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Arabic_Pseudo_RTL.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Yoruba_Nigeria.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Basque_Spain.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Spanish_Honduras.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Hebrew_Israel.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Faroese_Faroe_Islands.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Icelandic_Iceland.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Filipino_Philippines.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Galician_Spain.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Finnish_Finland.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/English_South_Africa.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Spanish_Nicaragua.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Serbian_(Cyrillic)_Bosnia_and_Herzegovina.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Spanish_Peru.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Bulgarian_Bulgaria.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Spanish_Dominican_Republic.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Spanish_Colombia.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/English_Singapore.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Greek_Greece.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Swedish_Finland.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/French_Switzerland.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Yakut_Russia.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/English_Zimbabwe.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Estonian_Estonia.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Dutch_Belgium.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Arabic_Tunisia.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/English_Belize.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Arabic_Lebanon.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Spanish_Chile.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Corsican_France.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Arabic_Saudi_Arabia.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Afrikaans_South_Africa.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/German_Austria.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Quechua_Bolivia.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/English_Malaysia.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/English_Caribbean.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Serbian_(Cyrillic)_Serbia.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Vietnamese_Vietnam.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Malay_Brunei_Darussalam.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Italian_Italy.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Luxembourgish_Luxembourg.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Spanish_Panama.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Sami_(Northern)_Norway.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Norwegian_(Nynorsk)_Norway.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Sami_(Skolt)_Finland.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Hungarian_Hungary.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/German_Germany.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Spanish_Guatemala.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Spanish_Bolivia.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Sami_(Southern)_Norway.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Slovenian_Slovenia.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Wolof_Senegal.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/English_New_Zealand.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Indonesian_Indonesia.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Occitan_France.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Azeri_(Cyrillic)_Azerbaijan.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Uzbek_(Latin)_Uzbekistan.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Upper_Sorbian_Germany.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Spanish_Uruguay.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Mohawk_Canada.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Latvian_Latvia.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/German_Liechtenstein.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Tamazight_(Latin)_Algeria.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Persian_Iran.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Greenlandic_Greenland.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Sesotho_sa_Leboa_South_Africa.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Italian_Switzerland.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Arabic_Algeria.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/collations/Dutch_Netherlands.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/subs_win-1252.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/entity_substitutions.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/iccprofiles
+# owner: johny
+# group: johny
+user::rwx
+group::r-x
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/iccprofiles/sRGB_IEC61966-2-1.icc
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/linebrdictK.dat
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/linebrdictL.dat
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/no_image.jpg
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/font
+# owner: johny
+# group: johny
+user::rwx
+group::r-x
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/font/ccourierb.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/font/ctimesb.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/font/ccourierbi.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/font/ccourier.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/font/chelveticab.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/font/ctimes.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/font/ctimesi.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/font/ctimesbi.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/font/czapfdingbats.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/font/chelveticai.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/font/chelvetica.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/font/ccourieri.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/font/csymbol.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/font/chelveticabi.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/linebrdictT.dat
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/patterns
+# owner: johny
+# group: johny
+user::rwx
+group::r-x
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/patterns/fi.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/patterns/nl.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/patterns/de.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/patterns/en.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/patterns/it.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/patterns/pl.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/patterns/NOTES.txt
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/patterns/es.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/patterns/sv.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/patterns/fr.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/patterns/dictionary.txt
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/patterns/ru.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/mpdf.css
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/lang2fonts.css
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/upperCase.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/subs_core.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/CJKdata.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/data/out.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/ruleset.xml
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/LICENSE.txt
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/.github
+# owner: johny
+# group: johny
+user::rwx
+group::r-x
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/.github/ISSUE_TEMPLATE
+# owner: johny
+# group: johny
+user::rwx
+group::r-x
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/.github/ISSUE_TEMPLATE/config.yml
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/.github/ISSUE_TEMPLATE/02_feature_request.yml
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/.github/ISSUE_TEMPLATE/01_bug_report.yml
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/.github/CONTRIBUTING.md
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/.github/SECURITY.md
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/.github/workflows
+# owner: johny
+# group: johny
+user::rwx
+group::r-x
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/.github/workflows/static-analysis.yml
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/.github/workflows/tests.yml
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/.github/workflows/coverage.yml
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/.github/workflows/cs.yml
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/.github/FUNDING.yml
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/phpstan.neon
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/CREDITS.txt
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src
+# owner: johny
+# group: johny
+user::rwx
+group::r-x
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Config
+# owner: johny
+# group: johny
+user::rwx
+group::r-x
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Config/ConfigVariables.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Config/FontVariables.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Strict.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/ServiceFactory.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Tag
+# owner: johny
+# group: johny
+user::rwx
+group::r-x
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Tag/Cite.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Tag/Kbd.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Tag/Img.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Tag/A.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Tag/VarTag.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Tag/FigCaption.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Tag/Form.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Tag/TocEntry.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Tag/H4.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Tag/Time.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Tag/Input.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Tag/Strong.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Tag/Ins.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Tag/Bdi.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Tag/Pre.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Tag/I.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Tag/Main.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Tag/Span.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Tag/Table.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Tag/H3.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Tag/Th.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Tag/DotTab.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Tag/Dl.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Tag/Tag.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Tag/NewColumn.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Tag/HGroup.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Tag/Footer.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Tag/FormFeed.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Tag/THead.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Tag/Figure.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Tag/Meter.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Tag/Dd.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Tag/Hr.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Tag/TocPageBreak.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Tag/Tta.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Tag/BlockTag.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Tag/PageHeader.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Tag/Columns.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Tag/Center.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Tag/BarCode.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Tag/Sub.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Tag/Sup.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Tag/FieldSet.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Tag/SubstituteTag.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Tag/S.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Tag/Del.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Tag/Aside.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Tag/Div.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Tag/Details.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Tag/U.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Tag/IndexEntry.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Tag/Strike.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Tag/Bdo.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Tag/ColumnBreak.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Tag/Address.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Tag/Nav.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Tag/Font.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Tag/BlockQuote.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Tag/B.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Tag/Toc.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Tag/Code.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Tag/Q.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Tag/Legend.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Tag/WatermarkText.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Tag/SetPageFooter.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Tag/Bookmark.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Tag/TextCircle.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Tag/Caption.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Tag/Samp.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Tag/Option.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Tag/IndexInsert.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Tag/Small.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Tag/SetHtmlPageHeader.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Tag/SetHtmlPageFooter.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Tag/H2.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Tag/NewPage.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Tag/Select.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Tag/Header.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Tag/PageFooter.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Tag/TFoot.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Tag/P.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Tag/H5.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Tag/Ul.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Tag/SetPageHeader.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Tag/Dt.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Tag/TextArea.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Tag/Tt.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Tag/Progress.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Tag/Big.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Tag/Li.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Tag/Summary.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Tag/Ol.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Tag/InlineTag.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Tag/Acronym.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Tag/Annotation.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Tag/Mark.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Tag/WatermarkImage.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Tag/Ttz.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Tag/H1.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Tag/TBody.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Tag/Tts.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Tag/Td.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Tag/H6.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Tag/Em.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Tag/Br.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Tag/Article.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Tag/Tr.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Tag/Section.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Tag/PageBreak.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Cache.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Output
+# owner: johny
+# group: johny
+user::rwx
+group::r-x
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Output/Destination.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/FpdiTrait.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Form.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/CssManager.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/functions-dev.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Hyphenator.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/OtlDump.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Mpdf.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Writer
+# owner: johny
+# group: johny
+user::rwx
+group::r-x
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Writer/MetadataWriter.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Writer/ObjectWriter.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Writer/JavaScriptWriter.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Writer/PageWriter.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Writer/ImageWriter.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Writer/FormWriter.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Writer/BackgroundWriter.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Writer/ColorWriter.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Writer/BaseWriter.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Writer/FontWriter.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Writer/BookmarkWriter.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Writer/ResourceWriter.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Writer/OptionalContentWriter.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Tag.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/TableOfContents.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Css
+# owner: johny
+# group: johny
+user::rwx
+group::r-x
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Css/TextVars.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Css/DefaultCss.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Css/Border.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Pdf
+# owner: johny
+# group: johny
+user::rwx
+group::r-x
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Pdf/Protection
+# owner: johny
+# group: johny
+user::rwx
+group::r-x
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Pdf/Protection/UniqidGenerator.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Pdf/Protection.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/MpdfException.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Conversion
+# owner: johny
+# group: johny
+user::rwx
+group::r-x
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Conversion/DecToAlpha.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Conversion/DecToRoman.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Conversion/DecToOther.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Conversion/DecToHebrew.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Conversion/DecToCjk.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/HTMLParserMode.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Watermark.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/functions.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/File
+# owner: johny
+# group: johny
+user::rwx
+group::r-x
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/File/StreamWrapperChecker.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/File/LocalContentLoader.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/File/LocalContentLoaderInterface.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Barcode.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Fonts
+# owner: johny
+# group: johny
+user::rwx
+group::r-x
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Fonts/FontFileFinder.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Fonts/FontCache.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Fonts/GlyphOperator.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Fonts/MetricsGenerator.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Language
+# owner: johny
+# group: johny
+user::rwx
+group::r-x
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Language/ScriptToLanguage.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Language/LanguageToFont.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Language/ScriptToLanguageInterface.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Language/LanguageToFontInterface.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/MpdfImageException.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/TTFontFile.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Barcode
+# owner: johny
+# group: johny
+user::rwx
+group::r-x
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Barcode/Code93.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Barcode/Postnet.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Barcode/EanUpc.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Barcode/S25.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Barcode/Code11.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Barcode/I25.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Barcode/Rm4Scc.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Barcode/Codabar.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Barcode/Imb.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Barcode/Msi.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Barcode/BarcodeInterface.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Barcode/BarcodeException.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Barcode/Code39.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Barcode/EanExt.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Barcode/AbstractBarcode.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Barcode/Code128.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Gif
+# owner: johny
+# group: johny
+user::rwx
+group::r-x
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Gif/FileHeader.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Gif/ImageHeader.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Gif/Lzw.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Gif/Image.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Gif/Gif.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Gif/ColorTable.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/WatermarkText.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Image
+# owner: johny
+# group: johny
+user::rwx
+group::r-x
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Image/Wmf.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Image/Bmp.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Image/ImageTypeGuesser.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Image/Svg.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Image/ImageProcessor.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Log
+# owner: johny
+# group: johny
+user::rwx
+group::r-x
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Log/Context.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Color
+# owner: johny
+# group: johny
+user::rwx
+group::r-x
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Color/ColorConverter.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Color/ColorSpaceRestrictor.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Color/ColorModeConverter.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Color/NamedColors.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Utils
+# owner: johny
+# group: johny
+user::rwx
+group::r-x
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Utils/NumericString.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Utils/UtfString.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Utils/Arrays.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Utils/PdfDate.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/AssetFetcher.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/PageFormat.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/DirectWrite.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Container
+# owner: johny
+# group: johny
+user::rwx
+group::r-x
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Container/ContainerInterface.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Container/SimpleContainer.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Container/NotFoundException.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/PageBox.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/TTFontFileAnalysis.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Http
+# owner: johny
+# group: johny
+user::rwx
+group::r-x
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Http/CurlHttpClient.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Http/SocketHttpClient.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Http/ClientInterface.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Http/Exception
+# owner: johny
+# group: johny
+user::rwx
+group::r-x
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Http/Exception/ClientException.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Http/Exception/NetworkException.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Http/Exception/RequestException.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Http/Exception/ForbiddenRequestException.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/WatermarkImage.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Otl.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Shaper
+# owner: johny
+# group: johny
+user::rwx
+group::r-x
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Shaper/Indic.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Shaper/Sea.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Shaper/Myanmar.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Ucdn.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Gradient.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Exception
+# owner: johny
+# group: johny
+user::rwx
+group::r-x
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Exception/AssetFetchingException.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Exception/FontException.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/Exception/InvalidArgumentException.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/vendor/mpdf/mpdf/src/SizeConverter.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/templates
+# owner: johny
+# group: johny
+user::rwx
+group::r-x
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/error.log
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/composer.json
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/README.md
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/app
+# owner: johny
+# group: johny
+user::rwx
+group::r-x
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/app/helpers
+# owner: johny
+# group: johny
+user::rwx
+group::r-x
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/app/helpers/utils.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/app/controllers
+# owner: johny
+# group: johny
+user::rwx
+group::r-x
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/app/controllers/ListeCoursesController.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/app/controllers/PdfController.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/app/controllers/ApiController.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/app/controllers/RecetteController.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/app/models
+# owner: johny
+# group: johny
+user::rwx
+group::r-x
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/app/models/FavoriModel.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/app/models/RecetteModel.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/app/models/SelectionModel.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/app/services
+# owner: johny
+# group: johny
+user::rwx
+group::r-x
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/app/services/ImportService.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/app/services/ChatGPTService.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/app/services/DoublonService.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/config
+# owner: johny
+# group: johny
+user::rwx
+group::r-x
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/config/database.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/config/openai.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/config/config.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/debug_html.html
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/ttfontdata
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/ttfontdata/dejavuserifcondensedB.gid.dat
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/ttfontdata/dejavuserifcondensed.gid.dat
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/ttfontdata/dejavuserifcondensedB.mtx.json
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/ttfontdata/dejavuserifcondensed.cw127.json
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/ttfontdata/dejavuserifcondensed.cw.dat
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/ttfontdata/dejavuserifcondensed.mtx.json
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/ttfontdata/dejavuserifcondensedB.cw.dat
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf/ttfontdata
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf/ttfontdata/dejavusans.GSUB.arab.KUR .json
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf/ttfontdata/dejavusanscondensed.GSUB.nko .DFLT.json
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf/ttfontdata/dejavusanscondensed.cw.dat
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf/ttfontdata/dejavusans.cw127.json
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf/ttfontdata/dejavuserifcondensedB.gid.dat
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf/ttfontdata/dejavusanscondensed.GSUB.arab.URD .json
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf/ttfontdata/dejavusans.mtx.json
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf/ttfontdata/dejavusans.gid.dat
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf/ttfontdata/dejavusanscondensed.GSUB.arab.SND .json
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf/ttfontdata/dejavusansB.mtx.json
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf/ttfontdata/dejavusansB.GSUB.arab.SND .json
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf/ttfontdata/dejavuserifcondensed.gid.dat
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf/ttfontdata/dejavusanscondensed.cw127.json
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf/ttfontdata/dejavuserifcondensedB.mtx.json
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf/ttfontdata/dejavuserifcondensed.cw127.json
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf/ttfontdata/dejavusanscondensedB.GSUB.nko .DFLT.json
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf/ttfontdata/dejavusanscondensed.GPOSdata.json
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf/ttfontdata/dejavuserifcondensed.cw.dat
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf/ttfontdata/dejavusanscondensed.GDEFdata.json
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf/ttfontdata/dejavusanscondensedB.GSUB.arab.KUR .json
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf/ttfontdata/dejavusanscondensed.GSUB.arab.DFLT.json
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf/ttfontdata/dejavusanscondensedB.GSUB.arab.DFLT.json
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf/ttfontdata/dejavusansB.GDEFdata.json
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf/ttfontdata/dejavusansB.GSUB.arab.KUR .json
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf/ttfontdata/dejavusanscondensedB.cw.dat
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf/ttfontdata/dejavusanscondensedB.cw127.json
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf/ttfontdata/dejavusans.GSUBGPOStables.dat
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf/ttfontdata/dejavusanscondensedB.GPOSdata.json
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf/ttfontdata/dejavusans.GSUBdata.json
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf/ttfontdata/dejavusansB.GSUB.nko .DFLT.json
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf/ttfontdata/dejavusanscondensedB.gid.dat
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf/ttfontdata/dejavusanscondensedB.GSUBGPOStables.dat
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf/ttfontdata/dejavusanscondensed.GSUBdata.json
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf/ttfontdata/dejavusans.GSUB.nko .DFLT.json
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf/ttfontdata/dejavuserifcondensed.mtx.json
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf/ttfontdata/dejavusanscondensedB.mtx.json
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf/ttfontdata/dejavusansB.cw.dat
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf/ttfontdata/dejavusansB.GSUBGPOStables.dat
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf/ttfontdata/dejavusanscondensed.gid.dat
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf/ttfontdata/dejavusans.GSUB.arab.URD .json
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf/ttfontdata/dejavusans.GDEFdata.json
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf/ttfontdata/dejavusanscondensed.GSUB.arab.KUR .json
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf/ttfontdata/dejavusanscondensedB.GSUBdata.json
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf/ttfontdata/dejavusans.GPOSdata.json
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf/ttfontdata/dejavusansB.GSUB.arab.DFLT.json
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf/ttfontdata/dejavusanscondensed.mtx.json
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf/ttfontdata/dejavuserifcondensedB.cw.dat
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf/ttfontdata/dejavusans.GSUB.arab.SND .json
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf/ttfontdata/dejavusansB.gid.dat
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf/ttfontdata/dejavusansB.cw127.json
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf/ttfontdata/dejavusanscondensedB.GSUB.arab.SND .json
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf/ttfontdata/dejavusanscondensedB.GDEFdata.json
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf/ttfontdata/dejavuserifcondensedB.cw127.json
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf/ttfontdata/dejavusanscondensedB.GSUB.arab.URD .json
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf/ttfontdata/dejavusansB.GSUBdata.json
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf/ttfontdata/dejavusans.cw.dat
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf/ttfontdata/dejavusansB.GPOSdata.json
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf/ttfontdata/dejavusans.GSUB.arab.DFLT.json
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf/ttfontdata/dejavusanscondensed.GSUBGPOStables.dat
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf/ttfontdata/dejavusansB.GSUB.arab.URD .json
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/composer.lock
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/Sauvegardes
+# owner: johny
+# group: johny
+user::rwx
+group::r-x
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/Sauvegardes/SauvegardeCahierDeRecettes.zip
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/Sauvegardes/CahierDeRecettes25122025 1517.zip
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/Sauvegardes/CahierDeRecettes 90125.zip
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/Sauvegardes/CahierDeRecettes110125.zip
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/Sauvegardes/CahierDeRecettes1.zip
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/Sauvegardes/CahierDeRecettes 010126 stable.zip
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/Sauvegardes/CahierDeRecettes avec favoris.zip
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/Sauvegardes/Link to CahierDeRecettes.zip
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/Sauvegardes/CahierDeRecettes 23122025 2047.zip
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/Sauvegardes/CahierDeRecettes090125.zip
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/Sauvegardes/CahierDeRecettesOk avec Impression Et PDF fiches recettes multiple.zip
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/Sauvegardes/CahierDeRecettes2.zip
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/Sauvegardes/CahierDeRecettes13012025.zip
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/Sauvegardes/CahierDeRecettesmercredi.zip
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/Sauvegardes/CahierDeRecettes avant ajout tag sur les filtres.zip
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/Sauvegardes/CahierDeRecettes311225 version stable avec tags.zip
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/Sauvegardes/CahierDeRecettes30122025.zip
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/Sauvegardes/CahierDeRecettes120125.zip
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/Sauvegardes/CahierDeRecettes Version1 Stable, Filtres Favoris OK Filtres Select OK liste de course OK Rech Texte et autre OK.zip
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/Sauvegardes/CahierDeRecettes 26122025.zip
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/Sauvegardes/CahierDeRecettes 28122025.zip
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/Sauvegardes/CahierDeRecettes fin de journée version stable.zip
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/Sauvegardes/CahierDeRecettes Version1 avec Tags Ok.zip
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/Sauvegardes/CahierDeRecettes23122025.zip
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/Sauvegardes/CahierDeRecettes 18012025.zip
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/Sauvegardes/CahierDeRecettes110126.zip
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/Sauvegardes/CahierDeRecettes rech texte reparé manque juste filtre selection.zip
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/Sauvegardes/CahierDeRecettes version stable.zip
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/Sauvegardes/CahierDeRecettes 18012025 Selection ok filtre hs.zip
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/Sauvegardes/CahierDeRecettes1912251400.zip
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/logs
+# owner: johny
+# group: johny
+user::rwx
+group::r-x
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/imports
+# owner: johny
+# group: johny
+user::rwx
+group::r-x
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/imports/scans
+# owner: johny
+# group: johny
+user::rwx
+group::r-x
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/imports/import_recettes.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/scripts
+# owner: johny
+# group: johny
+user::rwx
+group::r-x
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/scripts/init_db.sql
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/scripts/test_api.php
+# owner: johny
+# group: johny
+user::rw-
+group::r--
+other::r--
+

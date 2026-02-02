@@ -1,0 +1,511 @@
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/debug_html.html
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/ttfontdata
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/ttfontdata/dejavuserifcondensedB.gid.dat
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/ttfontdata/dejavuserifcondensed.gid.dat
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/ttfontdata/dejavuserifcondensedB.mtx.json
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/ttfontdata/dejavuserifcondensed.cw127.json
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/ttfontdata/dejavuserifcondensed.cw.dat
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/ttfontdata/dejavuserifcondensed.mtx.json
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/ttfontdata/dejavuserifcondensedB.cw.dat
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf/ttfontdata
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf/ttfontdata/dejavusans.GSUB.arab.KUR .json
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf/ttfontdata/dejavusanscondensed.GSUB.nko .DFLT.json
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf/ttfontdata/dejavusanscondensed.cw.dat
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf/ttfontdata/dejavusans.cw127.json
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf/ttfontdata/dejavuserifcondensedB.gid.dat
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf/ttfontdata/dejavusanscondensed.GSUB.arab.URD .json
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf/ttfontdata/dejavusans.mtx.json
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf/ttfontdata/dejavusans.gid.dat
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf/ttfontdata/dejavusanscondensed.GSUB.arab.SND .json
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf/ttfontdata/dejavusansB.mtx.json
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf/ttfontdata/dejavusansB.GSUB.arab.SND .json
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf/ttfontdata/dejavuserifcondensed.gid.dat
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf/ttfontdata/dejavusanscondensed.cw127.json
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf/ttfontdata/dejavuserifcondensedB.mtx.json
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf/ttfontdata/dejavuserifcondensed.cw127.json
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf/ttfontdata/dejavusanscondensedB.GSUB.nko .DFLT.json
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf/ttfontdata/dejavusanscondensed.GPOSdata.json
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf/ttfontdata/dejavuserifcondensed.cw.dat
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf/ttfontdata/dejavusanscondensed.GDEFdata.json
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf/ttfontdata/dejavusanscondensedB.GSUB.arab.KUR .json
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf/ttfontdata/dejavusanscondensed.GSUB.arab.DFLT.json
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf/ttfontdata/dejavusanscondensedB.GSUB.arab.DFLT.json
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf/ttfontdata/dejavusansB.GDEFdata.json
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf/ttfontdata/dejavusansB.GSUB.arab.KUR .json
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf/ttfontdata/dejavusanscondensedB.cw.dat
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf/ttfontdata/dejavusanscondensedB.cw127.json
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf/ttfontdata/dejavusans.GSUBGPOStables.dat
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf/ttfontdata/dejavusanscondensedB.GPOSdata.json
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf/ttfontdata/dejavusans.GSUBdata.json
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf/ttfontdata/dejavusansB.GSUB.nko .DFLT.json
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf/ttfontdata/dejavusanscondensedB.gid.dat
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf/ttfontdata/dejavusanscondensedB.GSUBGPOStables.dat
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf/ttfontdata/dejavusanscondensed.GSUBdata.json
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf/ttfontdata/dejavusans.GSUB.nko .DFLT.json
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf/ttfontdata/dejavuserifcondensed.mtx.json
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf/ttfontdata/dejavusanscondensedB.mtx.json
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf/ttfontdata/dejavusansB.cw.dat
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf/ttfontdata/dejavusansB.GSUBGPOStables.dat
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf/ttfontdata/dejavusanscondensed.gid.dat
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf/ttfontdata/dejavusans.GSUB.arab.URD .json
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf/ttfontdata/dejavusans.GDEFdata.json
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf/ttfontdata/dejavusanscondensed.GSUB.arab.KUR .json
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf/ttfontdata/dejavusanscondensedB.GSUBdata.json
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf/ttfontdata/dejavusans.GPOSdata.json
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf/ttfontdata/dejavusansB.GSUB.arab.DFLT.json
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf/ttfontdata/dejavusanscondensed.mtx.json
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf/ttfontdata/dejavuserifcondensedB.cw.dat
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf/ttfontdata/dejavusans.GSUB.arab.SND .json
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf/ttfontdata/dejavusansB.gid.dat
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf/ttfontdata/dejavusansB.cw127.json
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf/ttfontdata/dejavusanscondensedB.GSUB.arab.SND .json
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf/ttfontdata/dejavusanscondensedB.GDEFdata.json
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf/ttfontdata/dejavuserifcondensedB.cw127.json
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf/ttfontdata/dejavusanscondensedB.GSUB.arab.URD .json
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf/ttfontdata/dejavusansB.GSUBdata.json
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf/ttfontdata/dejavusans.cw.dat
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf/ttfontdata/dejavusansB.GPOSdata.json
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf/ttfontdata/dejavusans.GSUB.arab.DFLT.json
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf/ttfontdata/dejavusanscondensed.GSUBGPOStables.dat
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
+# file: home/johny/CascadeProjets/CahierDeRecettes/tmp/mpdf/mpdf/ttfontdata/dejavusansB.GSUB.arab.URD .json
+# owner: johny
+# group: www-data
+user::rwx
+group::rwx
+other::r-x
+
