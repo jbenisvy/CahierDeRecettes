@@ -1,5 +1,5 @@
 <?php
-
+require_once __DIR__ . '/../../config/database.php';
 /**
  * Modèle gérant les favoris des utilisateurs.
  *

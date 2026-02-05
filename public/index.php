@@ -33,7 +33,8 @@ if ($config['env'] === 'prod') {
 
 require PROJECT_ROOT . '/config/database.php';
 require PROJECT_ROOT . '/app/controllers/RecetteController.php';
-require PROJECT_ROOT . '/public/auth/auth.php';
+require PROJECT_ROOT . '/public/auth/auth_guard.php';
+
 
 // Définition des constantes BASE_URL et PUBLIC_URL pour gérer les liens en sous-dossier
 // L'authentification se charge déjà de définir BASE_URL et PUBLIC_URL
@@ -187,7 +188,7 @@ case 'reset_password':
    default:
     // Toutes les pages hors login/register/forgot/reset nécessitent une connexion.
     // On force la connexion ici pour sécuriser l'accès au listing.
-    requireLogin();
+    require_login();
     try {
         $recettes = $controller->getToutesRecettes(
             $recherche,

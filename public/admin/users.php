@@ -1,8 +1,17 @@
 <?php
-require_once __DIR__ . '/../auth/auth.php';
+session_start();
+
+require_once __DIR__ . '/../../app/base_url.php';
+
+require_once __DIR__ . '/../auth/auth_functions.php';
+
 require_admin();
 
-require_once __DIR__ . '/../../config/database.php';
+require_once __DIR__ . '../../../config/database.php';
+
+
+// 🔑 Récupération explicite du PDO
+$pdo = getPDO();
 
 
 
