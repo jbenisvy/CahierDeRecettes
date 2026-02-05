@@ -41,8 +41,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
 
-            header('Location: ' . PUBLIC_URL . '/index.php');
-            exit;
+            header('Location: ' . BASE_URL . '/');
+			exit;
+
 
         } else {
             $error = "Email ou mot de passe incorrect";
@@ -99,11 +100,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <!-- MOT DE PASSE OUBLIÉ -->
     <div class="login-links">
  
-  <a href="<?= PUBLIC_URL ?>/auth/register.php"><strong>Créer un compte</strong></a>
+<a href="<?= BASE_URL ?>/?action=register"><strong>Créer un compte</strong></a>
+
 </div>
 
     <div class="login-links">
-      <a href="<?= PUBLIC_URL ?>/auth/forgot_password.php">Mot de passe oublié ?</a>
+      <a href="<?= BASE_URL ?>/?action=forgot_password">Mot de passe oublié ?</a>
+
     </div>
 
   </div>

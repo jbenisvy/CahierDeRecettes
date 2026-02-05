@@ -36,7 +36,10 @@ require PROJECT_ROOT . '/app/controllers/RecetteController.php';
 require PROJECT_ROOT . '/public/auth/auth.php';
 
 // Définition des constantes BASE_URL et PUBLIC_URL pour gérer les liens en sous-dossier
-require_once PROJECT_ROOT . '/app/base_url.php';
+// L'authentification se charge déjà de définir BASE_URL et PUBLIC_URL
+// via public/auth/auth.php qui inclut app/base_url.php.
+// On ne réinclut pas base_url ici pour éviter les doublons.
+// require_once PROJECT_ROOT . '/app/base_url.php';
 
 
 // Instanciation du contrôleur
@@ -113,28 +116,91 @@ $view = $_GET['view'] ?? 'list'; // list | gallery
 switch ($action) {
 
     case 'delete':
+        // Suppression d'une recette puis redirection vers la liste avec un message.
         $id = (int) ($_GET['id'] ?? 0);
         if ($id > 0) {
             $controller->supprimerRecette($id);
         }
-        header("Location: index.php?message=" . urlencode("Recette supprimée"));
+        redirect('index.php?message=' . urlencode('Recette supprimée'));
         exit;
+    case 'login':
+
+    // Si déjà connecté, on ne montre pas le login :
+    if (!empty($_SESSION['user'])) {
+        // Redirection vers l'accueil (index.php) via la fonction centralisée
+        redirect('index.php');
+    }
+
+    $bodyClass = 'page-login';
+    $page = 'login';
+
+    require __DIR__ . '/ui/layout_start.php';
+    require __DIR__ . '/auth/login.php';
+    require __DIR__ . '/ui/layout_end.php';
+    exit;
+case 'logout':
+
+    $_SESSION = [];
+
+    if (ini_get("session.use_cookies")) {
+        $params = session_get_cookie_params();
+        setcookie(
+            session_name(),
+            '',
+            time() - 42000,
+            $params["path"],
+            $params["domain"],
+            $params["secure"],
+            $params["httponly"]
+        );
+    }
+
+    session_destroy();
+
+    // Redirige vers la page de login
+    redirect('index.php?action=login');
+    exit;
+case 'register':
+  $bodyClass = 'page-register';
+  $page = 'register';
+  require __DIR__ . '/ui/layout_start.php';
+  require __DIR__ . '/auth/register.php';
+  require __DIR__ . '/ui/layout_end.php';
+  exit;
+
+case 'forgot_password':
+  $bodyClass = 'page-forgot-password';
+  $page = 'forgot_password';
+  require __DIR__ . '/ui/layout_start.php';
+  require __DIR__ . '/auth/forgot_password.php';
+  require __DIR__ . '/ui/layout_end.php';
+  exit;
+
+case 'reset_password':
+  $bodyClass = 'page-reset-password';
+  $page = 'reset_password';
+  require __DIR__ . '/ui/layout_start.php';
+  require __DIR__ . '/auth/reset_password.php';
+  require __DIR__ . '/ui/layout_end.php';
+  exit;
 
    default:
+    // Toutes les pages hors login/register/forgot/reset nécessitent une connexion.
+    // On force la connexion ici pour sécuriser l'accès au listing.
+    requireLogin();
     try {
-    $recettes = $controller->getToutesRecettes(
-    $recherche,
-    $categorie,
-    $auteur,
-    $source,
-    $typeRecette,
-    $typeCuisson,
-    $tagsSelectionnes,
-    $favorisFilter,     // bool
-    $selectionFilter,   // bool
-    $userId             // int|null
-);
-
+        $recettes = $controller->getToutesRecettes(
+            $recherche,
+            $categorie,
+            $auteur,
+            $source,
+            $typeRecette,
+            $typeCuisson,
+            $tagsSelectionnes,
+            $favorisFilter,     // bool
+            $selectionFilter,   // bool
+            $userId             // int|null
+        );
     } catch (Throwable $e) {
         die("ERREUR: " . $e->getMessage());
     }

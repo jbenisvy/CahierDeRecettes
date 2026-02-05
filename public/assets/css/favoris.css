@@ -1,0 +1,40 @@
+/*
+ * favoris.css
+ * Styles pour transformer les cases à cocher des favoris en icônes d'étoiles.
+ * Chaque case à cocher avec la classe `favorite-star` est rendue invisible et
+ * remplacée par une étoile via l'utilisation d'un pseudo-élément. Lorsque la
+ * case est cochée, l'étoile devient pleine et colorée. Cela évite le flash
+ * initial de la case à cocher par défaut et garantit que l'icône apparaît
+ * correctement dès le chargement de la page.
+ */
+
+.favorite-star {
+    /* Supprime l'apparence native des checkboxes */
+    -webkit-appearance: none;
+    appearance: none;
+    width: 1.5em;
+    height: 1.5em;
+    margin: 0;
+    position: relative;
+    cursor: pointer;
+    border: none;
+    background: transparent;
+    /* Alignement sur la ligne */
+    vertical-align: middle;
+}
+
+/* L'étoile vide par défaut */
+.favorite-star::before {
+    content: '\2606'; /* Unicode pour une étoile vide */
+    font-size: 1.5em;
+    line-height: 1.5em;
+    color: #999;
+    display: inline-block;
+    text-align: center;
+}
+
+/* Lorsque la case est cochée, on affiche une étoile pleine */
+.favorite-star.is-checked::before {
+    content: '\2605'; /* Unicode pour une étoile pleine */
+    color: #f5a623; /* Couleur d'étoile dorée */
+}

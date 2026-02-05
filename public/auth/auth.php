@@ -1,23 +1,69 @@
 <?php
+declare(strict_types=1);
+
+// ===============================
+// AUTH — BOÎTE À OUTILS UNIQUEMENT
+// ===============================
+
+require_once __DIR__ . '/../../app/base_url.php';
+
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-// Définir BASE_URL et PUBLIC_URL pour gérer les redirections
-require_once __DIR__ . '/../../app/base_url.php';
-
-if (!isset($_SESSION['user'])) {
-    header('Location: ' . PUBLIC_URL . '/auth/login.php');
+/**
+ * Redirection centrale (TOUJOURS via public/)
+ */
+function redirect(string $path): void
+{
+    $path = ltrim($path, '/');
+    header('Location: ' . PUBLIC_URL . '/' . $path);
     exit;
 }
 
-function require_role(string $role): void {
-    if (!isset($_SESSION['user']) || $_SESSION['user']['role'] !== $role) {
+/**
+ * Vérifie si l'utilisateur est connecté
+ */
+function isLoggedIn(): bool
+{
+    return isset($_SESSION['user']) && !empty($_SESSION['user']['id']);
+}
+
+/**
+ * Retourne l'utilisateur courant ou null
+ */
+function currentUser(): ?array
+{
+    return $_SESSION['user'] ?? null;
+}
+
+/**
+ * Force la connexion
+ */
+function requireLogin(): void
+{
+    if (!isLoggedIn()) {
+        redirect('index.php?action=login');
+    }
+}
+
+/**
+ * Vérifie un rôle précis
+ */
+function requireRole(string $role): void
+{
+    requireLogin();
+
+    if (($_SESSION['user']['role'] ?? null) !== $role) {
         http_response_code(403);
         echo "Accès interdit";
         exit;
     }
 }
+
+/**
+ * Vérifie une capacité (RBAC simple)
+ */
 function can(string $capability): bool
 {
     $role = $_SESSION['user']['role'] ?? null;
@@ -40,13 +86,14 @@ function can(string $capability): bool
         ],
     ];
 
-    return isset($permissions[$role]) && in_array($capability, $permissions[$role], true);
+    return isset($permissions[$role]) 
+        && in_array($capability, $permissions[$role], true);
 }
-function require_admin(): void
+
+/**
+ * Raccourci admin
+ */
+function requireAdmin(): void
 {
-    if (!isset($_SESSION['user']) || $_SESSION['user']['role'] !== 'admin') {
-        http_response_code(403);
-        echo "Accès interdit";
-        exit;
-    }
+    requireRole('admin');
 }

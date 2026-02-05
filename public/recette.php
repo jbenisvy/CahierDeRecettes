@@ -136,7 +136,7 @@ require __DIR__ . '/ui/header.php';
   aria-label="Ajouter aux favoris"
   title="Favori"
 >
-  <?= $isFavori ? '⭐' : '☆' ?>
+  <?= $isFavori ? '★' : '☆' ?>
 </button>
 
 

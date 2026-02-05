@@ -126,7 +126,11 @@ SelectionState.refresh();
   document.addEventListener("click", function (e) {
 
     // 1️⃣ Toggle sélection
-	const btnSelect = e.target.closest("[data-recette-id]");
+    // On limite explicitement la recherche aux boutons de sélection
+    // (classe .btn-select-recette ou .btn-selection) afin d'éviter
+    // d'intercepter les clics sur d'autres éléments possédant
+    // un attribut data-recette-id, comme les boutons de favoris.
+    const btnSelect = e.target.closest(".btn-select-recette, .btn-selection");
 
     if (btnSelect) {
       e.preventDefault();

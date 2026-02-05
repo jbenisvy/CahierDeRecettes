@@ -1,10 +1,13 @@
 <?php
+session_start();
+
 require_once __DIR__ . '/../../config/database.php';
 // Charge les constantes BASE_URL et PUBLIC_URL pour générer des liens relatifs
+$pdo = getPDO();
 require_once __DIR__ . '/../../app/base_url.php';
 
 $error = null;
-$success = null;
+
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
@@ -42,7 +45,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 'lecteur'
             ]);
 
-            $success = "Compte créé avec succès. Vous pouvez maintenant vous connecter.";
+$userId = (int)$pdo->lastInsertId();
+
+$_SESSION['user'] = [
+    'id'   => $userId,
+    'nom'  => $nom,
+    'role' => 'lecteur'
+];
+
+// Redirection vers l’accueil (liste des recettes)
+header('Location: ' . BASE_URL . '/');
+exit;
+
+
         }
     }
 }
@@ -64,40 +79,34 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <h1>Créer un compte</h1>
 
-    <?php if ($error): ?>
-      <p class="login-error"><?= htmlspecialchars($error) ?></p>
-    <?php endif; ?>
+   <?php if ($error): ?>
+  <p class="login-error"><?= htmlspecialchars($error) ?></p>
+<?php endif; ?>
 
-    <?php if ($success): ?>
-      <p style="color:#065f46; font-weight:600;">
-        <?= htmlspecialchars($success) ?>
-      </p>
-      <p><a href="<?= PUBLIC_URL ?>/auth/login.php">Aller à la connexion</a></p>
-    <?php endif; ?>
+<form method="post" class="login-form">
 
-    <?php if (!$success): ?>
-      <form method="post" class="login-form">
+  <label>Nom</label>
+  <input type="text" name="nom" required>
 
-        <label>Nom</label>
-        <input type="text" name="nom" required>
+  <label>Email</label>
+  <input type="email" name="email" required>
 
-        <label>Email</label>
-        <input type="email" name="email" required>
+  <label>Mot de passe</label>
+  <input type="password" name="password" required>
 
-        <label>Mot de passe</label>
-        <input type="password" name="password" required>
+  <label>Confirmer le mot de passe</label>
+  <input type="password" name="password_confirm" required>
 
-        <label>Confirmer le mot de passe</label>
-        <input type="password" name="password_confirm" required>
+  <button type="submit" class="btn btn-primary">
+    Créer mon compte
+  </button>
 
-        <button type="submit" class="btn btn-primary">
-          Créer mon compte
-        </button>
-      </form>
-    <?php endif; ?>
+</form>
+
 
     <div class="login-links">
-      <a href="<?= PUBLIC_URL ?>/auth/login.php">← Retour à la connexion</a>
+    <a href="<?= BASE_URL ?>/?action=login">← Retour à la connexion</a>
+
     </div>
 
   </div>

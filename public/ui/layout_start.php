@@ -31,6 +31,8 @@ $recetteId = $recetteId ?? null;
   <meta charset="UTF-8">
   <title><?= htmlspecialchars($pageTitle) ?></title>
   <link rel="stylesheet" href="<?= PUBLIC_URL ?>/assets/css/style.css">
+  <!-- Styles spécifiques pour les icônes de favoris (étoiles) -->
+  <link rel="stylesheet" href="<?= PUBLIC_URL ?>/assets/css/favoris.css">
 </head>
 <body class="<?= htmlspecialchars($bodyClass) ?>">
 <?php require __DIR__ . '/header.php'; ?>

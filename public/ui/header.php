@@ -106,7 +106,8 @@ $view = $view ?? ($_GET['view'] ?? 'list');
 <?php endif; ?>
 
 
-      <a href="<?= PUBLIC_URL ?>/auth/logout.php" class="btn btn-ghost btn-small">Déconnexion</a>
+      <a href="<?= BASE_URL ?>/?action=logout" class="btn btn-ghost btn-small">Déconnexion</a>
+
     </div>
   <?php endif; ?>
 
