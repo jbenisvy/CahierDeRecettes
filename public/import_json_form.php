@@ -56,7 +56,7 @@ require __DIR__ . '/ui/header.php';
 
             <!-- 🟦 IMPORT JSON -->
             <div class="tab-pane fade show active" id="import-json">
-              <form action="/import_json.php" method="post" enctype="multipart/form-data">
+              <form action="<?= PUBLIC_URL ?>/import_json.php" method="post" enctype="multipart/form-data">
                 <div class="mb-3">
                   <label class="form-label">Fichier JSON</label>
                   <input type="file" name="jsonfile" class="form-control" accept=".json" required>
@@ -69,7 +69,7 @@ require __DIR__ . '/ui/header.php';
 
             <!-- 🟩 IMPORT IMAGE -->
             <div class="tab-pane fade" id="import-image">
-              <form action="/import_recette_image.php" method="post" enctype="multipart/form-data">
+              <form action="<?= PUBLIC_URL ?>/import_recette_image.php" method="post" enctype="multipart/form-data">
                 <div class="mb-3">
                   <label class="form-label">Image de la recette</label>
                   <input type="file"
@@ -90,7 +90,7 @@ require __DIR__ . '/ui/header.php';
 
             <!-- 🟨 IMPORT URL -->
             <div class="tab-pane fade" id="import-url">
-              <form action="/import_recette_url.php" method="post">
+              <form action="<?= PUBLIC_URL ?>/import_recette_url.php" method="post">
                 <div class="mb-3">
                   <label class="form-label">URL de la recette</label>
                   <input type="url"
@@ -107,7 +107,7 @@ require __DIR__ . '/ui/header.php';
 
             <!-- 🟧 IMPORT TEXTE -->
             <div class="tab-pane fade" id="import-text">
-              <form action="/import_recette_texte.php" method="post">
+              <form action="<?= PUBLIC_URL ?>/import_recette_texte.php" method="post">
                 <div class="mb-3">
                   <label class="form-label">Texte de la recette</label>
                   <textarea name="texte"
@@ -126,7 +126,7 @@ require __DIR__ . '/ui/header.php';
 
           <hr class="my-4">
 
-          <a href="/index.php" class="btn btn-outline-secondary">
+          <a href="<?= PUBLIC_URL ?>/index.php" class="btn btn-outline-secondary">
             ← Retour aux recettes
           </a>
 

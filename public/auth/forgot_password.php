@@ -1,5 +1,7 @@
 <?php
 require_once __DIR__ . '/../../config/database.php';
+// Charge les constantes BASE_URL et PUBLIC_URL pour les liens dynamiques
+require_once __DIR__ . '/../../app/base_url.php';
 
 $message = null;
 $resetLink = null;
@@ -38,7 +40,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             // 7) En DEV (localhost) : on affiche le lien
             // En prod : on l'enverra par email
-            $resetLink = '/auth/reset_password.php?token=' . urlencode($token);
+            // Environnement DEV : construction du lien avec PUBLIC_URL pour fonctionner en sous-dossier
+            $resetLink = PUBLIC_URL . '/auth/reset_password.php?token=' . urlencode($token);
         }
     }
 }
@@ -48,7 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <title>Mot de passe oublié</title>
-    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="<?= PUBLIC_URL ?>/assets/css/style.css">
 </head>
 <body class="login-page">
   <div class="login-card">
@@ -72,7 +75,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </form>
 
     <p style="margin-top:14px;">
-      <a href="/auth/login.php" class="btn btn-ghost btn-small">← Retour connexion</a>
+      <a href="<?= PUBLIC_URL ?>/auth/login.php" class="btn btn-ghost btn-small">← Retour connexion</a>
     </p>
   </div>
 </body>

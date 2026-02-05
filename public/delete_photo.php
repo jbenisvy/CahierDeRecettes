@@ -1,6 +1,8 @@
 <?php
 require __DIR__ . '/../config/database.php';
 require __DIR__ . '/../app/models/RecetteModel.php';
+// Définir BASE_URL et PUBLIC_URL pour gérer les redirections
+require_once dirname(__DIR__) . '/app/base_url.php';
 
 if (!isset($_GET['id'], $_GET['recette'])) {
     die('Paramètres manquants');
@@ -27,5 +29,5 @@ if (file_exists($path)) {
 $model->supprimerPhoto($photoId);
 
 // 4️⃣ Retour à l’édition
-header("Location: edit_recette.php?id=" . $recetteId);
+header("Location: " . PUBLIC_URL . "/edit_recette.php?id=" . $recetteId);
 exit;

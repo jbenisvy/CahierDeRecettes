@@ -7,6 +7,8 @@ $categories = $options['categories'];
 $modesCuisson = $options['types_cuisson'];
 
 require_once PROJECT_ROOT . '/app/services/RecetteNormalizer.php';
+// Charge les constantes BASE_URL et PUBLIC_URL
+require_once PROJECT_ROOT . '/app/base_url.php';
 
 
 if (!isset($_SESSION['user']) || $_SESSION['user']['role'] !== 'admin') {
@@ -112,7 +114,8 @@ $recette = array_merge($defaults, $json ?? []);
             <div class="alert alert-danger"><?= htmlspecialchars($erreur) ?></div>
           <?php endif; ?>
 
-          <form method="POST" action="/import_json.php">
+          <!-- Utilise PUBLIC_URL pour fonctionner correctement en sous-dossier -->
+          <form method="POST" action="<?= PUBLIC_URL ?>/import_json.php">
             <!-- Titre -->
             <div class="mb-3">
               <label class="form-label">Titre</label>
@@ -224,7 +227,7 @@ $final = [[
 
             <div class="d-flex gap-2 mt-3">
               <button class="btn btn-primary" type="submit">✅ Importer</button>
-              <a href="/import_json_form.php" class="btn btn-outline-secondary">↩ Retour</a>
+              <a href="<?= PUBLIC_URL ?>/import_json_form.php" class="btn btn-outline-secondary">↩ Retour</a>
             </div>
 
           </form>

@@ -19,6 +19,8 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 // Dépendances
 require __DIR__ . "/../config/database.php";
 require __DIR__ . "/../app/models/RecetteModel.php";
+// Définir BASE_URL et PUBLIC_URL pour les redirections
+require_once dirname(__DIR__) . '/app/base_url.php';
 
 error_log("Import JSON lancé par user #" . ($_SESSION['user']['id'] ?? 'unknown'));
 
@@ -57,7 +59,7 @@ elseif (
 
 // 3️⃣ Rien reçu → retour propre au formulaire
 else {
-    header("Location: /import_json_form.php");
+    header("Location: " . PUBLIC_URL . "/import_json_form.php");
     exit;
 }
 
@@ -119,7 +121,7 @@ foreach ($data as $r) {
 }
 
 if ($imported === 0) {
-    header("Location: /index.php?import=empty");
+    header("Location: " . PUBLIC_URL . "/index.php?import=empty");
     exit;
 }
 
@@ -127,5 +129,5 @@ if ($imported === 0) {
 unset($_SESSION['import_json_payload']);
 
 // Redirection finale
-header("Location: /index.php?import=ok&nb=" . $imported);
+header("Location: " . PUBLIC_URL . "/index.php?import=ok&nb=" . $imported);
 exit;

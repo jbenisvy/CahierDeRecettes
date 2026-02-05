@@ -8,6 +8,11 @@ $page = $page ?? '';
 $view = $view ?? 'list';
 $recetteId = $recetteId ?? null;
 ?>
+<?php
+// Définition de PUBLIC_URL/BASE_URL (pour liens relatifs) si non défini
+// On cherche app/base_url.php à partir du dossier public/ui (deux niveaux au-dessus)
+@require_once __DIR__ . '/../../app/base_url.php';
+?>
 <!DOCTYPE html>
 <html lang="fr">
 	<?php if (!empty($useBootstrap)): ?>
@@ -25,7 +30,7 @@ $recetteId = $recetteId ?? null;
 <head>
   <meta charset="UTF-8">
   <title><?= htmlspecialchars($pageTitle) ?></title>
-  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="<?= PUBLIC_URL ?>/assets/css/style.css">
 </head>
 <body class="<?= htmlspecialchars($bodyClass) ?>">
 <?php require __DIR__ . '/header.php'; ?>

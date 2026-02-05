@@ -113,7 +113,7 @@ require __DIR__ . '/ui/header.php';
         <div class="fiche-photo-zone">
             <?php if (!empty($recette["photo_principale"])): ?>
                 <img
-                    src="/uploads/recettes/<?= htmlspecialchars($recette["photo_principale"]["fichier"]) ?>"
+                    src="<?= PUBLIC_URL ?>/uploads/recettes/<?= htmlspecialchars($recette["photo_principale"]["fichier"]) ?>"
                     alt="Photo de la recette"
                 >
             <?php else: ?>
@@ -248,7 +248,7 @@ $auteur = trim((string)($r['auteur'] ?? ''));
 
 </div> <!-- fiche-recette -->
 </div>
-<script src="/assets/js/main.js"></script>
-<script src="/assets/js/favoris.js"></script>
+<script src="<?= PUBLIC_URL ?>/assets/js/main.js"></script>
+<script src="<?= PUBLIC_URL ?>/assets/js/favoris.js"></script>
 
 <?php require __DIR__ . '/ui/layout_end.php'; ?>

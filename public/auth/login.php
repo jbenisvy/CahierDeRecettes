@@ -6,6 +6,8 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 require_once __DIR__ . '/../../config/database.php';
+// Charge la définition des constantes BASE_URL et PUBLIC_URL pour les liens dynamiques
+require_once __DIR__ . '/../../app/base_url.php';
 $pdo = getPDO(); // ✅ OBLIGATOIRE
 $error = null;
 
@@ -39,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
 
-            header('Location: /index.php');
+            header('Location: ' . PUBLIC_URL . '/index.php');
             exit;
 
         } else {
@@ -56,7 +58,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <title>Connexion</title>
-    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="<?= PUBLIC_URL ?>/assets/css/style.css">
 </head>
 <body class="login-page">
 
@@ -64,7 +66,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <!-- LOGO -->
     <div class="login-logo">
-      <img src="/assets/img/logo-memoire-saveurs.png"
+      <img src="<?= PUBLIC_URL ?>/assets/img/logo-memoire-saveurs.png"
            alt="Mémoire de Saveurs">
     </div>
 
@@ -97,11 +99,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <!-- MOT DE PASSE OUBLIÉ -->
     <div class="login-links">
  
-  <a href="/auth/register.php"><strong>Créer un compte</strong></a>
+  <a href="<?= PUBLIC_URL ?>/auth/register.php"><strong>Créer un compte</strong></a>
 </div>
 
     <div class="login-links">
-      <a href="/auth/forgot_password.php">Mot de passe oublié ?</a>
+      <a href="<?= PUBLIC_URL ?>/auth/forgot_password.php">Mot de passe oublié ?</a>
     </div>
 
   </div>

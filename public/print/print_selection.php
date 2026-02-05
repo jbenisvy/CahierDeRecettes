@@ -7,6 +7,8 @@ if (session_status() === PHP_SESSION_NONE) {
 
 require_once __DIR__ . '/../../config/database.php';
 require_once __DIR__ . '/../../app/models/RecetteModel.php';
+// Définir BASE_URL et PUBLIC_URL pour les ressources
+require_once __DIR__ . '/../../app/base_url.php';
 
 // ===============================
 // Récupération des IDs
@@ -27,7 +29,7 @@ $model = new RecetteModel();
 <meta charset="UTF-8">
 <title>Impression des recettes sélectionnées</title>
 
-<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="<?= PUBLIC_URL ?>/assets/css/style.css">
 
 <style>
 .page-break { page-break-after: always; }

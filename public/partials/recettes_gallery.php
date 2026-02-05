@@ -30,7 +30,7 @@
 <?php endif; ?>
 
 
-  <a href="/recette.php?id=<?= (int)$recette['id'] ?>">
+  <a href="<?= PUBLIC_URL ?>/recette.php?id=<?= (int)$recette['id'] ?>">
 
 
       <!-- IMAGE / PLACEHOLDER -->
@@ -48,7 +48,7 @@ if (!empty($recette['photo_principale'])) {
 ?>
 
 <?php if ($photo): ?>
-    <img src="/uploads/recettes/<?= htmlspecialchars($photo) ?>" alt="">
+    <img src="<?= PUBLIC_URL ?>/uploads/recettes/<?= htmlspecialchars($photo) ?>" alt="">
 <?php else: ?>
     <div class="gallery-placeholder">📷</div>
 <?php endif; ?>

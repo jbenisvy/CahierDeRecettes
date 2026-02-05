@@ -1,5 +1,5 @@
 <!-- 📋 LISTE DES RECETTES -->
-<form id="form-multi-delete" method="post" action="/delete_multiple.php">
+<form id="form-multi-delete" method="post" action="<?= PUBLIC_URL ?>/delete_multiple.php">
 <table class="recettes-table">
   <thead>
    <tr>
@@ -65,7 +65,7 @@
 
   <?php if ($photo): ?>
     <img class="recette-thumb"
-         src="/uploads/recettes/<?= htmlspecialchars($photo) ?>"
+         src="<?= PUBLIC_URL ?>/uploads/recettes/<?= htmlspecialchars($photo) ?>"
          alt="">
   <?php else: ?>
     <span class="recette-thumb placeholder"
@@ -105,9 +105,9 @@
       <td><?= htmlspecialchars($recette['type_recette'] ?? 'recette') ?></td>
 
       <td class="actions col-actions">
-        <a href="/recette.php?id=<?= (int)$recette['id'] ?>" title="Voir">👁️</a>
-        <a href="/edit_recette.php?id=<?= (int)$recette['id'] ?>" title="Éditer">✏️</a>
-        <a href="/index.php?action=delete&id=<?= (int)$recette['id'] ?>"
+        <a href="<?= PUBLIC_URL ?>/recette.php?id=<?= (int)$recette['id'] ?>" title="Voir">👁️</a>
+        <a href="<?= PUBLIC_URL ?>/edit_recette.php?id=<?= (int)$recette['id'] ?>" title="Éditer">✏️</a>
+        <a href="<?= PUBLIC_URL ?>/index.php?action=delete&id=<?= (int)$recette['id'] ?>"
            title="Supprimer"
            onclick="return confirm('Supprimer cette recette ?');">🗑️</a>
       </td>

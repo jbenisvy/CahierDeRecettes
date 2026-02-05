@@ -1,7 +1,9 @@
 <?php
 require_once __DIR__ . '/../../config/database.php';
+// Définir BASE_URL et PUBLIC_URL pour gérer les redirections
+require_once __DIR__ . '/../../app/base_url.php';
 
 session_destroy();
 
-header('Location: /auth/login.php');
+header('Location: ' . PUBLIC_URL . '/auth/login.php');
 exit;

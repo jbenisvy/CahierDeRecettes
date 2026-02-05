@@ -13,6 +13,9 @@ require_once PROJECT_ROOT . '/app/services/RecetteNormalizer.php';
 require_once PROJECT_ROOT . '/config/database.php';
 require_once PROJECT_ROOT . '/app/services/ChatGPTService.php';
 
+// Définir BASE_URL et PUBLIC_URL pour les redirections
+require_once PROJECT_ROOT . '/app/base_url.php';
+
 // 🧹 Nettoyage des fichiers temporaires (> 2h)
 nettoyerDossierTmp(PUBLIC_ROOT . '/uploads/tmp', 2 * 3600);
 
@@ -47,7 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         $_SESSION['import_json_payload'] = $jsonRecette;
 
-        header('Location: /import_preview.php');
+        header('Location: ' . PUBLIC_URL . '/import_preview.php');
         exit;
 
     } catch (Throwable $e) {

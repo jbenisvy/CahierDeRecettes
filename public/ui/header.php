@@ -7,8 +7,8 @@ $view = $view ?? ($_GET['view'] ?? 'list');
 
 <header class="app-topbar">
   <div class="app-topbar__left">
-    <a href="/index.php" class="app-logo-link" aria-label="Accueil">
-      <img src="/assets/img/logo-memoire-saveur-fond-sombre.png" alt="Mémoire de Saveurs" class="app-logo">
+    <a href="<?= PUBLIC_URL ?>/index.php" class="app-logo-link" aria-label="Accueil">
+      <img src="<?= PUBLIC_URL ?>/assets/img/logo-memoire-saveur-fond-sombre.png" alt="Mémoire de Saveurs" class="app-logo">
     </a>
   </div>
 
@@ -16,9 +16,9 @@ $view = $view ?? ($_GET['view'] ?? 'list');
 
   <?php if ($page === 'liste'): ?>
 
-    <a class="btn btn-ghost" href="/index.php">Reset filtres</a>
+    <a class="btn btn-ghost" href="<?= PUBLIC_URL ?>/index.php">Reset filtres</a>
     <a class="btn btn-primary btn-liste-courses"
-   href="/liste_courses.php"
+   href="<?= PUBLIC_URL ?>/liste_courses.php"
    title="Générer la liste de courses à partir des recettes cochées">
    🛒 Liste de courses
 </a>
@@ -44,7 +44,7 @@ $view = $view ?? ($_GET['view'] ?? 'list');
     $_SESSION['user']['role'] === 'admin'
 ): ?>
  <a class="btn btn-primary"
-   href="/import_json_form.php">
+   href="<?= PUBLIC_URL ?>/import_json_form.php">
    ➕ Import Recette
 </a>
 
@@ -53,33 +53,33 @@ $view = $view ?? ($_GET['view'] ?? 'list');
 
     <div class="view-switch" aria-label="Changer de vue">
       <a class="view-btn <?= $view === 'list' ? 'active' : '' ?>"
-         href="/index.php?<?= http_build_query(array_merge($_GET, ['view' => 'list'])) ?>">📄</a>
+         href="<?= PUBLIC_URL ?>/index.php?<?= http_build_query(array_merge($_GET, ['view' => 'list'])) ?>">📄</a>
       <a class="view-btn <?= $view === 'gallery' ? 'active' : '' ?>"
-         href="/index.php?<?= http_build_query(array_merge($_GET, ['view' => 'gallery'])) ?>">🖼️</a>
+         href="<?= PUBLIC_URL ?>/index.php?<?= http_build_query(array_merge($_GET, ['view' => 'gallery'])) ?>">🖼️</a>
     </div>
 
   <?php elseif ($page === 'recette'): ?>
 
-    <a class="btn btn-ghost" href="/index.php">← Liste</a>
+    <a class="btn btn-ghost" href="<?= PUBLIC_URL ?>/index.php">← Liste</a>
     <?php if ($recetteId): ?>
-      <a class="btn btn-ghost" href="/edit_recette.php?id=<?= (int)$recetteId ?>">Éditer</a>
-      <a class="btn btn-ghost" href="/pdf/recette_pdf.php?id=<?= (int)$recetteId ?>">PDF</a>
+      <a class="btn btn-ghost" href="<?= PUBLIC_URL ?>/edit_recette.php?id=<?= (int)$recetteId ?>">Éditer</a>
+      <a class="btn btn-ghost" href="<?= PUBLIC_URL ?>/pdf/recette_pdf.php?id=<?= (int)$recetteId ?>">PDF</a>
     <?php endif; ?>
     <button class="btn btn-ghost" onclick="window.print()">Imprimer</button>
 
 
   <?php elseif ($page === 'edit'): ?>
 
-    <a class="btn btn-ghost" href="/index.php">← Liste</a>
+    <a class="btn btn-ghost" href="<?= PUBLIC_URL ?>/index.php">← Liste</a>
     <?php if ($recetteId): ?>
-      <a class="btn btn-ghost" href="/recette.php?id=<?= (int)$recetteId ?>">← Fiche</a>
+      <a class="btn btn-ghost" href="<?= PUBLIC_URL ?>/recette.php?id=<?= (int)$recetteId ?>">← Fiche</a>
     <?php endif; ?>
     <button class="btn btn-primary" type="submit" form="form-edit">Enregistrer</button>
 
   <?php elseif ($page === 'admin-users'): ?>
 
-    <a class="btn btn-ghost" href="/index.php">← Recettes</a>
-    <a class="btn btn-primary" href="/admin/users.php">👥 Utilisateurs</a>
+    <a class="btn btn-ghost" href="<?= PUBLIC_URL ?>/index.php">← Recettes</a>
+    <a class="btn btn-primary" href="<?= PUBLIC_URL ?>/admin/users.php">👥 Utilisateurs</a>
 
   <?php endif; ?>
 
@@ -102,11 +102,11 @@ $view = $view ?? ($_GET['view'] ?? 'list');
 ): ?>
 
 
-  <a href="/admin/users.php" class="btn btn-ghost btn-small">👥 Utilisateurs</a>
+  <a href="<?= PUBLIC_URL ?>/admin/users.php" class="btn btn-ghost btn-small">👥 Utilisateurs</a>
 <?php endif; ?>
 
 
-      <a href="/auth/logout.php" class="btn btn-ghost btn-small">Déconnexion</a>
+      <a href="<?= PUBLIC_URL ?>/auth/logout.php" class="btn btn-ghost btn-small">Déconnexion</a>
     </div>
   <?php endif; ?>
 

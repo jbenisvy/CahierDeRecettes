@@ -35,6 +35,9 @@ require PROJECT_ROOT . '/config/database.php';
 require PROJECT_ROOT . '/app/controllers/RecetteController.php';
 require PROJECT_ROOT . '/public/auth/auth.php';
 
+// Définition des constantes BASE_URL et PUBLIC_URL pour gérer les liens en sous-dossier
+require_once PROJECT_ROOT . '/app/base_url.php';
+
 
 // Instanciation du contrôleur
 $controller = new RecetteController();
@@ -283,9 +286,9 @@ if (!is_array($tagsSelectionnes)) {
 <?php endif; ?>
 
 </div>
-<script src="/assets/js/main.js"></script>
-<script src="/assets/js/liste.js"></script>
-<script src="/assets/js/favoris.js"></script>
-<script src="/assets/js/selection.js"></script>
+<script src="<?= PUBLIC_URL ?>/assets/js/main.js"></script>
+<script src="<?= PUBLIC_URL ?>/assets/js/liste.js"></script>
+<script src="<?= PUBLIC_URL ?>/assets/js/favoris.js"></script>
+<script src="<?= PUBLIC_URL ?>/assets/js/selection.js"></script>
 
 <?php require __DIR__ . '/ui/layout_end.php'; ?>

@@ -1,5 +1,7 @@
 <?php
 require_once __DIR__ . '/../../config/database.php';
+// Charge les constantes BASE_URL et PUBLIC_URL pour générer des liens relatifs
+require_once __DIR__ . '/../../app/base_url.php';
 
 $token = $_GET['token'] ?? '';
 $token = trim($token);
@@ -71,7 +73,7 @@ if ($valid && $_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <title>Réinitialiser le mot de passe</title>
-    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="<?= PUBLIC_URL ?>/assets/css/style.css">
 </head>
 <body class="login-page">
   <div class="login-card">
@@ -79,12 +81,12 @@ if ($valid && $_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <?php if ($error): ?>
       <p style="color:#b91c1c;"><strong><?= htmlspecialchars($error) ?></strong></p>
-      <p><a href="/auth/forgot_password.php">Recommencer</a></p>
+      <p><a href="<?= PUBLIC_URL ?>/auth/forgot_password.php">Recommencer</a></p>
     <?php endif; ?>
 
     <?php if ($success): ?>
       <p style="color:#065f46;"><strong><?= htmlspecialchars($success) ?></strong></p>
-      <p><a href="/auth/login.php">Aller à la connexion</a></p>
+      <p><a href="<?= PUBLIC_URL ?>/auth/login.php">Aller à la connexion</a></p>
     <?php endif; ?>
 
     <?php if ($valid): ?>

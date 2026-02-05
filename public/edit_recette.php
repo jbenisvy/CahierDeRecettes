@@ -35,7 +35,7 @@ require __DIR__ . '/ui/header.php';
 
 <?php if (!empty($recette["photo_principale"])): ?>
     <div class="recette-photo-principale">
-        <img src="/uploads/recettes/<?= htmlspecialchars($recette["photo_principale"]["fichier"]) ?>" alt="">
+        <img src="<?= PUBLIC_URL ?>/uploads/recettes/<?= htmlspecialchars($recette["photo_principale"]["fichier"]) ?>" alt="">
     </div>
 <?php endif; ?>
 <form id="form-edit" class="form-recette" method="post" action="update_recette.php">
@@ -230,14 +230,14 @@ if (!empty($recette["photos"])) {
 
 <?php if ($photoPrincipale): ?>
     <div class="photo-principale">
-        <img src="/uploads/recettes/<?= htmlspecialchars($photoPrincipale["fichier"]) ?>" alt="">
+        <img src="<?= PUBLIC_URL ?>/uploads/recettes/<?= htmlspecialchars($photoPrincipale["fichier"]) ?>" alt="">
     </div>
 <?php endif; ?>
 
 <div class="photos-secondaires">
     <?php foreach ($autresPhotos as $photo): ?>
         <div class="photo-vignette">
-            <img src="/uploads/recettes/<?= htmlspecialchars($photo["fichier"]) ?>" alt="">
+            <img src="<?= PUBLIC_URL ?>/uploads/recettes/<?= htmlspecialchars($photo["fichier"]) ?>" alt="">
 
             <div class="photo-actions">
     <a href="set_photo_principale.php?id=<?= $photo["id"] ?>&recette=<?= $id ?>"
@@ -268,6 +268,6 @@ if (!empty($recette["photos"])) {
 
 </div>
 </div>
-<script src="/assets/js/main.js"></script>
-<script src="/assets/js/edit-recette.js"></script>
+<script src="<?= PUBLIC_URL ?>/assets/js/main.js"></script>
+<script src="<?= PUBLIC_URL ?>/assets/js/edit-recette.js"></script>
 <?php require __DIR__ . '/ui/layout_end.php'; ?>

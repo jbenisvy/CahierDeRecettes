@@ -1,5 +1,7 @@
 <?php
 require_once __DIR__ . '/../../config/database.php';
+// Charge les constantes BASE_URL et PUBLIC_URL pour générer des liens relatifs
+require_once __DIR__ . '/../../app/base_url.php';
 
 $error = null;
 $success = null;
@@ -50,14 +52,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
   <meta charset="UTF-8">
   <title>Créer un compte</title>
-  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="<?= PUBLIC_URL ?>/assets/css/style.css">
 </head>
 <body class="login-page">
 
   <div class="login-card">
 
     <div class="login-logo">
-      <img src="/assets/img/logo-memoire-saveur-fond-sombre.png" alt="Mémoire de Saveurs">
+      <img src="<?= PUBLIC_URL ?>/assets/img/logo-memoire-saveur-fond-sombre.png" alt="Mémoire de Saveurs">
     </div>
 
     <h1>Créer un compte</h1>
@@ -70,7 +72,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       <p style="color:#065f46; font-weight:600;">
         <?= htmlspecialchars($success) ?>
       </p>
-      <p><a href="/auth/login.php">Aller à la connexion</a></p>
+      <p><a href="<?= PUBLIC_URL ?>/auth/login.php">Aller à la connexion</a></p>
     <?php endif; ?>
 
     <?php if (!$success): ?>
@@ -95,7 +97,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <?php endif; ?>
 
     <div class="login-links">
-      <a href="/auth/login.php">← Retour à la connexion</a>
+      <a href="<?= PUBLIC_URL ?>/auth/login.php">← Retour à la connexion</a>
     </div>
 
   </div>
