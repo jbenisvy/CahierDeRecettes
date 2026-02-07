@@ -81,12 +81,12 @@ if ($valid && $_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <?php if ($error): ?>
       <p style="color:#b91c1c;"><strong><?= htmlspecialchars($error) ?></strong></p>
-      <p><a href="<?= PUBLIC_URL ?>/auth/forgot_password.php">Recommencer</a></p>
+      <p><a href="<?= BASE_URL ?>/?action=forgot_password">Recommencer</a></p>
     <?php endif; ?>
 
     <?php if ($success): ?>
       <p style="color:#065f46;"><strong><?= htmlspecialchars($success) ?></strong></p>
-      <p><a href="<?= PUBLIC_URL ?>/auth/login.php">Aller à la connexion</a></p>
+      <p><a href="<?= BASE_URL ?>/?action=login">Aller à la connexion</a></p>
     <?php endif; ?>
 
     <?php if ($valid): ?>

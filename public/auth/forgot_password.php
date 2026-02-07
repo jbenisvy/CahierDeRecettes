@@ -40,8 +40,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             // 7) En DEV (localhost) : on affiche le lien
             // En prod : on l'enverra par email
-            // Environnement DEV : construction du lien avec PUBLIC_URL pour fonctionner en sous-dossier
-            $resetLink = PUBLIC_URL . '/auth/reset_password.php?token=' . urlencode($token);
+            // Environnement DEV : lien via le front controller (auth/ est bloqué en direct)
+            $resetLink = BASE_URL . '/?action=reset_password&token=' . urlencode($token);
         }
     }
 }
@@ -75,7 +75,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </form>
 
     <p style="margin-top:14px;">
-      <a href="<?= PUBLIC_URL ?>/auth/login.php" class="btn btn-ghost btn-small">← Retour connexion</a>
+      <a href="<?= BASE_URL ?>/?action=login" class="btn btn-ghost btn-small">← Retour connexion</a>
     </p>
   </div>
 </body>
