@@ -810,9 +810,17 @@ td.actions a:hover { background: #f0e7dc; }
   border: 1px solid #eadbc9;
   background: #fff;
   box-shadow: var(--shadow-sm);
+  color: #b7a89a;
+  font-size: 16px;
 }
 
-.btn-favori.is-favori { background: #fce8d7; border-color: #f1b58b; }
+.btn-favori.is-favori {
+  background: #fce8d7;
+  border-color: #f1b58b;
+  color: #f5a623;
+}
+
+.btn-favori:hover { color: #e39a1c; }
 
 .btn-select-recette {
   display: inline-flex;

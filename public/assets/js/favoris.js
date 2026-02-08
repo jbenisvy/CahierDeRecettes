@@ -36,7 +36,22 @@ document.addEventListener('click', async function (e) {
       body: 'recette_id=' + encodeURIComponent(recetteId)
     });
 
-    const data = await res.json();
+    if (!res.ok) {
+      console.warn('Erreur HTTP favori :', res.status);
+      btn.classList.toggle('is-favori', currentlyFavori);
+      btn.textContent = currentlyFavori ? '★' : '☆';
+      return;
+    }
+
+    let data;
+    try {
+      data = await res.json();
+    } catch (parseErr) {
+      console.warn('Réponse non JSON pour favoris');
+      btn.classList.toggle('is-favori', currentlyFavori);
+      btn.textContent = currentlyFavori ? '★' : '☆';
+      return;
+    }
 
     // Si le serveur signale une erreur, on annule la mise à jour visuelle
     if (data.error) {
