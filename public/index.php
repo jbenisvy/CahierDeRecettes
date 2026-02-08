@@ -233,11 +233,12 @@ require __DIR__ . '/ui/layout_start.php';
     <input
         type="text"
         name="q"
+        class="filter-query"
         placeholder="Rechercher une recette…"
         value="<?= htmlspecialchars($recherche ?? '') ?>"
     >
 
-    <select name="categorie">
+    <select name="categorie" class="filter-categories">
         <option value="">Toutes les catégories</option>
         <?php foreach ($categories as $cat): ?>
             <option value="<?= htmlspecialchars($cat) ?>"
@@ -254,23 +255,34 @@ if (!is_array($tagsSelectionnes)) {
 }
 ?>
 
-<fieldset class="filter-tags">
-    <legend>Tags</legend>
+    <select name="type_recette" class="filter-type">
+        <option value="">Tous les types</option>
+        <option value="recette" <?= $typeRecette === 'recette' ? 'selected' : '' ?>>Recettes</option>
+        <option value="base" <?= $typeRecette === 'base' ? 'selected' : '' ?>>Bases</option>
+        <option value="composant" <?= $typeRecette === 'composant' ? 'selected' : '' ?>>Composants</option>
+    </select>
 
-    <?php foreach ($tags as $tag): ?>
-        <label class="tag-filter">
-            <input type="checkbox"
-       name="tags[]"
-       value="<?= (int)$tag['id'] ?>"
-       <?= in_array((int)$tag['id'], $tagsSelectionnes) ? 'checked' : '' ?>>
+    <select name="auteur" class="filter-author">
+        <option value="">Tous les auteurs</option>
+        <?php foreach ($auteurs as $a): ?>
+            <option value="<?= htmlspecialchars($a) ?>"
+                <?= ($auteur === $a) ? 'selected' : '' ?>>
+                <?= htmlspecialchars($a) ?>
+            </option>
+        <?php endforeach; ?>
+    </select>
 
-            <?= htmlspecialchars($tag['nom']) ?>
-        </label>
-    <?php endforeach; ?>
-</fieldset>
-
+    <select name="source" class="filter-source">
+        <option value="">Toutes les sources</option>
+        <?php foreach ($sources as $s): ?>
+            <option value="<?= htmlspecialchars($s) ?>"
+                <?= ($source === $s) ? 'selected' : '' ?>>
+                <?= htmlspecialchars($s) ?>
+            </option>
+        <?php endforeach; ?>
+    </select>
     
-	<select name="type_cuisson">
+	<select name="type_cuisson" class="filter-cook">
     <option value="">Tous les types de cuisson</option>
 
     <?php foreach ($typesCuisson as $tc): ?>
@@ -281,59 +293,45 @@ if (!is_array($tagsSelectionnes)) {
     <?php endforeach; ?>
 </select>
 
-    <select name="type_recette">
-        <option value="">Tous les types</option>
-        <option value="recette" <?= $typeRecette === 'recette' ? 'selected' : '' ?>>Recettes</option>
-        <option value="base" <?= $typeRecette === 'base' ? 'selected' : '' ?>>Bases</option>
-        <option value="composant" <?= $typeRecette === 'composant' ? 'selected' : '' ?>>Composants</option>
-    </select>
-
-    <select name="auteur">
-        <option value="">Tous les auteurs</option>
-        <?php foreach ($auteurs as $a): ?>
-            <option value="<?= htmlspecialchars($a) ?>"
-                <?= ($auteur === $a) ? 'selected' : '' ?>>
-                <?= htmlspecialchars($a) ?>
-            </option>
-        <?php endforeach; ?>
-    </select>
-
-    <select name="source">
-        <option value="">Toutes les sources</option>
-        <?php foreach ($sources as $s): ?>
-            <option value="<?= htmlspecialchars($s) ?>"
-                <?= ($source === $s) ? 'selected' : '' ?>>
-                <?= htmlspecialchars($s) ?>
-            </option>
-        <?php endforeach; ?>
-    </select>
-
     <?php if (!empty($_SESSION['user']['id'])): ?>
-        <label class="favoris-filter">
-            <input
-    type="checkbox"
-    name="favoris"
-    value="1"
-    <?= !empty($_GET['favoris']) ? 'checked' : '' ?>
-  >
-  Mes favoris
-        </label>
+        <div class="filter-flags">
+            <label class="favoris-filter">
+                <input
+                    type="checkbox"
+                    name="favoris"
+                    value="1"
+                    <?= !empty($_GET['favoris']) ? 'checked' : '' ?>
+                >
+                Mes favoris
+            </label>
+            <label class="selection-filter">
+                <input
+                    type="checkbox"
+                    name="selection"
+                    value="1"
+                    <?= !empty($_GET['selection']) ? 'checked' : '' ?>
+                >
+                Ma sélection
+            </label>
+        </div>
     <?php endif; ?>
-    
-	<?php if (!empty($_SESSION['user']['id'])): ?>
-    <label class="selection-filter">
-        <input
-            type="checkbox"
-            name="selection"
-            value="1"
-            <?= !empty($_GET['selection']) ? 'checked' : '' ?>
-        >
-        Ma sélection
-    </label>
-<?php endif; ?>
 
+    <fieldset class="filter-tags">
+        <legend>Tags</legend>
 
-    <button type="submit" class="btn btn-primary">🔍 Rechercher</button>
+        <?php foreach ($tags as $tag): ?>
+            <label class="tag-filter">
+                <input type="checkbox"
+           name="tags[]"
+           value="<?= (int)$tag['id'] ?>"
+           <?= in_array((int)$tag['id'], $tagsSelectionnes) ? 'checked' : '' ?>>
+
+                <?= htmlspecialchars($tag['nom']) ?>
+            </label>
+        <?php endforeach; ?>
+    </fieldset>
+
+    <button type="submit" class="btn btn-primary filter-submit">🔍 Rechercher</button>
 
 </form>
 </section>

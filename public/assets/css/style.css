@@ -313,14 +313,24 @@ p { line-height: 1.6; color: var(--ink-700); }
 
 .filters-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  grid-template-columns: 2fr 1fr 1fr 1.2fr;
+  grid-template-areas:
+    "query query category tags"
+    "type author source tags"
+    "cook flags submit tags";
   gap: 12px;
   align-items: start;
 }
 
-.filters-grid input[name="q"] { grid-column: span 2; }
-.filters-grid fieldset.filter-tags { grid-column: span 2; }
-.filters-grid button[type="submit"] { justify-self: start; }
+.filters-grid .filter-query { grid-area: query; }
+.filters-grid .filter-categories { grid-area: category; }
+.filters-grid .filter-type { grid-area: type; }
+.filters-grid .filter-author { grid-area: author; }
+.filters-grid .filter-source { grid-area: source; }
+.filters-grid .filter-cook { grid-area: cook; }
+.filters-grid .filter-tags { grid-area: tags; }
+.filters-grid .filter-flags { grid-area: flags; }
+.filters-grid .filter-submit { grid-area: submit; justify-self: start; }
 
 .filters-grid input[type="text"],
 .filters-grid select,
@@ -342,6 +352,13 @@ p { line-height: 1.6; color: var(--ink-700); }
   border-radius: var(--radius-sm);
   border: 1px solid #e6d7c7;
   background: #fffdf9;
+}
+
+.filter-flags {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
 }
 
 .filter-tags legend {
@@ -827,7 +844,14 @@ td.actions a:hover { background: #f0e7dc; }
 
 /* Responsive */
 @media (max-width: 1200px) {
-  .filters-grid { grid-template-columns: repeat(3, minmax(160px, 1fr)); }
+  .filters-grid {
+    grid-template-columns: repeat(3, minmax(160px, 1fr));
+    grid-template-areas:
+      "query query category"
+      "type author source"
+      "cook flags submit"
+      "tags tags tags";
+  }
 }
 
 @media (max-width: 1024px) {
@@ -838,14 +862,35 @@ td.actions a:hover { background: #f0e7dc; }
 
 @media (max-width: 900px) {
   .filters-head { flex-direction: column; align-items: flex-start; }
-  .filters-grid { grid-template-columns: 1fr 1fr; }
+  .filters-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "query query"
+      "category category"
+      "type author"
+      "source cook"
+      "flags submit"
+      "tags tags";
+  }
 }
 
 @media (max-width: 768px) {
   .app-topbar__left,
   .app-topbar__right { padding: 10px 14px; }
   .page { padding: 0 14px; }
-  .filters-grid { grid-template-columns: 1fr; }
+  .filters-grid {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "query"
+      "category"
+      "type"
+      "author"
+      "source"
+      "cook"
+      "flags"
+      "tags"
+      "submit";
+  }
   .recettes-table { display: block; }
   .form-recette label { grid-template-columns: 1fr; }
   .login-links { flex-direction: column; gap: 6px; }
