@@ -15,6 +15,17 @@ if (!isset($_SESSION['user']['id'])) {
     exit;
 }
 
+// Récupère la connexion PDO de façon robuste
+$pdo = function_exists('getPDO') ? getPDO() : ($pdo ?? null);
+if (!$pdo) {
+    $msg = '[toggle_favori] PDO unavailable (null)';
+    error_log($msg);
+    @error_log($msg . PHP_EOL, 3, __DIR__ . '/../../error.log');
+    http_response_code(500);
+    echo json_encode(['error' => 'db_unavailable']);
+    exit;
+}
+
 if (!isset($_POST['recette_id'])) {
     echo json_encode(['error' => 'missing_recette_id']);
     exit;
