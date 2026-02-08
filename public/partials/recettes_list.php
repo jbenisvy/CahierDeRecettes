@@ -37,7 +37,7 @@
 <?php else: ?>
   <?php foreach ($recettes as $recette): ?>
     <tr>
-      <td class="col-select">
+      <td class="col-select" data-label="Sélection">
 <button
   type="button"
   class="btn-selection btn-select-recette <?= !empty($recette['is_checked']) ? 'is-selected' : '' ?>"
@@ -52,7 +52,7 @@
 </td>
 
 
-      <td class="col-photo">
+      <td class="col-photo" data-label="Photo">
   <?php
   $photo = null;
 
@@ -76,7 +76,7 @@
 </td>
 
 <?php if (!empty($_SESSION['user']['id'])): ?>
-  <td class="col-favori">
+  <td class="col-favori" data-label="Favori">
     <button
       type="button"
       class="btn-favori <?= !empty($recette['is_favori']) ? 'is-favori' : '' ?>"
@@ -89,7 +89,7 @@
   </td>
 <?php endif; ?>
 
-      <td>
+      <td data-label="Titre">
         <?php if (!empty($recette['type_recette'])): ?>
           <?php if ($recette['type_recette'] === 'base'): ?>
             <span class="badge badge-base">Base</span>
@@ -100,13 +100,13 @@
         <?= htmlspecialchars($recette['titre']) ?>
       </td>
 
-      <td><?= htmlspecialchars($recette['categorie'] ?? '') ?></td>
-      <td><?= htmlspecialchars($recette['auteur'] ?? '') ?></td>
-      <td><?= htmlspecialchars($recette['source'] ?? '') ?></td>
-      <td><?= htmlspecialchars($recette['type_cuisson'] ?? '') ?></td>
-      <td><?= htmlspecialchars($recette['type_recette'] ?? 'recette') ?></td>
+      <td data-label="Catégorie"><?= htmlspecialchars($recette['categorie'] ?? '') ?></td>
+      <td data-label="Auteur"><?= htmlspecialchars($recette['auteur'] ?? '') ?></td>
+      <td data-label="Source"><?= htmlspecialchars($recette['source'] ?? '') ?></td>
+      <td data-label="Cuisson"><?= htmlspecialchars($recette['type_cuisson'] ?? '') ?></td>
+      <td data-label="Type"><?= htmlspecialchars($recette['type_recette'] ?? 'recette') ?></td>
 
-      <td class="actions col-actions">
+      <td class="actions col-actions" data-label="Actions">
         <a href="<?= PUBLIC_URL ?>/recette.php?id=<?= (int)$recette['id'] ?>" title="Voir">👁️</a>
         <a href="<?= PUBLIC_URL ?>/edit_recette.php?id=<?= (int)$recette['id'] ?>" title="Éditer">✏️</a>
         <a href="<?= PUBLIC_URL ?>/index.php?action=delete&id=<?= (int)$recette['id'] ?>"

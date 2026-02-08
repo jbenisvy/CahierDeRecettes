@@ -124,7 +124,7 @@ switch ($action) {
         }
         redirect('index.php?message=' . urlencode('Recette supprimée'));
         exit;
-    case 'login':
+case 'login':
 
     // Si déjà connecté, on ne montre pas le login :
     if (!empty($_SESSION['user'])) {
@@ -132,12 +132,7 @@ switch ($action) {
         redirect('index.php');
     }
 
-    $bodyClass = 'page-login';
-    $page = 'login';
-
-    require __DIR__ . '/ui/layout_start.php';
     require __DIR__ . '/auth/login.php';
-    require __DIR__ . '/ui/layout_end.php';
     exit;
 case 'logout':
 
@@ -162,27 +157,15 @@ case 'logout':
     redirect('index.php?action=login');
     exit;
 case 'register':
-  $bodyClass = 'page-register';
-  $page = 'register';
-  require __DIR__ . '/ui/layout_start.php';
   require __DIR__ . '/auth/register.php';
-  require __DIR__ . '/ui/layout_end.php';
   exit;
 
 case 'forgot_password':
-  $bodyClass = 'page-forgot-password';
-  $page = 'forgot_password';
-  require __DIR__ . '/ui/layout_start.php';
   require __DIR__ . '/auth/forgot_password.php';
-  require __DIR__ . '/ui/layout_end.php';
   exit;
 
 case 'reset_password':
-  $bodyClass = 'page-reset-password';
-  $page = 'reset_password';
-  require __DIR__ . '/ui/layout_start.php';
   require __DIR__ . '/auth/reset_password.php';
-  require __DIR__ . '/ui/layout_end.php';
   exit;
 
    default:
