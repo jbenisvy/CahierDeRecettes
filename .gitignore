@@ -18,7 +18,7 @@ config/openai.php
 ####################################
 
 public/uploads/tmp/
-public/uploads/recettes/
+
 tmp/
 imports/scans/
 
