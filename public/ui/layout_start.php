@@ -29,6 +29,7 @@ $recetteId = $recetteId ?? null;
 
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title><?= htmlspecialchars($pageTitle) ?></title>
   <link rel="stylesheet" href="<?= PUBLIC_URL ?>/assets/css/style.css">
   <!-- Styles spécifiques pour les icônes de favoris (étoiles) -->

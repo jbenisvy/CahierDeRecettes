@@ -83,6 +83,7 @@ if ($valid && $_SERVER['REQUEST_METHOD'] === 'POST') {
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Réinitialiser le mot de passe</title>
     <link rel="stylesheet" href="<?= PUBLIC_URL ?>/assets/css/style.css">
 </head>
