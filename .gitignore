@@ -62,8 +62,5 @@ migrations_appliquees.txt
 # Dépendances PHP (Composer)
 vendor/
 
-
-# Uploads utilisateurs / temporaires
-public/uploads/
 # Protection des dossiers
 .htaccess
