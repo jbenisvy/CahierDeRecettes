@@ -1,4 +1,9 @@
 <?php
+if (defined('HEADER_RENDERED')) {
+    return;
+}
+define('HEADER_RENDERED', true);
+
 $page = $page ?? 'unknown';
 $recetteId = $recetteId ?? null;
 $view = $view ?? ($_GET['view'] ?? 'list');
@@ -12,7 +17,18 @@ $view = $view ?? ($_GET['view'] ?? 'list');
     </a>
   </div>
 
- <nav class="app-topbar__right" aria-label="Menu">
+  <button
+    type="button"
+    class="app-topbar__toggle"
+    aria-label="Ouvrir le menu"
+    aria-controls="app-topbar-menu"
+    aria-expanded="false"
+    data-menu-toggle
+  >
+    ☰
+  </button>
+
+ <nav class="app-topbar__right" id="app-topbar-menu" aria-label="Menu">
 
   <?php if ($page === 'liste'): ?>
 
@@ -114,5 +130,3 @@ $view = $view ?? ($_GET['view'] ?? 'list');
 </nav>
 
 </header>
-
-

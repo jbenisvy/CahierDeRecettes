@@ -47,10 +47,9 @@ $bodyClass = 'page-liste-courses';
 
 // layout + header
 require __DIR__ . '/ui/layout_start.php';
-require __DIR__ . '/ui/header.php';
 ?>
 
-<div class="page">
+<div class="page courses-sheet">
 
 
   <div class="page-header-actions">

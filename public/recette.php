@@ -87,17 +87,16 @@ $page = 'recette';
 $recetteId = $id;
 
 require __DIR__ . '/ui/layout_start.php';
-require __DIR__ . '/ui/header.php';
 ?>
 
 
 <div class="page">
 
-<div class="fiche-recette">
+<div class="fiche-recette recipe-sheet">
 
 
 
-<section class="fiche-header">
+<section class="fiche-header recipe-hero">
 
 
     <!-- COLONNE GAUCHE -->

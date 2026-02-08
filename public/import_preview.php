@@ -95,12 +95,13 @@ $recette = array_merge($defaults, $json ?? []);
   <meta charset="UTF-8">
   <title>Prévisualisation recette</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="<?= PUBLIC_URL ?>/assets/css/style.css">
 </head>
 
 
 
-<body class="bg-light">
-<div class="container my-5">
+<body class="bg-light page-import page-import-preview">
+<div class="container my-5 import-shell">
   <div class="row justify-content-center">
     <div class="col-lg-10">
 

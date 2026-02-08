@@ -1,5 +1,13 @@
 <?php
 require_once __DIR__ . '/../../app/base_url.php';
+
+function redirect(string $path): void
+{
+    $path = ltrim($path, '/');
+    header('Location: ' . PUBLIC_URL . '/' . $path);
+    exit;
+}
+
 function require_login(): void
 {
     if (!isset($_SESSION['user'])) {

@@ -25,11 +25,10 @@ $page = 'edit';
 $recetteId = $id;
 
 require __DIR__ . '/ui/layout_start.php';
-require __DIR__ . '/ui/header.php';
 ?>
 
 
-<div class="page edit-wrap">
+<div class="page edit-wrap recipe-sheet">
 
 <h1 class="edit-title">Éditer la recette</h1>
 

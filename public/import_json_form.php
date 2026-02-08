@@ -12,10 +12,9 @@ $bodyClass = 'page-import';
 $useBootstrap = true;
 
 require __DIR__ . '/ui/layout_start.php';
-require __DIR__ . '/ui/header.php';
 ?>
 
-<div class="container my-5">
+<div class="container my-5 import-shell">
 
   <div class="row justify-content-center">
     <div class="col-12 col-lg-8">

@@ -1,5 +1,23 @@
 // main.js — interactions globales (menus, partage)
 document.addEventListener("DOMContentLoaded", () => {
+  const menuToggle = document.querySelector("[data-menu-toggle]");
+  const topbar = document.querySelector(".app-topbar");
+  const menu = document.getElementById("app-topbar-menu");
+
+  if (menuToggle && topbar && menu) {
+    menuToggle.addEventListener("click", () => {
+      const isOpen = topbar.classList.toggle("is-open");
+      menuToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    });
+
+    document.addEventListener("click", (e) => {
+      if (!topbar.contains(e.target)) {
+        topbar.classList.remove("is-open");
+        menuToggle.setAttribute("aria-expanded", "false");
+      }
+    });
+  }
+
   // Dropdowns
   document.querySelectorAll("[data-dropdown]").forEach((dd) => {
     const toggle = dd.querySelector("[data-dropdown-toggle]");

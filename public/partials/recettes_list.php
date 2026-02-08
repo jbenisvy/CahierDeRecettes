@@ -1,6 +1,7 @@
 <!-- 📋 LISTE DES RECETTES -->
 <form id="form-multi-delete" method="post" action="<?= PUBLIC_URL ?>/delete_multiple.php">
-<table class="recettes-table">
+<div class="table-shell">
+<table class="recettes-table recettes-table--cards">
   <thead>
    <tr>
 <th data-sort="is_checked" class="col-select">Sélection</th>
@@ -117,5 +118,6 @@
 <?php endif; ?>
   </tbody>
 </table>
+</div>
 
 </form>

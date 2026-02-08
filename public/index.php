@@ -212,7 +212,6 @@ $bodyClass = 'page-liste';
 $page = 'liste';
 
 require __DIR__ . '/ui/layout_start.php';
-require __DIR__ . '/ui/header.php';
 ?>
 
 
@@ -238,7 +237,15 @@ require __DIR__ . '/ui/header.php';
 <?php endif; ?>
 
 <!-- 🔍 FORMULAIRE DE RECHERCHE -->
-<form method="GET" class="search-form">
+<section class="filters-panel">
+  <div class="filters-head">
+    <div>
+      <h1 class="page-title">Carnet de recettes</h1>
+      <p class="page-subtitle">Filtre, explore et compose tes menus en un clin d’œil.</p>
+    </div>
+  </div>
+
+  <form method="GET" class="search-form filters-grid">
 
     <input
         type="text"
@@ -343,14 +350,18 @@ if (!is_array($tagsSelectionnes)) {
 <?php endif; ?>
 
 
-    <button type="submit">🔍 Rechercher</button>
+    <button type="submit" class="btn btn-primary">🔍 Rechercher</button>
 
 </form>
+</section>
+
+<section class="results-panel">
 <?php if ($view === 'gallery'): ?>
     <?php include __DIR__ . '/partials/recettes_gallery.php'; ?>
 <?php else: ?>
     <?php include __DIR__ . '/partials/recettes_list.php'; ?>
 <?php endif; ?>
+</section>
 
 </div>
 <script src="<?= PUBLIC_URL ?>/assets/js/main.js"></script>
