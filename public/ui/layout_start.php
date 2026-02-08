@@ -34,6 +34,9 @@ $recetteId = $recetteId ?? null;
   <link rel="stylesheet" href="<?= PUBLIC_URL ?>/assets/css/style.css">
   <!-- Styles spécifiques pour les icônes de favoris (étoiles) -->
   <link rel="stylesheet" href="<?= PUBLIC_URL ?>/assets/css/favoris.css">
+  <script>
+    window.APP_BASE_URL = <?= json_encode(PUBLIC_URL) ?>;
+  </script>
 </head>
 <body class="<?= htmlspecialchars($bodyClass) ?>">
 <?php require __DIR__ . '/header.php'; ?>

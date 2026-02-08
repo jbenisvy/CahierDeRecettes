@@ -28,7 +28,9 @@ document.addEventListener('click', async function (e) {
   btn.textContent = newFavoriState ? '★' : '☆';
 
   try {
-    const res = await fetch('/actions/toggle_favori.php', {
+    const baseUrl = (window.APP_BASE_URL || '').replace(/\/$/, '');
+    const endpoint = baseUrl + '/actions/toggle_favori.php';
+    const res = await fetch(endpoint, {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: 'recette_id=' + encodeURIComponent(recetteId)
