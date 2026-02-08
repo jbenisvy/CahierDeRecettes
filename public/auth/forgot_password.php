@@ -1,7 +1,9 @@
 <?php
 require_once __DIR__ . '/../../config/database.php';
-// Charge les constantes BASE_URL et PUBLIC_URL pour les liens dynamiques
 require_once __DIR__ . '/../../app/base_url.php';
+require_once __DIR__ . '/../../app/services/MailService.php';
+
+$pdo = getPDO();
 
 $message = null;
 $resetLink = null;
@@ -19,6 +21,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
         if ($user) {
+            $pdo->exec("
+                CREATE TABLE IF NOT EXISTS password_resets (
+                    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+                    user_id INT UNSIGNED NOT NULL,
+                    token CHAR(64) NOT NULL,
+                    expires_at DATETIME NOT NULL,
+                    created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+                )
+            ");
+
             // 2) Générer un token (celui-ci sera dans l'URL)
             $token = bin2hex(random_bytes(32)); // 64 caractères hex
 
@@ -38,10 +50,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             ');
             $stmt->execute([$user['id'], $tokenHash, $expiresAt]);
 
-            // 7) En DEV (localhost) : on affiche le lien
-            // En prod : on l'enverra par email
-            // Environnement DEV : lien via le front controller (auth/ est bloqué en direct)
+            // 7) Lien de reset
             $resetLink = BASE_URL . '/?action=reset_password&token=' . urlencode($token);
+
+            $subject = "Réinitialisation de votre mot de passe";
+            $html = "
+                <p>Bonjour,</p>
+                <p>Pour définir un nouveau mot de passe, cliquez sur ce lien :</p>
+                <p><a href=\"{$resetLink}\">Réinitialiser mon mot de passe</a></p>
+                <p>Ce lien expire dans 1 heure.</p>
+            ";
+
+            $sent = MailService::send($email, $subject, $html);
+            if (!$sent) {
+                error_log('Mail reset non envoyé pour ' . $email);
+            }
         }
     }
 }
@@ -62,7 +85,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       <p><?= htmlspecialchars($message) ?></p>
     <?php endif; ?>
 
-    <?php if ($resetLink): ?>
+    <?php if ($resetLink && getenv('MAIL_DEBUG') === '1'): ?>
       <p><strong>Lien de réinitialisation (DEV) :</strong><br>
         <a href="<?= htmlspecialchars($resetLink) ?>"><?= htmlspecialchars($resetLink) ?></a>
       </p>

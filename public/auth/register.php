@@ -4,28 +4,23 @@ if (session_status() === PHP_SESSION_NONE) {
 }
 
 require_once __DIR__ . '/../../config/database.php';
-// Charge les constantes BASE_URL et PUBLIC_URL pour générer des liens relatifs
-$pdo = getPDO();
 require_once __DIR__ . '/../../app/base_url.php';
+require_once __DIR__ . '/../../app/services/MailService.php';
+
+$pdo = getPDO();
 
 $error = null;
+$message = null;
 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $nom = trim($_POST['nom'] ?? '');
     $email = trim($_POST['email'] ?? '');
-    $password = $_POST['password'] ?? '';
-    $password2 = $_POST['password_confirm'] ?? '';
-
-    if ($nom === '' || $email === '' || $password === '' || $password2 === '') {
+    if ($nom === '' || $email === '') {
         $error = "Merci de remplir tous les champs.";
     } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $error = "Adresse email invalide.";
-    } elseif ($password !== $password2) {
-        $error = "Les mots de passe ne correspondent pas.";
-    } elseif (strlen($password) < 8) {
-        $error = "Le mot de passe doit contenir au moins 8 caractères.";
     } else {
         // Vérifier unicité email
         $stmt = $pdo->prepare('SELECT id FROM users WHERE email = ?');
@@ -34,30 +29,52 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if ($stmt->fetch()) {
             $error = "Un compte existe déjà avec cet email.";
         } else {
-            $hash = password_hash($password, PASSWORD_DEFAULT);
+            $hash = password_hash(bin2hex(random_bytes(24)), PASSWORD_DEFAULT);
 
             $stmt = $pdo->prepare('
                 INSERT INTO users (nom, email, password_hash, role)
                 VALUES (?, ?, ?, ?)
             ');
-            $stmt->execute([
-                $nom,
-                $email,
-                $hash,
-                'lecteur'
-            ]);
+            $stmt->execute([$nom, $email, $hash, 'lecteur']);
 
-$userId = (int)$pdo->lastInsertId();
+            $userId = (int) $pdo->lastInsertId();
 
-$_SESSION['user'] = [
-    'id'   => $userId,
-    'nom'  => $nom,
-    'role' => 'lecteur'
-];
+            $pdo->exec("
+                CREATE TABLE IF NOT EXISTS password_resets (
+                    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+                    user_id INT UNSIGNED NOT NULL,
+                    token CHAR(64) NOT NULL,
+                    expires_at DATETIME NOT NULL,
+                    created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+                )
+            ");
 
-// Redirection vers l’accueil (liste des recettes)
-header('Location: ' . BASE_URL . '/');
-exit;
+            $token = bin2hex(random_bytes(32));
+            $tokenHash = hash('sha256', $token);
+            $expiresAt = date('Y-m-d H:i:s', strtotime('+2 hours'));
+
+            $pdo->prepare('DELETE FROM password_resets WHERE user_id = ?')->execute([$userId]);
+            $stmt = $pdo->prepare('
+                INSERT INTO password_resets (user_id, token, expires_at)
+                VALUES (?, ?, ?)
+            ');
+            $stmt->execute([$userId, $tokenHash, $expiresAt]);
+
+            $setLink = BASE_URL . '/?action=reset_password&token=' . urlencode($token);
+            $subject = "Activez votre compte";
+            $html = "
+                <p>Bonjour {$nom},</p>
+                <p>Bienvenue sur Mémoire de Saveurs. Cliquez ci-dessous pour choisir votre mot de passe :</p>
+                <p><a href=\"{$setLink}\">Définir mon mot de passe</a></p>
+                <p>Ce lien expire dans 2 heures.</p>
+            ";
+
+            $sent = MailService::send($email, $subject, $html);
+            if (!$sent) {
+                error_log('Mail activation non envoyé pour ' . $email);
+            }
+
+            $message = "Un email vient d'être envoyé pour définir votre mot de passe.";
 
 
         }
@@ -85,6 +102,10 @@ exit;
   <p class="login-error"><?= htmlspecialchars($error) ?></p>
 <?php endif; ?>
 
+<?php if ($message): ?>
+  <p class="login-success"><?= htmlspecialchars($message) ?></p>
+<?php endif; ?>
+
 <form method="post" class="login-form">
 
   <label>Nom</label>
@@ -92,12 +113,6 @@ exit;
 
   <label>Email</label>
   <input type="email" name="email" required>
-
-  <label>Mot de passe</label>
-  <input type="password" name="password" required>
-
-  <label>Confirmer le mot de passe</label>
-  <input type="password" name="password_confirm" required>
 
   <button type="submit" class="btn btn-primary">
     Créer mon compte

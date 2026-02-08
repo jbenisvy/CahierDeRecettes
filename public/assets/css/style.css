@@ -694,6 +694,25 @@ td.actions a:hover { background: #f0e7dc; }
 .login-card h1 { text-align: center; }
 
 .login-intro { text-align: center; color: var(--ink-500); }
+.login-error {
+  text-align: center;
+  color: #8b2f1f;
+  background: #fde8e3;
+  border: 1px solid #f2b8aa;
+  padding: 8px 10px;
+  border-radius: 10px;
+  margin: 10px 0;
+}
+
+.login-success {
+  text-align: center;
+  color: #1f5c43;
+  background: #e6f3ec;
+  border: 1px solid #c4e0d0;
+  padding: 8px 10px;
+  border-radius: 10px;
+  margin: 10px 0;
+}
 
 .login-form { max-width: 320px; margin: 0 auto; }
 .login-form label { display: block; margin: 12px 0 6px; font-weight: 600; color: var(--ink-700); text-align: left; }

@@ -1,7 +1,8 @@
 <?php
 require_once __DIR__ . '/../../config/database.php';
-// Charge les constantes BASE_URL et PUBLIC_URL pour générer des liens relatifs
 require_once __DIR__ . '/../../app/base_url.php';
+
+$pdo = getPDO();
 
 $token = $_GET['token'] ?? '';
 $token = trim($token);
@@ -12,6 +13,16 @@ $valid = false;
 $resetRow = null;
 
 if ($token !== '') {
+    $pdo->exec("
+        CREATE TABLE IF NOT EXISTS password_resets (
+            id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+            user_id INT UNSIGNED NOT NULL,
+            token CHAR(64) NOT NULL,
+            expires_at DATETIME NOT NULL,
+            created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+        )
+    ");
+
     // On compare avec le HASH stocké
     $tokenHash = hash('sha256', $token);
 

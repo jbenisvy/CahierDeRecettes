@@ -9,6 +9,7 @@ require __DIR__ . '/../app/controllers/ListeCoursesController.php';
 
 $userId = (int)($_SESSION['user']['id'] ?? 0);
 
+$pdo = getPDO();
 $controller = new ListeCoursesController($pdo);
 $liste = $controller->getListeCourses($userId);
 
