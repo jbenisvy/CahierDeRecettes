@@ -68,17 +68,45 @@ require __DIR__ . '/ui/layout_start.php';
 
             <!-- 🟩 IMPORT IMAGE -->
             <div class="tab-pane fade" id="import-image">
-              <form action="<?= PUBLIC_URL ?>/import_recette_image.php" method="post" enctype="multipart/form-data">
+              <form id="import-image-form" action="<?= PUBLIC_URL ?>/import_recette_image.php" method="post" enctype="multipart/form-data">
                 <div class="mb-3">
                   <label class="form-label">Image de la recette</label>
-                  <input type="file"
-                         name="image"
-                         class="form-control"
-                         accept="image/*"
-                         capture="environment"
-                         required>
-                  <div class="form-text">
-                    Sur mobile : caméra ou galerie • Sur PC : fichier image
+                  <!-- Desktop: comportement inchangé -->
+                  <div class="d-none d-md-block">
+                    <input type="file"
+                           name="image"
+                           class="form-control"
+                           accept="image/*"
+                           capture="environment"
+                           required>
+                    <div class="form-text">
+                      Sur mobile : caméra ou galerie • Sur PC : fichier image
+                    </div>
+                  </div>
+
+                  <!-- Mobile: deux choix distincts -->
+                  <div class="d-block d-md-none">
+                    <label class="form-label small">Choisir une photo (pellicule/fichiers)</label>
+                    <input type="file"
+                           name="image"
+                           id="image-gallery"
+                           class="form-control mb-2"
+                           accept="image/*"
+                           aria-label="Choisir une photo dans la pellicule ou les fichiers">
+                    <label class="form-label small">Prendre une photo</label>
+                    <input type="file"
+                           name="image"
+                           id="image-camera"
+                           class="form-control"
+                           accept="image/*"
+                           capture="environment"
+                           aria-label="Prendre une photo avec l'appareil">
+                    <div class="form-text">
+                      Choisissez une photo (pellicule/fichiers) ou prenez-en une.
+                    </div>
+                    <div id="image-error" class="text-danger small mt-2 d-none">
+                      Veuillez sélectionner une photo ou en prendre une.
+                    </div>
                   </div>
                 </div>
                 <button class="btn btn-success">
@@ -137,6 +165,32 @@ require __DIR__ . '/ui/layout_start.php';
 
 </div>
 
+<?php
+// Validation mobile: au moins un fichier
+?>
+<script>
+  (function () {
+    const form = document.getElementById('import-image-form');
+    if (!form) return;
+
+    const gallery = document.getElementById('image-gallery');
+    const camera = document.getElementById('image-camera');
+    const error = document.getElementById('image-error');
+
+    form.addEventListener('submit', function (e) {
+      const isMobile = window.matchMedia('(max-width: 767.98px)').matches;
+      if (!isMobile) return;
+
+      const hasFile = (gallery && gallery.files && gallery.files.length > 0)
+        || (camera && camera.files && camera.files.length > 0);
+
+      if (!hasFile) {
+        e.preventDefault();
+        if (error) error.classList.remove('d-none');
+      }
+    });
+  })();
+</script>
 <?php
 require __DIR__ . '/ui/footer.php';
 require __DIR__ . '/ui/layout_end.php';
