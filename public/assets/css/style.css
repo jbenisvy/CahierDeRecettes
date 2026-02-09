@@ -239,7 +239,7 @@ p { line-height: 1.6; color: var(--ink-700); }
   align-items: center;
   justify-content: center;
   gap: 14px;
-  padding: 10px 16px;
+  padding: 6px 14px;
   border-radius: 18px;
   background: linear-gradient(135deg, rgba(255,248,236,0.35), rgba(255,255,255,0.08));
   border: 1px solid rgba(255,255,255,0.45);
@@ -247,6 +247,7 @@ p { line-height: 1.6; color: var(--ink-700); }
     0 10px 24px rgba(0,0,0,0.28),
     inset 0 1px 0 rgba(255,255,255,0.5);
   transition: transform 160ms ease, box-shadow 160ms ease;
+  line-height: 1;
 }
 .app-logo-link:hover {
   transform: translateY(-1px);
@@ -258,6 +259,7 @@ p { line-height: 1.6; color: var(--ink-700); }
   width: clamp(54px, 5vw, 78px);
   height: auto;
   filter: drop-shadow(0 10px 22px rgba(0,0,0,0.4));
+  display: block;
 }
 .app-logo-text {
   display: inline-flex;
