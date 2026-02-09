@@ -14,6 +14,10 @@ $view = $view ?? ($_GET['view'] ?? 'list');
   <div class="app-topbar__left">
     <a href="<?= PUBLIC_URL ?>/index.php" class="app-logo-link" aria-label="Accueil">
       <img src="<?= PUBLIC_URL ?>/assets/img/logo-memoire-saveur-fond-sombre.png" alt="Mémoire de Saveurs" class="app-logo">
+      <span class="app-logo-text">
+        <span class="app-logo-title">Mémoire</span>
+        <span class="app-logo-sub">de Saveurs</span>
+      </span>
     </a>
   </div>
 

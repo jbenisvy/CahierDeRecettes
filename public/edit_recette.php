@@ -19,6 +19,8 @@ if (!$recette) {
 }
 
 $r = $recette["recette"];
+$tousTags = $controller->getTousLesTags();
+$tagsActuels = array_map(fn($t) => (int) $t["id"], $recette["tags"] ?? []);
 
 $bodyClass = 'page-edit';
 $page = 'edit';
@@ -189,7 +191,26 @@ require __DIR__ . '/ui/layout_start.php';
 </div>
 <form method="post" action="add_tag.php" class="tag-form">
     <input type="hidden" name="recette_id" value="<?= $r["id"] ?>">
-    <input type="text" id="tag-input" name="tag" placeholder="Ajouter un tag">
+    <label for="tag-select">Choisir un tag existant</label>
+    <input type="text" id="tag-filter-input" placeholder="Filtrer les tags…">
+    <select id="tag-select" name="tag">
+        <option value="">— Choisir un tag existant —</option>
+        <?php foreach ($tousTags as $tag): ?>
+            <?php if (!in_array((int) $tag["id"], $tagsActuels, true)): ?>
+                <option value="<?= htmlspecialchars($tag["nom"]) ?>">
+                    <?= htmlspecialchars($tag["nom"]) ?>
+                </option>
+            <?php endif; ?>
+        <?php endforeach; ?>
+    </select>
+    <div id="tag-select-error" class="muted" style="color:#b00020; display:none;">
+        Veuillez choisir un tag dans la liste.
+    </div>
+    <button type="submit">➕ Ajouter</button>
+</form>
+<form method="post" action="add_tag.php" class="tag-form">
+    <input type="hidden" name="recette_id" value="<?= $r["id"] ?>">
+    <input type="text" id="tag-input" name="tag" placeholder="Ajouter un nouveau tag">
     <button id="add-tag-btn" type="submit">➕</button>
 </form>
 
