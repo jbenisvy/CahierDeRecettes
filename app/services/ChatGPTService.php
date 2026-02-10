@@ -7,13 +7,39 @@ class ChatGPTService
 
     public function __construct()
     {
-        $config = require PROJECT_ROOT . '/config/openai.php';
+        $this->apiKey = $this->resolveApiKey();
+    }
 
-        if (empty($config['api_key'])) {
-            throw new Exception("Clé OpenAI manquante");
+    private function resolveApiKey(): string
+    {
+        // Charge .env si disponible (sans fatal si absent)
+        $envFile = PROJECT_ROOT . '/config/env.php';
+        if (is_file($envFile)) {
+            require_once $envFile;
         }
 
-        $this->apiKey = $config['api_key'];
+        // 1) Priorité aux variables d'environnement
+        $envKey = getenv('OPENAI_API_KEY') ?: ($_ENV['OPENAI_API_KEY'] ?? null);
+        if (is_string($envKey) && trim($envKey) !== '') {
+            return trim($envKey);
+        }
+
+        $legacyEnvKey = getenv('OPENAI_KEY') ?: ($_ENV['OPENAI_KEY'] ?? null);
+        if (is_string($legacyEnvKey) && trim($legacyEnvKey) !== '') {
+            return trim($legacyEnvKey);
+        }
+
+        // 2) Fallback legacy: config/openai.php si présent
+        $configFile = PROJECT_ROOT . '/config/openai.php';
+        if (is_file($configFile)) {
+            $config = require $configFile;
+            $fileKey = $config['api_key'] ?? null;
+            if (is_string($fileKey) && trim($fileKey) !== '') {
+                return trim($fileKey);
+            }
+        }
+
+        throw new Exception("Clé OpenAI manquante (OPENAI_API_KEY ou config/openai.php)");
     }
 
     public function extraireRecetteDepuisImageFichier(string $imagePath): string
