@@ -159,6 +159,26 @@ public function chercherDoublonsPotentiels(array $recette): array
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
+public function findDuplicateIdForRecette(array $recette): ?int
+{
+    if (empty($recette['titre'])) {
+        return null;
+    }
+
+    $ingredients = $recette['ingredients'] ?? [];
+    if (!is_array($ingredients)) {
+        $ingredients = [];
+    }
+
+    $hash = $this->computeDedupHash(
+        (string) $recette['titre'],
+        $recette['auteur'] ?? null,
+        $ingredients
+    );
+
+    return $this->findRecetteIdByDedupHash($hash);
+}
+
 public function getTousLesTags(): array
 {
     $stmt = $this->pdo->query("

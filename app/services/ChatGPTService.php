@@ -59,6 +59,104 @@ titre, auteur, source, categorie, ingredients (array), etapes (array), commentai
         return $this->callOpenAI($payload);
     }
 
+    public function extraireRecetteDepuisTexte(string $texte): string
+    {
+        $texte = trim($texte);
+        if ($texte === '') {
+            throw new Exception("Texte vide");
+        }
+
+        $payload = [
+            "model" => "gpt-4.1-mini",
+            "messages" => [
+                [
+                    "role" => "system",
+                    "content" =>
+                        "Tu es un assistant chargé d'extraire fidèlement le contenu d'une recette à partir d'un texte.
+Ne fais AUCUNE interprétation, AUCUNE amélioration, AUCUNE correction.
+Si une information est absente ou illisible, mets null."
+                ],
+                [
+                    "role" => "user",
+                    "content" =>
+                        "Analyse ce texte et retourne UNIQUEMENT un JSON valide avec les clés :
+titre, auteur, source, categorie, ingredients (array), etapes (array), commentaires.
+\n\nTEXTE:\n" . $texte
+                ]
+            ],
+            "temperature" => 0
+        ];
+
+        return $this->callOpenAI($payload);
+    }
+
+    public function extraireRecetteDepuisUrl(string $url): string
+    {
+        if (!filter_var($url, FILTER_VALIDATE_URL)) {
+            throw new Exception("URL invalide");
+        }
+
+        $content = $this->fetchUrlContent($url);
+        if ($content === '') {
+            throw new Exception("Impossible de lire le contenu de l'URL");
+        }
+
+        $payload = [
+            "model" => "gpt-4.1-mini",
+            "messages" => [
+                [
+                    "role" => "system",
+                    "content" =>
+                        "Tu es un assistant chargé d'extraire fidèlement le contenu d'une recette à partir d'une page web.
+Ne fais AUCUNE interprétation, AUCUNE amélioration, AUCUNE correction.
+Si une information est absente ou illisible, mets null."
+                ],
+                [
+                    "role" => "user",
+                    "content" =>
+                        "Analyse le contenu de cette page et retourne UNIQUEMENT un JSON valide avec les clés :
+titre, auteur, source, categorie, ingredients (array), etapes (array), commentaires.
+\n\nCONTENU:\n" . $content
+                ]
+            ],
+            "temperature" => 0
+        ];
+
+        return $this->callOpenAI($payload);
+    }
+
+    private function fetchUrlContent(string $url): string
+    {
+        $ch = curl_init($url);
+        curl_setopt_array($ch, [
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_FOLLOWLOCATION => true,
+            CURLOPT_TIMEOUT => 20,
+            CURLOPT_USERAGENT => 'CahierDeRecettes/1.0'
+        ]);
+
+        $html = curl_exec($ch);
+        if ($html === false) {
+            curl_close($ch);
+            return '';
+        }
+        curl_close($ch);
+
+        // Nettoyage simple HTML -> texte
+        $html = preg_replace('#<script[^>]*>.*?</script>#is', ' ', $html);
+        $html = preg_replace('#<style[^>]*>.*?</style>#is', ' ', $html);
+        $text = strip_tags($html);
+        $text = preg_replace('/\\s+/u', ' ', $text);
+        $text = trim($text);
+
+        // Limite de taille pour éviter des prompts trop longs
+        if (mb_strlen($text) > 12000) {
+            $text = mb_substr($text, 0, 12000) . '...';
+        }
+
+        return $text;
+    }
+
     private function callOpenAI(array $payload): string
     {
         $ch = curl_init("https://api.openai.com/v1/chat/completions");

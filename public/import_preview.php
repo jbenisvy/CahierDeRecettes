@@ -7,6 +7,8 @@ $categories = $options['categories'];
 $modesCuisson = $options['types_cuisson'];
 
 require_once PROJECT_ROOT . '/app/services/RecetteNormalizer.php';
+require_once PROJECT_ROOT . '/config/database.php';
+require_once PROJECT_ROOT . '/app/models/RecetteModel.php';
 // Charge les constantes BASE_URL et PUBLIC_URL
 require_once PROJECT_ROOT . '/app/base_url.php';
 
@@ -84,6 +86,14 @@ if (is_array($json)) {
 
 $recette = array_merge($defaults, $json ?? []);
 
+$duplicateId = null;
+try {
+    $model = new RecetteModel();
+    $duplicateId = $model->findDuplicateIdForRecette($recette);
+} catch (Throwable $e) {
+    $duplicateId = null;
+}
+
 
 // 🔐 Nettoyage session après chargement réussi
 
@@ -113,6 +123,12 @@ $recette = array_merge($defaults, $json ?? []);
 
           <?php if ($erreur): ?>
             <div class="alert alert-danger"><?= htmlspecialchars($erreur) ?></div>
+          <?php endif; ?>
+          <?php if ($duplicateId): ?>
+            <div class="alert alert-warning">
+              Doublon probable détecté. Une recette similaire existe déjà :
+              <a href="<?= PUBLIC_URL ?>/recette.php?id=<?= (int) $duplicateId ?>" target="_blank">voir la recette</a>.
+            </div>
           <?php endif; ?>
 
           <!-- Utilise PUBLIC_URL pour fonctionner correctement en sous-dossier -->

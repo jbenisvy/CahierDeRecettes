@@ -82,6 +82,7 @@ if ($data === null || !is_array($data)) {
 $model = new RecetteModel();
 $imported = 0;
 $duplicates = 0;
+$duplicateId = null;
 
 foreach ($data as $r) {
 
@@ -122,6 +123,9 @@ foreach ($data as $r) {
         $imported++;
     } catch (DuplicateRecetteException $e) {
         $duplicates++;
+        if ($duplicateId === null) {
+            $duplicateId = $e->getExistingId();
+        }
         continue;
     }
 }
@@ -135,5 +139,9 @@ if ($imported === 0 && $duplicates === 0) {
 unset($_SESSION['import_json_payload']);
 
 // Redirection finale
-header("Location: " . PUBLIC_URL . "/index.php?import=ok&nb=" . $imported . "&dup=" . $duplicates);
+header(
+    "Location: " . PUBLIC_URL . "/index.php?import=ok&nb=" . $imported
+    . "&dup=" . $duplicates
+    . ($duplicateId ? "&dup_id=" . (int) $duplicateId : "")
+);
 exit;

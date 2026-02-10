@@ -58,6 +58,7 @@ if (isset($_GET["import"])) {
     if ($_GET["import"] === "ok") {
         $nb = isset($_GET["nb"]) ? (int) $_GET["nb"] : 0;
         $dup = isset($_GET["dup"]) ? (int) $_GET["dup"] : 0;
+        $dupId = isset($_GET["dup_id"]) ? (int) $_GET["dup_id"] : 0;
 
         if ($nb === 0 && $dup > 0) {
             $message_import = "Importation terminée : " . $dup . " doublon(s) ignoré(s).";
@@ -210,6 +211,7 @@ case 'reset_password':
 
 
 $bodyClass = 'page-liste';
+$useBootstrap = (($_GET["import"] ?? "") === "ok" && !empty($_GET["dup"]));
 $page = 'liste';
 
 require __DIR__ . '/ui/layout_start.php';
@@ -226,8 +228,51 @@ require __DIR__ . '/ui/layout_start.php';
 <?php endif; ?>
 
 <?php if (($_GET["import"] ?? "") === "ok" && !empty($_GET["dup"])): ?>
+    <div class="modal fade" id="dup-modal" tabindex="-1" aria-labelledby="dup-modal-label" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="dup-modal-label">Doublon détecté</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fermer"></button>
+                </div>
+                <div class="modal-body">
+                    <?= htmlspecialchars((int) $_GET["dup"]) ?> recette(s) ignorée(s) pendant l'import.
+                </div>
+                <div class="modal-footer">
+                    <?php if (!empty($_GET["dup_id"])): ?>
+                        <a class="btn btn-outline-primary" href="<?= PUBLIC_URL ?>/recette.php?id=<?= (int) $_GET["dup_id"] ?>" target="_blank">
+                            Voir la recette en doublon
+                        </a>
+                    <?php endif; ?>
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <script>
-        alert(<?= json_encode("Doublon détecté : " . (int) $_GET["dup"] . " recette(s) ignorée(s) pendant l'import.") ?>);
+        (function () {
+            const modalEl = document.getElementById('dup-modal');
+            if (!modalEl) return;
+
+            let tries = 0;
+            function tryShow() {
+                if (window.bootstrap) {
+                    const modal = new bootstrap.Modal(modalEl);
+                    modal.show();
+                    return;
+                }
+                if (tries < 50) {
+                    tries++;
+                    setTimeout(tryShow, 50);
+                }
+            }
+
+            if (document.readyState === 'complete') {
+                tryShow();
+            } else {
+                window.addEventListener('load', tryShow);
+            }
+        })();
     </script>
 <?php endif; ?>
 
