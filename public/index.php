@@ -55,9 +55,27 @@ $message = $_GET["message"] ?? null;
 $message_import = null;
 
 if (isset($_GET["import"])) {
-    $message_import = $_GET["import"] === "ok"
-        ? "Importation réussie !"
-        : "Échec de l'importation (fichier invalide ou erreur serveur)";
+    if ($_GET["import"] === "ok") {
+        $nb = isset($_GET["nb"]) ? (int) $_GET["nb"] : 0;
+        $dup = isset($_GET["dup"]) ? (int) $_GET["dup"] : 0;
+
+        if ($nb === 0 && $dup > 0) {
+            $message_import = "Importation terminée : " . $dup . " doublon(s) ignoré(s).";
+        } else {
+            $parts = [];
+            if ($nb > 0) {
+                $parts[] = $nb . " recette(s) importée(s)";
+            }
+            if ($dup > 0) {
+                $parts[] = $dup . " doublon(s) ignoré(s)";
+            }
+            $message_import = $parts
+                ? "Importation : " . implode(" · ", $parts)
+                : "Importation réussie !";
+        }
+    } else {
+        $message_import = "Échec de l'importation (fichier invalide ou erreur serveur)";
+    }
 }
 
 /* =========================
@@ -205,6 +223,12 @@ require __DIR__ . '/ui/layout_start.php';
     <div class="alert <?= $_GET["import"] === "ok" ? "alert-success" : "alert-error" ?>">
         <?= htmlspecialchars($message_import) ?>
     </div>
+<?php endif; ?>
+
+<?php if (($_GET["import"] ?? "") === "ok" && !empty($_GET["dup"])): ?>
+    <script>
+        alert(<?= json_encode("Doublon détecté : " . (int) $_GET["dup"] . " recette(s) ignorée(s) pendant l'import.") ?>);
+    </script>
 <?php endif; ?>
 
 <?php if ($message): ?>

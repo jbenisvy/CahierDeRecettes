@@ -81,6 +81,7 @@ if ($data === null || !is_array($data)) {
 */
 $model = new RecetteModel();
 $imported = 0;
+$duplicates = 0;
 
 foreach ($data as $r) {
 
@@ -116,11 +117,16 @@ foreach ($data as $r) {
     // Auteur forcé (sécurité)
     $r['auteur'] = $_SESSION['user']['nom'];
 
-    $model->ajouterRecetteDepuisJson($r);
-    $imported++;
+    try {
+        $model->ajouterRecetteDepuisJson($r);
+        $imported++;
+    } catch (DuplicateRecetteException $e) {
+        $duplicates++;
+        continue;
+    }
 }
 
-if ($imported === 0) {
+if ($imported === 0 && $duplicates === 0) {
     header("Location: " . PUBLIC_URL . "/index.php?import=empty");
     exit;
 }
@@ -129,5 +135,5 @@ if ($imported === 0) {
 unset($_SESSION['import_json_payload']);
 
 // Redirection finale
-header("Location: " . PUBLIC_URL . "/index.php?import=ok&nb=" . $imported);
+header("Location: " . PUBLIC_URL . "/index.php?import=ok&nb=" . $imported . "&dup=" . $duplicates);
 exit;

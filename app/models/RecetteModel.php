@@ -3,6 +3,22 @@
 
 require_once __DIR__ . '/../../config/database.php';
 
+class DuplicateRecetteException extends RuntimeException
+{
+    private int $existingId;
+
+    public function __construct(int $existingId)
+    {
+        parent::__construct("Recette en doublon");
+        $this->existingId = $existingId;
+    }
+
+    public function getExistingId(): int
+    {
+        return $this->existingId;
+    }
+}
+
 class RecetteModel
 {
   private $pdo;
@@ -69,6 +85,55 @@ public function getRecetteComplete(int $id): ?array
         "photos"           => $photos,
         "photo_principale" => $photoPrincipale
     ];
+}
+
+private function normalizeDedupValue(string $value): string
+{
+    $value = mb_strtolower(trim($value));
+    $value = preg_replace('/[^a-z0-9 ]/u', ' ', $value);
+    $value = preg_replace('/\s+/u', ' ', $value);
+    return trim($value);
+}
+
+private function computeDedupHash(string $titre, ?string $auteur, array $ingredients): string
+{
+    $normTitre = $this->normalizeDedupValue($titre);
+    $normAuteur = $this->normalizeDedupValue($auteur ?? '');
+
+    $firstIngredients = array_slice($ingredients, 0, 3);
+    $normIngredients = array_map(
+        fn($ing) => $this->normalizeDedupValue((string) $ing),
+        $firstIngredients
+    );
+
+    $payload = $normTitre . '||' . $normAuteur . '||' . implode('|', $normIngredients);
+    return hash('sha256', $payload);
+}
+
+private function findRecetteIdByDedupHash(string $hash, ?int $excludeId = null): ?int
+{
+    $sql = "SELECT id FROM recettes WHERE dedup_hash = :hash";
+    $params = [':hash' => $hash];
+
+    if ($excludeId !== null) {
+        $sql .= " AND id <> :exclude_id";
+        $params[':exclude_id'] = $excludeId;
+    }
+
+    $sql .= " LIMIT 1";
+    $stmt = $this->pdo->prepare($sql);
+    $stmt->execute($params);
+    $id = $stmt->fetchColumn();
+
+    return $id !== false ? (int) $id : null;
+}
+
+private function assertNoDuplicate(string $hash, ?int $excludeId = null): void
+{
+    $existingId = $this->findRecetteIdByDedupHash($hash, $excludeId);
+    if ($existingId !== null) {
+        throw new DuplicateRecetteException($existingId);
+    }
 }
 public function chercherDoublonsPotentiels(array $recette): array
 {
@@ -170,6 +235,18 @@ public function ajouterRecetteDepuisJson(array $r): int
     $pdo->beginTransaction();
 
     try {
+        $ingredients = $r["ingredients"] ?? [];
+        if (!is_array($ingredients)) {
+            $ingredients = [];
+        }
+
+        $dedupHash = $this->computeDedupHash(
+            (string) ($r["titre"] ?? ''),
+            $r["auteur"] ?? null,
+            $ingredients
+        );
+        $this->assertNoDuplicate($dedupHash);
+
         // 1. Insertion recette principale
       $stmt = $pdo->prepare("
     INSERT INTO recettes
@@ -183,7 +260,8 @@ public function ajouterRecetteDepuisJson(array $r): int
         temps_preparation,
         temps_cuisson,
         temps_repos,
-        commentaires
+        commentaires,
+        dedup_hash
     )
     VALUES
     (
@@ -196,7 +274,8 @@ public function ajouterRecetteDepuisJson(array $r): int
         :temps_preparation,
         :temps_cuisson,
         :temps_repos,
-        :commentaires
+        :commentaires,
+        :dedup_hash
     )
 ");
 
@@ -211,6 +290,7 @@ $stmt->execute([
     ":temps_cuisson"     => isset($r["temps_cuisson"]) ? (int)$r["temps_cuisson"] : null,
     ":temps_repos"       => isset($r["temps_repos"]) ? (int)$r["temps_repos"] : null,
     ":commentaires"      => $r["commentaires"] ?? null,
+    ":dedup_hash"        => $dedupHash,
 ]);
 
 $recetteId = (int) $pdo->lastInsertId();
@@ -225,7 +305,7 @@ if ($recetteId <= 0) {
             VALUES (:recette_id, :ordre, :texte)
         ");
 
-        foreach ($r["ingredients"] as $i => $texte) {
+        foreach ($ingredients as $i => $texte) {
             $stmtIng->execute([
                 ":recette_id" => $recetteId,
                 ":ordre" => $i + 1,
@@ -569,11 +649,26 @@ public function getAuteurs(): array
 }
   
 
-   public function updateRecetteEdition(array $data): bool
+public function updateRecetteEdition(array $data): bool
 {
     $this->pdo->beginTransaction();
 
     try {
+        $id = (int) ($data["id"] ?? 0);
+        $ingredients = $this->getIngredientsByRecette($id);
+        $current = $this->getRecetteById($id) ?? [];
+        $auteur = $data["auteur"] ?? null;
+        if ($auteur === null || $auteur === "") {
+            $auteur = $current["auteur"] ?? null;
+        }
+
+        $dedupHash = $this->computeDedupHash(
+            (string) ($data["titre"] ?? ''),
+            $auteur,
+            $ingredients
+        );
+        $this->assertNoDuplicate($dedupHash, $id);
+
         // 1️⃣ Mise à jour de la recette
         $sql = "
             UPDATE recettes SET
@@ -587,16 +682,17 @@ public function getAuteurs(): array
                 nombre_personnes = :nombre_personnes,
                 type_cuisson = :type_cuisson,
                 difficulte = :difficulte,
-                commentaires = :commentaires
+                commentaires = :commentaires,
+                dedup_hash = :dedup_hash
             WHERE id = :id
         ";
 
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute([
-            ":id" => (int) ($data["id"] ?? 0),
+            ":id" => $id,
 
             ":titre" => $data["titre"] ?? "",
-            ":auteur" => $data["auteur"] ?? null,
+            ":auteur" => $auteur,
             ":source" => $data["source"] ?? null,
             ":categorie" => $data["categorie"] ?? "autre",
 
@@ -609,6 +705,7 @@ public function getAuteurs(): array
             ":difficulte" => $data["difficulte"] ?? null,
 
             ":commentaires" => $data["commentaires"] ?? null,
+            ":dedup_hash" => $dedupHash,
         ]);
 
        // 2️⃣ Gestion des tags

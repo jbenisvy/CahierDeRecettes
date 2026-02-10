@@ -31,6 +31,9 @@ CREATE TABLE IF NOT EXISTS recettes (
 
     image VARCHAR(255) DEFAULT NULL,
 
+    -- Hash de deduplication (titre + auteur + 3 premiers ingredients)
+    dedup_hash CHAR(64) DEFAULT NULL,
+
     created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     updated_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
         ON UPDATE CURRENT_TIMESTAMP
@@ -40,3 +43,4 @@ CREATE TABLE IF NOT EXISTS recettes (
 CREATE INDEX idx_titre ON recettes (titre);
 CREATE INDEX idx_auteur ON recettes (auteur);
 CREATE FULLTEXT INDEX idx_fulltext_recette ON recettes (titre, ingredients, etapes, texte_formatte);
+CREATE UNIQUE INDEX uniq_recettes_dedup_hash ON recettes (dedup_hash);

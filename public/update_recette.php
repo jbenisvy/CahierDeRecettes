@@ -41,7 +41,12 @@ if ($data["titre"] === "") {
 }
 
 /* Mise à jour */
-$controller->updateRecetteEdition($data);
+try {
+    $controller->updateRecetteEdition($data);
+} catch (DuplicateRecetteException $e) {
+    header("Location: edit_recette.php?id=" . $data["id"] . "&dup=1");
+    exit;
+}
 
 /* Retour à la recette */
 header("Location: recette.php?id=" . $data["id"] . "&saved=1");

@@ -34,6 +34,12 @@ require __DIR__ . '/ui/layout_start.php';
 
 <h1 class="edit-title">Éditer la recette</h1>
 
+<?php if (!empty($_GET["dup"])): ?>
+    <div class="alert alert-error">
+        Doublon détecté : une recette similaire existe déjà.
+    </div>
+<?php endif; ?>
+
 <?php if (!empty($recette["photo_principale"])): ?>
     <div class="recette-photo-principale">
         <img src="<?= PUBLIC_URL ?>/uploads/recettes/<?= htmlspecialchars($recette["photo_principale"]["fichier"]) ?>" alt="">
