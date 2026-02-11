@@ -25,6 +25,7 @@ require_once dirname(__DIR__) . '/app/base_url.php';
 error_log("Import JSON lancé par user #" . ($_SESSION['user']['id'] ?? 'unknown'));
 
 $jsonContent = null;
+$data = null;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,7 +49,42 @@ if (
     $jsonContent = file_get_contents($_FILES['jsonfile']['tmp_name']);
 }
 
-// 2️⃣ JSON généré par le formulaire preview
+// 2️⃣ Soumission du formulaire preview (prioritaire pour refléter les edits)
+elseif (
+    isset($_POST['titre']) ||
+    isset($_POST['ingredients']) ||
+    isset($_POST['etapes'])
+) {
+    $typeCuisson = trim((string)($_POST['type_cuisson'] ?? ''));
+    $typeCuissonAutre = trim((string)($_POST['type_cuisson_autre'] ?? ''));
+    if ($typeCuissonAutre !== '') {
+        $typeCuisson = $typeCuissonAutre;
+    } elseif ($typeCuisson === '__autre__') {
+        $typeCuisson = '';
+    }
+
+    $ingredients = preg_split("/\r\n|\n/u", (string)($_POST['ingredients'] ?? ''));
+    $etapes = preg_split("/\r\n|\n/u", (string)($_POST['etapes'] ?? ''));
+
+    $data = [[
+        'titre' => trim((string)($_POST['titre'] ?? '')),
+        'auteur' => trim((string)($_POST['auteur'] ?? '')),
+        'source' => trim((string)($_POST['source'] ?? '')),
+        'categorie' => trim((string)($_POST['categorie'] ?? '')),
+        'type_recette' => 'recette',
+        'type_cuisson' => $typeCuisson,
+        'temps_preparation' => ($_POST['temps_preparation'] ?? '') !== '' ? (int) $_POST['temps_preparation'] : null,
+        'temps_cuisson' => ($_POST['temps_cuisson'] ?? '') !== '' ? (int) $_POST['temps_cuisson'] : null,
+        'temps_repos' => null,
+        'nombre_personnes' => ($_POST['nombre_personnes'] ?? '') !== '' ? (int) $_POST['nombre_personnes'] : null,
+        'difficulte' => ($_POST['difficulte'] ?? '') !== '' ? (int) $_POST['difficulte'] : null,
+        'ingredients' => array_values(array_filter(array_map('trim', $ingredients))),
+        'etapes' => array_values(array_filter(array_map('trim', $etapes))),
+        'commentaires' => trim((string)($_POST['commentaires'] ?? '')),
+    ]];
+}
+
+// 3️⃣ JSON généré par le formulaire preview (fallback ancien comportement)
 elseif (
     isset($_POST['json_payload']) &&
     is_string($_POST['json_payload']) &&
@@ -57,18 +93,20 @@ elseif (
     $jsonContent = $_POST['json_payload'];
 }
 
-// 3️⃣ Rien reçu → retour propre au formulaire
+// 4️⃣ Rien reçu → retour propre au formulaire
 else {
     header("Location: " . PUBLIC_URL . "/import_json_form.php");
     exit;
 }
 
-if ($jsonContent === false) {
+if ($data === null && $jsonContent === false) {
     die("Impossible de lire le JSON");
 }
 
 // Décodage JSON
-$data = json_decode($jsonContent, true);
+if ($data === null) {
+    $data = json_decode($jsonContent, true);
+}
 
 if ($data === null || !is_array($data)) {
     die("JSON invalide : " . json_last_error_msg());

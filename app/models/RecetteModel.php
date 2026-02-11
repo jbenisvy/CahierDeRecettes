@@ -280,6 +280,7 @@ public function ajouterRecetteDepuisJson(array $r): int
         temps_preparation,
         temps_cuisson,
         temps_repos,
+        nombre_personnes,
         commentaires,
         dedup_hash
     )
@@ -294,6 +295,7 @@ public function ajouterRecetteDepuisJson(array $r): int
         :temps_preparation,
         :temps_cuisson,
         :temps_repos,
+        :nombre_personnes,
         :commentaires,
         :dedup_hash
     )
@@ -309,6 +311,7 @@ $stmt->execute([
     ":temps_preparation" => isset($r["temps_preparation"]) ? (int)$r["temps_preparation"] : null,
     ":temps_cuisson"     => isset($r["temps_cuisson"]) ? (int)$r["temps_cuisson"] : null,
     ":temps_repos"       => isset($r["temps_repos"]) ? (int)$r["temps_repos"] : null,
+    ":nombre_personnes"  => isset($r["nombre_personnes"]) ? (int)$r["nombre_personnes"] : null,
     ":commentaires"      => $r["commentaires"] ?? null,
     ":dedup_hash"        => $dedupHash,
 ]);

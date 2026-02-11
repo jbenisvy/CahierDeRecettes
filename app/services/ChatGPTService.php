@@ -7,6 +7,10 @@ class ChatGPTService
     private const CATEGORY_HINT = "Exception autorisée: tu peux UNIQUEMENT déduire la catégorie culinaire de la recette et remplir 'categorie'.
 Valeurs autorisées pour 'categorie' : entree, plat, dessert, accompagnement, boisson.
 Si tu hésites vraiment, mets null.";
+    private const TIME_HINT = "Pour 'temps_preparation' et 'temps_cuisson': si ces durées sont explicitement indiquées, renseigne un entier en minutes.
+Si absentes, illisibles ou ambiguës, mets null.";
+    private const PEOPLE_HINT = "Pour 'nombre_personnes': si le nombre de personnes/parts est explicitement indiqué, renseigne un entier.
+Si absent, illisible ou ambigu, mets null.";
 
     public function __construct()
     {
@@ -74,7 +78,9 @@ Si une information est absente ou illisible, mets null."
                             "type" => "text",
                             "text" =>
                                 "Analyse cette image et retourne UNIQUEMENT un JSON valide avec les clés :
-titre, auteur, source, categorie, ingredients (array), etapes (array), commentaires."
+titre, auteur, source, categorie, temps_preparation, temps_cuisson, nombre_personnes, ingredients (array), etapes (array), commentaires.
+" . self::TIME_HINT . "
+" . self::PEOPLE_HINT
                         ],
                         [
                             "type" => "image_url",
@@ -115,7 +121,9 @@ Si une information est absente ou illisible, mets null."
                     "role" => "user",
                     "content" =>
                         "Analyse ce texte et retourne UNIQUEMENT un JSON valide avec les clés :
-titre, auteur, source, categorie, ingredients (array), etapes (array), commentaires.
+titre, auteur, source, categorie, temps_preparation, temps_cuisson, nombre_personnes, ingredients (array), etapes (array), commentaires.
+" . self::TIME_HINT . "
+" . self::PEOPLE_HINT . "
 \n\nTEXTE:\n" . $texte
                 ]
             ],
@@ -153,7 +161,9 @@ Si une information est absente ou illisible, mets null."
                     "role" => "user",
                     "content" =>
                         "Analyse le contenu de cette page et retourne UNIQUEMENT un JSON valide avec les clés :
-titre, auteur, source, categorie, ingredients (array), etapes (array), commentaires.
+titre, auteur, source, categorie, temps_preparation, temps_cuisson, nombre_personnes, ingredients (array), etapes (array), commentaires.
+" . self::TIME_HINT . "
+" . self::PEOPLE_HINT . "
 \n\nCONTENU:\n" . $content
                 ]
             ],

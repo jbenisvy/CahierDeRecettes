@@ -69,6 +69,7 @@ $defaults = [
   'etapes' => [],
   'temps_preparation' => null,
   'temps_cuisson' => null,
+  'nombre_personnes' => null,
   'type_cuisson' => '',
   'difficulte' => null,
   'commentaires' => ''
@@ -205,6 +206,11 @@ try {
                 <input type="number" name="difficulte" min="1" max="5" class="form-control"
                        value="<?= htmlspecialchars((string)$recette['difficulte']) ?>">
               </div>
+              <div class="col-md-4 mb-3">
+                <label class="form-label">Nombre de personnes</label>
+                <input type="number" name="nombre_personnes" min="1" class="form-control"
+                       value="<?= htmlspecialchars((string)$recette['nombre_personnes']) ?>">
+              </div>
             </div>
 
             <div class="mb-3">
@@ -231,6 +237,7 @@ $final = [[
     'type_cuisson' => $recette['type_cuisson'],
     'temps_preparation' => $recette['temps_preparation'],
     'temps_cuisson' => $recette['temps_cuisson'],
+    'nombre_personnes' => $recette['nombre_personnes'],
     'temps_repos' => null,
     'ingredients' => array_values(array_filter(array_map('trim', $recette['ingredients']))),
     'etapes' => array_values(array_filter(array_map('trim', $recette['etapes']))),
