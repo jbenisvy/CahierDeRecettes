@@ -3,6 +3,28 @@ declare(strict_types=1);
 
 class RecetteNormalizer
 {
+    private const CATEGORY_MAP = [
+        'entree' => 'entree',
+        'entrée' => 'entree',
+        'plat' => 'plat',
+        'dessert' => 'dessert',
+        'desserts' => 'dessert',
+        'accompagnement' => 'accompagnement',
+        'accompagnements' => 'accompagnement',
+        'boisson' => 'boisson',
+        'boissons' => 'boisson',
+    ];
+
+    private static function normalizeCategory(mixed $value): string
+    {
+        if (!is_string($value)) {
+            return '';
+        }
+
+        $key = mb_strtolower(trim($value));
+        return self::CATEGORY_MAP[$key] ?? '';
+    }
+
     /**
      * Normalise une recette issue de ChatGPT Vision
      * pour l'adapter au format applicatif interne.
@@ -13,7 +35,7 @@ class RecetteNormalizer
             'titre' => (string)($json['titre'] ?? ''),
             'auteur' => $json['auteur'] ?? ($user['nom'] ?? ''),
             'source' => $json['source'] ?? '',
-            'categorie' => $json['categorie'] ?? '',
+            'categorie' => self::normalizeCategory($json['categorie'] ?? ''),
             'tags' => [],
 
             'ingredients' =>

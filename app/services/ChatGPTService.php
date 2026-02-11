@@ -4,6 +4,9 @@ declare(strict_types=1);
 class ChatGPTService
 {
     private string $apiKey;
+    private const CATEGORY_HINT = "Exception autorisée: tu peux UNIQUEMENT déduire la catégorie culinaire de la recette et remplir 'categorie'.
+Valeurs autorisées pour 'categorie' : entree, plat, dessert, accompagnement, boisson.
+Si tu hésites vraiment, mets null.";
 
     public function __construct()
     {
@@ -59,6 +62,9 @@ class ChatGPTService
                     "content" =>
                         "Tu es un assistant chargé d'extraire fidèlement le contenu d'une recette à partir d'une image.
 Ne fais AUCUNE interprétation, AUCUNE amélioration, AUCUNE correction.
+Exception : la catégorie est autorisée selon la règle ci-dessous.
+"
+                        . self::CATEGORY_HINT . "
 Si une information est absente ou illisible, mets null."
                 ],
                 [
@@ -100,6 +106,9 @@ titre, auteur, source, categorie, ingredients (array), etapes (array), commentai
                     "content" =>
                         "Tu es un assistant chargé d'extraire fidèlement le contenu d'une recette à partir d'un texte.
 Ne fais AUCUNE interprétation, AUCUNE amélioration, AUCUNE correction.
+Exception : la catégorie est autorisée selon la règle ci-dessous.
+"
+                        . self::CATEGORY_HINT . "
 Si une information est absente ou illisible, mets null."
                 ],
                 [
@@ -135,6 +144,9 @@ titre, auteur, source, categorie, ingredients (array), etapes (array), commentai
                     "content" =>
                         "Tu es un assistant chargé d'extraire fidèlement le contenu d'une recette à partir d'une page web.
 Ne fais AUCUNE interprétation, AUCUNE amélioration, AUCUNE correction.
+Exception : la catégorie est autorisée selon la règle ci-dessous.
+"
+                        . self::CATEGORY_HINT . "
 Si une information est absente ou illisible, mets null."
                 ],
                 [
