@@ -3,9 +3,26 @@
 class MailService
 {
     private static ?string $lastError = null;
+    private static bool $envLoaded = false;
+
+    private static function ensureEnvLoaded(): void
+    {
+        if (self::$envLoaded) {
+            return;
+        }
+
+        $envFile = dirname(__DIR__, 2) . '/config/env.php';
+        if (is_readable($envFile)) {
+            require_once $envFile;
+        }
+
+        self::$envLoaded = true;
+    }
 
     private static function env(string $key, string $default = ''): string
     {
+        self::ensureEnvLoaded();
+
         $value = getenv($key);
         if ($value !== false && $value !== '') {
             return (string) $value;
