@@ -36,7 +36,9 @@ class MailService
             if ((getenv('MAIL_DEBUG') ?: '0') === '1') {
                 $mail->SMTPDebug = 2;
                 $mail->Debugoutput = static function (string $str, int $level): void {
-                    error_log('[SMTP][' . $level . '] ' . $str);
+                    $line = '[SMTP][' . $level . '] ' . $str;
+                    error_log($line);
+                    @error_log($line . PHP_EOL, 3, dirname(__DIR__, 2) . '/error.log');
                 };
             }
 
@@ -52,7 +54,9 @@ class MailService
 
             return $mail->send();
         } catch (Throwable $e) {
-            error_log('Mail error: ' . $e->getMessage());
+            $line = 'Mail error: ' . $e->getMessage();
+            error_log($line);
+            @error_log($line . PHP_EOL, 3, dirname(__DIR__, 2) . '/error.log');
             return false;
         }
     }
