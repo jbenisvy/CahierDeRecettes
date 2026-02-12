@@ -8,17 +8,17 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-require __DIR__ . '/../../config/database.php';
+require_once __DIR__ . '/../../config/database.php';
 
 if (!isset($_SESSION['user']['id'])) {
     echo json_encode(['error' => 'not_authenticated']);
     exit;
 }
 
-// Récupère la connexion PDO de façon robuste
-$pdo = function_exists('getPDO') ? getPDO() : ($pdo ?? null);
-if (!$pdo) {
-    $msg = '[toggle_favori] PDO unavailable (null)';
+// Récupère la connexion PDO de façon explicite
+$pdo = function_exists('getPDO') ? getPDO() : null;
+if (!($pdo instanceof PDO)) {
+    $msg = '[toggle_favori] PDO unavailable (invalid instance)';
     error_log($msg);
     @error_log($msg . PHP_EOL, 3, __DIR__ . '/../../error.log');
     http_response_code(500);
