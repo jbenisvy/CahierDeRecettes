@@ -30,6 +30,15 @@ class MailService
             $mail->Password = getenv('SMTP_PASS') ?: '';
             $mail->Port = (int) (getenv('SMTP_PORT') ?: 465);
             $mail->SMTPSecure = getenv('SMTP_SECURE') ?: 'ssl';
+            $mail->Timeout = 30;
+            $mail->SMTPAutoTLS = true;
+
+            if ((getenv('MAIL_DEBUG') ?: '0') === '1') {
+                $mail->SMTPDebug = 2;
+                $mail->Debugoutput = static function (string $str, int $level): void {
+                    error_log('[SMTP][' . $level . '] ' . $str);
+                };
+            }
 
             $from = getenv('MAIL_FROM') ?: 'support@localhost';
             $fromName = getenv('MAIL_FROM_NAME') ?: 'Memoire de Saveurs';
