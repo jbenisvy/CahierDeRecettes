@@ -104,6 +104,15 @@ $view = $view ?? ($_GET['view'] ?? 'list');
   <?php endif; ?>
 
   <?php if (isset($_SESSION['user'])): ?>
+    <a
+      href="https://sanstracasdigital.fr/FreshRSS/p/i/"
+      class="btn btn-ghost btn-small"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      📰 Info
+    </a>
+
     <div class="user-info">
       <span class="user-name">
         👤 <?= htmlspecialchars($_SESSION['user']['nom']) ?>
