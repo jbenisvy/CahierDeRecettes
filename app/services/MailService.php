@@ -51,7 +51,7 @@ class MailService
                 };
             }
 
-            $from = getenv('MAIL_FROM') ?: 'support@localhost';
+            $from = getenv('MAIL_FROM') ?: (getenv('SMTP_USER') ?: 'support@localhost');
             $fromName = getenv('MAIL_FROM_NAME') ?: 'Memoire de Saveurs';
 
             $mail->setFrom($from, $fromName);
@@ -77,7 +77,7 @@ class MailService
 
     private static function sendWithMail(string $to, string $subject, string $html): bool
     {
-        $from = getenv('MAIL_FROM') ?: 'support@localhost';
+        $from = getenv('MAIL_FROM') ?: (getenv('SMTP_USER') ?: 'support@localhost');
         $fromName = getenv('MAIL_FROM_NAME') ?: 'Memoire de Saveurs';
         $headers = [];
         $headers[] = 'MIME-Version: 1.0';
