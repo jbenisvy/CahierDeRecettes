@@ -4,6 +4,21 @@ class MailService
 {
     private static ?string $lastError = null;
 
+    private static function env(string $key, string $default = ''): string
+    {
+        $value = getenv($key);
+        if ($value !== false && $value !== '') {
+            return (string) $value;
+        }
+        if (isset($_ENV[$key]) && $_ENV[$key] !== '') {
+            return (string) $_ENV[$key];
+        }
+        if (isset($_SERVER[$key]) && $_SERVER[$key] !== '') {
+            return (string) $_SERVER[$key];
+        }
+        return $default;
+    }
+
     public static function getLastError(): ?string
     {
         return self::$lastError;
@@ -33,16 +48,16 @@ class MailService
 
         try {
             $mail->isSMTP();
-            $mail->Host = getenv('SMTP_HOST') ?: '';
+            $mail->Host = self::env('SMTP_HOST');
             $mail->SMTPAuth = true;
-            $mail->Username = getenv('SMTP_USER') ?: '';
-            $mail->Password = getenv('SMTP_PASS') ?: '';
-            $mail->Port = (int) (getenv('SMTP_PORT') ?: 465);
-            $mail->SMTPSecure = getenv('SMTP_SECURE') ?: 'ssl';
+            $mail->Username = self::env('SMTP_USER');
+            $mail->Password = self::env('SMTP_PASS');
+            $mail->Port = (int) self::env('SMTP_PORT', '465');
+            $mail->SMTPSecure = self::env('SMTP_SECURE', 'ssl');
             $mail->Timeout = 30;
             $mail->SMTPAutoTLS = true;
 
-            if ((getenv('MAIL_DEBUG') ?: '0') === '1') {
+            if (self::env('MAIL_DEBUG', '0') === '1') {
                 $mail->SMTPDebug = 2;
                 $mail->Debugoutput = static function (string $str, int $level): void {
                     $line = '[SMTP][' . $level . '] ' . $str;
@@ -51,8 +66,8 @@ class MailService
                 };
             }
 
-            $from = getenv('MAIL_FROM') ?: (getenv('SMTP_USER') ?: 'support@localhost');
-            $fromName = getenv('MAIL_FROM_NAME') ?: 'Memoire de Saveurs';
+            $from = self::env('MAIL_FROM', self::env('SMTP_USER', 'support@localhost'));
+            $fromName = self::env('MAIL_FROM_NAME', 'Memoire de Saveurs');
 
             $mail->setFrom($from, $fromName);
             $mail->addAddress($to);
@@ -77,8 +92,8 @@ class MailService
 
     private static function sendWithMail(string $to, string $subject, string $html): bool
     {
-        $from = getenv('MAIL_FROM') ?: (getenv('SMTP_USER') ?: 'support@localhost');
-        $fromName = getenv('MAIL_FROM_NAME') ?: 'Memoire de Saveurs';
+        $from = self::env('MAIL_FROM', self::env('SMTP_USER', 'support@localhost'));
+        $fromName = self::env('MAIL_FROM_NAME', 'Memoire de Saveurs');
         $headers = [];
         $headers[] = 'MIME-Version: 1.0';
         $headers[] = 'Content-type: text/html; charset=UTF-8';
