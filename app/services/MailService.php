@@ -65,6 +65,8 @@ class MailService
 
         try {
             $mail->isSMTP();
+            $mail->CharSet = 'UTF-8';
+            $mail->Encoding = 'base64';
             $mail->Host = self::env('SMTP_HOST');
             $mail->SMTPAuth = true;
             $mail->Username = self::env('SMTP_USER');
@@ -111,12 +113,16 @@ class MailService
     {
         $from = self::env('MAIL_FROM', self::env('SMTP_USER', 'support@localhost'));
         $fromName = self::env('MAIL_FROM_NAME', 'Memoire de Saveurs');
+        $encodedSubject = function_exists('mb_encode_mimeheader')
+            ? mb_encode_mimeheader($subject, 'UTF-8', 'B', "\r\n")
+            : '=?UTF-8?B?' . base64_encode($subject) . '?=';
         $headers = [];
         $headers[] = 'MIME-Version: 1.0';
         $headers[] = 'Content-type: text/html; charset=UTF-8';
+        $headers[] = 'Content-Transfer-Encoding: 8bit';
         $headers[] = 'From: ' . $fromName . ' <' . $from . '>';
 
-        $ok = mail($to, $subject, $html, implode("\r\n", $headers));
+        $ok = mail($to, $encodedSubject, $html, implode("\r\n", $headers));
         if (!$ok) {
             $lastPhpError = error_get_last();
             self::$lastError = $lastPhpError['message'] ?? 'mail() returned false';
