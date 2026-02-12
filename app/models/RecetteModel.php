@@ -470,7 +470,11 @@ EXISTS (
 
     // 🔍 Recherche
     if ($recherche !== null && $recherche !== '') {
-        $conditions[] = "(r.titre LIKE :rech_titre OR r.auteur LIKE :rech_auteur OR r.source LIKE :rech_source)";
+        $conditions[] = "(
+            r.titre COLLATE utf8mb4_unicode_ci LIKE :rech_titre
+            OR r.auteur COLLATE utf8mb4_unicode_ci LIKE :rech_auteur
+            OR r.source COLLATE utf8mb4_unicode_ci LIKE :rech_source
+        )";
 
 $params[':rech_titre']  = '%' . $recherche . '%';
 $params[':rech_auteur'] = '%' . $recherche . '%';
@@ -479,7 +483,7 @@ $params[':rech_source'] = '%' . $recherche . '%';
     }
 
     if ($categorie) {
-        $conditions[] = "r.categorie = :categorie";
+        $conditions[] = "r.categorie COLLATE utf8mb4_unicode_ci = :categorie";
         $params[':categorie'] = $categorie;
     }
 
@@ -564,16 +568,39 @@ $params[':rech_source'] = '%' . $recherche . '%';
     }
 	public function getCategories(): array
 {
-    $sql = "
-        SELECT DISTINCT categorie
+    $configOptions = require __DIR__ . '/../../config/recette_options.php';
+    $categories = array_keys($configOptions['categories'] ?? []);
+    $categoryKeys = [];
+    foreach ($categories as $category) {
+        $key = mb_strtolower(trim((string)$category));
+        $key = strtr($key, ['é' => 'e', 'è' => 'e', 'ê' => 'e', 'ë' => 'e', 'à' => 'a', 'â' => 'a', 'î' => 'i', 'ï' => 'i', 'ô' => 'o', 'ö' => 'o', 'ù' => 'u', 'û' => 'u', 'ü' => 'u', 'ç' => 'c']);
+        $categoryKeys[$key] = true;
+    }
+
+    $stmt = $this->pdo->query("
+        SELECT DISTINCT TRIM(categorie) AS categorie
         FROM recettes
         WHERE categorie IS NOT NULL
-          AND categorie <> ''
+          AND TRIM(categorie) <> ''
         ORDER BY categorie
-    ";
+    ");
+    $dbCategories = $stmt->fetchAll(PDO::FETCH_COLUMN);
 
-    $stmt = $this->pdo->query($sql);
-    return $stmt->fetchAll(PDO::FETCH_COLUMN);
+    foreach ($dbCategories as $dbCategory) {
+        $dbCategory = trim((string)$dbCategory);
+        if ($dbCategory === '') {
+            continue;
+        }
+        $dbKey = mb_strtolower($dbCategory);
+        $dbKey = strtr($dbKey, ['é' => 'e', 'è' => 'e', 'ê' => 'e', 'ë' => 'e', 'à' => 'a', 'â' => 'a', 'î' => 'i', 'ï' => 'i', 'ô' => 'o', 'ö' => 'o', 'ù' => 'u', 'û' => 'u', 'ü' => 'u', 'ç' => 'c']);
+        if (isset($categoryKeys[$dbKey])) {
+            continue;
+        }
+        $categories[] = $dbCategory;
+        $categoryKeys[$dbKey] = true;
+    }
+
+    return $categories;
 }
 
     public function getPhotoById(int $photoId): ?array
@@ -653,10 +680,21 @@ public function getTypesCuisson(): array
 public function getAuteurs(): array
 {
     $stmt = $this->pdo->query("
-        SELECT DISTINCT auteur
-        FROM recettes
-        WHERE auteur IS NOT NULL AND auteur <> ''
-        ORDER BY auteur
+        SELECT DISTINCT nom_auteur
+        FROM (
+            SELECT TRIM(auteur) AS nom_auteur
+            FROM recettes
+            WHERE auteur IS NOT NULL
+              AND TRIM(auteur) <> ''
+
+            UNION
+
+            SELECT TRIM(nom) AS nom_auteur
+            FROM users
+            WHERE nom IS NOT NULL
+              AND TRIM(nom) <> ''
+        ) AS auteurs
+        ORDER BY nom_auteur
     ");
     return $stmt->fetchAll(PDO::FETCH_COLUMN);
 }

@@ -96,10 +96,10 @@ $view = $view ?? ($_GET['view'] ?? 'list');
     <?php endif; ?>
     <button class="btn btn-primary" type="submit" form="form-edit">Enregistrer</button>
 
-  <?php elseif ($page === 'admin-users'): ?>
+  <?php elseif ($page === 'admin-users' || $page === 'admin-settings'): ?>
 
     <a class="btn btn-ghost" href="<?= PUBLIC_URL ?>/index.php">← Recettes</a>
-    <a class="btn btn-primary" href="<?= PUBLIC_URL ?>/admin/users.php">👥 Utilisateurs</a>
+    <a class="btn btn-primary" href="<?= PUBLIC_URL ?>/admin/settings.php">⚙️ Paramètres</a>
 
   <?php endif; ?>
 
@@ -122,7 +122,7 @@ $view = $view ?? ($_GET['view'] ?? 'list');
 ): ?>
 
 
-  <a href="<?= PUBLIC_URL ?>/admin/users.php" class="btn btn-ghost btn-small">👥 Utilisateurs</a>
+  <a href="<?= PUBLIC_URL ?>/admin/settings.php" class="btn btn-ghost btn-small">⚙️ Paramètres</a>
 <?php endif; ?>
 
 

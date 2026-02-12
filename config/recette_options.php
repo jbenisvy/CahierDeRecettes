@@ -8,6 +8,9 @@ return [
         'dessert' => 'Dessert',
         'accompagnement' => 'Accompagnement',
         'boisson' => 'Boisson',
+        'pain' => 'Pain',
+        'snack' => 'Snack',
+        'base' => 'Base',
     ],
 
     'types_cuisson' => [

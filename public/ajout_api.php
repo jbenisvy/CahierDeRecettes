@@ -1,6 +1,8 @@
 <?php
 require_once __DIR__ . "/../config/database.php";
 require_once __DIR__ . "/../app/services/ChatGPTService.php";
+$recetteOptions = require __DIR__ . "/../config/recette_options.php";
+$categories = $recetteOptions['categories'] ?? [];
 
 $chat = new ChatGPTService();
 $recetteFormattee = null;
@@ -41,10 +43,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     <label>Catégorie :</label><br>
     <select name="categorie">
-        <option value="plat">Plat</option>
-        <option value="dessert">Dessert</option>
-        <option value="gateau">Gâteau</option>
-        <option value="entree">Entrée</option>
+        <?php foreach ($categories as $value => $label): ?>
+            <option value="<?= htmlspecialchars((string)$value) ?>">
+                <?= htmlspecialchars((string)$label) ?>
+            </option>
+        <?php endforeach; ?>
     </select><br><br>
 
     <label>Texte brut de la recette :</label><br>

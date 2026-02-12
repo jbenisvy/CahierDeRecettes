@@ -74,9 +74,9 @@ class SelectionModel
         // 🔍 Recherche texte
         if ($recherche !== null && $recherche !== '') {
             $conditions[] = "
-                (r.titre  LIKE :rech_titre
-                 OR r.auteur LIKE :rech_auteur
-                 OR r.source LIKE :rech_source)
+                (r.titre COLLATE utf8mb4_unicode_ci LIKE :rech_titre
+                 OR r.auteur COLLATE utf8mb4_unicode_ci LIKE :rech_auteur
+                 OR r.source COLLATE utf8mb4_unicode_ci LIKE :rech_source)
             ";
             $params[':rech_titre']  = "%$recherche%";
             $params[':rech_auteur'] = "%$recherche%";
@@ -84,7 +84,7 @@ class SelectionModel
         }
 
         if ($categorie) {
-            $conditions[] = "r.categorie = :categorie";
+            $conditions[] = "r.categorie COLLATE utf8mb4_unicode_ci = :categorie";
             $params[':categorie'] = $categorie;
         }
 

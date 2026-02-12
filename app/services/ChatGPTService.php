@@ -4,9 +4,6 @@ declare(strict_types=1);
 class ChatGPTService
 {
     private string $apiKey;
-    private const CATEGORY_HINT = "Exception autorisée: tu peux UNIQUEMENT déduire la catégorie culinaire de la recette et remplir 'categorie'.
-Valeurs autorisées pour 'categorie' : entree, plat, dessert, accompagnement, boisson.
-Si tu hésites vraiment, mets null.";
     private const TIME_HINT = "Pour 'temps_preparation' et 'temps_cuisson': si ces durées sont explicitement indiquées, renseigne un entier en minutes.
 Si absentes, illisibles ou ambiguës, mets null.";
     private const PEOPLE_HINT = "Pour 'nombre_personnes': si le nombre de personnes/parts est explicitement indiqué, renseigne un entier.
@@ -15,6 +12,20 @@ Si absent, illisible ou ambigu, mets null.";
     public function __construct()
     {
         $this->apiKey = $this->resolveApiKey();
+    }
+
+    private function buildCategoryHint(): string
+    {
+        $configFile = PROJECT_ROOT . '/config/recette_options.php';
+        $options = is_file($configFile) ? (require $configFile) : [];
+        $categories = array_keys($options['categories'] ?? []);
+        $allowed = !empty($categories)
+            ? implode(', ', $categories)
+            : 'entree, plat, dessert, accompagnement, boisson, pain, snack, base';
+
+        return "Exception autorisée: tu peux UNIQUEMENT déduire la catégorie culinaire de la recette et remplir 'categorie'.\n"
+            . "Valeurs autorisées pour 'categorie' : {$allowed}.\n"
+            . "Si tu hésites vraiment, mets null.";
     }
 
     private function resolveApiKey(): string
@@ -68,7 +79,7 @@ Si absent, illisible ou ambigu, mets null.";
 Ne fais AUCUNE interprétation, AUCUNE amélioration, AUCUNE correction.
 Exception : la catégorie est autorisée selon la règle ci-dessous.
 "
-                        . self::CATEGORY_HINT . "
+                        . $this->buildCategoryHint() . "
 Si une information est absente ou illisible, mets null."
                 ],
                 [
@@ -114,7 +125,7 @@ titre, auteur, source, categorie, temps_preparation, temps_cuisson, nombre_perso
 Ne fais AUCUNE interprétation, AUCUNE amélioration, AUCUNE correction.
 Exception : la catégorie est autorisée selon la règle ci-dessous.
 "
-                        . self::CATEGORY_HINT . "
+                        . $this->buildCategoryHint() . "
 Si une information est absente ou illisible, mets null."
                 ],
                 [
@@ -154,7 +165,7 @@ titre, auteur, source, categorie, temps_preparation, temps_cuisson, nombre_perso
 Ne fais AUCUNE interprétation, AUCUNE amélioration, AUCUNE correction.
 Exception : la catégorie est autorisée selon la règle ci-dessous.
 "
-                        . self::CATEGORY_HINT . "
+                        . $this->buildCategoryHint() . "
 Si une information est absente ou illisible, mets null."
                 ],
                 [

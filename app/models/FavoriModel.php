@@ -87,14 +87,18 @@ class FavoriModel
         ];
 
         if ($recherche !== null && $recherche !== '') {
-            $conditions[] = "(r.titre LIKE :rech_titre OR r.auteur LIKE :rech_auteur OR r.source LIKE :rech_source)";
+            $conditions[] = "(
+                r.titre COLLATE utf8mb4_unicode_ci LIKE :rech_titre
+                OR r.auteur COLLATE utf8mb4_unicode_ci LIKE :rech_auteur
+                OR r.source COLLATE utf8mb4_unicode_ci LIKE :rech_source
+            )";
             $params[':rech_titre']  = '%'.$recherche.'%';
             $params[':rech_auteur'] = '%'.$recherche.'%';
             $params[':rech_source'] = '%'.$recherche.'%';
         }
 
         if ($categorie !== null && $categorie !== '') {
-            $conditions[] = "categorie = :categorie";
+            $conditions[] = "r.categorie COLLATE utf8mb4_unicode_ci = :categorie";
             $params[':categorie'] = $categorie;
         }
 

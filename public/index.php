@@ -34,6 +34,9 @@ if ($config['env'] === 'prod') {
 require PROJECT_ROOT . '/config/database.php';
 require PROJECT_ROOT . '/app/controllers/RecetteController.php';
 require PROJECT_ROOT . '/public/auth/auth_guard.php';
+$recetteOptions = require PROJECT_ROOT . '/config/recette_options.php';
+$categoryOptions = $recetteOptions['categories'] ?? [];
+$typesRecetteOptions = $recetteOptions['types_recette'] ?? [];
 
 
 // Définition des constantes BASE_URL et PUBLIC_URL pour gérer les liens en sous-dossier
@@ -312,7 +315,7 @@ require __DIR__ . '/ui/layout_start.php';
         <?php foreach ($categories as $cat): ?>
             <option value="<?= htmlspecialchars($cat) ?>"
                 <?= ($categorie === $cat) ? 'selected' : '' ?>>
-                <?= htmlspecialchars($cat) ?>
+                <?= htmlspecialchars($categoryOptions[$cat] ?? ucfirst((string)$cat)) ?>
             </option>
         <?php endforeach; ?>
     </select>
@@ -326,9 +329,12 @@ if (!is_array($tagsSelectionnes)) {
 
     <select name="type_recette" class="filter-type">
         <option value="">Tous les types</option>
-        <option value="recette" <?= $typeRecette === 'recette' ? 'selected' : '' ?>>Recettes</option>
-        <option value="base" <?= $typeRecette === 'base' ? 'selected' : '' ?>>Bases</option>
-        <option value="composant" <?= $typeRecette === 'composant' ? 'selected' : '' ?>>Composants</option>
+        <?php foreach ($typesRecetteOptions as $value => $label): ?>
+            <option value="<?= htmlspecialchars((string)$value) ?>"
+                <?= ($typeRecette === $value) ? 'selected' : '' ?>>
+                <?= htmlspecialchars((string)$label) ?>
+            </option>
+        <?php endforeach; ?>
     </select>
 
     <select name="auteur" class="filter-author">

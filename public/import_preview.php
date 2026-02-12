@@ -3,7 +3,7 @@ declare(strict_types=1);
 session_start();
 define('PROJECT_ROOT', dirname(__DIR__));
 $options = require PROJECT_ROOT . '/config/recette_options.php';
-$categories = $options['categories'];
+$categories = $options['categories'] ?? [];
 $modesCuisson = $options['types_cuisson'];
 
 require_once PROJECT_ROOT . '/app/services/RecetteNormalizer.php';
@@ -90,6 +90,13 @@ $recette = array_merge($defaults, $json ?? []);
 $duplicateId = null;
 try {
     $model = new RecetteModel();
+    foreach ($model->getCategories() as $dbCategory) {
+        $dbCategory = trim((string)$dbCategory);
+        if ($dbCategory === '' || isset($categories[$dbCategory])) {
+            continue;
+        }
+        $categories[$dbCategory] = ucfirst($dbCategory);
+    }
     $duplicateId = $model->findDuplicateIdForRecette($recette);
 } catch (Throwable $e) {
     $duplicateId = null;

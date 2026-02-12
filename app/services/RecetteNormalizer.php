@@ -3,17 +3,52 @@ declare(strict_types=1);
 
 class RecetteNormalizer
 {
-    private const CATEGORY_MAP = [
-        'entree' => 'entree',
-        'entrée' => 'entree',
-        'plat' => 'plat',
-        'dessert' => 'dessert',
-        'desserts' => 'dessert',
-        'accompagnement' => 'accompagnement',
-        'accompagnements' => 'accompagnement',
-        'boisson' => 'boisson',
-        'boissons' => 'boisson',
-    ];
+    private static ?array $categoryIndex = null;
+
+    private static function canonicalCategoryKey(string $value): string
+    {
+        $key = mb_strtolower(trim($value));
+        $key = strtr($key, [
+            'é' => 'e', 'è' => 'e', 'ê' => 'e', 'ë' => 'e',
+            'à' => 'a', 'â' => 'a',
+            'î' => 'i', 'ï' => 'i',
+            'ô' => 'o', 'ö' => 'o',
+            'ù' => 'u', 'û' => 'u', 'ü' => 'u',
+            'ç' => 'c',
+        ]);
+        return $key;
+    }
+
+    private static function getCategoryIndex(): array
+    {
+        if (self::$categoryIndex !== null) {
+            return self::$categoryIndex;
+        }
+
+        $options = require __DIR__ . '/../../config/recette_options.php';
+        $categories = array_keys($options['categories'] ?? []);
+        $index = [];
+
+        foreach ($categories as $category) {
+            $canonical = self::canonicalCategoryKey((string)$category);
+            if ($canonical === '') {
+                continue;
+            }
+            $index[$canonical] = $category;
+            if (!str_ends_with($canonical, 's')) {
+                $index[$canonical . 's'] = $category;
+            }
+        }
+
+        // Alias historiques courants
+        if (isset($index['dessert'])) {
+            $index['gateau'] = $index['dessert'];
+            $index['gateaux'] = $index['dessert'];
+        }
+
+        self::$categoryIndex = $index;
+        return self::$categoryIndex;
+    }
 
     private static function normalizeCategory(mixed $value): string
     {
@@ -21,8 +56,9 @@ class RecetteNormalizer
             return '';
         }
 
-        $key = mb_strtolower(trim($value));
-        return self::CATEGORY_MAP[$key] ?? '';
+        $key = self::canonicalCategoryKey($value);
+        $index = self::getCategoryIndex();
+        return $index[$key] ?? '';
     }
 
     private static function normalizeMinutes(mixed $value): ?int

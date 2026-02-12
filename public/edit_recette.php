@@ -6,6 +6,7 @@ require __DIR__ . "/../app/controllers/RecetteController.php";
 $options = require __DIR__ . "/../config/recette_options.php";
 
 $controller = new RecetteController();
+$dbCategories = $controller->getCategories();
 
 if (!isset($_GET["id"]) || !is_numeric($_GET["id"])) {
     die("Recette introuvable");
@@ -70,7 +71,14 @@ require __DIR__ . '/ui/layout_start.php';
     <span>Catégorie</span>
 
     <?php
-   $categories = $options['categories'];
+   $categories = $options['categories'] ?? [];
+   foreach ($dbCategories as $dbCategory) {
+       $dbCategory = trim((string)$dbCategory);
+       if ($dbCategory === '' || isset($categories[$dbCategory])) {
+           continue;
+       }
+       $categories[$dbCategory] = ucfirst($dbCategory);
+   }
 
     ?>
 
@@ -88,18 +96,12 @@ require __DIR__ . '/ui/layout_start.php';
     <span>Type de recette</span>
 
     <select name="type_recette">
-        <option value="recette"
-            <?= ($r["type_recette"] ?? 'recette') === 'recette' ? 'selected' : '' ?>>
-            Recette
-        </option>
-        <option value="base"
-            <?= ($r["type_recette"] ?? '') === 'base' ? 'selected' : '' ?>>
-            Base
-        </option>
-        <option value="composant"
-            <?= ($r["type_recette"] ?? '') === 'composant' ? 'selected' : '' ?>>
-            Composant
-        </option>
+        <?php foreach (($options['types_recette'] ?? []) as $value => $label): ?>
+            <option value="<?= htmlspecialchars((string)$value) ?>"
+                <?= ($r["type_recette"] ?? 'recette') === $value ? 'selected' : '' ?>>
+                <?= htmlspecialchars((string)$label) ?>
+            </option>
+        <?php endforeach; ?>
     </select>
 </label>
 
