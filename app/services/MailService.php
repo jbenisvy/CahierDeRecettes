@@ -2,8 +2,17 @@
 
 class MailService
 {
+    private static ?string $lastError = null;
+
+    public static function getLastError(): ?string
+    {
+        return self::$lastError;
+    }
+
     public static function send(string $to, string $subject, string $html, string $text = ''): bool
     {
+        self::$lastError = null;
+
         if (!class_exists('\\PHPMailer\\PHPMailer\\PHPMailer')) {
             $autoload = dirname(__DIR__, 2) . '/vendor/autoload.php';
             if (is_readable($autoload)) {
@@ -52,9 +61,14 @@ class MailService
             $mail->AltBody = $text ?: strip_tags($html);
             $mail->isHTML(true);
 
-            return $mail->send();
+            $ok = $mail->send();
+            if (!$ok) {
+                self::$lastError = 'PHPMailer send() returned false';
+            }
+            return $ok;
         } catch (Throwable $e) {
             $line = 'Mail error: ' . $e->getMessage();
+            self::$lastError = $e->getMessage();
             error_log($line);
             @error_log($line . PHP_EOL, 3, dirname(__DIR__, 2) . '/error.log');
             return false;
@@ -70,6 +84,14 @@ class MailService
         $headers[] = 'Content-type: text/html; charset=UTF-8';
         $headers[] = 'From: ' . $fromName . ' <' . $from . '>';
 
-        return mail($to, $subject, $html, implode("\r\n", $headers));
+        $ok = mail($to, $subject, $html, implode("\r\n", $headers));
+        if (!$ok) {
+            $lastPhpError = error_get_last();
+            self::$lastError = $lastPhpError['message'] ?? 'mail() returned false';
+            $line = 'Mail error (mail()): ' . self::$lastError;
+            error_log($line);
+            @error_log($line . PHP_EOL, 3, dirname(__DIR__, 2) . '/error.log');
+        }
+        return $ok;
     }
 }

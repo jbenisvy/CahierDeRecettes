@@ -11,6 +11,7 @@ $pdo = getPDO();
 
 $error = null;
 $message = null;
+$mailDebugError = null;
 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -72,6 +73,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $sent = MailService::send($email, $subject, $html);
             if (!$sent) {
                 error_log('Mail activation non envoyé pour ' . $email);
+                if ((getenv('MAIL_DEBUG') ?: '0') === '1') {
+                    $mailDebugError = MailService::getLastError() ?: 'Erreur inconnue SMTP';
+                }
             }
 
             $message = "Un email vient d'être envoyé pour définir votre mot de passe.";
@@ -105,6 +109,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <?php if ($message): ?>
   <p class="login-success"><?= htmlspecialchars($message) ?></p>
+<?php endif; ?>
+
+<?php if ($mailDebugError && (getenv('MAIL_DEBUG') ?: '0') === '1'): ?>
+  <p class="login-error">Erreur d'envoi mail (DEBUG): <?= htmlspecialchars($mailDebugError) ?></p>
 <?php endif; ?>
 
 <form method="post" class="login-form">

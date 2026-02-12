@@ -7,6 +7,7 @@ $pdo = getPDO();
 
 $message = null;
 $resetLink = null;
+$mailDebugError = null;
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = trim($_POST['email'] ?? '');
@@ -64,6 +65,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $sent = MailService::send($email, $subject, $html);
             if (!$sent) {
                 error_log('Mail reset non envoyé pour ' . $email);
+                if ((getenv('MAIL_DEBUG') ?: '0') === '1') {
+                    $mailDebugError = MailService::getLastError() ?: 'Erreur inconnue SMTP';
+                }
             }
         }
     }
@@ -89,6 +93,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <?php if ($resetLink && getenv('MAIL_DEBUG') === '1'): ?>
       <p><strong>Lien de réinitialisation (DEV) :</strong><br>
         <a href="<?= htmlspecialchars($resetLink) ?>"><?= htmlspecialchars($resetLink) ?></a>
+      </p>
+    <?php endif; ?>
+
+    <?php if ($mailDebugError && getenv('MAIL_DEBUG') === '1'): ?>
+      <p class="login-error">
+        Erreur d'envoi mail (DEBUG): <?= htmlspecialchars($mailDebugError) ?>
       </p>
     <?php endif; ?>
 
