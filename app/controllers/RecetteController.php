@@ -62,7 +62,8 @@ class RecetteController
     array $tagIds = [],
     bool $favorisOnly = false,
     bool $selectionOnly = false,
-    ?int $userId = null
+    ?int $userId = null,
+    ?string $dashboardFilter = null
 ): array {
 
     // 🔹 MODE SÉLECTION (miroir des favoris)
@@ -73,6 +74,7 @@ $auteur       = ($auteur === '')       ? null : $auteur;
 $source       = ($source === '')       ? null : $source;
 $typeRecette  = ($typeRecette === '')  ? null : $typeRecette;
 $typeCuisson  = ($typeCuisson === '')  ? null : $typeCuisson;
+$dashboardFilter = ($dashboardFilter === '') ? null : $dashboardFilter;
 
     if ($selectionOnly && $userId !== null && $this->selectionModel !== null) {
         return $this->selectionModel->getRecettesSelectionnees(
@@ -83,7 +85,8 @@ $typeCuisson  = ($typeCuisson === '')  ? null : $typeCuisson;
             $source,
             $typeRecette,
             $typeCuisson,
-            $tagIds
+            $tagIds,
+            $dashboardFilter
         );
     }
 
@@ -98,7 +101,8 @@ $typeCuisson  = ($typeCuisson === '')  ? null : $typeCuisson;
     $tagIds,
     $favorisOnly,
      false,      // 🔒 IMPORTANT : jamais true ici
-    $userId
+    $userId,
+    $dashboardFilter
 );
 
 }

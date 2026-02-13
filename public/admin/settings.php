@@ -439,6 +439,19 @@ $tags = group_counts($pdo, "
 
 $dedupAnalysis = build_dedup_analysis($pdo);
 $duplicateGroups = array_slice($dedupAnalysis['duplicate_groups'], 0, 10);
+$listBaseUrl = PUBLIC_URL . '/index.php';
+$dashboardLinks = [
+    'total_recettes' => $listBaseUrl,
+    'sans_image' => $listBaseUrl . '?dashboard_filter=sans_image',
+    'sans_categorie' => $listBaseUrl . '?dashboard_filter=sans_categorie',
+    'sans_source' => $listBaseUrl . '?dashboard_filter=sans_source',
+    'sans_type_cuisson' => $listBaseUrl . '?dashboard_filter=sans_type_cuisson',
+    'incompletes' => $listBaseUrl . '?dashboard_filter=incompletes',
+    'favoris_total' => $listBaseUrl . '?favoris=1',
+    'selection_total' => $listBaseUrl . '?selection=1',
+    'dedup_hash_vides' => $listBaseUrl . '?dashboard_filter=dedup_hash_vides',
+    'groupes_doublons' => $listBaseUrl . '?dashboard_filter=doublons',
+];
 
 $bodyClass = 'page-admin-settings';
 $page = 'admin-settings';
@@ -505,16 +518,16 @@ require __DIR__ . '/../ui/layout_start.php';
   <section id="dashboard" class="settings-card card border-0 shadow-sm rounded-4">
     <h2>Dashboard</h2>
     <div class="row g-3">
-      <div class="col-6 col-md-4 col-xl"><div class="stat-card"><span>Total recettes</span><strong><?= (int) $kpis['total_recettes'] ?></strong></div></div>
-      <div class="col-6 col-md-4 col-xl"><div class="stat-card"><span>Sans image</span><strong><?= (int) $kpis['sans_image'] ?></strong></div></div>
-      <div class="col-6 col-md-4 col-xl"><div class="stat-card"><span>Sans catégorie</span><strong><?= (int) $kpis['sans_categorie'] ?></strong></div></div>
-      <div class="col-6 col-md-4 col-xl"><div class="stat-card"><span>Sans source</span><strong><?= (int) $kpis['sans_source'] ?></strong></div></div>
-      <div class="col-6 col-md-4 col-xl"><div class="stat-card"><span>Sans type cuisson</span><strong><?= (int) $kpis['sans_type_cuisson'] ?></strong></div></div>
-      <div class="col-6 col-md-4 col-xl"><div class="stat-card"><span>Incomplètes</span><strong><?= (int) $kpis['incompletes'] ?></strong></div></div>
-      <div class="col-6 col-md-4 col-xl"><div class="stat-card"><span>Favoris total</span><strong><?= (int) $kpis['favoris_total'] ?></strong></div></div>
-      <div class="col-6 col-md-4 col-xl"><div class="stat-card"><span>Sélections total</span><strong><?= (int) $kpis['selection_total'] ?></strong></div></div>
-      <div class="col-6 col-md-4 col-xl"><div class="stat-card"><span>dedup_hash vides</span><strong><?= (int) $kpis['dedup_hash_vides'] ?></strong></div></div>
-      <div class="col-6 col-md-4 col-xl"><div class="stat-card"><span>Groupes doublons</span><strong><?= count($dedupAnalysis['duplicate_groups']) ?></strong></div></div>
+      <div class="col-6 col-md-4 col-xl"><a class="stat-card stat-card-link" href="<?= htmlspecialchars($dashboardLinks['total_recettes']) ?>"><span>Total recettes</span><strong><?= (int) $kpis['total_recettes'] ?></strong></a></div>
+      <div class="col-6 col-md-4 col-xl"><a class="stat-card stat-card-link" href="<?= htmlspecialchars($dashboardLinks['sans_image']) ?>"><span>Sans image</span><strong><?= (int) $kpis['sans_image'] ?></strong></a></div>
+      <div class="col-6 col-md-4 col-xl"><a class="stat-card stat-card-link" href="<?= htmlspecialchars($dashboardLinks['sans_categorie']) ?>"><span>Sans catégorie</span><strong><?= (int) $kpis['sans_categorie'] ?></strong></a></div>
+      <div class="col-6 col-md-4 col-xl"><a class="stat-card stat-card-link" href="<?= htmlspecialchars($dashboardLinks['sans_source']) ?>"><span>Sans source</span><strong><?= (int) $kpis['sans_source'] ?></strong></a></div>
+      <div class="col-6 col-md-4 col-xl"><a class="stat-card stat-card-link" href="<?= htmlspecialchars($dashboardLinks['sans_type_cuisson']) ?>"><span>Sans type cuisson</span><strong><?= (int) $kpis['sans_type_cuisson'] ?></strong></a></div>
+      <div class="col-6 col-md-4 col-xl"><a class="stat-card stat-card-link" href="<?= htmlspecialchars($dashboardLinks['incompletes']) ?>"><span>Incomplètes</span><strong><?= (int) $kpis['incompletes'] ?></strong></a></div>
+      <div class="col-6 col-md-4 col-xl"><a class="stat-card stat-card-link" href="<?= htmlspecialchars($dashboardLinks['favoris_total']) ?>"><span>Favoris total</span><strong><?= (int) $kpis['favoris_total'] ?></strong></a></div>
+      <div class="col-6 col-md-4 col-xl"><a class="stat-card stat-card-link" href="<?= htmlspecialchars($dashboardLinks['selection_total']) ?>"><span>Sélections total</span><strong><?= (int) $kpis['selection_total'] ?></strong></a></div>
+      <div class="col-6 col-md-4 col-xl"><a class="stat-card stat-card-link" href="<?= htmlspecialchars($dashboardLinks['dedup_hash_vides']) ?>"><span>dedup_hash vides</span><strong><?= (int) $kpis['dedup_hash_vides'] ?></strong></a></div>
+      <div class="col-6 col-md-4 col-xl"><a class="stat-card stat-card-link" href="<?= htmlspecialchars($dashboardLinks['groupes_doublons']) ?>"><span>Groupes doublons</span><strong><?= count($dedupAnalysis['duplicate_groups']) ?></strong></a></div>
     </div>
   </section>
 

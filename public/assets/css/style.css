@@ -343,6 +343,20 @@ p { line-height: 1.6; color: var(--ink-700); }
   color: var(--ink-900);
 }
 
+.stat-card-link {
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+}
+
+.stat-card-link:hover,
+.stat-card-link:focus-visible {
+  transform: translateY(-1px);
+  border-color: #d7bfa3;
+  box-shadow: 0 10px 22px rgba(47, 33, 15, 0.08);
+  text-decoration: none;
+}
+
 .settings-actions-start {
   justify-content: flex-start;
   gap: 10px;

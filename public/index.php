@@ -92,6 +92,19 @@ $source      = $_GET["source"] ?? null;
 $typesCuisson = $controller->getTypesCuisson();
 $typeRecette = $_GET["type_recette"] ?? null;
 $typeCuisson = $_GET["type_cuisson"] ?? null;
+$dashboardFilter = $_GET['dashboard_filter'] ?? null;
+$dashboardFilterLabels = [
+    'sans_image' => 'Sans image',
+    'sans_categorie' => 'Sans catégorie',
+    'sans_source' => 'Sans source',
+    'sans_type_cuisson' => 'Sans type cuisson',
+    'incompletes' => 'Incomplètes',
+    'dedup_hash_vides' => 'dedup_hash vides',
+    'doublons' => 'Groupes doublons',
+];
+if (!is_string($dashboardFilter) || !isset($dashboardFilterLabels[$dashboardFilter])) {
+    $dashboardFilter = null;
+}
 $tagsSelectionnes = $_GET['tags'] ?? [];
 if (!is_array($tagsSelectionnes)) {
     $tagsSelectionnes = [];
@@ -205,7 +218,8 @@ case 'reset_password':
             $tagsSelectionnes,
             $favorisFilter,     // bool
             $selectionFilter,   // bool
-            $userId             // int|null
+            $userId,            // int|null
+            $dashboardFilter
         );
     } catch (Throwable $e) {
         die("ERREUR: " . $e->getMessage());
@@ -368,6 +382,16 @@ if (!is_array($tagsSelectionnes)) {
     <?php endforeach; ?>
 </select>
 
+    <select name="dashboard_filter" class="filter-dashboard">
+        <option value="">Tous les états dashboard</option>
+        <?php foreach ($dashboardFilterLabels as $key => $label): ?>
+            <option value="<?= htmlspecialchars($key) ?>"
+                <?= ($dashboardFilter === $key) ? 'selected' : '' ?>>
+                <?= htmlspecialchars($label) ?>
+            </option>
+        <?php endforeach; ?>
+    </select>
+
     <?php if (!empty($_SESSION['user']['id'])): ?>
         <div class="filter-flags">
             <label class="favoris-filter">
@@ -409,6 +433,12 @@ if (!is_array($tagsSelectionnes)) {
     <button type="submit" class="btn btn-primary filter-submit">🔍 Rechercher</button>
 
 </form>
+<?php if ($dashboardFilter !== null): ?>
+  <p class="muted" style="margin-top:10px;">
+    Filtre dashboard actif: <strong><?= htmlspecialchars($dashboardFilterLabels[$dashboardFilter]) ?></strong>
+    · <a href="<?= PUBLIC_URL ?>/index.php">retirer</a>
+  </p>
+<?php endif; ?>
 </section>
 
 <section class="results-panel">

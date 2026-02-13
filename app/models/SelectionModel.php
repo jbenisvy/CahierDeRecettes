@@ -42,7 +42,8 @@ class SelectionModel
         ?string $source = null,
         ?string $typeRecette = null,
         ?string $typeCuisson = null,
-        array $tagIds = []
+        array $tagIds = [],
+        ?string $dashboardFilter = null
     ): array {
 
         $sql = "
@@ -106,6 +107,46 @@ class SelectionModel
         if ($typeCuisson) {
             $conditions[] = "r.type_cuisson = :type_cuisson";
             $params[':type_cuisson'] = $typeCuisson;
+        }
+
+        if ($dashboardFilter) {
+            switch ($dashboardFilter) {
+                case 'sans_image':
+                    $conditions[] = 'NOT EXISTS (SELECT 1 FROM photos_recettes p2 WHERE p2.recette_id = r.id)';
+                    break;
+                case 'sans_categorie':
+                    $conditions[] = '(r.categorie IS NULL OR TRIM(r.categorie) = "")';
+                    break;
+                case 'sans_source':
+                    $conditions[] = '(r.source IS NULL OR TRIM(r.source) = "")';
+                    break;
+                case 'sans_type_cuisson':
+                    $conditions[] = '(r.type_cuisson IS NULL OR TRIM(r.type_cuisson) = "")';
+                    break;
+                case 'incompletes':
+                    $conditions[] = '(
+                        NOT EXISTS (SELECT 1 FROM ingredients i WHERE i.recette_id = r.id)
+                        OR NOT EXISTS (SELECT 1 FROM etapes e WHERE e.recette_id = r.id)
+                    )';
+                    break;
+                case 'dedup_hash_vides':
+                    $conditions[] = '(r.dedup_hash IS NULL OR TRIM(r.dedup_hash) = "")';
+                    break;
+                case 'doublons':
+                    $conditions[] = '(
+                        r.dedup_hash IS NOT NULL
+                        AND TRIM(r.dedup_hash) <> ""
+                        AND r.dedup_hash IN (
+                            SELECT d.dedup_hash
+                            FROM recettes d
+                            WHERE d.dedup_hash IS NOT NULL
+                              AND TRIM(d.dedup_hash) <> ""
+                            GROUP BY d.dedup_hash
+                            HAVING COUNT(*) > 1
+                        )
+                    )';
+                    break;
+            }
         }
 
         // 🏷️ Tags (ET logique)
