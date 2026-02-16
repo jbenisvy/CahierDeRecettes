@@ -375,11 +375,18 @@ if (!empty($recette["photos"])) {
 
     <input type="hidden" name="recette_id" value="<?= $id ?>">
 
-    <label for="photo-upload-file">Choisir une photo</label>
-    <input type="file" id="photo-upload-file" name="photo" accept="image/*">
+    <div class="desktop-only">
+        <label for="photo-upload-desktop">Choisir une photo (ordinateur)</label>
+        <input type="file" id="photo-upload-desktop" name="photo_desktop" accept="image/*">
+    </div>
 
-    <label for="photo-upload-camera">Ou prendre une photo (mobile)</label>
-    <input type="file" id="photo-upload-camera" name="photo_camera" accept="image/*" capture="environment">
+    <div class="mobile-only">
+        <label for="photo-upload-gallery">Choisir depuis la pellicule / fichiers</label>
+        <input type="file" id="photo-upload-gallery" name="photo_gallery" accept="image/*">
+
+        <label for="photo-upload-camera">Prendre une photo</label>
+        <input type="file" id="photo-upload-camera" name="photo_camera" accept="image/*" capture="environment">
+    </div>
 
     <button type="submit">📤 Ajouter la photo</button>
 </form>

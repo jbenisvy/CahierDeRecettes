@@ -985,6 +985,14 @@ td.actions a:hover { background: #f0e7dc; }
   background: #d9ecdf;
 }
 
+.desktop-only { display: block; }
+.mobile-only { display: none; }
+
+@media (max-width: 767px) {
+  .desktop-only { display: none; }
+  .mobile-only { display: block; }
+}
+
 .photos-secondaires {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));

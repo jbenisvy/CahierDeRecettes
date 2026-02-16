@@ -98,17 +98,23 @@ document.addEventListener("DOMContentLoaded", function () {
        Upload photo (fichier/camera)
        ========================= */
     const uploadPhotoForm = document.getElementById("upload-photo-form");
-    const uploadPhotoFile = document.getElementById("photo-upload-file");
+    const uploadPhotoDesktop = document.getElementById("photo-upload-desktop");
+    const uploadPhotoGallery = document.getElementById("photo-upload-gallery");
     const uploadPhotoCamera = document.getElementById("photo-upload-camera");
 
-    if (uploadPhotoForm && uploadPhotoFile && uploadPhotoCamera) {
+    if (uploadPhotoForm && uploadPhotoDesktop && uploadPhotoGallery && uploadPhotoCamera) {
         uploadPhotoForm.addEventListener("submit", function (e) {
-            const hasFile = uploadPhotoFile.files && uploadPhotoFile.files.length > 0;
+            const isMobile = window.matchMedia("(max-width: 767px)").matches;
+            const hasDesktop = uploadPhotoDesktop.files && uploadPhotoDesktop.files.length > 0;
+            const hasGallery = uploadPhotoGallery.files && uploadPhotoGallery.files.length > 0;
             const hasCamera = uploadPhotoCamera.files && uploadPhotoCamera.files.length > 0;
 
-            if (!hasFile && !hasCamera) {
+            const valid = isMobile ? (hasGallery || hasCamera) : hasDesktop;
+            if (!valid) {
                 e.preventDefault();
-                alert("Veuillez choisir une photo ou prendre une photo.");
+                alert(isMobile
+                    ? "Veuillez choisir une photo depuis la pellicule/fichiers ou prendre une photo."
+                    : "Veuillez choisir une photo sur votre ordinateur.");
             }
         });
     }

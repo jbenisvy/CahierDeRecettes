@@ -17,8 +17,10 @@ if (!isset($_POST["recette_id"])) {
 
 $recetteId = (int) $_POST["recette_id"];
 $file = null;
-if (isset($_FILES["photo"]) && (int) ($_FILES["photo"]["error"] ?? UPLOAD_ERR_NO_FILE) !== UPLOAD_ERR_NO_FILE) {
-    $file = $_FILES["photo"];
+if (isset($_FILES["photo_desktop"]) && (int) ($_FILES["photo_desktop"]["error"] ?? UPLOAD_ERR_NO_FILE) !== UPLOAD_ERR_NO_FILE) {
+    $file = $_FILES["photo_desktop"];
+} elseif (isset($_FILES["photo_gallery"]) && (int) ($_FILES["photo_gallery"]["error"] ?? UPLOAD_ERR_NO_FILE) !== UPLOAD_ERR_NO_FILE) {
+    $file = $_FILES["photo_gallery"];
 } elseif (isset($_FILES["photo_camera"]) && (int) ($_FILES["photo_camera"]["error"] ?? UPLOAD_ERR_NO_FILE) !== UPLOAD_ERR_NO_FILE) {
     $file = $_FILES["photo_camera"];
 }
