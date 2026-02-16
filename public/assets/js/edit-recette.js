@@ -101,10 +101,67 @@ document.addEventListener("DOMContentLoaded", function () {
     const uploadPhotoDesktop = document.getElementById("photo-upload-desktop");
     const uploadPhotoGallery = document.getElementById("photo-upload-gallery");
     const uploadPhotoCamera = document.getElementById("photo-upload-camera");
+    const photoDesktopWrap = document.getElementById("photo-upload-desktop-wrap");
+    const photoMobileWrap = document.getElementById("photo-upload-mobile-wrap");
+    const photoOpenGalleryBtn = document.getElementById("photo-open-gallery");
+    const photoOpenCameraBtn = document.getElementById("photo-open-camera");
+    const photoMobileStatus = document.getElementById("photo-mobile-status");
 
-    if (uploadPhotoForm && uploadPhotoDesktop && uploadPhotoGallery && uploadPhotoCamera) {
+    if (
+        uploadPhotoForm &&
+        uploadPhotoDesktop &&
+        uploadPhotoGallery &&
+        uploadPhotoCamera &&
+        photoDesktopWrap &&
+        photoMobileWrap
+    ) {
+        function isMobileDevice() {
+            const smallScreen = window.matchMedia("(max-width: 767px)").matches;
+            const touchDevice = navigator.maxTouchPoints > 1 && window.matchMedia("(pointer:coarse)").matches;
+            const uaMobile = /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent || "");
+            return smallScreen || touchDevice || uaMobile;
+        }
+
+        function applyUploadMode() {
+            const mobile = isMobileDevice();
+            photoDesktopWrap.style.display = mobile ? "none" : "block";
+            photoMobileWrap.style.display = mobile ? "block" : "none";
+        }
+
+        function updateMobileStatus() {
+            if (!photoMobileStatus) return;
+            const hasGallery = uploadPhotoGallery.files && uploadPhotoGallery.files.length > 0;
+            const hasCamera = uploadPhotoCamera.files && uploadPhotoCamera.files.length > 0;
+
+            if (hasGallery) {
+                photoMobileStatus.textContent = "Photo sélectionnée depuis la pellicule/fichiers.";
+                return;
+            }
+            if (hasCamera) {
+                photoMobileStatus.textContent = "Photo prise avec l'appareil.";
+                return;
+            }
+            photoMobileStatus.textContent = "Aucune photo sélectionnée.";
+        }
+
+        applyUploadMode();
+        window.addEventListener("resize", applyUploadMode);
+
+        if (photoOpenGalleryBtn) {
+            photoOpenGalleryBtn.addEventListener("click", function () {
+                uploadPhotoGallery.click();
+            });
+        }
+        if (photoOpenCameraBtn) {
+            photoOpenCameraBtn.addEventListener("click", function () {
+                uploadPhotoCamera.click();
+            });
+        }
+        uploadPhotoGallery.addEventListener("change", updateMobileStatus);
+        uploadPhotoCamera.addEventListener("change", updateMobileStatus);
+
         uploadPhotoForm.addEventListener("submit", function (e) {
-            const isMobile = window.matchMedia("(max-width: 767px)").matches;
+            const isMobile = isMobileDevice();
             const hasDesktop = uploadPhotoDesktop.files && uploadPhotoDesktop.files.length > 0;
             const hasGallery = uploadPhotoGallery.files && uploadPhotoGallery.files.length > 0;
             const hasCamera = uploadPhotoCamera.files && uploadPhotoCamera.files.length > 0;

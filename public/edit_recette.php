@@ -371,21 +371,25 @@ if (!empty($recette["photos"])) {
 <form method="post"
       action="upload_photo.php"
       enctype="multipart/form-data"
-      id="upload-photo-form">
+      id="upload-photo-form"
+      class="photo-upload-form">
 
     <input type="hidden" name="recette_id" value="<?= $id ?>">
 
-    <div class="desktop-only">
+    <div id="photo-upload-desktop-wrap" class="desktop-only">
         <label for="photo-upload-desktop">Choisir une photo (ordinateur)</label>
         <input type="file" id="photo-upload-desktop" name="photo_desktop" accept="image/*">
     </div>
 
-    <div class="mobile-only">
-        <label for="photo-upload-gallery">Choisir depuis la pellicule / fichiers</label>
-        <input type="file" id="photo-upload-gallery" name="photo_gallery" accept="image/*">
+    <div id="photo-upload-mobile-wrap" class="mobile-only">
+        <div class="photo-upload-mobile-actions">
+            <button type="button" id="photo-open-gallery">📁 Pellicule / fichiers</button>
+            <button type="button" id="photo-open-camera">📷 Prendre une photo</button>
+        </div>
 
-        <label for="photo-upload-camera">Prendre une photo</label>
-        <input type="file" id="photo-upload-camera" name="photo_camera" accept="image/*" capture="environment">
+        <input type="file" id="photo-upload-gallery" name="photo_gallery" accept="image/*" class="photo-upload-hidden-input">
+        <input type="file" id="photo-upload-camera" name="photo_camera" accept="image/*" capture="environment" class="photo-upload-hidden-input">
+        <p class="muted" id="photo-mobile-status">Aucune photo sélectionnée.</p>
     </div>
 
     <button type="submit">📤 Ajouter la photo</button>

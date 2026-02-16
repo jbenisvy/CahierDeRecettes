@@ -985,6 +985,47 @@ td.actions a:hover { background: #f0e7dc; }
   background: #d9ecdf;
 }
 
+.photo-upload-form {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 8px;
+  max-width: 560px;
+}
+
+.photo-upload-form label {
+  display: block;
+  font-weight: 700;
+  color: var(--ink-700);
+}
+
+.photo-upload-mobile-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.photo-upload-mobile-actions button {
+  padding: 9px 12px;
+  border-radius: 10px;
+  border: 1px solid #cfe2d6;
+  background: #e6f3ec;
+  color: #1f5c43;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.photo-upload-mobile-actions button:hover {
+  background: #d9ecdf;
+}
+
+.photo-upload-hidden-input {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
 .desktop-only { display: block; }
 .mobile-only { display: none; }
 
