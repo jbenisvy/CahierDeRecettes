@@ -584,6 +584,25 @@ $dashboardLinks = [
     'groupes_doublons' => $listBaseUrl . '?dashboard_filter=doublons',
 ];
 
+/**
+ * Construit un lien vers la liste filtrée à partir d'un libellé de répartition.
+ */
+function build_group_filter_link(string $listBaseUrl, string $dimension, string $label): ?string
+{
+    $label = trim($label);
+    if ($label === '' || $label === '—') {
+        return null;
+    }
+
+    return match ($dimension) {
+        'auteur' => $listBaseUrl . '?auteur=' . rawurlencode($label),
+        'categorie' => $listBaseUrl . '?categorie=' . rawurlencode($label),
+        'type_cuisson' => $listBaseUrl . '?type_cuisson=' . rawurlencode($label),
+        'type_recette' => $listBaseUrl . '?type_recette=' . rawurlencode($label),
+        default => null,
+    };
+}
+
 $bodyClass = 'page-admin-settings';
 $page = 'admin-settings';
 $pageTitle = 'Paramètres';
@@ -730,7 +749,25 @@ require __DIR__ . '/../ui/layout_start.php';
         <table class="recettes-table compact-table">
           <tbody>
             <?php foreach ($byAuthor as $row): ?>
-              <tr><td><?= htmlspecialchars((string) $row['label']) ?></td><td><?= (int) $row['total'] ?></td></tr>
+              <?php $link = build_group_filter_link($listBaseUrl, 'auteur', (string) $row['label']); ?>
+              <tr
+                <?= $link ? 'class="settings-click-row" data-href="' . htmlspecialchars($link) . '" tabindex="0" role="link"' : '' ?>
+              >
+                <td>
+                  <?php if ($link): ?>
+                    <a href="<?= htmlspecialchars($link) ?>"><?= htmlspecialchars((string) $row['label']) ?></a>
+                  <?php else: ?>
+                    <?= htmlspecialchars((string) $row['label']) ?>
+                  <?php endif; ?>
+                </td>
+                <td>
+                  <?php if ($link): ?>
+                    <a href="<?= htmlspecialchars($link) ?>"><?= (int) $row['total'] ?></a>
+                  <?php else: ?>
+                    <?= (int) $row['total'] ?>
+                  <?php endif; ?>
+                </td>
+              </tr>
             <?php endforeach; ?>
           </tbody>
         </table>
@@ -740,7 +777,25 @@ require __DIR__ . '/../ui/layout_start.php';
         <table class="recettes-table compact-table">
           <tbody>
             <?php foreach ($byCategory as $row): ?>
-              <tr><td><?= htmlspecialchars((string) $row['label']) ?></td><td><?= (int) $row['total'] ?></td></tr>
+              <?php $link = build_group_filter_link($listBaseUrl, 'categorie', (string) $row['label']); ?>
+              <tr
+                <?= $link ? 'class="settings-click-row" data-href="' . htmlspecialchars($link) . '" tabindex="0" role="link"' : '' ?>
+              >
+                <td>
+                  <?php if ($link): ?>
+                    <a href="<?= htmlspecialchars($link) ?>"><?= htmlspecialchars((string) $row['label']) ?></a>
+                  <?php else: ?>
+                    <?= htmlspecialchars((string) $row['label']) ?>
+                  <?php endif; ?>
+                </td>
+                <td>
+                  <?php if ($link): ?>
+                    <a href="<?= htmlspecialchars($link) ?>"><?= (int) $row['total'] ?></a>
+                  <?php else: ?>
+                    <?= (int) $row['total'] ?>
+                  <?php endif; ?>
+                </td>
+              </tr>
             <?php endforeach; ?>
           </tbody>
         </table>
@@ -750,7 +805,25 @@ require __DIR__ . '/../ui/layout_start.php';
         <table class="recettes-table compact-table">
           <tbody>
             <?php foreach ($byTypeCuisson as $row): ?>
-              <tr><td><?= htmlspecialchars((string) $row['label']) ?></td><td><?= (int) $row['total'] ?></td></tr>
+              <?php $link = build_group_filter_link($listBaseUrl, 'type_cuisson', (string) $row['label']); ?>
+              <tr
+                <?= $link ? 'class="settings-click-row" data-href="' . htmlspecialchars($link) . '" tabindex="0" role="link"' : '' ?>
+              >
+                <td>
+                  <?php if ($link): ?>
+                    <a href="<?= htmlspecialchars($link) ?>"><?= htmlspecialchars((string) $row['label']) ?></a>
+                  <?php else: ?>
+                    <?= htmlspecialchars((string) $row['label']) ?>
+                  <?php endif; ?>
+                </td>
+                <td>
+                  <?php if ($link): ?>
+                    <a href="<?= htmlspecialchars($link) ?>"><?= (int) $row['total'] ?></a>
+                  <?php else: ?>
+                    <?= (int) $row['total'] ?>
+                  <?php endif; ?>
+                </td>
+              </tr>
             <?php endforeach; ?>
           </tbody>
         </table>
@@ -760,7 +833,25 @@ require __DIR__ . '/../ui/layout_start.php';
         <table class="recettes-table compact-table">
           <tbody>
             <?php foreach ($byTypeRecette as $row): ?>
-              <tr><td><?= htmlspecialchars((string) $row['label']) ?></td><td><?= (int) $row['total'] ?></td></tr>
+              <?php $link = build_group_filter_link($listBaseUrl, 'type_recette', (string) $row['label']); ?>
+              <tr
+                <?= $link ? 'class="settings-click-row" data-href="' . htmlspecialchars($link) . '" tabindex="0" role="link"' : '' ?>
+              >
+                <td>
+                  <?php if ($link): ?>
+                    <a href="<?= htmlspecialchars($link) ?>"><?= htmlspecialchars((string) $row['label']) ?></a>
+                  <?php else: ?>
+                    <?= htmlspecialchars((string) $row['label']) ?>
+                  <?php endif; ?>
+                </td>
+                <td>
+                  <?php if ($link): ?>
+                    <a href="<?= htmlspecialchars($link) ?>"><?= (int) $row['total'] ?></a>
+                  <?php else: ?>
+                    <?= (int) $row['total'] ?>
+                  <?php endif; ?>
+                </td>
+              </tr>
             <?php endforeach; ?>
           </tbody>
         </table>
@@ -1017,6 +1108,27 @@ require __DIR__ . '/../ui/layout_start.php';
     if (!row || !rows) return;
     if (rows.querySelectorAll('.settings-row').length <= 1) return;
     row.remove();
+  });
+
+  const goToRowHref = (row) => {
+    if (!(row instanceof HTMLElement)) return;
+    const href = row.getAttribute('data-href');
+    if (!href) return;
+    window.location.href = href;
+  };
+
+  document.querySelectorAll('tr.settings-click-row').forEach((row) => {
+    row.addEventListener('click', (event) => {
+      const target = event.target;
+      if (target instanceof HTMLElement && target.closest('a')) return;
+      goToRowHref(row);
+    });
+
+    row.addEventListener('keydown', (event) => {
+      if (event.key !== 'Enter' && event.key !== ' ') return;
+      event.preventDefault();
+      goToRowHref(row);
+    });
   });
 })();
 </script>

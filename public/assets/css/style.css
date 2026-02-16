@@ -327,6 +327,19 @@ p { line-height: 1.6; color: var(--ink-700); }
   padding: 8px 10px;
 }
 
+.settings-click-row {
+  cursor: pointer;
+}
+
+.settings-click-row td {
+  transition: background-color 0.15s ease;
+}
+
+.settings-click-row:hover td,
+.settings-click-row:focus-visible td {
+  background: #f7efe6;
+}
+
 .stats-grid {
   display: grid;
   gap: 10px;
