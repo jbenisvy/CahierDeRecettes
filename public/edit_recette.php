@@ -3,6 +3,9 @@
 
 require __DIR__ . "/../config/database.php";
 require __DIR__ . "/../app/controllers/RecetteController.php";
+if (session_status() !== PHP_SESSION_ACTIVE) {
+    session_start();
+}
 $options = require __DIR__ . "/../config/recette_options.php";
 
 $controller = new RecetteController();
@@ -39,6 +42,77 @@ require __DIR__ . '/ui/layout_start.php';
     <div class="alert alert-error">
         Doublon détecté : une recette similaire existe déjà.
     </div>
+<?php endif; ?>
+<?php if (($_GET['ai_image'] ?? '') === 'ok'): ?>
+    <div class="alert alert-success">
+        Image générée avec succès. Vous pouvez la définir comme photo principale si besoin.
+    </div>
+<?php elseif (($_GET['ai_image'] ?? '') === 'preview'): ?>
+    <div class="alert alert-error">
+        Image générée mais non enregistrée dans la bibliothèque (droits dossier). Prévisualisation temporaire affichée ci-dessous.
+    </div>
+<?php elseif (($_GET['ai_image'] ?? '') === 'preview_inline'): ?>
+    <div class="alert alert-error">
+        Image générée mais non enregistrée dans la bibliothèque (droits dossier). Prévisualisation temporaire affichée ci-dessous.
+    </div>
+<?php elseif (($_GET['ai_image'] ?? '') === 'error'): ?>
+    <div class="alert alert-error">
+        Échec de génération d'image IA
+        <?php if (!empty($_GET['reason'])): ?>
+            : <?= htmlspecialchars((string) $_GET['reason']) ?>
+        <?php endif; ?>
+    </div>
+<?php endif; ?>
+<?php if (($_GET['ai_apply'] ?? '') === 'ok'): ?>
+    <div class="alert alert-success">
+        La prévisualisation IA a été ajoutée à la recette et définie en photo principale.
+    </div>
+<?php elseif (($_GET['ai_apply'] ?? '') === 'error'): ?>
+    <div class="alert alert-error">
+        Impossible d'appliquer la prévisualisation IA
+        <?php if (!empty($_GET['reason'])): ?>
+            : <?= htmlspecialchars((string) $_GET['reason']) ?>
+        <?php endif; ?>
+    </div>
+<?php endif; ?>
+<?php
+$aiPreview = '';
+if (!empty($_GET['ai_preview'])) {
+    $candidate = basename((string) $_GET['ai_preview']);
+    if (preg_match('/^ai_preview_[a-zA-Z0-9.]+\.(png|webp|jpg|jpeg)$/', $candidate)) {
+        $previewFile = __DIR__ . '/uploads/tmp/' . $candidate;
+        if (is_file($previewFile)) {
+            $aiPreview = $candidate;
+        }
+    }
+}
+?>
+<?php if ($aiPreview !== ''): ?>
+    <div class="recette-photo-principale ai-preview">
+        <img src="<?= PUBLIC_URL ?>/uploads/tmp/<?= htmlspecialchars($aiPreview) ?>" alt="Prévisualisation image IA">
+    </div>
+    <form method="post" action="save_ai_preview_photo.php" class="ai-preview-form">
+        <input type="hidden" name="recette_id" value="<?= (int) $id ?>">
+        <input type="hidden" name="preview_source" value="tmp">
+        <input type="hidden" name="ai_preview" value="<?= htmlspecialchars($aiPreview) ?>">
+        <button type="submit">✅ Utiliser cette image en photo principale</button>
+    </form>
+<?php endif; ?>
+<?php
+$aiPreviewInline = $_SESSION['ai_preview_inline'] ?? '';
+if (is_string($aiPreviewInline) && $aiPreviewInline !== '' && (($_GET['ai_image'] ?? '') === 'preview_inline')): ?>
+    <?php
+    $inlineExt = (string) ($_SESSION['ai_preview_inline_ext'] ?? 'png');
+    $inlineMime = $inlineExt === 'jpg' ? 'jpeg' : $inlineExt;
+    ?>
+    <div class="recette-photo-principale ai-preview">
+        <img src="data:image/<?= htmlspecialchars($inlineMime) ?>;base64,<?= htmlspecialchars($aiPreviewInline) ?>" alt="Prévisualisation image IA">
+    </div>
+    <form method="post" action="save_ai_preview_photo.php" class="ai-preview-form">
+        <input type="hidden" name="recette_id" value="<?= (int) $id ?>">
+        <input type="hidden" name="preview_source" value="inline">
+        <button type="submit">✅ Utiliser cette image en photo principale</button>
+    </form>
 <?php endif; ?>
 
 <?php if (!empty($recette["photo_principale"])): ?>
@@ -292,6 +366,13 @@ if (!empty($recette["photos"])) {
     <input type="file" name="photo" accept="image/*" required>
 
     <button type="submit">📤 Ajouter la photo</button>
+</form>
+
+<h3>🤖 Générer une photo (optionnel)</h3>
+<p class="muted">Ce bouton ajoute une nouvelle image IA sans modifier votre système actuel d'upload.</p>
+<form method="post" action="generate_photo_ai.php" id="ai-image-form">
+    <input type="hidden" name="recette_id" value="<?= $id ?>">
+    <button type="submit" id="ai-image-btn">🤖 Générer une image avec l'IA</button>
 </form>
 
 </div>

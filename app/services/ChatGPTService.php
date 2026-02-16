@@ -184,6 +184,159 @@ titre, auteur, source, categorie, temps_preparation, temps_cuisson, nombre_perso
         return $this->callOpenAI($payload);
     }
 
+    public function genererImageRecette(array $recette): string
+    {
+        $titre = trim((string) ($recette['titre'] ?? ''));
+        if ($titre === '') {
+            throw new Exception("Titre de recette manquant pour la génération d'image");
+        }
+
+        $ingredients = $recette['ingredients'] ?? [];
+        if (!is_array($ingredients)) {
+            $ingredients = [];
+        }
+        $ingredients = array_slice(array_values(array_filter(array_map('strval', $ingredients))), 0, 14);
+
+        $etapes = $recette['etapes'] ?? [];
+        if (!is_array($etapes)) {
+            $etapes = [];
+        }
+        $etapes = array_slice(array_values(array_filter(array_map('strval', $etapes))), 0, 4);
+
+        $categorie = trim((string) ($recette['categorie'] ?? ''));
+        $typeRecette = trim((string) ($recette['type_recette'] ?? ''));
+        $typeCuisson = trim((string) ($recette['type_cuisson'] ?? ''));
+        $nombrePersonnes = trim((string) ($recette['nombre_personnes'] ?? ''));
+
+        $style = (string) (getenv('OPENAI_IMAGE_STYLE') ?: ($_ENV['OPENAI_IMAGE_STYLE'] ?? 'photo culinaire réaliste'));
+        $size = (string) (getenv('OPENAI_IMAGE_SIZE') ?: ($_ENV['OPENAI_IMAGE_SIZE'] ?? '1024x1024'));
+        $quality = (string) (getenv('OPENAI_IMAGE_QUALITY') ?: ($_ENV['OPENAI_IMAGE_QUALITY'] ?? 'low'));
+        $model = (string) (getenv('OPENAI_IMAGE_MODEL') ?: ($_ENV['OPENAI_IMAGE_MODEL'] ?? 'gpt-image-1-mini'));
+
+        $prompt = $this->buildFinalDishImagePrompt(
+            $titre,
+            $ingredients,
+            $etapes,
+            $style,
+            $categorie,
+            $typeRecette,
+            $typeCuisson,
+            $nombrePersonnes
+        );
+
+        $payload = [
+            'model' => $model,
+            'prompt' => $prompt,
+            'size' => $size,
+            'quality' => $quality,
+            'n' => 1
+        ];
+
+        $ch = curl_init("https://api.openai.com/v1/images/generations");
+        curl_setopt_array($ch, [
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_POST => true,
+            CURLOPT_HTTPHEADER => [
+                "Content-Type: application/json",
+                "Authorization: Bearer {$this->apiKey}"
+            ],
+            CURLOPT_POSTFIELDS => json_encode($payload),
+            CURLOPT_TIMEOUT => 120
+        ]);
+
+        $response = curl_exec($ch);
+        if ($response === false) {
+            throw new Exception("Erreur CURL (images) : " . curl_error($ch));
+        }
+
+        $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        curl_close($ch);
+
+        if ($httpCode !== 200) {
+            throw new Exception("Erreur API image OpenAI ($httpCode) : $response");
+        }
+
+        $data = json_decode($response, true);
+        $imageData = $data['data'][0] ?? null;
+        if (!is_array($imageData)) {
+            throw new Exception("Réponse image invalide: image absente");
+        }
+
+        if (!empty($imageData['b64_json']) && is_string($imageData['b64_json'])) {
+            $binary = base64_decode($imageData['b64_json'], true);
+            if ($binary === false || $binary === '') {
+                throw new Exception("Image base64 invalide dans la réponse OpenAI");
+            }
+            return $binary;
+        }
+
+        if (!empty($imageData['url']) && is_string($imageData['url'])) {
+            $binary = $this->downloadBinary($imageData['url']);
+            if ($binary !== '') {
+                return $binary;
+            }
+        }
+
+        throw new Exception("Réponse image OpenAI non exploitable");
+    }
+
+    private function buildFinalDishImagePrompt(
+        string $titre,
+        array $ingredients,
+        array $etapes,
+        string $style,
+        string $categorie,
+        string $typeRecette,
+        string $typeCuisson,
+        string $nombrePersonnes
+    ): string {
+        $titreLower = mb_strtolower($titre);
+
+        $sceneHint = "Photographie culinaire réaliste du résultat final de la recette, prêt à être servi.";
+        if (str_contains($titreLower, 'crêpe') || str_contains($titreLower, 'crepe') || str_contains($titreLower, 'pancake')) {
+            $sceneHint = "Photographie culinaire réaliste de crêpes dorées déjà cuites, dressées dans une assiette, avec une garniture cohérente avec les ingrédients (ex: miel, confiture, fruits, sucre).";
+        } elseif (str_contains($titreLower, 'soupe') || str_contains($titreLower, 'velout')) {
+            $sceneHint = "Photographie culinaire réaliste d'une soupe/velouté servi dans un bol, avec finition adaptée aux ingrédients.";
+        } elseif (str_contains($titreLower, 'salade')) {
+            $sceneHint = "Photographie culinaire réaliste d'une salade finie, colorée et dressée proprement.";
+        } elseif (str_contains($titreLower, 'gâteau') || str_contains($titreLower, 'gateau') || str_contains($titreLower, 'tarte')) {
+            $sceneHint = "Photographie culinaire réaliste d'un dessert fini (gâteau/tarte), prêt à être servi.";
+        }
+
+        $lines = [
+            "Crée une image de recette.",
+            "Objectif principal: montrer UNIQUEMENT le plat final terminé, pas les étapes.",
+            "Ne pas montrer d'ingrédients crus en vrac, ni plan de travail en préparation.",
+            "Sans texte, sans logo, sans watermark.",
+            "Style visuel: {$style}.",
+            "Nom de la recette: {$titre}.",
+            $sceneHint,
+            "Le dressage doit être appétissant, crédible, avec lumière naturelle douce."
+        ];
+
+        if ($categorie !== '') {
+            $lines[] = "Catégorie: {$categorie}.";
+        }
+        if ($typeRecette !== '') {
+            $lines[] = "Type de recette: {$typeRecette}.";
+        }
+        if ($typeCuisson !== '') {
+            $lines[] = "Mode de cuisson: {$typeCuisson}.";
+        }
+        if ($nombrePersonnes !== '') {
+            $lines[] = "Portion: {$nombrePersonnes} personne(s) environ.";
+        }
+        if (!empty($ingredients)) {
+            $lines[] = "Ingrédients de la recette (à respecter visuellement): " . implode(', ', $ingredients) . '.';
+            $lines[] = "Si un topping/garniture est possible, utilise en priorité des éléments présents dans la liste d'ingrédients.";
+        }
+        if (!empty($etapes)) {
+            $lines[] = "Contexte de préparation (pour cohérence du rendu final): " . implode(' ', $etapes);
+        }
+
+        return implode("\n", $lines);
+    }
+
     private function fetchUrlContent(string $url): string
     {
         $ch = curl_init($url);
@@ -214,6 +367,28 @@ titre, auteur, source, categorie, temps_preparation, temps_cuisson, nombre_perso
         }
 
         return $text;
+    }
+
+    private function downloadBinary(string $url): string
+    {
+        $ch = curl_init($url);
+        curl_setopt_array($ch, [
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_FOLLOWLOCATION => true,
+            CURLOPT_TIMEOUT => 30,
+            CURLOPT_USERAGENT => 'CahierDeRecettes/1.0'
+        ]);
+        $body = curl_exec($ch);
+        if ($body === false) {
+            curl_close($ch);
+            return '';
+        }
+        $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        curl_close($ch);
+        if ($httpCode !== 200 || !is_string($body)) {
+            return '';
+        }
+        return $body;
     }
 
     private function callOpenAI(array $payload): string

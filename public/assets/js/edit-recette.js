@@ -55,22 +55,42 @@ document.addEventListener("DOMContentLoaded", function () {
     const selectCuisson = document.getElementById("type_cuisson");
     const inputAutre = document.getElementById("type_cuisson_autre");
 
-    // Sécurité : si les champs n'existent pas (autre page)
-    if (!selectCuisson || !inputAutre) return;
-
-    function toggleTypeCuissonAutre() {
-        if (selectCuisson.value === "__autre__") {
-            inputAutre.style.display = "block";
-            inputAutre.focus();
-        } else {
-            inputAutre.style.display = "none";
-            inputAutre.value = "";
+    if (selectCuisson && inputAutre) {
+        function toggleTypeCuissonAutre() {
+            if (selectCuisson.value === "__autre__") {
+                inputAutre.style.display = "block";
+                inputAutre.focus();
+            } else {
+                inputAutre.style.display = "none";
+                inputAutre.value = "";
+            }
         }
+
+        // État initial (édition d’une recette existante)
+        toggleTypeCuissonAutre();
+
+        // Réaction au changement utilisateur
+        selectCuisson.addEventListener("change", toggleTypeCuissonAutre);
     }
 
-    // État initial (édition d’une recette existante)
-    toggleTypeCuissonAutre();
+    /* =========================
+       Génération photo IA
+       ========================= */
+    const aiImageForm = document.getElementById("ai-image-form");
+    const aiImageBtn = document.getElementById("ai-image-btn");
 
-    // Réaction au changement utilisateur
-    selectCuisson.addEventListener("change", toggleTypeCuissonAutre);
+    if (aiImageForm && aiImageBtn) {
+        aiImageForm.addEventListener("submit", function (e) {
+            const ok = window.confirm(
+                "Générer une image IA pour cette recette ? Cette action peut engendrer un coût API."
+            );
+            if (!ok) {
+                e.preventDefault();
+                return;
+            }
+
+            aiImageBtn.disabled = true;
+            aiImageBtn.textContent = "⏳ Génération en cours...";
+        });
+    }
 });

@@ -952,6 +952,28 @@ td.actions a:hover { background: #f0e7dc; }
   border: 1px solid #efe3d6;
 }
 
+.ai-preview img {
+  width: min(240px, 100%);
+}
+
+.ai-preview-form {
+  margin: 10px 0 16px;
+}
+
+.ai-preview-form button {
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  border: 1px solid #cfe2d6;
+  background: #e6f3ec;
+  color: #1f5c43;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.ai-preview-form button:hover {
+  background: #d9ecdf;
+}
+
 .photos-secondaires {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
