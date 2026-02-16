@@ -1004,7 +1004,10 @@ td.actions a:hover { background: #f0e7dc; }
   flex-wrap: wrap;
 }
 
-.photo-upload-mobile-actions button {
+.photo-upload-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   padding: 9px 12px;
   border-radius: 10px;
   border: 1px solid #cfe2d6;
@@ -1012,9 +1015,10 @@ td.actions a:hover { background: #f0e7dc; }
   color: #1f5c43;
   font-weight: 700;
   cursor: pointer;
+  user-select: none;
 }
 
-.photo-upload-mobile-actions button:hover {
+.photo-upload-action:hover {
   background: #d9ecdf;
 }
 

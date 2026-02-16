@@ -383,8 +383,8 @@ if (!empty($recette["photos"])) {
 
     <div id="photo-upload-mobile-wrap" class="mobile-only">
         <div class="photo-upload-mobile-actions">
-            <button type="button" id="photo-open-gallery">📁 Pellicule / fichiers</button>
-            <button type="button" id="photo-open-camera">📷 Prendre une photo</button>
+            <label for="photo-upload-gallery" class="photo-upload-action">📁 Pellicule / fichiers</label>
+            <label for="photo-upload-camera" class="photo-upload-action">📷 Prendre une photo</label>
         </div>
 
         <input type="file" id="photo-upload-gallery" name="photo_gallery" accept="image/*" class="photo-upload-hidden-input">

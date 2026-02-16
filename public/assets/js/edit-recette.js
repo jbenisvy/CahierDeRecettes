@@ -103,8 +103,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const uploadPhotoCamera = document.getElementById("photo-upload-camera");
     const photoDesktopWrap = document.getElementById("photo-upload-desktop-wrap");
     const photoMobileWrap = document.getElementById("photo-upload-mobile-wrap");
-    const photoOpenGalleryBtn = document.getElementById("photo-open-gallery");
-    const photoOpenCameraBtn = document.getElementById("photo-open-camera");
     const photoMobileStatus = document.getElementById("photo-mobile-status");
 
     if (
@@ -147,16 +145,6 @@ document.addEventListener("DOMContentLoaded", function () {
         applyUploadMode();
         window.addEventListener("resize", applyUploadMode);
 
-        if (photoOpenGalleryBtn) {
-            photoOpenGalleryBtn.addEventListener("click", function () {
-                uploadPhotoGallery.click();
-            });
-        }
-        if (photoOpenCameraBtn) {
-            photoOpenCameraBtn.addEventListener("click", function () {
-                uploadPhotoCamera.click();
-            });
-        }
         uploadPhotoGallery.addEventListener("change", updateMobileStatus);
         uploadPhotoCamera.addEventListener("change", updateMobileStatus);
 
