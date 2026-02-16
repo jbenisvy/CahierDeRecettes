@@ -209,6 +209,10 @@ case 'reset_password':
     // Toutes les pages hors login/register/forgot/reset nécessitent une connexion.
     // On force la connexion ici pour sécuriser l'accès au listing.
     require_login();
+    // Mémorise la dernière liste consultée (filtres + vue + recherche)
+    if (isset($_SERVER['REQUEST_URI']) && is_string($_SERVER['REQUEST_URI'])) {
+        $_SESSION['last_list_url'] = $_SERVER['REQUEST_URI'];
+    }
     try {
         $recettes = $controller->getToutesRecettes(
             $recherche,

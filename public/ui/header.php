@@ -8,6 +8,10 @@ require_once __DIR__ . '/../auth/auth_functions.php';
 $page = $page ?? 'unknown';
 $recetteId = $recetteId ?? null;
 $view = $view ?? ($_GET['view'] ?? 'list');
+$lastListUrl = $_SESSION['last_list_url'] ?? (PUBLIC_URL . '/index.php');
+if (!is_string($lastListUrl) || trim($lastListUrl) === '') {
+    $lastListUrl = PUBLIC_URL . '/index.php';
+}
 ?>
 
 
@@ -85,7 +89,7 @@ $view = $view ?? ($_GET['view'] ?? 'list');
 
   <?php elseif ($page === 'recette'): ?>
 
-    <a class="btn btn-ghost" href="<?= PUBLIC_URL ?>/index.php">← Liste</a>
+    <a class="btn btn-ghost" href="<?= htmlspecialchars($lastListUrl) ?>">← Liste</a>
     <?php if ($recetteId && $canEdit): ?>
       <a class="btn btn-ghost" href="<?= PUBLIC_URL ?>/edit_recette.php?id=<?= (int)$recetteId ?>">Éditer</a>
     <?php endif; ?>
@@ -97,7 +101,7 @@ $view = $view ?? ($_GET['view'] ?? 'list');
 
   <?php elseif ($page === 'edit'): ?>
 
-    <a class="btn btn-ghost" href="<?= PUBLIC_URL ?>/index.php">← Liste</a>
+    <a class="btn btn-ghost" href="<?= htmlspecialchars($lastListUrl) ?>">← Liste</a>
     <?php if ($recetteId): ?>
       <a class="btn btn-ghost" href="<?= PUBLIC_URL ?>/recette.php?id=<?= (int)$recetteId ?>">← Fiche</a>
     <?php endif; ?>
@@ -105,12 +109,12 @@ $view = $view ?? ($_GET['view'] ?? 'list');
 
   <?php elseif ($page === 'admin-users' || $page === 'admin-settings'): ?>
 
-    <a class="btn btn-ghost" href="<?= PUBLIC_URL ?>/index.php">← Recettes</a>
+    <a class="btn btn-ghost" href="<?= htmlspecialchars($lastListUrl) ?>">← Recettes</a>
     <a class="btn btn-primary" href="<?= PUBLIC_URL ?>/admin/settings.php">⚙️ Paramètres</a>
 
   <?php elseif ($page === 'tutorial'): ?>
 
-    <a class="btn btn-ghost" href="<?= PUBLIC_URL ?>/index.php">← Recettes</a>
+    <a class="btn btn-ghost" href="<?= htmlspecialchars($lastListUrl) ?>">← Recettes</a>
     <a class="btn btn-primary" href="<?= PUBLIC_URL ?>/tutorial.php">Tutoriel</a>
 
   <?php endif; ?>
