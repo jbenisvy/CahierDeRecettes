@@ -185,6 +185,104 @@ function group_counts(PDO $pdo, string $sql): array
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
+function resolve_openai_api_key_settings(): ?string
+{
+    $envFile = dirname(__DIR__, 2) . '/config/env.php';
+    if (is_file($envFile)) {
+        require_once $envFile;
+    }
+
+    $key = getenv('OPENAI_API_KEY') ?: ($_ENV['OPENAI_API_KEY'] ?? null);
+    if (is_string($key) && trim($key) !== '') {
+        return trim($key);
+    }
+
+    $legacy = getenv('OPENAI_KEY') ?: ($_ENV['OPENAI_KEY'] ?? null);
+    if (is_string($legacy) && trim($legacy) !== '') {
+        return trim($legacy);
+    }
+
+    return null;
+}
+
+function fetch_openai_credit_summary(?string $apiKey): array
+{
+    if ($apiKey === null || $apiKey === '') {
+        return ['ok' => false, 'error' => 'OPENAI_API_KEY absente'];
+    }
+    if (!function_exists('curl_init')) {
+        return ['ok' => false, 'error' => 'Extension CURL absente'];
+    }
+
+    $headers = [
+        'Authorization: Bearer ' . $apiKey,
+        'Content-Type: application/json',
+    ];
+    $orgId = getenv('OPENAI_ORG_ID') ?: ($_ENV['OPENAI_ORG_ID'] ?? '');
+    if (is_string($orgId) && trim($orgId) !== '') {
+        $headers[] = 'OpenAI-Organization: ' . trim($orgId);
+    }
+    $projectId = getenv('OPENAI_PROJECT_ID') ?: ($_ENV['OPENAI_PROJECT_ID'] ?? '');
+    if (is_string($projectId) && trim($projectId) !== '') {
+        $headers[] = 'OpenAI-Project: ' . trim($projectId);
+    }
+
+    $ch = curl_init('https://api.openai.com/v1/dashboard/billing/credit_grants');
+    curl_setopt_array($ch, [
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_HTTPHEADER => $headers,
+        CURLOPT_TIMEOUT => 20,
+    ]);
+    $response = curl_exec($ch);
+    if ($response === false) {
+        $err = curl_error($ch);
+        curl_close($ch);
+        return ['ok' => false, 'error' => 'Erreur CURL: ' . $err];
+    }
+    $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    curl_close($ch);
+
+    if ($httpCode !== 200) {
+        $short = mb_substr((string) $response, 0, 180);
+        return ['ok' => false, 'error' => 'HTTP ' . $httpCode . ' - ' . $short];
+    }
+
+    $data = json_decode($response, true);
+    if (!is_array($data)) {
+        return ['ok' => false, 'error' => 'Réponse billing invalide'];
+    }
+
+    $totalGranted = isset($data['total_granted']) ? (float) $data['total_granted'] : null;
+    $totalUsed = isset($data['total_used']) ? (float) $data['total_used'] : null;
+    $totalAvailable = isset($data['total_available']) ? (float) $data['total_available'] : null;
+
+    if ($totalAvailable === null && isset($data['grants']['data']) && is_array($data['grants']['data'])) {
+        $granted = 0.0;
+        $used = 0.0;
+        foreach ($data['grants']['data'] as $row) {
+            if (!is_array($row)) {
+                continue;
+            }
+            $granted += (float) ($row['grant_amount'] ?? 0);
+            $used += (float) ($row['used_amount'] ?? 0);
+        }
+        $totalGranted = $granted;
+        $totalUsed = $used;
+        $totalAvailable = $granted - $used;
+    }
+
+    if ($totalAvailable === null) {
+        return ['ok' => false, 'error' => 'Crédit non disponible pour cette clé/API'];
+    }
+
+    return [
+        'ok' => true,
+        'granted' => (float) ($totalGranted ?? 0),
+        'used' => (float) ($totalUsed ?? 0),
+        'available' => (float) $totalAvailable,
+    ];
+}
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $action = (string) ($_POST['action'] ?? '');
 
@@ -383,6 +481,8 @@ $users = $pdo->query('SELECT id, nom, email, role FROM users ORDER BY nom')->fet
 
 $kpis = [
     'total_recettes' => scalar_int($pdo, 'SELECT COUNT(*) FROM recettes'),
+    'photos_total' => scalar_int($pdo, 'SELECT COUNT(*) FROM photos_recettes'),
+    'photos_ia_total' => scalar_int($pdo, "SELECT COUNT(*) FROM photos_recettes WHERE fichier LIKE 'recette_ai_%'"),
     'sans_image' => scalar_int($pdo, 'SELECT COUNT(*) FROM recettes r WHERE NOT EXISTS (SELECT 1 FROM photos_recettes p WHERE p.recette_id = r.id)'),
     'sans_categorie' => scalar_int($pdo, 'SELECT COUNT(*) FROM recettes WHERE categorie IS NULL OR TRIM(categorie) = ""'),
     'sans_source' => scalar_int($pdo, 'SELECT COUNT(*) FROM recettes WHERE source IS NULL OR TRIM(source) = ""'),
@@ -394,6 +494,8 @@ $kpis = [
     'dedup_hash_vides' => scalar_int($pdo, 'SELECT COUNT(*) FROM recettes WHERE dedup_hash IS NULL OR TRIM(dedup_hash) = ""'),
 ];
 $kpis['incompletes'] = $kpis['sans_ingredients'] + $kpis['sans_etapes'];
+
+$openAiCredit = fetch_openai_credit_summary(resolve_openai_api_key_settings());
 
 $byAuthor = group_counts($pdo, "
     SELECT COALESCE(NULLIF(TRIM(auteur), ''), '—') AS label, COUNT(*) AS total
@@ -519,6 +621,8 @@ require __DIR__ . '/../ui/layout_start.php';
     <h2>Dashboard</h2>
     <div class="row g-3">
       <div class="col-6 col-md-4 col-xl"><a class="stat-card stat-card-link" href="<?= htmlspecialchars($dashboardLinks['total_recettes']) ?>"><span>Total recettes</span><strong><?= (int) $kpis['total_recettes'] ?></strong></a></div>
+      <div class="col-6 col-md-4 col-xl"><span class="stat-card"><span>Total photos</span><strong><?= (int) $kpis['photos_total'] ?></strong></span></div>
+      <div class="col-6 col-md-4 col-xl"><span class="stat-card"><span>Photos IA</span><strong><?= (int) $kpis['photos_ia_total'] ?></strong></span></div>
       <div class="col-6 col-md-4 col-xl"><a class="stat-card stat-card-link" href="<?= htmlspecialchars($dashboardLinks['sans_image']) ?>"><span>Sans image</span><strong><?= (int) $kpis['sans_image'] ?></strong></a></div>
       <div class="col-6 col-md-4 col-xl"><a class="stat-card stat-card-link" href="<?= htmlspecialchars($dashboardLinks['sans_categorie']) ?>"><span>Sans catégorie</span><strong><?= (int) $kpis['sans_categorie'] ?></strong></a></div>
       <div class="col-6 col-md-4 col-xl"><a class="stat-card stat-card-link" href="<?= htmlspecialchars($dashboardLinks['sans_source']) ?>"><span>Sans source</span><strong><?= (int) $kpis['sans_source'] ?></strong></a></div>
@@ -529,6 +633,59 @@ require __DIR__ . '/../ui/layout_start.php';
       <div class="col-6 col-md-4 col-xl"><a class="stat-card stat-card-link" href="<?= htmlspecialchars($dashboardLinks['dedup_hash_vides']) ?>"><span>dedup_hash vides</span><strong><?= (int) $kpis['dedup_hash_vides'] ?></strong></a></div>
       <div class="col-6 col-md-4 col-xl"><a class="stat-card stat-card-link" href="<?= htmlspecialchars($dashboardLinks['groupes_doublons']) ?>"><span>Groupes doublons</span><strong><?= count($dedupAnalysis['duplicate_groups']) ?></strong></a></div>
     </div>
+  </section>
+
+  <section class="settings-card card border-0 shadow-sm rounded-4">
+    <h2>OpenAI</h2>
+    <table class="recettes-table compact-table">
+      <tbody>
+        <tr>
+          <td>Crédit OpenAI restant</td>
+          <td>
+            <?php if (!empty($openAiCredit['ok'])): ?>
+              <strong><?= number_format((float) $openAiCredit['available'], 2, ',', ' ') ?> $</strong>
+            <?php else: ?>
+              <span class="muted">Indisponible (<?= htmlspecialchars((string) ($openAiCredit['error'] ?? 'erreur inconnue')) ?>)</span>
+            <?php endif; ?>
+          </td>
+        </tr>
+        <tr>
+          <td>Crédit consommé</td>
+          <td>
+            <?php if (!empty($openAiCredit['ok'])): ?>
+              <?= number_format((float) ($openAiCredit['used'] ?? 0), 2, ',', ' ') ?> $
+            <?php else: ?>
+              —
+            <?php endif; ?>
+          </td>
+        </tr>
+        <tr>
+          <td>Crédit alloué</td>
+          <td>
+            <?php if (!empty($openAiCredit['ok'])): ?>
+              <?= number_format((float) ($openAiCredit['granted'] ?? 0), 2, ',', ' ') ?> $
+            <?php else: ?>
+              —
+            <?php endif; ?>
+          </td>
+        </tr>
+        <tr>
+          <td>Recettes dans l'application</td>
+          <td><?= (int) $kpis['total_recettes'] ?></td>
+        </tr>
+        <tr>
+          <td>Photos dans l'application</td>
+          <td><?= (int) $kpis['photos_total'] ?></td>
+        </tr>
+        <tr>
+          <td>Photos générées IA (estimé)</td>
+          <td><?= (int) $kpis['photos_ia_total'] ?></td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="muted" style="margin-top:8px;">
+      Note: le crédit OpenAI dépend des permissions de clé API et peut être indisponible selon le type de compte.
+    </p>
   </section>
 
   <section id="repartition" class="settings-card card border-0 shadow-sm rounded-4">

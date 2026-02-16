@@ -64,3 +64,5 @@ vendor/
 
 # Protection des dossiers
 .htaccess
+
+public/uploads/recettes/recette_ai_*
