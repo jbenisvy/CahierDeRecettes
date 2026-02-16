@@ -1,10 +1,8 @@
 <?php
 // Session + sécurité
 session_start();
-
-if (!isset($_SESSION['user']) || $_SESSION['user']['role'] !== 'admin') {
-    die('Accès refusé');
-}
+require_once __DIR__ . '/auth/auth_functions.php';
+require_capability('add_recette');
 
 // Layout
 $page = 'import';

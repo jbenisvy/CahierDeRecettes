@@ -3,8 +3,15 @@
 
 require __DIR__ . "/../config/database.php";
 require __DIR__ . "/../app/controllers/RecetteController.php";
+require_once __DIR__ . '/auth/auth_functions.php';
 // Charge BASE_URL/PUBLIC_URL pour redirections
 require_once dirname(__DIR__) . '/app/base_url.php';
+
+if (session_status() !== PHP_SESSION_ACTIVE) {
+    session_start();
+}
+require_login();
+require_capability('delete_recette');
 
 $controller = new RecetteController();
 

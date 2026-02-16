@@ -2,6 +2,7 @@
 declare(strict_types=1);
 
 session_start();
+require_once __DIR__ . '/auth/auth_functions.php';
 
 define('PROJECT_ROOT', realpath(__DIR__ . '/..'));
 define('PUBLIC_ROOT', realpath(__DIR__));
@@ -11,9 +12,7 @@ require_once PROJECT_ROOT . '/config/database.php';
 require_once PROJECT_ROOT . '/app/services/ChatGPTService.php';
 require_once PROJECT_ROOT . '/app/base_url.php';
 
-if (!isset($_SESSION['user']) || $_SESSION['user']['role'] !== 'admin') {
-    die("Accès refusé");
-}
+require_capability('add_recette');
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     http_response_code(405);

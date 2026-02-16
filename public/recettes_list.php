@@ -35,6 +35,12 @@
     </tr>
 <?php else: ?>
   <?php foreach ($recettes as $recette): ?>
+    <?php
+      $isAdmin = (($_SESSION['user']['role'] ?? '') === 'admin');
+      $isOwner = (($_SESSION['user']['nom'] ?? '') === ($recette['auteur'] ?? ''));
+      $canEditRow = can('edit_recette') && ($isAdmin || $isOwner);
+      $canDeleteRow = can('delete_recette');
+    ?>
     <tr>
       <td class="col-select" data-label="Sélection">
 <button
@@ -107,10 +113,14 @@
 
       <td class="actions col-actions" data-label="Actions">
         <a href="<?= PUBLIC_URL ?>/recette.php?id=<?= (int)$recette['id'] ?>" title="Voir">👁️</a>
-        <a href="<?= PUBLIC_URL ?>/edit_recette.php?id=<?= (int)$recette['id'] ?>" title="Éditer">✏️</a>
-        <a href="<?= PUBLIC_URL ?>/index.php?action=delete&id=<?= (int)$recette['id'] ?>"
-           title="Supprimer"
-           onclick="return confirm('Supprimer cette recette ?');">🗑️</a>
+        <?php if ($canEditRow): ?>
+          <a href="<?= PUBLIC_URL ?>/edit_recette.php?id=<?= (int)$recette['id'] ?>" title="Éditer">✏️</a>
+        <?php endif; ?>
+        <?php if ($canDeleteRow): ?>
+          <a href="<?= PUBLIC_URL ?>/index.php?action=delete&id=<?= (int)$recette['id'] ?>"
+             title="Supprimer"
+             onclick="return confirm('Supprimer cette recette ?');">🗑️</a>
+        <?php endif; ?>
       </td>
     </tr>
   <?php endforeach; ?>

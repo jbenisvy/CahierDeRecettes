@@ -3,6 +3,7 @@ if (defined('HEADER_RENDERED')) {
     return;
 }
 define('HEADER_RENDERED', true);
+require_once __DIR__ . '/../auth/auth_functions.php';
 
 $page = $page ?? 'unknown';
 $recetteId = $recetteId ?? null;
@@ -32,7 +33,13 @@ $view = $view ?? ($_GET['view'] ?? 'list');
     ☰
   </button>
 
- <nav class="app-topbar__right" id="app-topbar-menu" aria-label="Menu">
+<nav class="app-topbar__right" id="app-topbar-menu" aria-label="Menu">
+  <?php
+    $canAdd = isset($_SESSION['user']) && can('add_recette');
+    $canEdit = isset($_SESSION['user']) && can('edit_recette');
+    $canDelete = isset($_SESSION['user']) && can('delete_recette');
+    $isAdmin = isset($_SESSION['user']['role']) && $_SESSION['user']['role'] === 'admin';
+  ?>
 
   <?php if ($page === 'liste'): ?>
 
@@ -50,24 +57,22 @@ $view = $view ?? ($_GET['view'] ?? 'list');
 <a class="btn btn-secondary btn-pdf-selection" href="#">
     📄 PDF sélection
 </a>
-<button
-    type="button"
-    class="btn btn-danger btn-delete-selection"
-    id="btn-delete-selection"
-    disabled
->
-    🗑️ Supprimer sélection
-</button>
+<?php if ($canDelete): ?>
+  <button
+      type="button"
+      class="btn btn-danger btn-delete-selection"
+      id="btn-delete-selection"
+      disabled
+  >
+      🗑️ Supprimer sélection
+  </button>
+<?php endif; ?>
 
-    <?php if (
-    isset($_SESSION['user']) &&
-    $_SESSION['user']['role'] === 'admin'
-): ?>
+    <?php if ($canAdd): ?>
  <a class="btn btn-primary"
    href="<?= PUBLIC_URL ?>/import_json_form.php">
    ➕ Import Recette
 </a>
-
 <?php endif; ?>
 
 
@@ -81,8 +86,10 @@ $view = $view ?? ($_GET['view'] ?? 'list');
   <?php elseif ($page === 'recette'): ?>
 
     <a class="btn btn-ghost" href="<?= PUBLIC_URL ?>/index.php">← Liste</a>
-    <?php if ($recetteId): ?>
+    <?php if ($recetteId && $canEdit): ?>
       <a class="btn btn-ghost" href="<?= PUBLIC_URL ?>/edit_recette.php?id=<?= (int)$recetteId ?>">Éditer</a>
+    <?php endif; ?>
+    <?php if ($recetteId): ?>
       <a class="btn btn-ghost" href="<?= PUBLIC_URL ?>/pdf/recette_pdf.php?id=<?= (int)$recetteId ?>">PDF</a>
     <?php endif; ?>
     <button class="btn btn-ghost" onclick="window.print()">Imprimer</button>
@@ -101,6 +108,11 @@ $view = $view ?? ($_GET['view'] ?? 'list');
     <a class="btn btn-ghost" href="<?= PUBLIC_URL ?>/index.php">← Recettes</a>
     <a class="btn btn-primary" href="<?= PUBLIC_URL ?>/admin/settings.php">⚙️ Paramètres</a>
 
+  <?php elseif ($page === 'tutorial'): ?>
+
+    <a class="btn btn-ghost" href="<?= PUBLIC_URL ?>/index.php">← Recettes</a>
+    <a class="btn btn-primary" href="<?= PUBLIC_URL ?>/tutorial.php">Tutoriel</a>
+
   <?php endif; ?>
 
   <?php if (isset($_SESSION['user'])): ?>
@@ -112,6 +124,7 @@ $view = $view ?? ($_GET['view'] ?? 'list');
     >
       📰 Info
     </a>
+    <a href="<?= PUBLIC_URL ?>/tutorial.php" class="btn btn-ghost btn-small">📘 Tutoriel</a>
 
     <div class="user-info">
       <span class="user-name">
@@ -125,10 +138,7 @@ $view = $view ?? ($_GET['view'] ?? 'list');
         <?php endif; ?>
       </span>
 
-  <?php if (
-    isset($_SESSION['user'], $_SESSION['user']['role']) &&
-    $_SESSION['user']['role'] === 'admin'
-): ?>
+  <?php if ($isAdmin): ?>
 
 
   <a href="<?= PUBLIC_URL ?>/admin/settings.php" class="btn btn-ghost btn-small">⚙️ Paramètres</a>

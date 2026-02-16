@@ -3,6 +3,13 @@
 
 require __DIR__ . "/../config/database.php";
 require __DIR__ . "/../app/controllers/RecetteController.php";
+require_once __DIR__ . '/auth/auth_functions.php';
+
+if (session_status() !== PHP_SESSION_ACTIVE) {
+    session_start();
+}
+require_login();
+require_capability('edit_recette');
 
 if ($_SERVER["REQUEST_METHOD"] !== "POST") {
     die("Méthode non autorisée");
@@ -42,7 +49,11 @@ if ($data["titre"] === "") {
 
 /* Mise à jour */
 try {
-    $controller->updateRecetteEdition($data);
+    $ok = $controller->updateRecetteEdition($data);
+    if (!$ok) {
+        http_response_code(403);
+        die("Accès interdit");
+    }
 } catch (DuplicateRecetteException $e) {
     header("Location: edit_recette.php?id=" . $data["id"] . "&dup=1");
     exit;

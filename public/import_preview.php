@@ -1,6 +1,7 @@
 <?php
 declare(strict_types=1);
 session_start();
+require_once __DIR__ . '/auth/auth_functions.php';
 define('PROJECT_ROOT', dirname(__DIR__));
 $options = require PROJECT_ROOT . '/config/recette_options.php';
 $categories = $options['categories'] ?? [];
@@ -13,9 +14,7 @@ require_once PROJECT_ROOT . '/app/models/RecetteModel.php';
 require_once PROJECT_ROOT . '/app/base_url.php';
 
 
-if (!isset($_SESSION['user']) || $_SESSION['user']['role'] !== 'admin') {
-    die('Accès refusé');
-}
+require_capability('add_recette');
 
 ini_set('display_errors', '1');
 error_reporting(E_ALL);

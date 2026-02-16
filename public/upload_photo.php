@@ -1,6 +1,13 @@
 <?php
 require __DIR__ . "/../config/database.php";
 require __DIR__ . "/../app/models/RecetteModel.php";
+require_once __DIR__ . '/auth/auth_functions.php';
+
+if (session_status() !== PHP_SESSION_ACTIVE) {
+    session_start();
+}
+require_login();
+require_capability('edit_recette');
 
 $model = new RecetteModel();
 
@@ -10,6 +17,17 @@ if (!isset($_POST["recette_id"], $_FILES["photo"])) {
 
 $recetteId = (int) $_POST["recette_id"];
 $file = $_FILES["photo"];
+$recette = $model->getRecetteById($recetteId);
+if (!$recette) {
+    die("Recette introuvable");
+}
+if (
+    ($_SESSION['user']['role'] ?? '') !== 'admin'
+    && ($_SESSION['user']['nom'] ?? '') !== ($recette['auteur'] ?? '')
+) {
+    http_response_code(403);
+    die("Accès interdit");
+}
 
 if ($file["error"] !== UPLOAD_ERR_OK) {
     die("Erreur upload fichier");

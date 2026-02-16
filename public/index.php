@@ -34,6 +34,7 @@ if ($config['env'] === 'prod') {
 require PROJECT_ROOT . '/config/database.php';
 require PROJECT_ROOT . '/app/controllers/RecetteController.php';
 require PROJECT_ROOT . '/public/auth/auth_guard.php';
+require PROJECT_ROOT . '/public/auth/auth_functions.php';
 $recetteOptions = require PROJECT_ROOT . '/config/recette_options.php';
 $categoryOptions = $recetteOptions['categories'] ?? [];
 $typesRecetteOptions = $recetteOptions['types_recette'] ?? [];
@@ -152,6 +153,7 @@ $view = $_GET['view'] ?? 'list'; // list | gallery
 switch ($action) {
 
     case 'delete':
+        require_capability('delete_recette');
         // Suppression d'une recette puis redirection vers la liste avec un message.
         $id = (int) ($_GET['id'] ?? 0);
         if ($id > 0) {

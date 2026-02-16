@@ -2,6 +2,7 @@
 declare(strict_types=1);
 
 session_start();
+require_once __DIR__ . '/auth/auth_functions.php';
 
 // ✅ Définition des constantes AVANT usage
 define('PROJECT_ROOT', realpath(__DIR__ . '/..'));
@@ -15,6 +16,8 @@ require_once PROJECT_ROOT . '/app/services/ChatGPTService.php';
 
 // Définir BASE_URL et PUBLIC_URL pour les redirections
 require_once PROJECT_ROOT . '/app/base_url.php';
+
+require_capability('add_recette');
 
 // 🧹 Nettoyage des fichiers temporaires (> 2h)
 nettoyerDossierTmp(PUBLIC_ROOT . '/uploads/tmp', 2 * 3600);

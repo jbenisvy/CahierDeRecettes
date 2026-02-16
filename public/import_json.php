@@ -5,10 +5,8 @@ declare(strict_types=1);
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
-
-if (!isset($_SESSION['user']) || $_SESSION['user']['role'] !== 'admin') {
-    die("Accès refusé");
-}
+require_once __DIR__ . '/auth/auth_functions.php';
+require_capability('add_recette');
 
 // Endpoint POST uniquement
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {

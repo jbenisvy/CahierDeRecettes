@@ -3,9 +3,12 @@
 
 require __DIR__ . "/../config/database.php";
 require __DIR__ . "/../app/controllers/RecetteController.php";
+require_once __DIR__ . '/auth/auth_functions.php';
 if (session_status() !== PHP_SESSION_ACTIVE) {
     session_start();
 }
+require_login();
+require_capability('edit_recette');
 $options = require __DIR__ . "/../config/recette_options.php";
 
 $controller = new RecetteController();
@@ -20,6 +23,14 @@ $recette = $controller->getRecetteComplete($id);
 
 if (!$recette) {
     die("Recette inexistante");
+}
+
+if (
+    ($_SESSION['user']['role'] ?? '') !== 'admin'
+    && ($_SESSION['user']['nom'] ?? '') !== ($recette['recette']['auteur'] ?? '')
+) {
+    http_response_code(403);
+    die("Accès interdit");
 }
 
 $r = $recette["recette"];

@@ -9,7 +9,11 @@ define('PUBLIC_ROOT', __DIR__);
 require_once PROJECT_ROOT . '/config/database.php';
 require_once PROJECT_ROOT . '/app/models/RecetteModel.php';
 require_once PROJECT_ROOT . '/app/helpers/image_optimizer.php';
+require_once PROJECT_ROOT . '/public/auth/auth_functions.php';
 require_once PROJECT_ROOT . '/app/base_url.php';
+
+require_login();
+require_capability('edit_recette');
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     http_response_code(405);
@@ -28,6 +32,14 @@ $model = new RecetteModel();
 $recette = $model->getRecetteById($recetteId);
 if (!$recette) {
     header('Location: ' . PUBLIC_URL . '/edit_recette.php?id=' . $recetteId . '&ai_apply=error&reason=recette_introuvable');
+    exit;
+}
+if (
+    ($_SESSION['user']['role'] ?? '') !== 'admin'
+    && ($_SESSION['user']['nom'] ?? '') !== ($recette['auteur'] ?? '')
+) {
+    http_response_code(403);
+    echo 'Acces interdit';
     exit;
 }
 

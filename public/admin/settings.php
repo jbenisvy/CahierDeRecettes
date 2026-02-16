@@ -202,6 +202,18 @@ function resolve_openai_api_key_settings(): ?string
         return trim($legacy);
     }
 
+    // Fallback: config/openai.php (non versionné)
+    $openAiConfig = dirname(__DIR__, 2) . '/config/openai.php';
+    if (is_file($openAiConfig)) {
+        $cfg = require $openAiConfig;
+        if (is_array($cfg)) {
+            $fileKey = $cfg['api_key'] ?? $cfg['API_KEY'] ?? null;
+            if (is_string($fileKey) && trim($fileKey) !== '') {
+                return trim($fileKey);
+            }
+        }
+    }
+
     return null;
 }
 
@@ -243,7 +255,24 @@ function fetch_openai_credit_summary(?string $apiKey): array
     curl_close($ch);
 
     if ($httpCode !== 200) {
-        $short = mb_substr((string) $response, 0, 180);
+        $raw = (string) $response;
+        $decoded = json_decode($raw, true);
+        $msg = (string) ($decoded['error']['message'] ?? '');
+
+        if (
+            $httpCode === 403
+            && (
+                stripos($msg, 'only available through a browser') !== false
+                || stripos($raw, 'only available through a browser') !== false
+            )
+        ) {
+            return [
+                'ok' => false,
+                'error' => "Indisponible via clé API serveur. Consulte le dashboard OpenAI (Billing/Usage).",
+            ];
+        }
+
+        $short = mb_substr($raw, 0, 180);
         return ['ok' => false, 'error' => 'HTTP ' . $httpCode . ' - ' . $short];
     }
 
@@ -685,6 +714,11 @@ require __DIR__ . '/../ui/layout_start.php';
     </table>
     <p class="muted" style="margin-top:8px;">
       Note: le crédit OpenAI dépend des permissions de clé API et peut être indisponible selon le type de compte.
+    </p>
+    <p style="margin-top:8px;">
+      <a href="https://platform.openai.com/settings/organization/billing/overview" target="_blank" rel="noopener noreferrer">
+        Ouvrir le dashboard OpenAI Billing/Usage
+      </a>
     </p>
   </section>
 

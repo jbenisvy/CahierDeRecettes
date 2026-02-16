@@ -265,6 +265,17 @@ p { line-height: 1.6; color: var(--ink-700); }
   font-family: var(--font-sans);
 }
 
+.tutorial-page .tutorial-list {
+  margin: 0;
+  padding-left: 20px;
+  color: var(--ink-700);
+}
+
+.tutorial-page .tutorial-list li {
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+
 .settings-form {
   display: grid;
   gap: 14px;
