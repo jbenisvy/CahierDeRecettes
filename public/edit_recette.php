@@ -370,11 +370,16 @@ if (!empty($recette["photos"])) {
 
 <form method="post"
       action="upload_photo.php"
-      enctype="multipart/form-data">
+      enctype="multipart/form-data"
+      id="upload-photo-form">
 
     <input type="hidden" name="recette_id" value="<?= $id ?>">
 
-    <input type="file" name="photo" accept="image/*" required>
+    <label for="photo-upload-file">Choisir une photo</label>
+    <input type="file" id="photo-upload-file" name="photo" accept="image/*">
+
+    <label for="photo-upload-camera">Ou prendre une photo (mobile)</label>
+    <input type="file" id="photo-upload-camera" name="photo_camera" accept="image/*" capture="environment">
 
     <button type="submit">📤 Ajouter la photo</button>
 </form>

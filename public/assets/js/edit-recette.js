@@ -93,4 +93,23 @@ document.addEventListener("DOMContentLoaded", function () {
             aiImageBtn.textContent = "⏳ Génération en cours...";
         });
     }
+
+    /* =========================
+       Upload photo (fichier/camera)
+       ========================= */
+    const uploadPhotoForm = document.getElementById("upload-photo-form");
+    const uploadPhotoFile = document.getElementById("photo-upload-file");
+    const uploadPhotoCamera = document.getElementById("photo-upload-camera");
+
+    if (uploadPhotoForm && uploadPhotoFile && uploadPhotoCamera) {
+        uploadPhotoForm.addEventListener("submit", function (e) {
+            const hasFile = uploadPhotoFile.files && uploadPhotoFile.files.length > 0;
+            const hasCamera = uploadPhotoCamera.files && uploadPhotoCamera.files.length > 0;
+
+            if (!hasFile && !hasCamera) {
+                e.preventDefault();
+                alert("Veuillez choisir une photo ou prendre une photo.");
+            }
+        });
+    }
 });

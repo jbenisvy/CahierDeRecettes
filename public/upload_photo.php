@@ -11,12 +11,20 @@ require_capability('edit_recette');
 
 $model = new RecetteModel();
 
-if (!isset($_POST["recette_id"], $_FILES["photo"])) {
+if (!isset($_POST["recette_id"])) {
     die("Données manquantes");
 }
 
 $recetteId = (int) $_POST["recette_id"];
-$file = $_FILES["photo"];
+$file = null;
+if (isset($_FILES["photo"]) && (int) ($_FILES["photo"]["error"] ?? UPLOAD_ERR_NO_FILE) !== UPLOAD_ERR_NO_FILE) {
+    $file = $_FILES["photo"];
+} elseif (isset($_FILES["photo_camera"]) && (int) ($_FILES["photo_camera"]["error"] ?? UPLOAD_ERR_NO_FILE) !== UPLOAD_ERR_NO_FILE) {
+    $file = $_FILES["photo_camera"];
+}
+if ($file === null) {
+    die("Veuillez sélectionner une photo ou utiliser l'appareil photo");
+}
 $recette = $model->getRecetteById($recetteId);
 if (!$recette) {
     die("Recette introuvable");
