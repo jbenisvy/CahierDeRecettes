@@ -1,4 +1,6 @@
 <?php
+require_once __DIR__ . '/../config/env.php';
+
 // Ce fichier détermine dynamiquement l'URL de base de l'application.
 //
 // L'objectif est de pouvoir déployer l'application dans un sous-dossier (ex : /CahierDeRecettes)
@@ -41,6 +43,50 @@ if (!defined('BASE_URL')) {
 if (!defined('PUBLIC_URL')) {
     // PUBLIC_URL se termine sans slash final pour permettre l'ajout de chemins relatifs
     define('PUBLIC_URL', rtrim($publicUrl, '/'));
+}
+
+if (!function_exists('app_absolute_url')) {
+    /**
+     * Construit une URL absolue (domaine + base path) pour les emails.
+     * Priorité à APP_URL (env), sinon fallback sur l'hôte HTTP courant.
+     */
+    function app_absolute_url(string $path = ''): string
+    {
+        $configured = trim((string) (getenv('APP_URL') ?: ($_ENV['APP_URL'] ?? '')));
+        if ($configured !== '') {
+            $base = rtrim($configured, '/');
+        } else {
+            $forwardedProto = (string) ($_SERVER['HTTP_X_FORWARDED_PROTO'] ?? '');
+            if ($forwardedProto !== '') {
+                $scheme = trim(explode(',', $forwardedProto)[0]) ?: 'http';
+            } else {
+                $isHttps = !empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off';
+                $scheme = $isHttps ? 'https' : 'http';
+            }
+
+            $forwardedHost = (string) ($_SERVER['HTTP_X_FORWARDED_HOST'] ?? '');
+            if ($forwardedHost !== '') {
+                $host = trim(explode(',', $forwardedHost)[0]);
+            } else {
+                $host = (string) ($_SERVER['HTTP_HOST'] ?? ($_SERVER['SERVER_NAME'] ?? ''));
+            }
+
+            if ($host === '') {
+                $base = (string) BASE_URL;
+            } else {
+                $base = $scheme . '://' . $host . (string) BASE_URL;
+            }
+        }
+
+        $path = trim($path);
+        if ($path === '') {
+            return $base;
+        }
+        if (str_starts_with($path, '?')) {
+            return $base . '/' . $path;
+        }
+        return $base . '/' . ltrim($path, '/');
+    }
 }
 
 // Fin du fichier

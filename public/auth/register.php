@@ -61,7 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             ');
             $stmt->execute([$userId, $tokenHash, $expiresAt]);
 
-            $setLink = BASE_URL . '/?action=reset_password&token=' . urlencode($token);
+            $setLink = app_absolute_url('?action=reset_password&token=' . urlencode($token));
             $subject = "Activez votre compte";
             $html = "
                 <p>Bonjour {$nom},</p>

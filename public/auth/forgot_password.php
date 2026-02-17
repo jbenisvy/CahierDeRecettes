@@ -52,7 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $stmt->execute([$user['id'], $tokenHash, $expiresAt]);
 
             // 7) Lien de reset
-            $resetLink = BASE_URL . '/?action=reset_password&token=' . urlencode($token);
+            $resetLink = app_absolute_url('?action=reset_password&token=' . urlencode($token));
 
             $subject = "Réinitialisation de votre mot de passe";
             $html = "
