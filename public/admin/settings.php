@@ -179,6 +179,17 @@ function scalar_int(PDO $pdo, string $sql): int
     return (int) ($value ?: 0);
 }
 
+function table_exists(PDO $pdo, string $tableName): bool
+{
+    $stmt = $pdo->prepare('
+        SELECT COUNT(*)
+        FROM information_schema.tables
+        WHERE table_schema = DATABASE() AND table_name = :table
+    ');
+    $stmt->execute([':table' => $tableName]);
+    return ((int) $stmt->fetchColumn()) > 0;
+}
+
 function group_counts(PDO $pdo, string $sql): array
 {
     $stmt = $pdo->query($sql);
@@ -314,16 +325,123 @@ function fetch_openai_credit_summary(?string $apiKey): array
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $action = (string) ($_POST['action'] ?? '');
+    $protectedAdminEmail = 'johny.benisvy@gmail.com';
 
     if ($action === 'update_user_role') {
         $userId = (int) ($_POST['user_id'] ?? 0);
         $role = (string) ($_POST['role'] ?? '');
         if ($userId > 0 && in_array($role, ['lecteur', 'contributeur', 'admin'], true)) {
-            $stmt = $pdo->prepare('UPDATE users SET role = ? WHERE id = ?');
-            $stmt->execute([$role, $userId]);
+            $stmtUser = $pdo->prepare('SELECT email FROM users WHERE id = :id LIMIT 1');
+            $stmtUser->execute([':id' => $userId]);
+            $email = mb_strtolower(trim((string) ($stmtUser->fetchColumn() ?: '')));
+
+            // Compte admin protégé: rôle forcé à admin.
+            if ($email === $protectedAdminEmail) {
+                $role = 'admin';
+            }
+
+            $stmt = $pdo->prepare('UPDATE users SET role = :role WHERE id = :id');
+            $stmt->execute([
+                ':role' => $role,
+                ':id' => $userId,
+            ]);
         }
         header('Location: ' . PUBLIC_URL . '/admin/settings.php?saved=users');
         exit;
+    }
+
+    if ($action === 'delete_user') {
+        $userId = (int) ($_POST['user_id'] ?? 0);
+        $currentUserId = (int) ($_SESSION['user']['id'] ?? 0);
+
+        if ($userId <= 0) {
+            header('Location: ' . PUBLIC_URL . '/admin/settings.php?error=user_delete_invalid');
+            exit;
+        }
+        if ($userId === $currentUserId) {
+            header('Location: ' . PUBLIC_URL . '/admin/settings.php?error=user_delete_self');
+            exit;
+        }
+
+        $stmtUser = $pdo->prepare('SELECT id, nom, email FROM users WHERE id = :id LIMIT 1');
+        $stmtUser->execute([':id' => $userId]);
+        $userToDelete = $stmtUser->fetch(PDO::FETCH_ASSOC);
+
+        if (!$userToDelete) {
+            header('Location: ' . PUBLIC_URL . '/admin/settings.php?error=user_delete_not_found');
+            exit;
+        }
+
+        $emailToDelete = mb_strtolower(trim((string) ($userToDelete['email'] ?? '')));
+        if ($emailToDelete === $protectedAdminEmail) {
+            header('Location: ' . PUBLIC_URL . '/admin/settings.php?error=user_delete_protected');
+            exit;
+        }
+
+        $stmtTarget = $pdo->prepare('SELECT id, nom, email FROM users WHERE LOWER(email) = LOWER(:email) LIMIT 1');
+        $stmtTarget->execute([':email' => $protectedAdminEmail]);
+        $targetOwner = $stmtTarget->fetch(PDO::FETCH_ASSOC);
+
+        if (!$targetOwner) {
+            header('Location: ' . PUBLIC_URL . '/admin/settings.php?error=user_delete_target_missing');
+            exit;
+        }
+
+        $sourceAuthor = trim((string) ($userToDelete['nom'] ?? ''));
+        $targetAuthor = trim((string) ($targetOwner['nom'] ?? ''));
+        if ($targetAuthor === '') {
+            $targetAuthor = $protectedAdminEmail;
+        }
+
+        $movedRecipes = 0;
+        $deletedFavoris = 0;
+        $deletedSelections = 0;
+
+        $pdo->beginTransaction();
+        try {
+            if ($sourceAuthor !== '') {
+                $stmtMove = $pdo->prepare('UPDATE recettes SET auteur = :target WHERE TRIM(COALESCE(auteur, "")) = :source');
+                $stmtMove->execute([
+                    ':target' => $targetAuthor,
+                    ':source' => $sourceAuthor,
+                ]);
+                $movedRecipes = $stmtMove->rowCount();
+            }
+
+            $stmtDeleteFavoris = $pdo->prepare('DELETE FROM user_favoris WHERE user_id = :user_id');
+            $stmtDeleteFavoris->execute([':user_id' => $userId]);
+            $deletedFavoris = $stmtDeleteFavoris->rowCount();
+
+            $stmtDeleteSelections = $pdo->prepare('DELETE FROM user_recette_selection WHERE user_id = :user_id');
+            $stmtDeleteSelections->execute([':user_id' => $userId]);
+            $deletedSelections = $stmtDeleteSelections->rowCount();
+
+            if (table_exists($pdo, 'password_resets')) {
+                $stmtDeletePasswordResets = $pdo->prepare('DELETE FROM password_resets WHERE user_id = :user_id');
+                $stmtDeletePasswordResets->execute([':user_id' => $userId]);
+            }
+
+            $stmtDeleteUser = $pdo->prepare('DELETE FROM users WHERE id = :id');
+            $stmtDeleteUser->execute([':id' => $userId]);
+
+            if ($stmtDeleteUser->rowCount() !== 1) {
+                throw new RuntimeException('Suppression utilisateur non appliquée');
+            }
+
+            $pdo->commit();
+            header(
+                'Location: ' . PUBLIC_URL
+                . '/admin/settings.php?saved=user_deleted'
+                . '&moved=' . $movedRecipes
+                . '&favoris=' . $deletedFavoris
+                . '&selection=' . $deletedSelections
+            );
+            exit;
+        } catch (Throwable $e) {
+            $pdo->rollBack();
+            header('Location: ' . PUBLIC_URL . '/admin/settings.php?error=user_delete_failed');
+            exit;
+        }
     }
 
     if ($action === 'save_options') {
@@ -506,6 +624,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
+$protectedAdminEmail = 'johny.benisvy@gmail.com';
 $users = $pdo->query('SELECT id, nom, email, role FROM users ORDER BY nom')->fetchAll(PDO::FETCH_ASSOC);
 
 $kpis = [
@@ -574,6 +693,7 @@ $listBaseUrl = PUBLIC_URL . '/index.php';
 $dashboardLinks = [
     'total_recettes' => $listBaseUrl,
     'sans_image' => $listBaseUrl . '?dashboard_filter=sans_image',
+    'photos_ia_total' => $listBaseUrl . '?dashboard_filter=photos_ia',
     'sans_categorie' => $listBaseUrl . '?dashboard_filter=sans_categorie',
     'sans_source' => $listBaseUrl . '?dashboard_filter=sans_source',
     'sans_type_cuisson' => $listBaseUrl . '?dashboard_filter=sans_type_cuisson',
@@ -615,6 +735,13 @@ require __DIR__ . '/../ui/layout_start.php';
   <?php if (($_GET['saved'] ?? '') === 'users'): ?>
     <div class="alert alert-success">Rôle utilisateur mis à jour.</div>
   <?php endif; ?>
+  <?php if (($_GET['saved'] ?? '') === 'user_deleted'): ?>
+    <div class="alert alert-success">
+      Utilisateur supprimé. Recettes transférées: <?= (int) ($_GET['moved'] ?? 0) ?>,
+      favoris supprimés: <?= (int) ($_GET['favoris'] ?? 0) ?>,
+      sélections supprimées: <?= (int) ($_GET['selection'] ?? 0) ?>.
+    </div>
+  <?php endif; ?>
   <?php if (($_GET['saved'] ?? '') === 'options'): ?>
     <div class="alert alert-success">Options recettes enregistrées.</div>
   <?php endif; ?>
@@ -646,6 +773,24 @@ require __DIR__ . '/../ui/layout_start.php';
   <?php if (str_starts_with((string) ($_GET['error'] ?? ''), 'tag_')): ?>
     <div class="alert alert-error">Erreur sur l'action de gestion des tags.</div>
   <?php endif; ?>
+  <?php if (str_starts_with((string) ($_GET['error'] ?? ''), 'user_delete_')): ?>
+    <div class="alert alert-error">
+      <?php
+      $userDeleteError = (string) ($_GET['error'] ?? '');
+      if ($userDeleteError === 'user_delete_protected') {
+          echo 'Le compte admin johny.benisvy@gmail.com est protégé et ne peut pas être supprimé.';
+      } elseif ($userDeleteError === 'user_delete_self') {
+          echo 'Vous ne pouvez pas supprimer votre propre compte connecté.';
+      } elseif ($userDeleteError === 'user_delete_target_missing') {
+          echo 'Compte cible johny.benisvy@gmail.com introuvable pour le transfert des recettes.';
+      } elseif ($userDeleteError === 'user_delete_not_found') {
+          echo 'Utilisateur introuvable.';
+      } else {
+          echo 'Erreur pendant la suppression de l’utilisateur.';
+      }
+      ?>
+    </div>
+  <?php endif; ?>
 
   <section class="settings-card card border-0 shadow-sm rounded-4 overflow-hidden">
     <div class="p-4 p-md-5" style="background: linear-gradient(135deg, rgba(31,70,56,0.95), rgba(44,92,74,0.9)); color:#fff;">
@@ -670,7 +815,7 @@ require __DIR__ . '/../ui/layout_start.php';
     <div class="row g-3">
       <div class="col-6 col-md-4 col-xl"><a class="stat-card stat-card-link" href="<?= htmlspecialchars($dashboardLinks['total_recettes']) ?>"><span>Total recettes</span><strong><?= (int) $kpis['total_recettes'] ?></strong></a></div>
       <div class="col-6 col-md-4 col-xl"><span class="stat-card"><span>Total photos</span><strong><?= (int) $kpis['photos_total'] ?></strong></span></div>
-      <div class="col-6 col-md-4 col-xl"><span class="stat-card"><span>Photos IA</span><strong><?= (int) $kpis['photos_ia_total'] ?></strong></span></div>
+      <div class="col-6 col-md-4 col-xl"><a class="stat-card stat-card-link" href="<?= htmlspecialchars($dashboardLinks['photos_ia_total']) ?>"><span>Photos IA</span><strong><?= (int) $kpis['photos_ia_total'] ?></strong></a></div>
       <div class="col-6 col-md-4 col-xl"><a class="stat-card stat-card-link" href="<?= htmlspecialchars($dashboardLinks['sans_image']) ?>"><span>Sans image</span><strong><?= (int) $kpis['sans_image'] ?></strong></a></div>
       <div class="col-6 col-md-4 col-xl"><a class="stat-card stat-card-link" href="<?= htmlspecialchars($dashboardLinks['sans_categorie']) ?>"><span>Sans catégorie</span><strong><?= (int) $kpis['sans_categorie'] ?></strong></a></div>
       <div class="col-6 col-md-4 col-xl"><a class="stat-card stat-card-link" href="<?= htmlspecialchars($dashboardLinks['sans_source']) ?>"><span>Sans source</span><strong><?= (int) $kpis['sans_source'] ?></strong></a></div>
@@ -971,22 +1116,39 @@ require __DIR__ . '/../ui/layout_start.php';
         </thead>
         <tbody>
           <?php foreach ($users as $u): ?>
+            <?php
+              $isCurrentUser = ((int) $u['id'] === (int) ($_SESSION['user']['id'] ?? 0));
+              $isProtectedUser = (mb_strtolower(trim((string) ($u['email'] ?? ''))) === $protectedAdminEmail);
+            ?>
             <tr>
               <td><?= htmlspecialchars((string) $u['nom']) ?></td>
               <td><?= htmlspecialchars((string) $u['email']) ?></td>
               <td><?= htmlspecialchars((string) $u['role']) ?></td>
               <td>
-                <?php if ((int) $u['id'] !== (int) ($_SESSION['user']['id'] ?? 0)): ?>
+                <?php if (!$isCurrentUser): ?>
                   <form method="post" class="settings-inline-form">
                     <input type="hidden" name="action" value="update_user_role">
                     <input type="hidden" name="user_id" value="<?= (int) $u['id'] ?>">
-                    <select name="role">
+                    <select name="role" <?= $isProtectedUser ? 'disabled' : '' ?>>
                       <option value="lecteur" <?= $u['role'] === 'lecteur' ? 'selected' : '' ?>>Lecteur</option>
                       <option value="contributeur" <?= $u['role'] === 'contributeur' ? 'selected' : '' ?>>Contributeur</option>
                       <option value="admin" <?= $u['role'] === 'admin' ? 'selected' : '' ?>>Admin</option>
                     </select>
-                    <button class="btn btn-small btn-primary" type="submit">Mettre à jour</button>
+                    <?php if ($isProtectedUser): ?>
+                      <button class="btn btn-small btn-primary" type="button" disabled>Rôle verrouillé</button>
+                    <?php else: ?>
+                      <button class="btn btn-small btn-primary" type="submit">Mettre à jour</button>
+                    <?php endif; ?>
                   </form>
+                  <?php if (!$isProtectedUser): ?>
+                    <form method="post" class="settings-inline-form" onsubmit="return confirm('Supprimer cet utilisateur ? Ses recettes seront conservées et rattachées à johny.benisvy@gmail.com. Ses favoris et sélections seront supprimés.');">
+                      <input type="hidden" name="action" value="delete_user">
+                      <input type="hidden" name="user_id" value="<?= (int) $u['id'] ?>">
+                      <button class="btn btn-small btn-danger" type="submit">Supprimer</button>
+                    </form>
+                  <?php else: ?>
+                    <span class="muted">Compte protégé</span>
+                  <?php endif; ?>
                 <?php else: ?>
                   —
                 <?php endif; ?>

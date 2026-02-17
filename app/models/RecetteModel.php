@@ -513,6 +513,14 @@ $params[':rech_source'] = '%' . $recherche . '%';
             case 'sans_image':
                 $conditions[] = 'NOT EXISTS (SELECT 1 FROM photos_recettes p2 WHERE p2.recette_id = r.id)';
                 break;
+            case 'photos_ia':
+                $conditions[] = "EXISTS (
+                    SELECT 1
+                    FROM photos_recettes p2
+                    WHERE p2.recette_id = r.id
+                      AND p2.fichier LIKE 'recette_ai_%'
+                )";
+                break;
             case 'sans_categorie':
                 $conditions[] = '(r.categorie IS NULL OR TRIM(r.categorie) = "")';
                 break;

@@ -96,6 +96,7 @@ $typeCuisson = $_GET["type_cuisson"] ?? null;
 $dashboardFilter = $_GET['dashboard_filter'] ?? null;
 $dashboardFilterLabels = [
     'sans_image' => 'Sans image',
+    'photos_ia' => 'Photos IA',
     'sans_categorie' => 'Sans catégorie',
     'sans_source' => 'Sans source',
     'sans_type_cuisson' => 'Sans type cuisson',
