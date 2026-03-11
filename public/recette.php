@@ -247,7 +247,129 @@ $auteur = trim((string)($r['auteur'] ?? ''));
 
 </div> <!-- fiche-recette -->
 </div>
+
+<div
+  class="modal-convertisseur"
+  id="convertisseur-modal"
+  role="dialog"
+  aria-modal="true"
+  aria-hidden="true"
+  aria-label="Convertisseur culinaire"
+>
+  <div class="modal-convertisseur__backdrop" data-modal-close></div>
+  <div class="modal-convertisseur__panel" role="document">
+    <div class="modal-convertisseur__header">
+      <h2>Convertisseur culinaire</h2>
+      <div class="modal-convertisseur__actions">
+        <button
+          type="button"
+          class="modal-convertisseur__minimize"
+          data-modal-minimize
+          aria-label="Réduire"
+        >
+          Réduire
+        </button>
+        <button
+          type="button"
+          class="modal-convertisseur__close"
+          data-modal-close
+          aria-label="Fermer"
+        >
+          ×
+        </button>
+      </div>
+    </div>
+    <div class="modal-convertisseur__body">
+      <iframe
+        title="Convertisseur culinaire"
+        src="https://www.convertisseur.sanstracasdigital.fr"
+        loading="lazy"
+        referrerpolicy="no-referrer"
+      ></iframe>
+      <div class="modal-convertisseur__fallback">
+        Si le convertisseur ne s'affiche pas, vous pouvez l'ouvrir dans un nouvel onglet.
+        <a
+          href="https://www.convertisseur.sanstracasdigital.fr"
+          target="_blank"
+          rel="noopener noreferrer"
+        >Ouvrir le convertisseur</a>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script src="<?= PUBLIC_URL ?>/assets/js/main.js"></script>
 <script src="<?= PUBLIC_URL ?>/assets/js/favoris.js"></script>
+<script>
+  (function () {
+    const openBtn = document.querySelector('[data-open-convertisseur]');
+    const modal = document.getElementById('convertisseur-modal');
+    if (!openBtn || !modal) return;
+
+    const closeEls = modal.querySelectorAll('[data-modal-close]');
+    const minimizeBtn = modal.querySelector('[data-modal-minimize]');
+
+    const openModal = () => {
+      modal.classList.add('is-open');
+      modal.classList.remove('is-min');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('modal-open');
+      if (minimizeBtn) {
+        minimizeBtn.textContent = 'Réduire';
+        minimizeBtn.setAttribute('aria-label', 'Réduire');
+      }
+    };
+    const closeModal = () => {
+      modal.classList.remove('is-open');
+      modal.classList.remove('is-min');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('modal-open');
+    };
+    const toggleMinimize = () => {
+      const isMin = modal.classList.toggle('is-min');
+      if (isMin) {
+        document.body.classList.remove('modal-open');
+        if (minimizeBtn) {
+          minimizeBtn.textContent = 'Agrandir';
+          minimizeBtn.setAttribute('aria-label', 'Agrandir');
+        }
+      } else {
+        document.body.classList.add('modal-open');
+        if (minimizeBtn) {
+          minimizeBtn.textContent = 'Réduire';
+          minimizeBtn.setAttribute('aria-label', 'Réduire');
+        }
+      }
+    };
+
+    const isMobile = () => {
+      return window.matchMedia('(max-width: 720px)').matches;
+    };
+
+    openBtn.addEventListener('click', () => {
+      if (isMobile()) {
+        window.open('https://www.convertisseur.sanstracasdigital.fr', '_blank', 'noopener');
+        return;
+      }
+      if (!modal.classList.contains('is-open')) {
+        openModal();
+        return;
+      }
+      if (modal.classList.contains('is-min')) {
+        toggleMinimize();
+      }
+    });
+    closeEls.forEach((el) => el.addEventListener('click', closeModal));
+    if (minimizeBtn) minimizeBtn.addEventListener('click', toggleMinimize);
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeModal();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.classList.contains('is-open')) {
+        closeModal();
+      }
+    });
+  })();
+</script>
 
 <?php require __DIR__ . '/ui/layout_end.php'; ?>

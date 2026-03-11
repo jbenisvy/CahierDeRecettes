@@ -179,6 +179,132 @@ p { line-height: 1.6; color: var(--ink-700); }
   margin: 0 0 16px;
 }
 
+/* Convertisseur modal */
+.modal-open {
+  overflow: hidden;
+}
+
+.modal-convertisseur {
+  position: fixed;
+  inset: 0;
+  z-index: 1200;
+  display: none;
+}
+
+.modal-convertisseur.is-open {
+  display: block;
+}
+
+.modal-convertisseur__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.modal-convertisseur__panel {
+  position: relative;
+  margin: 4vh auto;
+  width: min(980px, 94vw);
+  height: min(80vh, 820px);
+  background: #fff;
+  border-radius: var(--radius-md);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-convertisseur__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 16px;
+  border-bottom: 1px solid #eee6dc;
+  background: #fefaf5;
+}
+
+.modal-convertisseur__header h2 {
+  margin: 0;
+  font-size: 16px;
+}
+
+.modal-convertisseur__actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.modal-convertisseur__minimize {
+  border: 1px solid #e1d3c1;
+  background: #fff7ee;
+  color: #3b2f25;
+  border-radius: 8px;
+  padding: 6px 10px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.modal-convertisseur__close {
+  border: none;
+  background: transparent;
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+  color: #3b2f25;
+}
+
+.modal-convertisseur__body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-convertisseur__body iframe {
+  flex: 1;
+  width: 100%;
+  border: 0;
+}
+
+.modal-convertisseur__fallback {
+  padding: 10px 14px;
+  font-size: 13px;
+  background: #fbf6ef;
+  border-top: 1px solid #eee6dc;
+}
+
+.modal-convertisseur.is-min {
+  pointer-events: none;
+}
+
+.modal-convertisseur.is-min .modal-convertisseur__backdrop {
+  display: none;
+}
+
+.modal-convertisseur.is-min .modal-convertisseur__panel {
+  pointer-events: auto;
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  margin: 0;
+  width: min(360px, 92vw);
+  height: auto;
+  border-radius: 14px;
+}
+
+.modal-convertisseur.is-min .modal-convertisseur__body {
+  display: none;
+}
+
+@media (max-width: 720px) {
+  .modal-convertisseur__panel {
+    width: 100vw;
+    height: 92vh;
+    margin: 4vh 0;
+    border-radius: 0;
+  }
+}
+
 /* Tags & badges */
 .tag {
   display: inline-flex;

@@ -96,6 +96,13 @@ if (!is_string($lastListUrl) || trim($lastListUrl) === '') {
     <?php if ($recetteId): ?>
       <a class="btn btn-ghost" href="<?= PUBLIC_URL ?>/pdf/recette_pdf.php?id=<?= (int)$recetteId ?>">PDF</a>
     <?php endif; ?>
+    <button
+      type="button"
+      class="btn btn-ghost"
+      data-open-convertisseur
+    >
+      Convertisseur
+    </button>
     <button class="btn btn-ghost" onclick="window.print()">Imprimer</button>
 
 
