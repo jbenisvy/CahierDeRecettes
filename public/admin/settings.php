@@ -412,6 +412,45 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 
+    if ($action === 'set_temporary_password') {
+        $userId = (int) ($_POST['user_id'] ?? 0);
+        $temporaryPassword = (string) ($_POST['temporary_password'] ?? '');
+
+        if ($userId <= 0) {
+            header('Location: ' . PUBLIC_URL . '/admin/settings.php?error=user_temp_password_invalid');
+            exit;
+        }
+
+        if (strlen($temporaryPassword) < 8) {
+            header('Location: ' . PUBLIC_URL . '/admin/settings.php?error=user_temp_password_too_short');
+            exit;
+        }
+
+        $stmtUser = $pdo->prepare('SELECT id FROM users WHERE id = :id LIMIT 1');
+        $stmtUser->execute([':id' => $userId]);
+        $userExists = $stmtUser->fetchColumn();
+
+        if (!$userExists) {
+            header('Location: ' . PUBLIC_URL . '/admin/settings.php?error=user_temp_password_not_found');
+            exit;
+        }
+
+        $hash = password_hash($temporaryPassword, PASSWORD_DEFAULT);
+        $stmt = $pdo->prepare('UPDATE users SET password_hash = :hash WHERE id = :id');
+        $stmt->execute([
+            ':hash' => $hash,
+            ':id' => $userId,
+        ]);
+
+        if (table_exists($pdo, 'password_resets')) {
+            $stmtDeletePasswordResets = $pdo->prepare('DELETE FROM password_resets WHERE user_id = :user_id');
+            $stmtDeletePasswordResets->execute([':user_id' => $userId]);
+        }
+
+        header('Location: ' . PUBLIC_URL . '/admin/settings.php?saved=user_temp_password');
+        exit;
+    }
+
     if ($action === 'delete_user') {
         $userId = (int) ($_POST['user_id'] ?? 0);
         $currentUserId = (int) ($_SESSION['user']['id'] ?? 0);
@@ -853,6 +892,9 @@ require __DIR__ . '/../ui/layout_start.php';
   <?php if (($_GET['saved'] ?? '') === 'user_password_reset'): ?>
     <div class="alert alert-success">Email de réinitialisation du mot de passe envoyé.</div>
   <?php endif; ?>
+  <?php if (($_GET['saved'] ?? '') === 'user_temp_password'): ?>
+    <div class="alert alert-success">Mot de passe temporaire enregistré pour l’utilisateur.</div>
+  <?php endif; ?>
   <?php if (($_GET['saved'] ?? '') === 'options'): ?>
     <div class="alert alert-success">Options recettes enregistrées.</div>
   <?php endif; ?>
@@ -917,6 +959,20 @@ require __DIR__ . '/../ui/layout_start.php';
           echo 'Impossible d’envoyer l’email de réinitialisation.';
       } else {
           echo 'Erreur pendant la demande de réinitialisation du mot de passe.';
+      }
+      ?>
+    </div>
+  <?php endif; ?>
+  <?php if (str_starts_with((string) ($_GET['error'] ?? ''), 'user_temp_password_')): ?>
+    <div class="alert alert-error">
+      <?php
+      $userTempPasswordError = (string) ($_GET['error'] ?? '');
+      if ($userTempPasswordError === 'user_temp_password_not_found') {
+          echo 'Utilisateur introuvable.';
+      } elseif ($userTempPasswordError === 'user_temp_password_too_short') {
+          echo 'Le mot de passe temporaire doit contenir au moins 8 caractères.';
+      } else {
+          echo 'Erreur pendant la définition du mot de passe temporaire.';
       }
       ?>
     </div>
@@ -1274,6 +1330,12 @@ require __DIR__ . '/../ui/layout_start.php';
                     <input type="hidden" name="action" value="reset_user_password">
                     <input type="hidden" name="user_id" value="<?= (int) $u['id'] ?>">
                     <button class="btn btn-small btn-secondary" type="submit">Réinitialiser le mot de passe</button>
+                  </form>
+                  <form method="post" class="settings-inline-form" onsubmit="return confirm('Définir ce mot de passe temporaire pour cet utilisateur ?');">
+                    <input type="hidden" name="action" value="set_temporary_password">
+                    <input type="hidden" name="user_id" value="<?= (int) $u['id'] ?>">
+                    <input type="password" name="temporary_password" placeholder="Mot de passe temporaire" minlength="8" required>
+                    <button class="btn btn-small btn-secondary" type="submit">Définir le mot de passe</button>
                   </form>
                   <?php if (!$isProtectedUser): ?>
                     <form method="post" class="settings-inline-form" onsubmit="return confirm('Supprimer cet utilisateur ? Ses recettes seront conservées et rattachées à johny.benisvy@gmail.com. Ses favoris et sélections seront supprimés.');">

@@ -383,6 +383,7 @@ p { line-height: 1.6; color: var(--ink-700); }
 }
 
 .settings-inline-form select,
+.settings-inline-form input,
 .settings-row input {
   min-height: 38px;
   border: 1px solid #decdb9;
