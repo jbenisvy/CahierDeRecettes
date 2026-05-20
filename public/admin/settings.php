@@ -6,6 +6,7 @@ session_start();
 require_once __DIR__ . '/../../app/base_url.php';
 require_once __DIR__ . '/../auth/auth_functions.php';
 require_once __DIR__ . '/../../config/database.php';
+require_once __DIR__ . '/../../app/services/MailService.php';
 
 require_admin();
 
@@ -194,6 +195,38 @@ function group_counts(PDO $pdo, string $sql): array
 {
     $stmt = $pdo->query($sql);
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
+function ensure_password_resets_table(PDO $pdo): void
+{
+    $pdo->exec("
+        CREATE TABLE IF NOT EXISTS password_resets (
+            id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+            user_id INT UNSIGNED NOT NULL,
+            token CHAR(64) NOT NULL,
+            expires_at DATETIME NOT NULL,
+            created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+        )
+    ");
+}
+
+function issue_password_reset_token(PDO $pdo, int $userId, int $ttlHours = 2): string
+{
+    ensure_password_resets_table($pdo);
+
+    $token = bin2hex(random_bytes(32));
+    $tokenHash = hash('sha256', $token);
+    $expiresAt = date('Y-m-d H:i:s', strtotime('+' . $ttlHours . ' hours'));
+
+    $pdo->prepare('DELETE FROM password_resets WHERE user_id = ?')->execute([$userId]);
+
+    $stmt = $pdo->prepare('
+        INSERT INTO password_resets (user_id, token, expires_at)
+        VALUES (?, ?, ?)
+    ');
+    $stmt->execute([$userId, $tokenHash, $expiresAt]);
+
+    return $token;
 }
 
 function resolve_openai_api_key_settings(): ?string
@@ -442,6 +475,52 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             header('Location: ' . PUBLIC_URL . '/admin/settings.php?error=user_delete_failed');
             exit;
         }
+    }
+
+    if ($action === 'reset_user_password') {
+        $userId = (int) ($_POST['user_id'] ?? 0);
+
+        if ($userId <= 0) {
+            header('Location: ' . PUBLIC_URL . '/admin/settings.php?error=user_password_reset_invalid');
+            exit;
+        }
+
+        $stmtUser = $pdo->prepare('SELECT id, nom, email FROM users WHERE id = :id LIMIT 1');
+        $stmtUser->execute([':id' => $userId]);
+        $userToReset = $stmtUser->fetch(PDO::FETCH_ASSOC);
+
+        if (!$userToReset) {
+            header('Location: ' . PUBLIC_URL . '/admin/settings.php?error=user_password_reset_not_found');
+            exit;
+        }
+
+        $email = trim((string) ($userToReset['email'] ?? ''));
+        if ($email === '' || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            header('Location: ' . PUBLIC_URL . '/admin/settings.php?error=user_password_reset_email');
+            exit;
+        }
+
+        $token = issue_password_reset_token($pdo, (int) $userToReset['id']);
+        $resetLink = app_absolute_url('?action=reset_password&token=' . urlencode($token));
+        $nom = htmlspecialchars((string) ($userToReset['nom'] ?? ''), ENT_QUOTES, 'UTF-8');
+
+        $subject = 'Réinitialisation de votre mot de passe';
+        $html = "
+            <p>Bonjour {$nom},</p>
+            <p>Un administrateur a demandé la réinitialisation de votre mot de passe sur Mémoire de Saveurs.</p>
+            <p>Pour choisir un nouveau mot de passe, cliquez sur ce lien :</p>
+            <p><a href=\"{$resetLink}\">Réinitialiser mon mot de passe</a></p>
+            <p>Ce lien expire dans 2 heures.</p>
+        ";
+
+        $sent = MailService::send($email, $subject, $html);
+        if (!$sent) {
+            header('Location: ' . PUBLIC_URL . '/admin/settings.php?error=user_password_reset_mail');
+            exit;
+        }
+
+        header('Location: ' . PUBLIC_URL . '/admin/settings.php?saved=user_password_reset');
+        exit;
     }
 
     if ($action === 'save_options') {
@@ -742,6 +821,9 @@ require __DIR__ . '/../ui/layout_start.php';
       sélections supprimées: <?= (int) ($_GET['selection'] ?? 0) ?>.
     </div>
   <?php endif; ?>
+  <?php if (($_GET['saved'] ?? '') === 'user_password_reset'): ?>
+    <div class="alert alert-success">Email de réinitialisation du mot de passe envoyé.</div>
+  <?php endif; ?>
   <?php if (($_GET['saved'] ?? '') === 'options'): ?>
     <div class="alert alert-success">Options recettes enregistrées.</div>
   <?php endif; ?>
@@ -787,6 +869,22 @@ require __DIR__ . '/../ui/layout_start.php';
           echo 'Utilisateur introuvable.';
       } else {
           echo 'Erreur pendant la suppression de l’utilisateur.';
+      }
+      ?>
+    </div>
+  <?php endif; ?>
+  <?php if (str_starts_with((string) ($_GET['error'] ?? ''), 'user_password_reset_')): ?>
+    <div class="alert alert-error">
+      <?php
+      $userPasswordResetError = (string) ($_GET['error'] ?? '');
+      if ($userPasswordResetError === 'user_password_reset_not_found') {
+          echo 'Utilisateur introuvable.';
+      } elseif ($userPasswordResetError === 'user_password_reset_email') {
+          echo 'Adresse email utilisateur invalide.';
+      } elseif ($userPasswordResetError === 'user_password_reset_mail') {
+          echo 'Impossible d’envoyer l’email de réinitialisation.';
+      } else {
+          echo 'Erreur pendant la demande de réinitialisation du mot de passe.';
       }
       ?>
     </div>
@@ -1139,6 +1237,11 @@ require __DIR__ . '/../ui/layout_start.php';
                     <?php else: ?>
                       <button class="btn btn-small btn-primary" type="submit">Mettre à jour</button>
                     <?php endif; ?>
+                  </form>
+                  <form method="post" class="settings-inline-form" onsubmit="return confirm('Envoyer un email de réinitialisation du mot de passe à cet utilisateur ?');">
+                    <input type="hidden" name="action" value="reset_user_password">
+                    <input type="hidden" name="user_id" value="<?= (int) $u['id'] ?>">
+                    <button class="btn btn-small btn-secondary" type="submit">Réinitialiser le mot de passe</button>
                   </form>
                   <?php if (!$isProtectedUser): ?>
                     <form method="post" class="settings-inline-form" onsubmit="return confirm('Supprimer cet utilisateur ? Ses recettes seront conservées et rattachées à johny.benisvy@gmail.com. Ses favoris et sélections seront supprimés.');">
