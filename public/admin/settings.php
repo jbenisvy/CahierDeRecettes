@@ -191,6 +191,22 @@ function table_exists(PDO $pdo, string $tableName): bool
     return ((int) $stmt->fetchColumn()) > 0;
 }
 
+function ensure_users_role_column(PDO $pdo): void
+{
+    $stmt = $pdo->query("SHOW COLUMNS FROM users LIKE 'role'");
+    $column = $stmt->fetch(PDO::FETCH_ASSOC);
+    $columnType = (string) ($column['Type'] ?? '');
+
+    if (str_contains($columnType, "'contributeur'")) {
+        return;
+    }
+
+    $pdo->exec("
+        ALTER TABLE users
+        MODIFY role ENUM('admin','contributeur','lecteur') NOT NULL DEFAULT 'lecteur'
+    ");
+}
+
 function group_counts(PDO $pdo, string $sql): array
 {
     $stmt = $pdo->query($sql);
@@ -228,6 +244,8 @@ function issue_password_reset_token(PDO $pdo, int $userId, int $ttlHours = 2): s
 
     return $token;
 }
+
+ensure_users_role_column($pdo);
 
 function resolve_openai_api_key_settings(): ?string
 {
@@ -364,6 +382,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $userId = (int) ($_POST['user_id'] ?? 0);
         $role = (string) ($_POST['role'] ?? '');
         if ($userId > 0 && in_array($role, ['lecteur', 'contributeur', 'admin'], true)) {
+            ensure_users_role_column($pdo);
+
             $stmtUser = $pdo->prepare('SELECT email FROM users WHERE id = :id LIMIT 1');
             $stmtUser->execute([':id' => $userId]);
             $email = mb_strtolower(trim((string) ($stmtUser->fetchColumn() ?: '')));
@@ -378,6 +398,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 ':role' => $role,
                 ':id' => $userId,
             ]);
+
+            $stmtVerify = $pdo->prepare('SELECT role FROM users WHERE id = :id LIMIT 1');
+            $stmtVerify->execute([':id' => $userId]);
+            $storedRole = (string) ($stmtVerify->fetchColumn() ?: '');
+
+            if ($storedRole !== $role) {
+                header('Location: ' . PUBLIC_URL . '/admin/settings.php?error=user_role_update_failed');
+                exit;
+            }
         }
         header('Location: ' . PUBLIC_URL . '/admin/settings.php?saved=users');
         exit;
@@ -872,6 +901,9 @@ require __DIR__ . '/../ui/layout_start.php';
       }
       ?>
     </div>
+  <?php endif; ?>
+  <?php if (($_GET['error'] ?? '') === 'user_role_update_failed'): ?>
+    <div class="alert alert-error">Le rôle n’a pas pu être enregistré en base. La colonne `users.role` a probablement été corrigée, merci de réessayer une fois.</div>
   <?php endif; ?>
   <?php if (str_starts_with((string) ($_GET['error'] ?? ''), 'user_password_reset_')): ?>
     <div class="alert alert-error">
