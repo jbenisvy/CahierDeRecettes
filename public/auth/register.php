@@ -30,6 +30,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if ($stmt->fetch()) {
             $error = "Un compte existe déjà avec cet email.";
         } else {
+            $stmt = $pdo->prepare('SELECT id FROM users WHERE LOWER(nom) = LOWER(?) LIMIT 1');
+            $stmt->execute([$nom]);
+
+            if ($stmt->fetch()) {
+                $error = "Ce prénom ou pseudo est déjà utilisé. Merci d'en choisir un autre.";
+            } else {
             $hash = password_hash(bin2hex(random_bytes(24)), PASSWORD_DEFAULT);
 
             $stmt = $pdo->prepare('
@@ -79,8 +85,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }
 
             $message = "Un email vient d'être envoyé pour définir votre mot de passe.";
-
-
+            }
         }
     }
 }
@@ -117,8 +122,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <form method="post" class="login-form">
 
-  <label>Nom</label>
-  <input type="text" name="nom" required>
+  <label>Prénom ou pseudo</label>
+  <input type="text" name="nom" required maxlength="100" autocomplete="nickname">
 
   <label>Email</label>
   <input type="email" name="email" required>

@@ -206,6 +206,14 @@ case 'reset_password':
   require __DIR__ . '/auth/reset_password.php';
   exit;
 
+case 'request_login_link':
+  require __DIR__ . '/auth/request_login_link.php';
+  exit;
+
+case 'login_link':
+  require __DIR__ . '/auth/login_link.php';
+  exit;
+
    default:
     // Toutes les pages hors login/register/forgot/reset nécessitent une connexion.
     // On force la connexion ici pour sécuriser l'accès au listing.

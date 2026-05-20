@@ -20,6 +20,28 @@ if (!function_exists('require_login')) {
     }
 }
 
+if (!function_exists('login_user')) {
+    function login_user(array $user, ?PDO $pdo = null): void
+    {
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
+
+        session_regenerate_id(true);
+
+        $_SESSION['user'] = [
+            'id' => (int) ($user['id'] ?? 0),
+            'nom' => (string) ($user['nom'] ?? ''),
+            'role' => (string) ($user['role'] ?? 'lecteur'),
+        ];
+
+        if ($pdo instanceof PDO && !empty($user['id'])) {
+            $stmt = $pdo->prepare('UPDATE users SET last_login = NOW() WHERE id = ?');
+            $stmt->execute([(int) $user['id']]);
+        }
+    }
+}
+
 if (!function_exists('require_admin')) {
     function require_admin(): void
     {

@@ -10,6 +10,7 @@ error_reporting(E_ALL);
 require_once __DIR__ . '/../../config/database.php';
 // Charge la définition des constantes BASE_URL et PUBLIC_URL pour les liens dynamiques
 require_once __DIR__ . '/../../app/base_url.php';
+require_once __DIR__ . '/auth_functions.php';
 $pdo = getPDO(); // ✅ OBLIGATOIRE
 $error = null;
 
@@ -34,19 +35,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // exit;
 
         if ($user && password_verify($password, $user['password_hash'])) {
-
-       $_SESSION['user'] = [
-  'id'   => (int)$user['id'],   // ← ⭐⭐ ESSENTIEL ⭐⭐
-  'nom'  => $user['nom'],
-  'role' => $user['role']
-];
-
-
-
+            login_user($user, $pdo);
             header('Location: ' . BASE_URL . '/');
-			exit;
-
-
+            exit;
         } else {
             $error = "Email ou mot de passe incorrect";
         }
@@ -108,8 +99,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </div>
 
     <div class="login-links">
-      <a href="<?= BASE_URL ?>/?action=forgot_password">Mot de passe oublié ?</a>
+      <a href="<?= BASE_URL ?>/?action=request_login_link">Recevoir un lien de connexion sécurisé</a>
+    </div>
 
+    <div class="login-links">
+      <a href="<?= BASE_URL ?>/?action=forgot_password">Mot de passe oublié ?</a>
     </div>
 
   </div>
