@@ -20,7 +20,35 @@ require __DIR__ . "/../app/models/RecetteModel.php";
 // Définir BASE_URL et PUBLIC_URL pour les redirections
 require_once dirname(__DIR__) . '/app/base_url.php';
 
+function import_json_debug_log(string $message): void
+{
+    $line = '[import_json] ' . $message;
+    error_log($line);
+    @error_log($line . PHP_EOL, 3, dirname(__DIR__) . '/error.log');
+}
+
 error_log("Import JSON lancé par user #" . ($_SESSION['user']['id'] ?? 'unknown'));
+import_json_debug_log('start user=' . ($_SESSION['user']['id'] ?? 'unknown') . ' method=' . ($_SERVER['REQUEST_METHOD'] ?? ''));
+
+register_shutdown_function(static function (): void {
+    $error = error_get_last();
+    if ($error === null) {
+        import_json_debug_log('shutdown ok');
+        return;
+    }
+
+    $fatalTypes = [E_ERROR, E_PARSE, E_CORE_ERROR, E_COMPILE_ERROR, E_USER_ERROR];
+    if (!in_array($error['type'] ?? 0, $fatalTypes, true)) {
+        return;
+    }
+
+    import_json_debug_log(
+        'fatal type=' . ($error['type'] ?? 'unknown')
+        . ' file=' . ($error['file'] ?? 'unknown')
+        . ' line=' . ($error['line'] ?? 'unknown')
+        . ' message=' . ($error['message'] ?? 'unknown')
+    );
+});
 
 $jsonContent = null;
 $data = null;
@@ -95,6 +123,7 @@ elseif (
 
 // 4️⃣ Rien reçu → retour propre au formulaire
 else {
+    import_json_debug_log('redirect import_json_form: no payload');
     header("Location: " . PUBLIC_URL . "/import_json_form.php");
     exit;
 }
@@ -109,6 +138,7 @@ if ($data === null) {
 }
 
 if ($data === null || !is_array($data)) {
+    import_json_debug_log('invalid json: ' . json_last_error_msg());
     die("JSON invalide : " . json_last_error_msg());
 }
 
@@ -160,27 +190,31 @@ try {
         try {
             $model->ajouterRecetteDepuisJson($r);
             $imported++;
+            import_json_debug_log('recipe imported title=' . substr((string) ($r['titre'] ?? ''), 0, 120));
         } catch (DuplicateRecetteException $e) {
             $duplicates++;
             if ($duplicateId === null) {
                 $duplicateId = $e->getExistingId();
             }
+            import_json_debug_log('duplicate title=' . substr((string) ($r['titre'] ?? ''), 0, 120) . ' existing_id=' . $e->getExistingId());
             continue;
         }
     }
 } catch (Throwable $e) {
-    error_log('[import_json] ' . $e->getMessage());
+    import_json_debug_log('exception: ' . $e->getMessage());
 
     if (!empty($data[0]) && is_array($data[0])) {
         $_SESSION['import_json_payload'] = json_encode($data[0], JSON_UNESCAPED_UNICODE);
     }
     $_SESSION['import_json_error'] = "L'import a échoué : " . $e->getMessage();
 
+    import_json_debug_log('redirect import_preview after exception');
     header("Location: " . PUBLIC_URL . "/import_preview.php");
     exit;
 }
 
 if ($imported === 0 && $duplicates === 0) {
+    import_json_debug_log('redirect index empty');
     header("Location: " . PUBLIC_URL . "/index.php?import=empty");
     exit;
 }
@@ -189,6 +223,7 @@ if ($imported === 0 && $duplicates === 0) {
 unset($_SESSION['import_json_payload']);
 
 // Redirection finale
+import_json_debug_log('redirect index ok nb=' . $imported . ' dup=' . $duplicates . ' dup_id=' . ($duplicateId ?? 0));
 header(
     "Location: " . PUBLIC_URL . "/index.php?import=ok&nb=" . $imported
     . "&dup=" . $duplicates
