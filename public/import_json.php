@@ -19,8 +19,8 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 }
 
 // Dépendances
-require __DIR__ . "/../config/database.php";
-require __DIR__ . "/../app/models/RecetteModel.php";
+require_once __DIR__ . "/../config/database.php";
+require_once __DIR__ . "/../app/models/RecetteModel.php";
 // Définir BASE_URL et PUBLIC_URL pour les redirections
 require_once dirname(__DIR__) . '/app/base_url.php';
 
