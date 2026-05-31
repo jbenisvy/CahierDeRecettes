@@ -8,6 +8,10 @@ if (session_status() === PHP_SESSION_NONE) {
 require_once __DIR__ . '/auth/auth_functions.php';
 require_capability('add_recette');
 
+ini_set('display_errors', '1');
+ini_set('display_startup_errors', '1');
+error_reporting(E_ALL);
+
 // Endpoint POST uniquement
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     http_response_code(405);
@@ -25,6 +29,19 @@ function import_json_debug_log(string $message): void
     $line = '[import_json] ' . $message;
     error_log($line);
     @error_log($line . PHP_EOL, 3, dirname(__DIR__) . '/error.log');
+}
+
+function import_json_debug_die(string $message): never
+{
+    http_response_code(500);
+    echo '<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><title>Erreur import</title>';
+    echo '<style>body{font-family:Arial,sans-serif;margin:24px;background:#faf7f2;color:#222}';
+    echo '.box{max-width:980px;margin:0 auto;background:#fff;border:1px solid #e2d8c8;border-radius:10px;padding:20px}';
+    echo 'pre{white-space:pre-wrap;word-break:break-word;background:#f6f6f6;border-radius:6px;padding:12px}';
+    echo '</style></head><body><div class="box"><h1>Erreur import recette</h1><pre>';
+    echo htmlspecialchars($message, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
+    echo '</pre></div></body></html>';
+    exit;
 }
 
 function import_json_split_lines(mixed $value): array
@@ -68,6 +85,16 @@ register_shutdown_function(static function (): void {
         . ' line=' . ($error['line'] ?? 'unknown')
         . ' message=' . ($error['message'] ?? 'unknown')
     );
+
+    if (!headers_sent()) {
+        import_json_debug_die(
+            'Erreur fatale PHP' . "\n\n"
+            . 'Type: ' . ($error['type'] ?? 'unknown') . "\n"
+            . 'Fichier: ' . ($error['file'] ?? 'unknown') . "\n"
+            . 'Ligne: ' . ($error['line'] ?? 'unknown') . "\n"
+            . 'Message: ' . ($error['message'] ?? 'unknown')
+        );
+    }
 });
 
 $jsonContent = null;
@@ -149,7 +176,7 @@ else {
 }
 
 if ($data === null && $jsonContent === false) {
-    die("Impossible de lire le JSON");
+    import_json_debug_die("Impossible de lire le JSON");
 }
 
 // Décodage JSON
@@ -159,7 +186,7 @@ if ($data === null) {
 
 if ($data === null || !is_array($data)) {
     import_json_debug_log('invalid json: ' . json_last_error_msg());
-    die("JSON invalide : " . json_last_error_msg());
+    import_json_debug_die("JSON invalide : " . json_last_error_msg());
 }
 
 /*
@@ -222,11 +249,16 @@ try {
     if (!empty($data[0]) && is_array($data[0])) {
         $_SESSION['import_json_payload'] = json_encode($data[0], JSON_UNESCAPED_UNICODE);
     }
-    $_SESSION['import_json_error'] = "L'import a échoué : " . $e->getMessage();
+    $detail = "L'import a échoué : " . $e->getMessage()
+        . "\n\nType: " . get_class($e)
+        . "\nFichier: " . $e->getFile()
+        . "\nLigne: " . $e->getLine();
 
-    import_json_debug_log('redirect import_preview after exception');
-    header("Location: " . PUBLIC_URL . "/import_preview.php");
-    exit;
+    if ($e->getPrevious() instanceof Throwable) {
+        $detail .= "\n\nCause précédente: " . $e->getPrevious()->getMessage();
+    }
+
+    import_json_debug_die($detail);
 }
 
 if ($imported === 0 && $duplicates === 0) {
