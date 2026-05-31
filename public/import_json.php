@@ -97,7 +97,16 @@ if (
     $jsonContent = file_get_contents($_FILES['jsonfile']['tmp_name']);
 }
 
-// 2️⃣ Soumission du formulaire preview (prioritaire pour refléter les edits)
+// 2️⃣ JSON généré par le formulaire preview (prioritaire)
+elseif (
+    isset($_POST['json_payload']) &&
+    is_string($_POST['json_payload']) &&
+    trim($_POST['json_payload']) !== ''
+) {
+    $jsonContent = $_POST['json_payload'];
+}
+
+// 3️⃣ Soumission du formulaire preview (fallback sans JS)
 elseif (
     isset($_POST['titre']) ||
     isset($_POST['ingredients']) ||
@@ -130,15 +139,6 @@ elseif (
         'etapes' => $etapes,
         'commentaires' => trim((string)($_POST['commentaires'] ?? '')),
     ]];
-}
-
-// 3️⃣ JSON généré par le formulaire preview (fallback ancien comportement)
-elseif (
-    isset($_POST['json_payload']) &&
-    is_string($_POST['json_payload']) &&
-    trim($_POST['json_payload']) !== ''
-) {
-    $jsonContent = $_POST['json_payload'];
 }
 
 // 4️⃣ Rien reçu → retour propre au formulaire

@@ -242,28 +242,7 @@ try {
               <label class="form-label">Commentaires</label>
               <textarea name="commentaires" class="form-control" rows="3"><?= htmlspecialchars((string)$recette['commentaires']) ?></textarea>
             </div>
-<?php
-$final = [[
-    'titre' => $recette['titre'],
-    'auteur' => $recette['auteur'],
-    'source' => $recette['source'],
-    'categorie' => $recette['categorie'],
-    'type_recette' => 'recette',
-    'type_cuisson' => $recette['type_cuisson'],
-    'temps_preparation' => $recette['temps_preparation'],
-    'temps_cuisson' => $recette['temps_cuisson'],
-    'nombre_personnes' => $recette['nombre_personnes'],
-    'temps_repos' => null,
-    'ingredients' => array_values(array_filter(array_map('trim', $recette['ingredients']))),
-    'etapes' => array_values(array_filter(array_map('trim', $recette['etapes']))),
-    'commentaires' => $recette['commentaires'],
-]];
-?>
-
-<input type="hidden"
-       name="json_payload"
-       value="<?= htmlspecialchars(json_encode($final, JSON_UNESCAPED_UNICODE)) ?>">
-
+            <input type="hidden" name="json_payload" id="json_payload" value="">
             <div class="d-flex gap-2 mt-3">
               <button class="btn btn-primary" type="submit">✅ Importer</button>
               <a href="<?= PUBLIC_URL ?>/import_json_form.php" class="btn btn-outline-secondary">↩ Retour</a>
@@ -279,9 +258,24 @@ $final = [[
 </div>
 <script>
 (function() {
+  const form = document.querySelector('form[action$="import_json.php"]');
   const select = document.getElementById('type_cuisson');
   const other = document.getElementById('type_cuisson_autre');
-  if (!select || !other) return;
+  if (!form || !select || !other) return;
+
+  const jsonPayloadField = document.getElementById('json_payload');
+  const ingredientsField = form.querySelector('textarea[name="ingredients"]');
+  const etapesField = form.querySelector('textarea[name="etapes"]');
+  const commentairesField = form.querySelector('textarea[name="commentaires"]');
+
+  function splitLines(value) {
+    return String(value || '')
+      .replace(/\r\n/g, '\n')
+      .replace(/\r/g, '\n')
+      .split('\n')
+      .map((line) => line.trim())
+      .filter((line) => line !== '');
+  }
 
   function sync() {
     const isOther = select.value === '__autre__';
@@ -291,6 +285,46 @@ $final = [[
 
   select.addEventListener('change', sync);
   sync();
+
+  form.addEventListener('submit', function () {
+    if (!jsonPayloadField) return;
+
+    const typeCuisson = other.value.trim() !== ''
+      ? other.value.trim()
+      : (select.value === '__autre__' ? '' : select.value);
+
+    const payload = [[
+      titre: (form.querySelector('input[name="titre"]')?.value || '').trim(),
+      auteur: (form.querySelector('input[name="auteur"]')?.value || '').trim(),
+      source: (form.querySelector('input[name="source"]')?.value || '').trim(),
+      categorie: (form.querySelector('select[name="categorie"]')?.value || '').trim(),
+      type_recette: 'recette',
+      type_cuisson: typeCuisson,
+      temps_preparation: (form.querySelector('input[name="temps_preparation"]')?.value || '').trim(),
+      temps_cuisson: (form.querySelector('input[name="temps_cuisson"]')?.value || '').trim(),
+      temps_repos: null,
+      nombre_personnes: (form.querySelector('input[name="nombre_personnes"]')?.value || '').trim(),
+      difficulte: (form.querySelector('input[name="difficulte"]')?.value || '').trim(),
+      ingredients: splitLines(ingredientsField?.value || ''),
+      etapes: splitLines(etapesField?.value || ''),
+      commentaires: (commentairesField?.value || '').trim()
+    ]];
+
+    jsonPayloadField.value = JSON.stringify(payload);
+
+    if (ingredientsField) {
+      ingredientsField.dataset.originalName = ingredientsField.name;
+      ingredientsField.removeAttribute('name');
+    }
+    if (etapesField) {
+      etapesField.dataset.originalName = etapesField.name;
+      etapesField.removeAttribute('name');
+    }
+    if (commentairesField) {
+      commentairesField.dataset.originalName = commentairesField.name;
+      commentairesField.removeAttribute('name');
+    }
+  });
 })();
 </script>
 
