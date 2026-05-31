@@ -27,6 +27,26 @@ function import_json_debug_log(string $message): void
     @error_log($line . PHP_EOL, 3, dirname(__DIR__) . '/error.log');
 }
 
+function import_json_split_lines(mixed $value): array
+{
+    if (is_array($value)) {
+        $value = implode("\n", array_map(static fn($item): string => (string) $item, $value));
+    }
+
+    if (!is_string($value)) {
+        return [];
+    }
+
+    $normalized = str_replace(["\r\n", "\r"], "\n", $value);
+    $parts = explode("\n", $normalized);
+
+    return array_values(array_filter(array_map(static function ($line): string {
+        return trim((string) $line);
+    }, $parts), static function ($line): bool {
+        return $line !== '';
+    }));
+}
+
 error_log("Import JSON lancé par user #" . ($_SESSION['user']['id'] ?? 'unknown'));
 import_json_debug_log('start user=' . ($_SESSION['user']['id'] ?? 'unknown') . ' method=' . ($_SERVER['REQUEST_METHOD'] ?? ''));
 
@@ -91,8 +111,8 @@ elseif (
         $typeCuisson = '';
     }
 
-    $ingredients = preg_split("/\r\n|\n/u", (string)($_POST['ingredients'] ?? ''));
-    $etapes = preg_split("/\r\n|\n/u", (string)($_POST['etapes'] ?? ''));
+    $ingredients = import_json_split_lines($_POST['ingredients'] ?? '');
+    $etapes = import_json_split_lines($_POST['etapes'] ?? '');
 
     $data = [[
         'titre' => trim((string)($_POST['titre'] ?? '')),
@@ -106,8 +126,8 @@ elseif (
         'temps_repos' => null,
         'nombre_personnes' => ($_POST['nombre_personnes'] ?? '') !== '' ? (int) $_POST['nombre_personnes'] : null,
         'difficulte' => ($_POST['difficulte'] ?? '') !== '' ? (int) $_POST['difficulte'] : null,
-        'ingredients' => array_values(array_filter(array_map('trim', $ingredients))),
-        'etapes' => array_values(array_filter(array_map('trim', $etapes))),
+        'ingredients' => $ingredients,
+        'etapes' => $etapes,
         'commentaires' => trim((string)($_POST['commentaires'] ?? '')),
     ]];
 }
@@ -161,18 +181,14 @@ try {
 
         // Normalisation ingrédients
         if (isset($r['ingredients']) && is_string($r['ingredients'])) {
-            $r['ingredients'] = array_values(array_filter(array_map(
-                'trim',
-                preg_split("/\r\n|\n|•|,/u", $r['ingredients'])
-            )));
+            $normalizedIngredients = str_replace('•', "\n", $r['ingredients']);
+            $normalizedIngredients = str_replace(',', "\n", $normalizedIngredients);
+            $r['ingredients'] = import_json_split_lines($normalizedIngredients);
         }
 
         // Normalisation étapes
         if (isset($r['etapes']) && is_string($r['etapes'])) {
-            $r['etapes'] = array_values(array_filter(array_map(
-                'trim',
-                preg_split("/\r\n|\n/u", $r['etapes'])
-            )));
+            $r['etapes'] = import_json_split_lines($r['etapes']);
         }
 
         if (
