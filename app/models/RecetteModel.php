@@ -24,9 +24,23 @@ class RecetteModel
   private $pdo;
 
 
-    public function __construct()
+public function __construct()
 {
     $this->pdo = getPDO();
+}
+
+private function trimToLength(mixed $value, int $maxLength): ?string
+{
+    if ($value === null) {
+        return null;
+    }
+
+    $text = trim((string) $value);
+    if ($text === '') {
+        return null;
+    }
+
+    return mb_substr($text, 0, $maxLength);
 }
     public function getDb(): PDO
     {
@@ -259,6 +273,18 @@ public function ajouterRecetteDepuisJson(array $r): int
         if (!is_array($ingredients)) {
             $ingredients = [];
         }
+        $ingredients = array_values(array_filter(array_map(function ($ingredient) {
+            $text = $this->trimToLength($ingredient, 500);
+            return $text ?? '';
+        }, $ingredients)));
+
+        $etapes = $r["etapes"] ?? [];
+        if (!is_array($etapes)) {
+            $etapes = [];
+        }
+        $etapes = array_values(array_filter(array_map(static function ($etape) {
+            return trim((string) $etape);
+        }, $etapes)));
 
         $dedupHash = $this->computeDedupHash(
             (string) ($r["titre"] ?? ''),
@@ -302,17 +328,17 @@ public function ajouterRecetteDepuisJson(array $r): int
 ");
 
 $stmt->execute([
-    ":titre"             => $r["titre"],
-    ":auteur"            => $r["auteur"] ?? null,
-    ":source"            => $r["source"] ?? null,
-    ":categorie"         => $r["categorie"] ?? "autre",
+    ":titre"             => $this->trimToLength($r["titre"] ?? '', 255) ?? '',
+    ":auteur"            => $this->trimToLength($r["auteur"] ?? null, 255),
+    ":source"            => $this->trimToLength($r["source"] ?? null, 255),
+    ":categorie"         => $this->trimToLength($r["categorie"] ?? "autre", 100) ?? 'autre',
     ":type_recette"      => $r["type_recette"] ?? "recette",
-    ":type_cuisson" 	 => $r["type_cuisson"] ?? null,
+    ":type_cuisson" 	 => $this->trimToLength($r["type_cuisson"] ?? null, 100),
     ":temps_preparation" => isset($r["temps_preparation"]) ? (int)$r["temps_preparation"] : null,
     ":temps_cuisson"     => isset($r["temps_cuisson"]) ? (int)$r["temps_cuisson"] : null,
     ":temps_repos"       => isset($r["temps_repos"]) ? (int)$r["temps_repos"] : null,
     ":nombre_personnes"  => isset($r["nombre_personnes"]) ? (int)$r["nombre_personnes"] : null,
-    ":commentaires"      => $r["commentaires"] ?? null,
+    ":commentaires"      => $this->trimToLength($r["commentaires"] ?? null, 65535),
     ":dedup_hash"        => $dedupHash,
 ]);
 
@@ -342,7 +368,7 @@ if ($recetteId <= 0) {
             VALUES (:recette_id, :ordre, :texte)
         ");
 
-        foreach ($r["etapes"] as $i => $texte) {
+        foreach ($etapes as $i => $texte) {
             $stmtEtape->execute([
                 ":recette_id" => $recetteId,
                 ":ordre" => $i + 1,

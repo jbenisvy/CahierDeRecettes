@@ -25,6 +25,8 @@ error_log("Import JSON lancé par user #" . ($_SESSION['user']['id'] ?? 'unknown
 $jsonContent = null;
 $data = null;
 
+unset($_SESSION['import_json_error']);
+
 /*
 |--------------------------------------------------------------------------
 | MODE UNIQUE — JSON (fichier OU payload)
@@ -115,55 +117,67 @@ if ($data === null || !is_array($data)) {
 | IMPORT EN BASE (LOGIQUE EXISTANTE, CONSERVÉE)
 |--------------------------------------------------------------------------
 */
-$model = new RecetteModel();
-$imported = 0;
-$duplicates = 0;
-$duplicateId = null;
+try {
+    $model = new RecetteModel();
+    $imported = 0;
+    $duplicates = 0;
+    $duplicateId = null;
 
-foreach ($data as $r) {
+    foreach ($data as $r) {
 
-    if (empty($r['titre'])) {
-        continue;
-    }
-
-    // Normalisation ingrédients
-    if (isset($r['ingredients']) && is_string($r['ingredients'])) {
-        $r['ingredients'] = array_values(array_filter(array_map(
-            'trim',
-            preg_split("/\r\n|\n|•|,/u", $r['ingredients'])
-        )));
-    }
-
-    // Normalisation étapes
-    if (isset($r['etapes']) && is_string($r['etapes'])) {
-        $r['etapes'] = array_values(array_filter(array_map(
-            'trim',
-            preg_split("/\r\n|\n/u", $r['etapes'])
-        )));
-    }
-
-    if (
-        empty($r['ingredients']) ||
-        empty($r['etapes']) ||
-        !is_array($r['ingredients']) ||
-        !is_array($r['etapes'])
-    ) {
-        continue;
-    }
-
-    // Auteur forcé (sécurité)
-    $r['auteur'] = $_SESSION['user']['nom'];
-
-    try {
-        $model->ajouterRecetteDepuisJson($r);
-        $imported++;
-    } catch (DuplicateRecetteException $e) {
-        $duplicates++;
-        if ($duplicateId === null) {
-            $duplicateId = $e->getExistingId();
+        if (empty($r['titre'])) {
+            continue;
         }
-        continue;
+
+        // Normalisation ingrédients
+        if (isset($r['ingredients']) && is_string($r['ingredients'])) {
+            $r['ingredients'] = array_values(array_filter(array_map(
+                'trim',
+                preg_split("/\r\n|\n|•|,/u", $r['ingredients'])
+            )));
+        }
+
+        // Normalisation étapes
+        if (isset($r['etapes']) && is_string($r['etapes'])) {
+            $r['etapes'] = array_values(array_filter(array_map(
+                'trim',
+                preg_split("/\r\n|\n/u", $r['etapes'])
+            )));
+        }
+
+        if (
+            empty($r['ingredients']) ||
+            empty($r['etapes']) ||
+            !is_array($r['ingredients']) ||
+            !is_array($r['etapes'])
+        ) {
+            continue;
+        }
+
+        // Auteur forcé (sécurité)
+        $r['auteur'] = $_SESSION['user']['nom'];
+
+        try {
+            $model->ajouterRecetteDepuisJson($r);
+            $imported++;
+        } catch (DuplicateRecetteException $e) {
+            $duplicates++;
+            if ($duplicateId === null) {
+                $duplicateId = $e->getExistingId();
+            }
+            continue;
+        }
     }
+} catch (Throwable $e) {
+    error_log('[import_json] ' . $e->getMessage());
+
+    if (!empty($data[0]) && is_array($data[0])) {
+        $_SESSION['import_json_payload'] = json_encode($data[0], JSON_UNESCAPED_UNICODE);
+    }
+    $_SESSION['import_json_error'] = "L'import a échoué : " . $e->getMessage();
+
+    header("Location: " . PUBLIC_URL . "/import_preview.php");
+    exit;
 }
 
 if ($imported === 0 && $duplicates === 0) {

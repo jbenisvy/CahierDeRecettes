@@ -21,6 +21,12 @@ error_reporting(E_ALL);
 
 $json = null;
 $erreur = null;
+$importError = null;
+
+if (!empty($_SESSION['import_json_error'])) {
+    $importError = (string) $_SESSION['import_json_error'];
+    unset($_SESSION['import_json_error']);
+}
 
 if (!empty($_SESSION['import_json_payload'])) {
 
@@ -130,6 +136,9 @@ try {
 
           <?php if ($erreur): ?>
             <div class="alert alert-danger"><?= htmlspecialchars($erreur) ?></div>
+          <?php endif; ?>
+          <?php if ($importError): ?>
+            <div class="alert alert-danger"><?= htmlspecialchars($importError) ?></div>
           <?php endif; ?>
           <?php if ($duplicateId): ?>
             <div class="alert alert-warning">
