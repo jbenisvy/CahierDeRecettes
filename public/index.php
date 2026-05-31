@@ -145,7 +145,6 @@ $categories = $controller->getCategories();
 $auteurs    = $controller->getAuteurs();
 $sources    = $controller->getSources();
 $tags       = $controller->getTousLesTags();
-$typesCuisson = $controller->getTypesCuisson();
 
 $view = $_GET['view'] ?? 'list'; // list | gallery
 

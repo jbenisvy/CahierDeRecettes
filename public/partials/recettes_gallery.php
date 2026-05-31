@@ -48,7 +48,12 @@ if (!empty($recette['photo_principale'])) {
 ?>
 
 <?php if ($photo): ?>
-    <img src="<?= PUBLIC_URL ?>/uploads/recettes/<?= htmlspecialchars($photo) ?>" alt="">
+    <img
+      src="<?= PUBLIC_URL ?>/uploads/recettes/<?= htmlspecialchars($photo) ?>"
+      loading="lazy"
+      decoding="async"
+      alt=""
+    >
 <?php else: ?>
     <div class="gallery-placeholder">📷</div>
 <?php endif; ?>

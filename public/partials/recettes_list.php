@@ -74,6 +74,8 @@
   <?php if ($photo): ?>
     <img class="recette-thumb"
          src="<?= PUBLIC_URL ?>/uploads/recettes/<?= htmlspecialchars($photo) ?>"
+         loading="lazy"
+         decoding="async"
          alt="">
   <?php else: ?>
     <span class="recette-thumb placeholder"

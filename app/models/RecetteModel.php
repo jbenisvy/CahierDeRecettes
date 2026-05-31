@@ -440,7 +440,14 @@ public function getToutesRecettes(
 
     $sql = "
         SELECT
-            r.*,
+            r.id,
+            r.titre,
+            r.auteur,
+            r.source,
+            r.categorie,
+            r.type_cuisson,
+            r.type_recette,
+            r.created_at,
             p.fichier AS photo_principale
     ";
 
