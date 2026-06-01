@@ -80,7 +80,17 @@ if (window.__selectionJSLoaded) {
       return;
     }
 
-    window.open("/pdf/pdf_selection.php", "_blank");
+    window.open("/pdf/pdf_selection.php?disposition=inline", "_blank");
+  }
+
+  async function printSelectionPdf() {
+    await SelectionState.refresh();
+    if (!SelectionState.count) {
+      alert("Aucune recette sélectionnée");
+      return;
+    }
+
+    window.open("/print/print_selection.php", "_blank");
   }
 
   function submitDeleteSelection() {
@@ -152,7 +162,7 @@ btn.textContent = isSelected ? "✔️" : "⬜";
     // 2️⃣ Imprimer sélection
     if (e.target.closest(".btn-print-selection")) {
       e.preventDefault();
-      openSelectionPdf();
+      printSelectionPdf();
       return;
     }
 

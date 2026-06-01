@@ -23,6 +23,8 @@ use Mpdf\Mpdf;
 // ===============================
 
 $idsParam = trim((string)($_GET['ids'] ?? ''));
+$disposition = strtolower(trim((string)($_GET['disposition'] ?? 'inline')));
+$filename = 'recettes-selection.pdf';
 $ids = $idsParam !== ''
     ? array_filter(array_map('intval', explode(',', $idsParam)))
     : [];
@@ -103,7 +105,11 @@ while (ob_get_level() > 0) {
 }
 
 header('Content-Type: application/pdf');
-header('Content-Disposition: attachment; filename="recettes-selection.pdf"');
+header(
+    'Content-Disposition: '
+    . ($disposition === 'attachment' ? 'attachment' : 'inline')
+    . '; filename="' . $filename . '"'
+);
 header('Content-Length: ' . strlen($pdfBinary));
 header('Cache-Control: private, max-age=0, must-revalidate');
 
