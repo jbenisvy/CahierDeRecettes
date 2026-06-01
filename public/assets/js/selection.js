@@ -55,13 +55,18 @@ if (window.__selectionJSLoaded) {
 }
 
 
-  function openPrintSelection() {
+  function openSelectionDocument(mode = "print") {
     const ids = getSelectedRecetteIds();
     if (!ids.length) {
       alert("Aucune recette sélectionnée");
       return;
     }
-    window.open("/print/print_selection.php?ids=" + ids.join(","), "_blank");
+
+    const endpoint = mode === "pdf"
+      ? "/pdf/pdf_selection.php?ids="
+      : "/print/print_selection.php?ids=";
+
+    window.open(endpoint + ids.join(","), "_blank");
   }
 
   function submitDeleteSelection(ids) {
@@ -141,14 +146,14 @@ SelectionState.refresh();
     // 2️⃣ Imprimer sélection
     if (e.target.closest(".btn-print-selection")) {
       e.preventDefault();
-      openPrintSelection();
+      openSelectionDocument("pdf");
       return;
     }
 
     // 3️⃣ PDF sélection
     if (e.target.closest(".btn-pdf-selection")) {
       e.preventDefault();
-      openPrintSelection();
+      openSelectionDocument("pdf");
       return;
     }
 

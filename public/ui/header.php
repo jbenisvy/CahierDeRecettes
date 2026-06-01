@@ -103,7 +103,14 @@ if (!is_string($lastListUrl) || trim($lastListUrl) === '') {
     >
       Convertisseur
     </button>
-    <button class="btn btn-ghost" onclick="window.print()">Imprimer</button>
+    <?php if ($recetteId): ?>
+      <a
+        class="btn btn-ghost"
+        href="<?= PUBLIC_URL ?>/pdf/recette_pdf.php?id=<?= (int)$recetteId ?>"
+        target="_blank"
+        rel="noopener"
+      >Imprimer</a>
+    <?php endif; ?>
 
 
   <?php elseif ($page === 'edit'): ?>
