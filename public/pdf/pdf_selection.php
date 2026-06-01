@@ -96,4 +96,16 @@ foreach ($ids as $id) {
 // SORTIE DU PDF
 // ===============================
 
-$mpdf->Output('recettes-selection.pdf', 'I');
+$pdfBinary = $mpdf->Output('', 'S');
+
+while (ob_get_level() > 0) {
+    ob_end_clean();
+}
+
+header('Content-Type: application/pdf');
+header('Content-Disposition: attachment; filename="recettes-selection.pdf"');
+header('Content-Length: ' . strlen($pdfBinary));
+header('Cache-Control: private, max-age=0, must-revalidate');
+
+echo $pdfBinary;
+exit;

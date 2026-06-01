@@ -12,6 +12,10 @@ $categorie = (string)($r['categorie'] ?? '');
 
 $ingredients = is_array($recette['ingredients'] ?? null) ? $recette['ingredients'] : [];
 $etapes      = is_array($recette['etapes'] ?? null) ? $recette['etapes'] : [];
+$tags        = array_values(array_filter(array_map(
+    static fn($tag): string => trim((string)($tag['nom'] ?? '')),
+    is_array($recette['tags'] ?? null) ? $recette['tags'] : []
+)));
 
 $root = realpath(__DIR__ . '/../../');
 
@@ -57,7 +61,7 @@ if (
     <div><strong>Type de cuisson :</strong> <?= $r['type_cuisson'] ?: 'Non renseigné' ?></div>
     <div><strong>Difficulté :</strong> <?= $r['difficulte'] !== null ? $r['difficulte'].'/5' : 'Non renseigné' ?></div>
     <div><strong>Tags :</strong>
-        <?= !empty($recette['tags']) ? implode(', ', $recette['tags']) : 'Non renseigné' ?>
+        <?= !empty($tags) ? htmlspecialchars(implode(', ', $tags), ENT_QUOTES, 'UTF-8') : 'Non renseigné' ?>
     </div>
 </div>
 
@@ -86,10 +90,10 @@ if (
 </table>
 
 
-    <?php if (!empty($recette['tags'])): ?>
+    <?php if (!empty($tags)): ?>
         <div class="tags">
             <strong>Tags :</strong>
-            <?= implode(', ', array_map('htmlspecialchars', $recette['tags'])) ?>
+            <?= htmlspecialchars(implode(', ', $tags), ENT_QUOTES, 'UTF-8') ?>
         </div>
     <?php endif; ?>
 
