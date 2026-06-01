@@ -867,7 +867,24 @@ p { line-height: 1.6; color: var(--ink-700); }
 
 .col-select { width: 46px; text-align: center; }
 .col-photo { width: 92px; text-align: center; }
-.col-actions { width: 140px; text-align: center; white-space: nowrap; }
+.col-actions {
+  width: 140px;
+  text-align: center;
+  white-space: nowrap;
+  position: sticky;
+  right: 0;
+  z-index: 2;
+  background: #fff;
+}
+
+.recettes-table th.col-actions {
+  z-index: 3;
+  background: #f6ecdf;
+}
+
+.recettes-table td.col-actions {
+  box-shadow: -10px 0 18px rgba(31, 26, 20, 0.05);
+}
 
 .recette-thumb {
   width: 70px;

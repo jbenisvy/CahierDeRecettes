@@ -21,15 +21,13 @@
   <th data-sort="type_cuisson">Cuisson</th>
   <th data-sort="type_recette">Type</th>
   <th class="col-actions">Actions</th>
-  <td class="col-select" data-sort-value="<?= !empty($recette['is_checked']) ? '1' : '0' ?>">
-
 </tr>
 
   </thead>
   <tbody>
 <?php if (empty($recettes)): ?>
     <tr>
-      <td colspan="<?= !empty($_SESSION['user']['id']) ? 9 : 8 ?>" class="muted">
+      <td colspan="<?= !empty($_SESSION['user']['id']) ? 10 : 9 ?>" class="muted">
   Aucune recette trouvée
 </td>
 
