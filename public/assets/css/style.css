@@ -761,7 +761,8 @@ p { line-height: 1.6; color: var(--ink-700); }
   grid-template-areas:
     "query query category tags"
     "type author source tags"
-    "cook flags submit tags";
+    "cook flags submit tags"
+    "dashboard dashboard dashboard tags";
   gap: 12px;
   align-items: start;
 }
@@ -772,6 +773,7 @@ p { line-height: 1.6; color: var(--ink-700); }
 .filters-grid .filter-author { grid-area: author; }
 .filters-grid .filter-source { grid-area: source; }
 .filters-grid .filter-cook { grid-area: cook; }
+.filters-grid .filter-dashboard { grid-area: dashboard; }
 .filters-grid .filter-tags { grid-area: tags; }
 .filters-grid .filter-flags { grid-area: flags; }
 .filters-grid .filter-submit { grid-area: submit; justify-self: start; }
@@ -1111,7 +1113,7 @@ td.actions a:hover { background: #f0e7dc; }
 .tags-edit { display: flex; flex-wrap: wrap; gap: 8px; }
 .tags-edit .tag a { font-weight: 900; }
 
-.tag-form { display: flex; gap: 8px; align-items: center; margin-top: 10px; }
+.tag-form { display: flex; gap: 8px; align-items: center; margin-top: 10px; flex-wrap: wrap; }
 .tag-form input[type="text"] { flex: 1; }
 
 .photo-principale img,
@@ -1323,7 +1325,14 @@ td.actions a:hover { background: #f0e7dc; }
 }
 
 /* Liste de courses */
-.courses-sheet .page-header-actions { margin-bottom: 18px; }
+.courses-sheet .page-header-actions {
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
 .courses-sheet h1 { margin-bottom: 6px; }
 .courses-sheet .page-subtitle { color: var(--ink-500); }
 
@@ -1409,6 +1418,7 @@ td.actions a:hover { background: #f0e7dc; }
       "query query category"
       "type author source"
       "cook flags submit"
+      "dashboard dashboard dashboard"
       "tags tags tags";
   }
 }
@@ -1429,6 +1439,7 @@ td.actions a:hover { background: #f0e7dc; }
       "type author"
       "source cook"
       "flags submit"
+      "dashboard dashboard"
       "tags tags";
   }
 }
@@ -1447,12 +1458,17 @@ td.actions a:hover { background: #f0e7dc; }
       "source"
       "cook"
       "flags"
+      "dashboard"
       "tags"
       "submit";
   }
   .recettes-table { display: block; }
   .form-recette label { grid-template-columns: 1fr; }
   .login-links { flex-direction: column; gap: 6px; }
+  .tag-form { flex-direction: column; align-items: stretch; }
+  .tag-form button,
+  .tag-form select,
+  .tag-form input[type="text"] { width: 100%; }
 
   .app-topbar__toggle { display: inline-flex; align-items: center; justify-content: center; }
   .app-topbar__right {
@@ -1515,6 +1531,13 @@ td.actions a:hover { background: #f0e7dc; }
 
   .recettes-table td:last-child { border-bottom: 0; }
   .recettes-table .recette-thumb { width: 84px; height: 84px; border-radius: 14px; }
+  .recettes-table .col-actions {
+    position: static;
+    right: auto;
+    z-index: auto;
+    box-shadow: none;
+    background: transparent;
+  }
   .recettes-table td.actions { justify-content: flex-start; gap: 8px; }
   .recettes-table td.actions::before { margin-right: auto; }
 
@@ -1562,6 +1585,17 @@ td.actions a:hover { background: #f0e7dc; }
 
 @media (max-width: 560px) {
   .app-topbar__right { gap: 8px; }
-  .btn { width: 100%; justify-content: center; }
+  .app-topbar__right .btn,
+  .app-topbar__right button,
+  .app-topbar__right a,
+  .courses-sheet .page-header-right .btn,
+  .photo-upload-mobile-actions .photo-upload-action {
+    width: 100%;
+    justify-content: center;
+  }
+  .photo-upload-mobile-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
   .gallery-grid { grid-template-columns: 1fr; }
 }
