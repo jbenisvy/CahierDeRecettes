@@ -13,13 +13,13 @@
     <th data-sort="is_favori" class="col-favori">★</th>
   <?php endif; ?>
 
-  <th data-sort="titre">Titre</th>
+  <th data-sort="titre" class="col-title">Titre</th>
 
-  <th data-sort="categorie">Catégorie</th>
-  <th data-sort="auteur">Auteur</th>
-  <th data-sort="source">Source</th>
-  <th data-sort="type_cuisson">Cuisson</th>
-  <th data-sort="type_recette">Type</th>
+  <th data-sort="categorie" class="col-category">Catégorie</th>
+  <th data-sort="auteur" class="col-author">Auteur</th>
+  <th data-sort="source" class="col-source">Source</th>
+  <th data-sort="type_cuisson" class="col-cook">Cuisson</th>
+  <th data-sort="type_recette" class="col-type">Type</th>
   <th class="col-actions">Actions</th>
 </tr>
 
@@ -95,7 +95,7 @@
   </td>
 <?php endif; ?>
 
-      <td data-label="Titre">
+      <td class="col-title" data-label="Titre">
         <?php if (!empty($recette['type_recette'])): ?>
           <?php if ($recette['type_recette'] === 'base'): ?>
             <span class="badge badge-base">Base</span>
@@ -106,11 +106,11 @@
         <?= htmlspecialchars($recette['titre']) ?>
       </td>
 
-      <td data-label="Catégorie"><?= htmlspecialchars($recette['categorie'] ?? '') ?></td>
-      <td data-label="Auteur"><?= htmlspecialchars($recette['auteur'] ?? '') ?></td>
-      <td data-label="Source"><?= htmlspecialchars($recette['source'] ?? '') ?></td>
-      <td data-label="Cuisson"><?= htmlspecialchars($recette['type_cuisson'] ?? '') ?></td>
-      <td data-label="Type"><?= htmlspecialchars($recette['type_recette'] ?? 'recette') ?></td>
+      <td class="col-category" data-label="Catégorie"><?= htmlspecialchars($recette['categorie'] ?? '') ?></td>
+      <td class="col-author" data-label="Auteur"><?= htmlspecialchars($recette['auteur'] ?? '') ?></td>
+      <td class="col-source" data-label="Source"><?= htmlspecialchars($recette['source'] ?? '') ?></td>
+      <td class="col-cook" data-label="Cuisson"><?= htmlspecialchars($recette['type_cuisson'] ?? '') ?></td>
+      <td class="col-type" data-label="Type"><?= htmlspecialchars($recette['type_recette'] ?? 'recette') ?></td>
 
       <td class="actions col-actions" data-label="Actions">
         <a href="<?= PUBLIC_URL ?>/recette.php?id=<?= (int)$recette['id'] ?>" title="Voir">👁️</a>
