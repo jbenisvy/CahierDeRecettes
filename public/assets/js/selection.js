@@ -20,9 +20,12 @@ if (window.__selectionJSLoaded) {
   =============================== */
   const SelectionState = {
     ids: [],
+    count: 0,
 
-    refresh() {
-      this.ids = getSelectedRecetteIds();
+    async refresh() {
+      const state = await fetchSelectionState();
+      this.ids = Array.isArray(state.ids) ? state.ids : [];
+      this.count = Number.isFinite(state.count) ? state.count : this.ids.length;
       this.syncUI();
     },
 
@@ -30,7 +33,7 @@ if (window.__selectionJSLoaded) {
       const btnDelete = document.getElementById("btn-delete-selection");
       if (!btnDelete) return;
 
-      btnDelete.disabled = this.ids.length === 0;
+      btnDelete.disabled = this.count === 0;
     }
   };
 
@@ -47,36 +50,43 @@ if (window.__selectionJSLoaded) {
       .filter(Boolean);
   }
 
+  async function fetchSelectionState() {
+    try {
+      const res = await fetch("/ajax/selection_state.php", {
+        headers: { "Accept": "application/json" },
+      });
+      return await res.json();
+    } catch (err) {
+      console.error("Erreur récupération sélection", err);
+      return {
+        count: getSelectedRecetteIds().length,
+        ids: getSelectedRecetteIds(),
+      };
+    }
+  }
+
   // … le reste de ton code
 
 
   function updateDeleteButtonState() {
-  SelectionState.refresh();
-}
+    SelectionState.refresh();
+  }
 
 
-  function openSelectionPdf() {
-    const ids = getSelectedRecetteIds();
-    if (!ids.length) {
+  async function openSelectionPdf() {
+    await SelectionState.refresh();
+    if (!SelectionState.count) {
       alert("Aucune recette sélectionnée");
       return;
     }
 
-    window.open("/pdf/pdf_selection.php?ids=" + ids.join(","), "_blank");
+    window.open("/pdf/pdf_selection.php", "_blank");
   }
 
-  function submitDeleteSelection(ids) {
+  function submitDeleteSelection() {
     const form = document.createElement("form");
     form.method = "POST";
     form.action = "/delete_multiple.php";
-
-    ids.forEach(id => {
-      const input = document.createElement("input");
-      input.type = "hidden";
-      input.name = "ids[]";
-      input.value = id;
-      form.appendChild(input);
-    });
 
     document.body.appendChild(form);
     form.submit();
@@ -112,7 +122,7 @@ if (window.__selectionJSLoaded) {
      btn.classList.toggle("is-selected", isSelected);
 btn.textContent = isSelected ? "✔️" : "⬜";
 
-SelectionState.refresh();
+      await SelectionState.refresh();
 
     } catch (err) {
       console.error("Erreur réseau sélection", err);
@@ -168,14 +178,14 @@ SelectionState.refresh();
   const btnDelete = document.getElementById("btn-delete-selection");
   if (!btnDelete) return;
 
-  btnDelete.addEventListener("click", () => {
-    const ids = SelectionState.ids;
+  btnDelete.addEventListener("click", async () => {
+    await SelectionState.refresh();
 
-    if (!ids.length) return;
+    if (!SelectionState.count) return;
 
-    if (!confirm(`Supprimer ${ids.length} recette(s) ?`)) return;
+    if (!confirm(`Supprimer ${SelectionState.count} recette(s) ?`)) return;
 
-    submitDeleteSelection(ids);
+    submitDeleteSelection();
   });
 
   SelectionState.refresh();

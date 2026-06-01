@@ -29,6 +29,19 @@ class SelectionModel
         return (bool) $stmt->fetchColumn();
     }
 
+    public function getSelectedRecetteIds(int $userId): array
+    {
+        $stmt = $this->pdo->prepare("
+            SELECT recette_id
+            FROM user_recette_selection
+            WHERE user_id = :u
+            ORDER BY recette_id
+        ");
+        $stmt->execute([':u' => $userId]);
+
+        return array_map('intval', $stmt->fetchAll(PDO::FETCH_COLUMN));
+    }
+
     /**
      * Récupère les recettes sélectionnées par l'utilisateur
      * avec filtres IDENTIQUES à getToutesRecettes

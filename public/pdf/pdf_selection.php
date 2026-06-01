@@ -14,6 +14,7 @@ $root = dirname(__DIR__, 2);
 require_once $root . '/vendor/autoload.php';
 require_once $root . '/config/database.php';
 require_once $root . '/app/models/RecetteModel.php';
+require_once $root . '/app/models/SelectionModel.php';
 
 use Mpdf\Mpdf;
 
@@ -21,8 +22,18 @@ use Mpdf\Mpdf;
 // RÉCUPÉRATION DES IDS
 // ===============================
 
-$idsParam = $_GET['ids'] ?? '';
-$ids = array_filter(array_map('intval', explode(',', $idsParam)));
+$idsParam = trim((string)($_GET['ids'] ?? ''));
+$ids = $idsParam !== ''
+    ? array_filter(array_map('intval', explode(',', $idsParam)))
+    : [];
+
+if (empty($ids)) {
+    $userId = (int)($_SESSION['user']['id'] ?? 0);
+    if ($userId > 0) {
+        $selectionModel = new SelectionModel(getPDO());
+        $ids = $selectionModel->getSelectedRecetteIds($userId);
+    }
+}
 
 if (empty($ids)) {
     die('Aucune recette sélectionnée');
