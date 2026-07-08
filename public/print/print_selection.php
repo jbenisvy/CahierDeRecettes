@@ -15,6 +15,7 @@ if ($idsParam !== '') {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Impression des recettes sélectionnées</title>
+  <?php require __DIR__ . '/../ui/pwa_head.php'; ?>
   <style>
     html, body {
       margin: 0;
@@ -75,6 +76,7 @@ if ($idsParam !== '') {
     ></iframe>
   </div>
 
+  <?php require __DIR__ . '/../ui/brand_signature.php'; ?>
   <script>
     (function () {
       const frame = document.getElementById('pdf-frame');

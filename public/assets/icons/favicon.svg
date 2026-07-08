@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">Mémoire de Saveurs</title>
+  <desc id="desc">Icône de carnet de recettes avec feuille et repère culinaire.</desc>
+  <rect width="512" height="512" rx="120" fill="#1f4638"/>
+  <rect x="110" y="92" width="292" height="328" rx="38" fill="#fff9f2"/>
+  <rect x="138" y="126" width="236" height="18" rx="9" fill="#eadbc9"/>
+  <rect x="138" y="170" width="180" height="16" rx="8" fill="#d7e7df"/>
+  <rect x="138" y="204" width="212" height="16" rx="8" fill="#d7e7df"/>
+  <rect x="138" y="238" width="194" height="16" rx="8" fill="#d7e7df"/>
+  <path d="M329 318c-17 0-31 13-31 31 0 26 26 49 53 62 27-13 53-36 53-62 0-18-14-31-31-31-10 0-18 4-22 11-5-7-13-11-22-11z" fill="#d1793a"/>
+  <path d="M205 347c-14-35 5-78 46-100 12 42-7 84-46 100z" fill="#3d6f5a"/>
+  <path d="M180 343c19-6 37-6 56 1-16 14-36 20-56 20-8 0-15-1-22-3 6-9 13-14 22-18z" fill="#a85a2c"/>
+</svg>

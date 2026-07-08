@@ -31,6 +31,7 @@ $recetteId = $recetteId ?? null;
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title><?= htmlspecialchars($pageTitle) ?></title>
+  <?php require __DIR__ . '/pwa_head.php'; ?>
   <link rel="stylesheet" href="<?= PUBLIC_URL ?>/assets/css/style.css">
   <!-- Styles spécifiques pour les icônes de favoris (étoiles) -->
   <link rel="stylesheet" href="<?= PUBLIC_URL ?>/assets/css/favoris.css">

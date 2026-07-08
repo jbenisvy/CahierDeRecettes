@@ -96,6 +96,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Créer un compte</title>
+  <?php require __DIR__ . '/../ui/pwa_head.php'; ?>
   <link rel="stylesheet" href="<?= PUBLIC_URL ?>/assets/css/style.css">
 </head>
 <body class="login-page">
@@ -142,5 +143,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
   </div>
 
+  <?php require __DIR__ . '/../ui/brand_signature.php'; ?>
 </body>
 </html>

@@ -27,6 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <head>
     <meta charset="UTF-8">
     <title>Ajouter une recette (API ChatGPT)</title>
+    <?php require __DIR__ . '/ui/pwa_head.php'; ?>
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
@@ -67,5 +68,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <!-- À venir : bouton "Enregistrer dans la base" -->
 <?php endif; ?>
 
+<?php require __DIR__ . '/ui/brand_signature.php'; ?>
 </body>
 </html>
