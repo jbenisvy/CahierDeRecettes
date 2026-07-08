@@ -852,7 +852,8 @@ p { line-height: 1.6; color: var(--ink-700); }
 .table-shell { overflow-x: auto; }
 .recettes-table {
   width: 100%;
-  table-layout: fixed;
+  min-width: 1180px;
+  table-layout: auto;
   border-collapse: separate;
   border-spacing: 0 12px;
 }
@@ -864,6 +865,7 @@ p { line-height: 1.6; color: var(--ink-700); }
   letter-spacing: 0.8px;
   color: var(--ink-500);
   padding: 0 10px 6px;
+  white-space: nowrap;
 }
 
 .recettes-table tbody tr {
@@ -879,6 +881,7 @@ p { line-height: 1.6; color: var(--ink-700); }
 
 .col-select { width: 46px; text-align: center; }
 .col-photo { width: 92px; text-align: center; }
+.col-favori { width: 44px; text-align: center; }
 .col-title { width: 16%; }
 .col-category { width: 10%; }
 .col-author { width: 9%; }
