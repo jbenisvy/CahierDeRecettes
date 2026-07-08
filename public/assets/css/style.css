@@ -420,7 +420,7 @@ p { line-height: 1.6; color: var(--ink-700); }
 .settings-grid {
   display: grid;
   gap: 14px;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
 }
 
 .settings-grid-2 {
@@ -441,11 +441,19 @@ p { line-height: 1.6; color: var(--ink-700); }
   font-size: 20px;
 }
 
+.settings-group-note {
+  margin: 4px 0 0;
+  font-size: 13px;
+  line-height: 1.4;
+  color: var(--ink-500);
+}
+
 .settings-group-head {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 8px;
+  flex-wrap: wrap;
 }
 
 .settings-rows {
@@ -456,7 +464,15 @@ p { line-height: 1.6; color: var(--ink-700); }
 .settings-row {
   display: grid;
   gap: 8px;
-  grid-template-columns: 1fr 1fr auto;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) auto;
+  align-items: center;
+}
+
+.settings-group-head .btn,
+.settings-row .btn {
+  justify-self: start;
+  white-space: nowrap;
+  flex: 0 0 auto;
 }
 
 .compact-table td {
@@ -553,6 +569,13 @@ p { line-height: 1.6; color: var(--ink-700); }
 }
 
 @media (max-width: 640px) {
+  .settings-group-head {
+    align-items: stretch;
+  }
+  .settings-group-head .btn {
+    width: 100%;
+    justify-content: center;
+  }
   .settings-row {
     grid-template-columns: 1fr;
   }

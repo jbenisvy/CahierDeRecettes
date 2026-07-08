@@ -156,7 +156,7 @@ if (!is_string($lastListUrl) || trim($lastListUrl) === '') {
         <?php endif; ?>
       </span>
 
-  <?php if ($isAdmin): ?>
+  <?php if ($isAdmin && $page !== 'admin-settings' && $page !== 'admin-users'): ?>
 
 
   <a href="<?= PUBLIC_URL ?>/admin/settings.php" class="btn btn-ghost btn-small">⚙️ Paramètres</a>

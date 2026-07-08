@@ -1374,7 +1374,10 @@ require __DIR__ . '/../ui/layout_start.php';
       <div class="settings-grid">
         <div class="settings-group" data-group="categories">
           <div class="settings-group-head">
-            <h3>Catégories</h3>
+            <div>
+              <h3>Catégories</h3>
+              <p class="settings-group-note">Exemples : entrées, desserts, boissons, pots pour bébé.</p>
+            </div>
             <button type="button" class="btn btn-small btn-secondary" data-add-row="categories">+ Ajouter</button>
           </div>
           <div class="settings-rows" data-rows="categories">
@@ -1390,7 +1393,10 @@ require __DIR__ . '/../ui/layout_start.php';
 
         <div class="settings-group" data-group="types_cuisson">
           <div class="settings-group-head">
-            <h3>Types de cuisson</h3>
+            <div>
+              <h3>Types de cuisson</h3>
+              <p class="settings-group-note">Exemples : four, vapeur, micro-onde, sans cuisson.</p>
+            </div>
             <button type="button" class="btn btn-small btn-secondary" data-add-row="types_cuisson">+ Ajouter</button>
           </div>
           <div class="settings-rows" data-rows="types_cuisson">
@@ -1406,7 +1412,10 @@ require __DIR__ . '/../ui/layout_start.php';
 
         <div class="settings-group" data-group="types_recette">
           <div class="settings-group-head">
-            <h3>Types de recette</h3>
+            <div>
+              <h3>Types de recette</h3>
+              <p class="settings-group-note">Définit la nature de la fiche : recette complète, base ou composant.</p>
+            </div>
             <button type="button" class="btn btn-small btn-secondary" data-add-row="types_recette">+ Ajouter</button>
           </div>
           <div class="settings-rows" data-rows="types_recette">
