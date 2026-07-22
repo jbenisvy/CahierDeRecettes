@@ -12,6 +12,11 @@ $recetteId = $recetteId ?? null;
 // Définition de PUBLIC_URL/BASE_URL (pour liens relatifs) si non défini
 // On cherche app/base_url.php à partir du dossier public/ui (deux niveaux au-dessus)
 @require_once __DIR__ . '/../../app/base_url.php';
+
+$stylePath = realpath(__DIR__ . '/../assets/css/style.css');
+$favorisStylePath = realpath(__DIR__ . '/../assets/css/favoris.css');
+$styleVersion = $stylePath && is_file($stylePath) ? (string) filemtime($stylePath) : '1';
+$favorisStyleVersion = $favorisStylePath && is_file($favorisStylePath) ? (string) filemtime($favorisStylePath) : '1';
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -32,9 +37,9 @@ $recetteId = $recetteId ?? null;
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title><?= htmlspecialchars($pageTitle) ?></title>
   <?php require __DIR__ . '/pwa_head.php'; ?>
-  <link rel="stylesheet" href="<?= PUBLIC_URL ?>/assets/css/style.css">
+  <link rel="stylesheet" href="<?= PUBLIC_URL ?>/assets/css/style.css?v=<?= rawurlencode($styleVersion) ?>">
   <!-- Styles spécifiques pour les icônes de favoris (étoiles) -->
-  <link rel="stylesheet" href="<?= PUBLIC_URL ?>/assets/css/favoris.css">
+  <link rel="stylesheet" href="<?= PUBLIC_URL ?>/assets/css/favoris.css?v=<?= rawurlencode($favorisStyleVersion) ?>">
   <script>
     window.APP_BASE_URL = <?= json_encode(PUBLIC_URL) ?>;
   </script>
