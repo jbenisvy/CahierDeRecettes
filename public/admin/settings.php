@@ -181,6 +181,20 @@ function scalar_int(PDO $pdo, string $sql): int
     return (int) ($value ?: 0);
 }
 
+function find_recipes_without_photo(PDO $pdo): array
+{
+    return $pdo->query("
+        SELECT r.id, r.titre
+        FROM recettes r
+        WHERE NOT EXISTS (
+            SELECT 1
+            FROM photos_recettes p
+            WHERE p.recette_id = r.id
+        )
+        ORDER BY r.id ASC
+    ")->fetchAll(PDO::FETCH_ASSOC);
+}
+
 function table_exists(PDO $pdo, string $tableName): bool
 {
     $stmt = $pdo->prepare('
@@ -716,16 +730,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($action === 'generate_missing_ai_photos') {
         @set_time_limit(0);
 
-        $rows = $pdo->query("
-            SELECT r.id
-            FROM recettes r
-            WHERE NOT EXISTS (
-                SELECT 1
-                FROM photos_recettes p
-                WHERE p.recette_id = r.id
-            )
-            ORDER BY r.id ASC
-        ")->fetchAll(PDO::FETCH_ASSOC);
+        $rows = find_recipes_without_photo($pdo);
 
         $autoRecipeImageService = new AutoRecipeImageService();
         $processed = 0;
@@ -1305,7 +1310,7 @@ require __DIR__ . '/../ui/layout_start.php';
         <input type="hidden" name="action" value="normalize_categories">
         <button type="submit" class="btn btn-secondary">Normaliser les catégories</button>
       </form>
-      <form method="post" onsubmit="return confirm('Générer une photo IA uniquement pour les recettes actuellement sans photo, puis la définir par défaut ?');">
+      <form method="post" data-missing-ai-photos-form onsubmit="return confirm('Générer une photo IA uniquement pour les recettes actuellement sans photo, puis la définir par défaut ?');">
         <input type="hidden" name="action" value="generate_missing_ai_photos">
         <button type="submit" class="btn btn-secondary" <?= (int) $kpis['sans_image'] === 0 ? 'disabled' : '' ?>>
           Générer les photos manquantes (<?= (int) $kpis['sans_image'] ?>)
@@ -1313,6 +1318,17 @@ require __DIR__ . '/../ui/layout_start.php';
       </form>
     </div>
     <p class="muted" style="margin-top:12px;">Cette action ne traite que les recettes sans photo. Les recettes ayant déjà une image ne sont pas modifiées.</p>
+    <div class="alert" id="missing-ai-photos-progress" hidden style="margin-top:16px;">
+      <strong>Progression de la génération</strong>
+      <div style="margin-top:10px;">
+        <div id="missing-ai-photos-progress-text">En attente…</div>
+        <div style="margin-top:10px; background:#e7ddd0; border-radius:999px; height:12px; overflow:hidden;">
+          <div id="missing-ai-photos-progress-bar" style="width:0%; height:100%; background:#356854; transition:width .25s ease;"></div>
+        </div>
+        <div id="missing-ai-photos-progress-status" class="muted" style="margin-top:10px;">Aucun traitement en cours.</div>
+        <div id="missing-ai-photos-progress-summary" class="muted" style="margin-top:8px;"></div>
+      </div>
+    </div>
   </section>
 
   <section id="tags" class="settings-card card border-0 shadow-sm rounded-4">
@@ -1517,23 +1533,23 @@ require __DIR__ . '/../ui/layout_start.php';
 <script>
 (() => {
   const template = document.getElementById('settings-row-template');
-  if (!template) return;
+  if (template) {
+    document.querySelectorAll('[data-add-row]').forEach((button) => {
+      button.addEventListener('click', () => {
+        const group = button.getAttribute('data-add-row');
+        const rows = document.querySelector(`[data-rows="${group}"]`);
+        if (!rows) return;
 
-  document.querySelectorAll('[data-add-row]').forEach((button) => {
-    button.addEventListener('click', () => {
-      const group = button.getAttribute('data-add-row');
-      const rows = document.querySelector(`[data-rows="${group}"]`);
-      if (!rows) return;
-
-      const node = template.content.firstElementChild.cloneNode(true);
-      const inputs = node.querySelectorAll('input');
-      if (inputs.length === 2) {
-        inputs[0].name = `${group}_keys[]`;
-        inputs[1].name = `${group}_labels[]`;
-      }
-      rows.appendChild(node);
+        const node = template.content.firstElementChild.cloneNode(true);
+        const inputs = node.querySelectorAll('input');
+        if (inputs.length === 2) {
+          inputs[0].name = `${group}_keys[]`;
+          inputs[1].name = `${group}_labels[]`;
+        }
+        rows.appendChild(node);
+      });
     });
-  });
+  }
 
   document.addEventListener('click', (event) => {
     const target = event.target;
@@ -1567,6 +1583,159 @@ require __DIR__ . '/../ui/layout_start.php';
       goToRowHref(row);
     });
   });
+
+  const missingPhotosForm = document.querySelector('[data-missing-ai-photos-form]');
+  const progressBox = document.getElementById('missing-ai-photos-progress');
+  const progressText = document.getElementById('missing-ai-photos-progress-text');
+  const progressStatus = document.getElementById('missing-ai-photos-progress-status');
+  const progressSummary = document.getElementById('missing-ai-photos-progress-summary');
+  const progressBar = document.getElementById('missing-ai-photos-progress-bar');
+
+  if (missingPhotosForm instanceof HTMLFormElement
+    && progressBox instanceof HTMLElement
+    && progressText instanceof HTMLElement
+    && progressStatus instanceof HTMLElement
+    && progressSummary instanceof HTMLElement
+    && progressBar instanceof HTMLElement
+    && window.fetch
+    && window.TextDecoder
+    && window.ReadableStream
+  ) {
+    missingPhotosForm.addEventListener('submit', async (event) => {
+      event.preventDefault();
+
+      const submitButton = missingPhotosForm.querySelector('button[type="submit"]');
+      if (!(submitButton instanceof HTMLButtonElement) || submitButton.disabled) {
+        return;
+      }
+
+      progressBox.hidden = false;
+      progressText.textContent = 'Préparation du traitement…';
+      progressStatus.textContent = 'Connexion au serveur…';
+      progressSummary.textContent = '';
+      progressBar.style.width = '0%';
+      submitButton.disabled = true;
+
+      try {
+        const response = await fetch('<?= PUBLIC_URL ?>/admin/generate_missing_ai_photos_progress.php', {
+          method: 'POST',
+          headers: {
+            'Accept': 'application/x-ndjson',
+            'X-Requested-With': 'fetch'
+          },
+          credentials: 'same-origin'
+        });
+
+        if (!response.ok || !response.body) {
+          throw new Error(`Réponse HTTP ${response.status}`);
+        }
+
+        const reader = response.body.getReader();
+        const decoder = new TextDecoder();
+        let buffer = '';
+        let finalPayload = null;
+
+        const updateProgress = (payload) => {
+          if (!payload || typeof payload !== 'object') return;
+
+          if (payload.type === 'start') {
+            const total = Number(payload.total || 0);
+            progressText.textContent = total > 0
+              ? `Traitement en cours : 0/${total}`
+              : 'Aucune recette sans photo à traiter.';
+            progressStatus.textContent = total > 0
+              ? 'Initialisation de la génération…'
+              : 'Le lot est vide.';
+            progressSummary.textContent = total > 0 ? '' : 'Toutes les recettes ont déjà une photo.';
+            progressBar.style.width = total > 0 ? '0%' : '100%';
+            return;
+          }
+
+          if (payload.type === 'progress') {
+            const processed = Number(payload.processed || 0);
+            const total = Math.max(1, Number(payload.total || 0));
+            const percent = Math.max(0, Math.min(100, Math.round((processed / total) * 100)));
+            const titre = typeof payload.titre === 'string' && payload.titre.trim() !== ''
+              ? payload.titre.trim()
+              : `Recette #${payload.recette_id || '?'}`;
+            const statut = payload.status === 'generated'
+              ? 'photo générée'
+              : (payload.status === 'skipped' ? 'ignorée' : 'échec');
+
+            progressText.textContent = `Traitement en cours : ${processed}/${total}`;
+            progressStatus.textContent = `${titre} · ${statut}`;
+            progressSummary.textContent = `Générées : ${payload.generated || 0} · Ignorées : ${payload.skipped || 0} · Échecs : ${payload.failed || 0}`;
+            progressBar.style.width = `${percent}%`;
+            return;
+          }
+
+          if (payload.type === 'complete') {
+            finalPayload = payload;
+            const processed = Number(payload.processed || 0);
+            const total = Number(payload.total || 0);
+            progressText.textContent = `Traitement terminé : ${processed}/${total}`;
+            progressStatus.textContent = 'La génération des photos manquantes est terminée.';
+            progressSummary.textContent = `Générées : ${payload.generated || 0} · Ignorées : ${payload.skipped || 0} · Échecs : ${payload.failed || 0}`;
+            progressBar.style.width = '100%';
+          }
+        };
+
+        while (true) {
+          const { value, done } = await reader.read();
+          buffer += decoder.decode(value || new Uint8Array(), { stream: !done });
+
+          let boundary = buffer.indexOf('\n');
+          while (boundary !== -1) {
+            const line = buffer.slice(0, boundary).trim();
+            buffer = buffer.slice(boundary + 1);
+
+            if (line !== '') {
+              try {
+                updateProgress(JSON.parse(line));
+              } catch (parseError) {
+                console.error('Impossible de lire la progression JSON', parseError, line);
+              }
+            }
+
+            boundary = buffer.indexOf('\n');
+          }
+
+          if (done) {
+            if (buffer.trim() !== '') {
+              try {
+                updateProgress(JSON.parse(buffer.trim()));
+              } catch (parseError) {
+                console.error('Impossible de lire la progression finale JSON', parseError, buffer);
+              }
+            }
+            break;
+          }
+        }
+
+        if (finalPayload) {
+          const params = new URLSearchParams({
+            saved: 'missing_ai_photos',
+            processed: String(finalPayload.processed || 0),
+            generated: String(finalPayload.generated || 0),
+            skipped: String(finalPayload.skipped || 0),
+            failed: String(finalPayload.failed || 0)
+          });
+          window.location.href = `<?= PUBLIC_URL ?>/admin/settings.php?${params.toString()}`;
+          return;
+        }
+
+        progressStatus.textContent = 'Traitement terminé, mais le bilan final est introuvable.';
+      } catch (error) {
+        console.error(error);
+        progressText.textContent = 'Le suivi de progression a échoué.';
+        progressStatus.textContent = 'Le traitement a peut-être été interrompu avant la fin.';
+        progressSummary.textContent = error instanceof Error ? error.message : 'Erreur inconnue';
+        progressBar.style.width = '100%';
+      } finally {
+        submitButton.disabled = false;
+      }
+    });
+  }
 })();
 </script>
 
