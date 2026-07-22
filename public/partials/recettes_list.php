@@ -236,29 +236,29 @@
       </div>
 
       <div class="recette-mobile-meta-grid">
-        <div class="recette-mobile-meta-item">
-          <span class="recette-mobile-label">Catégorie</span>
-          <div class="recette-mobile-value recette-mobile-value--text"><?= htmlspecialchars($recette['categorie'] ?? '') ?: '—' ?></div>
+        <div class="recette-mobile-meta-line">
+          <span class="recette-mobile-label">Catégorie :</span>
+          <div class="recette-mobile-value recette-mobile-value--inline"><?= htmlspecialchars($recette['categorie'] ?? '') ?: '—' ?></div>
         </div>
 
-        <div class="recette-mobile-meta-item">
-          <span class="recette-mobile-label">Auteur</span>
-          <div class="recette-mobile-value recette-mobile-value--text"><?= htmlspecialchars($recette['auteur'] ?? '') ?: '—' ?></div>
+        <div class="recette-mobile-meta-line">
+          <span class="recette-mobile-label">Auteur :</span>
+          <div class="recette-mobile-value recette-mobile-value--inline"><?= htmlspecialchars($recette['auteur'] ?? '') ?: '—' ?></div>
         </div>
 
-        <div class="recette-mobile-meta-item">
-          <span class="recette-mobile-label">Source</span>
-          <div class="recette-mobile-value recette-mobile-value--text"><?= htmlspecialchars($recette['source'] ?? '') ?: '—' ?></div>
+        <div class="recette-mobile-meta-line recette-mobile-meta-line--full">
+          <span class="recette-mobile-label">Source :</span>
+          <div class="recette-mobile-value recette-mobile-value--inline"><?= htmlspecialchars($recette['source'] ?? '') ?: '—' ?></div>
         </div>
 
-        <div class="recette-mobile-meta-item">
-          <span class="recette-mobile-label">Cuisson</span>
-          <div class="recette-mobile-value recette-mobile-value--text"><?= htmlspecialchars($recette['type_cuisson'] ?? '') ?: '—' ?></div>
+        <div class="recette-mobile-meta-line">
+          <span class="recette-mobile-label">Cuisson :</span>
+          <div class="recette-mobile-value recette-mobile-value--inline"><?= htmlspecialchars($recette['type_cuisson'] ?? '') ?: '—' ?></div>
         </div>
 
-        <div class="recette-mobile-meta-item">
-          <span class="recette-mobile-label">Type</span>
-          <div class="recette-mobile-value recette-mobile-value--text"><?= htmlspecialchars($recette['type_recette'] ?? 'recette') ?></div>
+        <div class="recette-mobile-meta-line">
+          <span class="recette-mobile-label">Type :</span>
+          <div class="recette-mobile-value recette-mobile-value--inline"><?= htmlspecialchars($recette['type_recette'] ?? 'recette') ?></div>
         </div>
       </div>
     </article>

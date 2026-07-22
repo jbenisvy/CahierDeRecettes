@@ -1089,7 +1089,7 @@ td.actions a:hover { background: #f0e7dc; }
 
 .recette-mobile-photo {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
 }
 
@@ -1116,8 +1116,9 @@ td.actions a:hover { background: #f0e7dc; }
 .recette-mobile-tools {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 12px;
   flex-shrink: 0;
+  flex-wrap: wrap;
 }
 
 .recette-mobile-title-block {
@@ -1136,21 +1137,27 @@ td.actions a:hover { background: #f0e7dc; }
   display: flex;
   justify-content: flex-start;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 12px;
 }
 
-.recette-mobile-actions a {
+.recette-mobile-actions a,
+.recette-mobile-tools .btn-selection,
+.recette-mobile-tools .btn-favori {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 34px;
-  height: 34px;
-  border-radius: 10px;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
   background: #f6efe7;
   border: 1px solid #eadbc9;
+  font-size: 18px;
+  box-shadow: var(--shadow-sm);
 }
 
-.recette-mobile-actions a:hover {
+.recette-mobile-actions a:hover,
+.recette-mobile-tools .btn-selection:hover,
+.recette-mobile-tools .btn-favori:hover {
   background: #f0e7dc;
 }
 
@@ -1163,10 +1170,16 @@ td.actions a:hover { background: #f0e7dc; }
   border-top: 1px dashed #efe3d6;
 }
 
-.recette-mobile-meta-item {
+.recette-mobile-meta-line {
   min-width: 0;
-  display: grid;
-  gap: 4px;
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.recette-mobile-meta-line--full {
+  grid-column: 1 / -1;
 }
 
 .recette-mobile-value--text {
@@ -1175,10 +1188,28 @@ td.actions a:hover { background: #f0e7dc; }
   overflow-wrap: anywhere;
 }
 
+.recette-mobile-value--inline {
+  display: inline;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+
 .recette-mobile-value .recette-thumb {
   width: 84px;
   height: 84px;
   border-radius: 14px;
+}
+
+.recette-mobile-meta-line .recette-mobile-label {
+  font-size: 13px;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--ink-700);
+}
+
+.recette-mobile-meta-line .recette-mobile-value {
+  font-size: 15px;
+  color: var(--ink-900);
 }
 
 /* Recipe detail */
