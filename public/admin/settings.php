@@ -7,6 +7,7 @@ require_once __DIR__ . '/../../app/base_url.php';
 require_once __DIR__ . '/../auth/auth_functions.php';
 require_once __DIR__ . '/../../config/database.php';
 require_once __DIR__ . '/../../app/services/MailService.php';
+require_once __DIR__ . '/../../app/services/AutoRecipeImageService.php';
 
 require_admin();
 
@@ -712,6 +713,58 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 
+    if ($action === 'generate_missing_ai_photos') {
+        @set_time_limit(0);
+
+        $rows = $pdo->query("
+            SELECT r.id
+            FROM recettes r
+            WHERE NOT EXISTS (
+                SELECT 1
+                FROM photos_recettes p
+                WHERE p.recette_id = r.id
+            )
+            ORDER BY r.id ASC
+        ")->fetchAll(PDO::FETCH_ASSOC);
+
+        $autoRecipeImageService = new AutoRecipeImageService();
+        $processed = 0;
+        $generated = 0;
+        $skipped = 0;
+        $failed = 0;
+
+        foreach ($rows as $row) {
+            $recetteId = (int) ($row['id'] ?? 0);
+            if ($recetteId <= 0) {
+                continue;
+            }
+
+            $processed++;
+
+            try {
+                $photoId = $autoRecipeImageService->generateAndAttachAsDefault($recetteId);
+                if ($photoId === null) {
+                    $skipped++;
+                    continue;
+                }
+
+                $generated++;
+            } catch (Throwable $e) {
+                $failed++;
+                error_log('[admin/settings] generate_missing_ai_photos failed recette_id=' . $recetteId . ' error=' . $e->getMessage());
+            }
+        }
+
+        header(
+            'Location: ' . PUBLIC_URL . '/admin/settings.php?saved=missing_ai_photos'
+            . '&processed=' . $processed
+            . '&generated=' . $generated
+            . '&skipped=' . $skipped
+            . '&failed=' . $failed
+        );
+        exit;
+    }
+
     if ($action === 'merge_tag') {
         $sourceId = (int) ($_POST['source_tag_id'] ?? 0);
         $targetId = (int) ($_POST['target_tag_id'] ?? 0);
@@ -903,6 +956,15 @@ require __DIR__ . '/../ui/layout_start.php';
   <?php endif; ?>
   <?php if (($_GET['saved'] ?? '') === 'categories'): ?>
     <div class="alert alert-success">Normalisation catégories terminée (<?= (int) ($_GET['updated'] ?? 0) ?> recette(s) corrigée(s), <?= (int) ($_GET['unknown'] ?? 0) ?> catégorie(s) inconnue(s)).</div>
+  <?php endif; ?>
+  <?php if (($_GET['saved'] ?? '') === 'missing_ai_photos'): ?>
+    <div class="alert alert-success">
+      Génération des photos manquantes terminée.
+      Recettes traitées : <?= (int) ($_GET['processed'] ?? 0) ?>,
+      photos générées : <?= (int) ($_GET['generated'] ?? 0) ?>,
+      ignorées : <?= (int) ($_GET['skipped'] ?? 0) ?>,
+      échecs : <?= (int) ($_GET['failed'] ?? 0) ?>.
+    </div>
   <?php endif; ?>
   <?php if (($_GET['saved'] ?? '') === 'tag_merge'): ?>
     <div class="alert alert-success">Fusion de tag effectuée (<?= (int) ($_GET['moved'] ?? 0) ?> liaison(s) traitée(s)).</div>
@@ -1243,7 +1305,14 @@ require __DIR__ . '/../ui/layout_start.php';
         <input type="hidden" name="action" value="normalize_categories">
         <button type="submit" class="btn btn-secondary">Normaliser les catégories</button>
       </form>
+      <form method="post" onsubmit="return confirm('Générer une photo IA uniquement pour les recettes actuellement sans photo, puis la définir par défaut ?');">
+        <input type="hidden" name="action" value="generate_missing_ai_photos">
+        <button type="submit" class="btn btn-secondary" <?= (int) $kpis['sans_image'] === 0 ? 'disabled' : '' ?>>
+          Générer les photos manquantes (<?= (int) $kpis['sans_image'] ?>)
+        </button>
+      </form>
     </div>
+    <p class="muted" style="margin-top:12px;">Cette action ne traite que les recettes sans photo. Les recettes ayant déjà une image ne sont pas modifiées.</p>
   </section>
 
   <section id="tags" class="settings-card card border-0 shadow-sm rounded-4">
