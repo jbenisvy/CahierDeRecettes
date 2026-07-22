@@ -86,6 +86,7 @@ require __DIR__ . '/ui/layout_start.php';
       <li>Import texte: extraction d’une recette à partir de texte brut.</li>
       <li>Prévisualisation obligatoire avant import final pour corriger les champs.</li>
       <li>Protection doublons: les doublons probables sont détectés et signalés.</li>
+      <li>Après l’import final, l’application tente automatiquement de générer une photo IA et de la définir comme photo principale si la recette contient assez d’informations.</li>
     </ul>
   </section>
 
@@ -93,8 +94,10 @@ require __DIR__ . '/ui/layout_start.php';
     <h2>6. Photos et génération IA</h2>
     <ul class="tutorial-list">
       <li>Tu peux générer une photo IA depuis l’écran d’édition, en complément de l’upload manuel.</li>
-      <li>La génération utilise le titre, les ingrédients et les étapes pour proposer un plat final cohérent.</li>
+      <li>La génération utilise le titre, les ingrédients, les étapes, la catégorie, le type de recette et le type de cuisson pour proposer un plat final cohérent.</li>
+      <li>Le prompt IA tient aussi compte de la forme attendue du plat: par exemple un poké reste un bol, un cake reste un cake et une boisson chaude reste servie comme une vraie boisson chaude.</li>
       <li>Tu peux prévisualiser puis appliquer l’image en photo principale.</li>
+      <li>Lors d’un import, la photo IA peut être générée automatiquement et appliquée comme photo principale sans action manuelle supplémentaire.</li>
       <li>L’image est optimisée pour le web (taille et compression).</li>
       <li>En cas de souci de droits dossier, la prévisualisation reste visible pour éviter la perte.</li>
     </ul>
@@ -118,6 +121,8 @@ require __DIR__ . '/ui/layout_start.php';
       <li>Gestion des tags: fusion et suppression.</li>
       <li>Options recettes: catégories, types de cuisson, types de recette.</li>
       <li>Suivi OpenAI: crédit (si disponible), total recettes/photos/photos IA.</li>
+      <li>Le bouton “Générer les photos manquantes” ne traite que les recettes actuellement sans photo et définit l’image générée comme photo principale.</li>
+      <li>Une zone de progression affiche l’avancement du lot en direct: compteur traité/total, recette en cours et bilan générées/ignorées/échecs.</li>
     </ul>
   </section>
 
