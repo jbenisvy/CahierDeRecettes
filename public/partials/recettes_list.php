@@ -165,24 +165,8 @@
       }
     ?>
     <article class="recette-mobile-card">
-      <div class="recette-mobile-row recette-mobile-row--top">
-        <span class="recette-mobile-label">Sélection</span>
-        <div class="recette-mobile-value">
-          <button
-            type="button"
-            class="btn-selection btn-select-recette <?= !empty($recette['is_checked']) ? 'is-selected' : '' ?>"
-            data-recette-id="<?= (int)$recette['id'] ?>"
-            title="Sélection"
-            aria-label="Sélection"
-          >
-            <?= !empty($recette['is_checked']) ? '✔️' : '⬜' ?>
-          </button>
-        </div>
-      </div>
-
-      <div class="recette-mobile-row recette-mobile-row--top">
-        <span class="recette-mobile-label">Photo</span>
-        <div class="recette-mobile-value">
+      <div class="recette-mobile-hero">
+        <div class="recette-mobile-photo">
           <?php if ($photo): ?>
             <img
               class="recette-thumb"
@@ -195,76 +179,86 @@
             <span class="recette-thumb placeholder" aria-label="Aucune photo"></span>
           <?php endif; ?>
         </div>
-      </div>
 
-      <?php if (!empty($_SESSION['user']['id'])): ?>
-        <div class="recette-mobile-row recette-mobile-row--top">
-          <span class="recette-mobile-label">Favori</span>
-          <div class="recette-mobile-value">
-            <button
-              type="button"
-              class="btn-favori <?= !empty($recette['is_favori']) ? 'is-favori' : '' ?>"
-              data-recette-id="<?= (int)$recette['id'] ?>"
-              title="Favori"
-              aria-label="Favori"
-            >
-              <?= !empty($recette['is_favori']) ? '★' : '☆' ?>
-            </button>
+        <div class="recette-mobile-main">
+          <div class="recette-mobile-main-top">
+            <div class="recette-mobile-badges">
+              <?php if (!empty($recette['type_recette'])): ?>
+                <?php if ($recette['type_recette'] === 'base'): ?>
+                  <span class="badge badge-base">Base</span>
+                <?php elseif ($recette['type_recette'] === 'composant'): ?>
+                  <span class="badge badge-composant">Composant</span>
+                <?php endif; ?>
+              <?php endif; ?>
+            </div>
+            <div class="recette-mobile-tools">
+              <button
+                type="button"
+                class="btn-selection btn-select-recette <?= !empty($recette['is_checked']) ? 'is-selected' : '' ?>"
+                data-recette-id="<?= (int)$recette['id'] ?>"
+                title="Sélection"
+                aria-label="Sélection"
+              >
+                <?= !empty($recette['is_checked']) ? '✔️' : '⬜' ?>
+              </button>
+              <?php if (!empty($_SESSION['user']['id'])): ?>
+                <button
+                  type="button"
+                  class="btn-favori <?= !empty($recette['is_favori']) ? 'is-favori' : '' ?>"
+                  data-recette-id="<?= (int)$recette['id'] ?>"
+                  title="Favori"
+                  aria-label="Favori"
+                >
+                  <?= !empty($recette['is_favori']) ? '★' : '☆' ?>
+                </button>
+              <?php endif; ?>
+            </div>
+          </div>
+
+          <div class="recette-mobile-title-block">
+            <a class="recette-mobile-title-link" href="<?= PUBLIC_URL ?>/recette.php?id=<?= (int)$recette['id'] ?>">
+              <?= htmlspecialchars($recette['titre']) ?>
+            </a>
+          </div>
+
+          <div class="recette-mobile-actions">
+            <a href="<?= PUBLIC_URL ?>/recette.php?id=<?= (int)$recette['id'] ?>" title="Voir">👁️</a>
+            <?php if ($canEditRow): ?>
+              <a href="<?= PUBLIC_URL ?>/edit_recette.php?id=<?= (int)$recette['id'] ?>" title="Éditer">✏️</a>
+            <?php endif; ?>
+            <?php if ($canDeleteRow): ?>
+              <a href="<?= PUBLIC_URL ?>/index.php?action=delete&id=<?= (int)$recette['id'] ?>"
+                 title="Supprimer"
+                 onclick="return confirm('Supprimer cette recette ?');">🗑️</a>
+            <?php endif; ?>
           </div>
         </div>
-      <?php endif; ?>
+      </div>
 
-      <div class="recette-mobile-row">
-        <span class="recette-mobile-label">Titre</span>
-        <div class="recette-mobile-value recette-mobile-value--text">
-          <?php if (!empty($recette['type_recette'])): ?>
-            <?php if ($recette['type_recette'] === 'base'): ?>
-              <span class="badge badge-base">Base</span>
-            <?php elseif ($recette['type_recette'] === 'composant'): ?>
-              <span class="badge badge-composant">Composant</span>
-            <?php endif; ?>
-          <?php endif; ?>
-          <span><?= htmlspecialchars($recette['titre']) ?></span>
+      <div class="recette-mobile-meta-grid">
+        <div class="recette-mobile-meta-item">
+          <span class="recette-mobile-label">Catégorie</span>
+          <div class="recette-mobile-value recette-mobile-value--text"><?= htmlspecialchars($recette['categorie'] ?? '') ?: '—' ?></div>
         </div>
-      </div>
 
-      <div class="recette-mobile-row">
-        <span class="recette-mobile-label">Catégorie</span>
-        <div class="recette-mobile-value recette-mobile-value--text"><?= htmlspecialchars($recette['categorie'] ?? '') ?: '—' ?></div>
-      </div>
+        <div class="recette-mobile-meta-item">
+          <span class="recette-mobile-label">Auteur</span>
+          <div class="recette-mobile-value recette-mobile-value--text"><?= htmlspecialchars($recette['auteur'] ?? '') ?: '—' ?></div>
+        </div>
 
-      <div class="recette-mobile-row">
-        <span class="recette-mobile-label">Auteur</span>
-        <div class="recette-mobile-value recette-mobile-value--text"><?= htmlspecialchars($recette['auteur'] ?? '') ?: '—' ?></div>
-      </div>
+        <div class="recette-mobile-meta-item">
+          <span class="recette-mobile-label">Source</span>
+          <div class="recette-mobile-value recette-mobile-value--text"><?= htmlspecialchars($recette['source'] ?? '') ?: '—' ?></div>
+        </div>
 
-      <div class="recette-mobile-row">
-        <span class="recette-mobile-label">Source</span>
-        <div class="recette-mobile-value recette-mobile-value--text"><?= htmlspecialchars($recette['source'] ?? '') ?: '—' ?></div>
-      </div>
+        <div class="recette-mobile-meta-item">
+          <span class="recette-mobile-label">Cuisson</span>
+          <div class="recette-mobile-value recette-mobile-value--text"><?= htmlspecialchars($recette['type_cuisson'] ?? '') ?: '—' ?></div>
+        </div>
 
-      <div class="recette-mobile-row">
-        <span class="recette-mobile-label">Cuisson</span>
-        <div class="recette-mobile-value recette-mobile-value--text"><?= htmlspecialchars($recette['type_cuisson'] ?? '') ?: '—' ?></div>
-      </div>
-
-      <div class="recette-mobile-row">
-        <span class="recette-mobile-label">Type</span>
-        <div class="recette-mobile-value recette-mobile-value--text"><?= htmlspecialchars($recette['type_recette'] ?? 'recette') ?></div>
-      </div>
-
-      <div class="recette-mobile-row">
-        <span class="recette-mobile-label">Actions</span>
-        <div class="recette-mobile-value recette-mobile-value--actions">
-          <a href="<?= PUBLIC_URL ?>/recette.php?id=<?= (int)$recette['id'] ?>" title="Voir">👁️</a>
-          <?php if ($canEditRow): ?>
-            <a href="<?= PUBLIC_URL ?>/edit_recette.php?id=<?= (int)$recette['id'] ?>" title="Éditer">✏️</a>
-          <?php endif; ?>
-          <?php if ($canDeleteRow): ?>
-            <a href="<?= PUBLIC_URL ?>/index.php?action=delete&id=<?= (int)$recette['id'] ?>"
-               title="Supprimer"
-               onclick="return confirm('Supprimer cette recette ?');">🗑️</a>
-          <?php endif; ?>
+        <div class="recette-mobile-meta-item">
+          <span class="recette-mobile-label">Type</span>
+          <div class="recette-mobile-value recette-mobile-value--text"><?= htmlspecialchars($recette['type_recette'] ?? 'recette') ?></div>
         </div>
       </div>
     </article>
