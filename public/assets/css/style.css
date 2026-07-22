@@ -1566,9 +1566,9 @@ td.actions a:hover { background: #f0e7dc; }
   .recettes-table td {
     padding: 8px 0;
     border-bottom: 1px dashed #efe3d6;
-    display: flex;
+    display: grid;
+    grid-template-columns: minmax(88px, auto) minmax(0, 1fr);
     align-items: center;
-    justify-content: space-between;
     gap: 12px;
   }
 
@@ -1581,6 +1581,37 @@ td.actions a:hover { background: #f0e7dc; }
     letter-spacing: 0.6px;
   }
 
+  .recettes-table .recipe-cell-value {
+    min-width: 0;
+    display: block;
+    text-align: right;
+    color: var(--ink-800);
+  }
+
+  .recettes-table .recipe-cell-value--center {
+    display: inline-flex;
+    justify-self: end;
+    align-items: center;
+  }
+
+  .recettes-table .recipe-cell-value--media {
+    display: inline-flex;
+    justify-self: end;
+  }
+
+  .recettes-table .recipe-cell-value--title {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 6px;
+    text-align: right;
+  }
+
+  .recettes-table .recipe-title-text {
+    display: block;
+    max-width: 100%;
+  }
+
   .recettes-table td:last-child { border-bottom: 0; }
   .recettes-table .recette-thumb { width: 84px; height: 84px; border-radius: 14px; }
   .recettes-table .col-actions {
@@ -1590,8 +1621,13 @@ td.actions a:hover { background: #f0e7dc; }
     box-shadow: none;
     background: transparent;
   }
-  .recettes-table td.actions { justify-content: flex-start; gap: 8px; }
-  .recettes-table td.actions::before { margin-right: auto; }
+  .recettes-table .recipe-cell-value--actions {
+    display: inline-flex;
+    justify-self: end;
+    align-items: center;
+    gap: 8px;
+  }
+  .recettes-table td.actions::before { margin-right: 0; }
 
   .courses-sheet .page-header-actions {
     display: flex;

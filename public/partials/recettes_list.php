@@ -42,6 +42,7 @@
     ?>
     <tr>
       <td class="col-select" data-label="Sélection">
+        <div class="recipe-cell-value recipe-cell-value--center">
 <button
   type="button"
   class="btn-selection btn-select-recette <?= !empty($recette['is_checked']) ? 'is-selected' : '' ?>"
@@ -51,6 +52,7 @@
 >
   <?= !empty($recette['is_checked']) ? '✔️' : '⬜' ?>
 </button>
+        </div>
 
 
 </td>
@@ -70,19 +72,24 @@
   ?>
 
   <?php if ($photo): ?>
+        <div class="recipe-cell-value recipe-cell-value--media">
     <img class="recette-thumb"
          src="<?= PUBLIC_URL ?>/uploads/recettes/<?= htmlspecialchars($photo) ?>"
          loading="lazy"
          decoding="async"
          alt="">
+        </div>
   <?php else: ?>
+        <div class="recipe-cell-value recipe-cell-value--media">
     <span class="recette-thumb placeholder"
           aria-label="Aucune photo"></span>
+        </div>
   <?php endif; ?>
 </td>
 
 <?php if (!empty($_SESSION['user']['id'])): ?>
   <td class="col-favori" data-label="Favori">
+    <div class="recipe-cell-value recipe-cell-value--center">
     <button
       type="button"
       class="btn-favori <?= !empty($recette['is_favori']) ? 'is-favori' : '' ?>"
@@ -92,10 +99,12 @@
     >
       <?= !empty($recette['is_favori']) ? '★' : '☆' ?>
     </button>
+    </div>
   </td>
 <?php endif; ?>
 
       <td class="col-title" data-label="Titre">
+        <div class="recipe-cell-value recipe-cell-value--title">
         <?php if (!empty($recette['type_recette'])): ?>
           <?php if ($recette['type_recette'] === 'base'): ?>
             <span class="badge badge-base">Base</span>
@@ -103,16 +112,18 @@
             <span class="badge badge-composant">Composant</span>
           <?php endif; ?>
         <?php endif; ?>
-        <?= htmlspecialchars($recette['titre']) ?>
+        <span class="recipe-title-text"><?= htmlspecialchars($recette['titre']) ?></span>
+        </div>
       </td>
 
-      <td class="col-category" data-label="Catégorie"><?= htmlspecialchars($recette['categorie'] ?? '') ?></td>
-      <td class="col-author" data-label="Auteur"><?= htmlspecialchars($recette['auteur'] ?? '') ?></td>
-      <td class="col-source" data-label="Source"><?= htmlspecialchars($recette['source'] ?? '') ?></td>
-      <td class="col-cook" data-label="Cuisson"><?= htmlspecialchars($recette['type_cuisson'] ?? '') ?></td>
-      <td class="col-type" data-label="Type"><?= htmlspecialchars($recette['type_recette'] ?? 'recette') ?></td>
+      <td class="col-category" data-label="Catégorie"><span class="recipe-cell-value"><?= htmlspecialchars($recette['categorie'] ?? '') ?></span></td>
+      <td class="col-author" data-label="Auteur"><span class="recipe-cell-value"><?= htmlspecialchars($recette['auteur'] ?? '') ?></span></td>
+      <td class="col-source" data-label="Source"><span class="recipe-cell-value"><?= htmlspecialchars($recette['source'] ?? '') ?></span></td>
+      <td class="col-cook" data-label="Cuisson"><span class="recipe-cell-value"><?= htmlspecialchars($recette['type_cuisson'] ?? '') ?></span></td>
+      <td class="col-type" data-label="Type"><span class="recipe-cell-value"><?= htmlspecialchars($recette['type_recette'] ?? 'recette') ?></span></td>
 
       <td class="actions col-actions" data-label="Actions">
+        <div class="recipe-cell-value recipe-cell-value--actions">
         <a href="<?= PUBLIC_URL ?>/recette.php?id=<?= (int)$recette['id'] ?>" title="Voir">👁️</a>
         <?php if ($canEditRow): ?>
           <a href="<?= PUBLIC_URL ?>/edit_recette.php?id=<?= (int)$recette['id'] ?>" title="Éditer">✏️</a>
@@ -122,6 +133,7 @@
              title="Supprimer"
              onclick="return confirm('Supprimer cette recette ?');">🗑️</a>
         <?php endif; ?>
+        </div>
       </td>
     </tr>
   <?php endforeach; ?>
