@@ -19,19 +19,19 @@ body {
 
 .pdf-nav {
     text-align: center;
-    margin-bottom: 12px;
+    margin-bottom: 16px;
 }
 
 .pdf-nav-button {
     display: inline-block;
-    min-width: 170px;
-    margin: 0 5px 7px 5px;
-    padding: 11px 18px;
-    border: 2px solid #1f4638;
-    border-radius: 7px;
+    min-width: 230px;
+    margin: 0 6px 9px 6px;
+    padding: 16px 24px;
+    border: 3px solid #1f4638;
+    border-radius: 9px;
     background: #1f4638;
     color: #ffffff;
-    font-size: 11pt;
+    font-size: 14pt;
     font-weight: bold;
     text-decoration: none;
     text-align: center;
