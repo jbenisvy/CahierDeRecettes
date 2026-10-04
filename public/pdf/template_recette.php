@@ -51,6 +51,7 @@ if (!function_exists('pdf_public_url')) {
 
 $recipeId = (int)($r['id'] ?? ($id ?? 0));
 $recipeUrl = $recipeId > 0 ? pdf_public_url('recette.php?id=' . $recipeId) : '';
+$printUrl = $recipeId > 0 ? pdf_public_url('print/print_recette.php?id=' . $recipeId) : '';
 $homeUrl = pdf_public_url('index.php');
 
 // Photo principale
@@ -70,6 +71,9 @@ if (
     <div class="pdf-nav">
         <?php if ($recipeUrl !== ''): ?>
             <a class="pdf-nav-button" href="<?= htmlspecialchars($recipeUrl, ENT_QUOTES, 'UTF-8') ?>">Retour à la fiche recette</a>
+        <?php endif; ?>
+        <?php if ($printUrl !== ''): ?>
+            <a class="pdf-nav-button pdf-nav-button-print" href="<?= htmlspecialchars($printUrl, ENT_QUOTES, 'UTF-8') ?>">Imprimer</a>
         <?php endif; ?>
         <a class="pdf-nav-button pdf-nav-button-secondary" href="<?= htmlspecialchars($homeUrl, ENT_QUOTES, 'UTF-8') ?>">Retour à l'accueil</a>
     </div>

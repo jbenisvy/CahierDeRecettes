@@ -106,7 +106,7 @@ if (!is_string($lastListUrl) || trim($lastListUrl) === '') {
     <?php if ($recetteId): ?>
       <a
         class="btn btn-ghost"
-        href="<?= PUBLIC_URL ?>/pdf/recette_pdf.php?id=<?= (int)$recetteId ?>"
+        href="<?= PUBLIC_URL ?>/print/print_recette.php?id=<?= (int)$recetteId ?>"
         target="_blank"
         rel="noopener"
       >Imprimer</a>

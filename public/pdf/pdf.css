@@ -42,6 +42,12 @@ body {
     color: #1f4638;
 }
 
+.pdf-nav-button-print {
+    background: #c95b45;
+    border-color: #c95b45;
+    color: #ffffff;
+}
+
 /* ===============================
    HEADER
 =============================== */
