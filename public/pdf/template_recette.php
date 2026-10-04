@@ -19,6 +19,40 @@ $tags        = array_values(array_filter(array_map(
 
 $root = realpath(__DIR__ . '/../../');
 
+if (!function_exists('pdf_public_url')) {
+    function pdf_public_url(string $path): string
+    {
+        $publicUrl = defined('PUBLIC_URL') ? (string) PUBLIC_URL : '';
+
+        if (preg_match('~^https?://~i', $publicUrl) === 1) {
+            return rtrim($publicUrl, '/') . '/' . ltrim($path, '/');
+        }
+
+        $forwardedProto = (string)($_SERVER['HTTP_X_FORWARDED_PROTO'] ?? '');
+        if ($forwardedProto !== '') {
+            $scheme = trim(explode(',', $forwardedProto)[0]) ?: 'http';
+        } else {
+            $isHttps = !empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off';
+            $scheme = $isHttps ? 'https' : 'http';
+        }
+
+        $forwardedHost = (string)($_SERVER['HTTP_X_FORWARDED_HOST'] ?? '');
+        $host = $forwardedHost !== ''
+            ? trim(explode(',', $forwardedHost)[0])
+            : (string)($_SERVER['HTTP_HOST'] ?? ($_SERVER['SERVER_NAME'] ?? ''));
+
+        if ($host === '') {
+            return rtrim($publicUrl, '/') . '/' . ltrim($path, '/');
+        }
+
+        return $scheme . '://' . $host . rtrim($publicUrl, '/') . '/' . ltrim($path, '/');
+    }
+}
+
+$recipeId = (int)($r['id'] ?? ($id ?? 0));
+$recipeUrl = $recipeId > 0 ? pdf_public_url('recette.php?id=' . $recipeId) : '';
+$homeUrl = pdf_public_url('index.php');
+
 // Photo principale
 $photo = null;
 if (
@@ -32,6 +66,13 @@ if (
 ?>
 
 <div class="pdf-wrap">
+
+    <div class="pdf-nav">
+        <?php if ($recipeUrl !== ''): ?>
+            <a href="<?= htmlspecialchars($recipeUrl, ENT_QUOTES, 'UTF-8') ?>">Retour à la fiche recette</a>
+        <?php endif; ?>
+        <a href="<?= htmlspecialchars($homeUrl, ENT_QUOTES, 'UTF-8') ?>">Retour à l'accueil</a>
+    </div>
 
     <div class="header">
         <div class="kicker">FICHE RECETTE</div>

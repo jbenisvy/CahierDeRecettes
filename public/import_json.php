@@ -21,6 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 // Dépendances
 require_once __DIR__ . "/../config/database.php";
 require_once __DIR__ . "/../app/models/RecetteModel.php";
+require_once __DIR__ . "/../app/services/AutoRecipeImageService.php";
 // Définir BASE_URL et PUBLIC_URL pour les redirections
 require_once dirname(__DIR__) . '/app/base_url.php';
 
@@ -196,9 +197,12 @@ if ($data === null || !is_array($data)) {
 */
 try {
     $model = new RecetteModel();
+    $autoRecipeImageService = new AutoRecipeImageService($model);
     $imported = 0;
     $duplicates = 0;
     $duplicateId = null;
+    $autoImagesGenerated = 0;
+    $autoImagesFailed = 0;
 
     foreach ($data as $r) {
 
@@ -231,9 +235,24 @@ try {
         $r['auteur'] = $_SESSION['user']['nom'];
 
         try {
-            $model->ajouterRecetteDepuisJson($r);
+            $recetteId = $model->ajouterRecetteDepuisJson($r);
             $imported++;
             import_json_debug_log('recipe imported title=' . substr((string) ($r['titre'] ?? ''), 0, 120));
+
+            try {
+                $photoId = $autoRecipeImageService->generateAndAttachAsDefault($recetteId);
+                if ($photoId !== null) {
+                    $autoImagesGenerated++;
+                    import_json_debug_log('auto image generated recette_id=' . $recetteId . ' photo_id=' . $photoId);
+                }
+            } catch (Throwable $imageError) {
+                $autoImagesFailed++;
+                import_json_debug_log(
+                    'auto image failed recette_id=' . $recetteId
+                    . ' title=' . substr((string) ($r['titre'] ?? ''), 0, 120)
+                    . ' error=' . $imageError->getMessage()
+                );
+            }
         } catch (DuplicateRecetteException $e) {
             $duplicates++;
             if ($duplicateId === null) {
@@ -275,6 +294,8 @@ import_json_debug_log('redirect index ok nb=' . $imported . ' dup=' . $duplicate
 header(
     "Location: " . PUBLIC_URL . "/index.php?import=ok&nb=" . $imported
     . "&dup=" . $duplicates
+    . "&ai=" . $autoImagesGenerated
+    . "&ai_fail=" . $autoImagesFailed
     . ($duplicateId ? "&dup_id=" . (int) $duplicateId : "")
 );
 exit;

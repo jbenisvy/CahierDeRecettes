@@ -17,6 +17,24 @@ body {
     width: 100%;
 }
 
+.pdf-nav {
+    text-align: center;
+    margin-bottom: 8px;
+}
+
+.pdf-nav a {
+    display: inline-block;
+    margin: 0 4px 5px 4px;
+    padding: 7px 12px;
+    border: 1px solid #1f4638;
+    border-radius: 4px;
+    background: #1f4638;
+    color: #ffffff;
+    font-size: 9pt;
+    font-weight: bold;
+    text-decoration: none;
+}
+
 /* ===============================
    HEADER
 =============================== */

@@ -5,6 +5,7 @@ $root = dirname(__DIR__, 2);
 
 require_once $root . '/vendor/autoload.php';
 require_once $root . '/config/database.php';
+require_once $root . '/app/base_url.php';
 require_once $root . '/app/models/RecetteModel.php';
 
 use Mpdf\Mpdf;
