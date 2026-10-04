@@ -54,8 +54,30 @@ Depuis `public/admin/settings.php`, un bouton permet de traiter uniquement les r
 - Le suivi temps réel passe par `public/admin/generate_missing_ai_photos_progress.php`.
 - L’interface affiche un avancement `traitées / total`, la recette en cours et le bilan `générées / ignorées / échecs`.
 
+## PDF et impression
+
+La génération PDF d’une fiche recette repose sur `public/pdf/recette_pdf.php`.
+
+- `public/pdf/template_recette.php` construit le contenu HTML envoyé à mPDF.
+- `public/pdf/pdf.css` définit le rendu imprimable de la fiche.
+- Les boutons du PDF permettent de revenir à la fiche recette, revenir à l’accueil et lancer l’impression.
+- `public/print/print_recette.php` fournit une page d’impression dédiée aux fiches recette, utile en particulier sur mobile.
+- Cette page affiche le PDF dans une iframe et propose les actions `Imprimer`, `Retour fiche`, `Accueil` et `Ouvrir PDF`.
+- Le bouton `Imprimer` de la fiche recette pointe vers cette page depuis `public/ui/header.php`.
+
+Le flux d’impression des sélections reste séparé dans `public/print/print_selection.php` et `public/pdf/pdf_selection.php`.
+
+## Suivi des évolutions récentes
+
+- Vue mobile liste recettes améliorée avec une carte lisible et des actions tactiles plus accessibles.
+- Génération d’image IA renforcée pour respecter la forme réelle du plat selon son type culinaire.
+- Génération automatique d’une photo principale après import lorsque la recette est suffisamment complète.
+- Bouton admin pour générer uniquement les photos manquantes, avec suivi de progression en direct.
+- Impression mobile des fiches PDF ajoutée via une page dédiée avec bouton `Imprimer`.
+
 ## Points d’attention
 
 - Les appels OpenAI nécessitent une clé configurée via environnement ou `config/openai.php`.
 - Les images sont stockées dans `public/uploads/recettes`.
 - En cas d’échec de génération automatique après import, la recette reste créée et l’ajout n’est pas annulé.
+- Sur mobile, l’impression d’une fiche doit passer par `public/print/print_recette.php` pour conserver les boutons d’action visibles autour du PDF.
