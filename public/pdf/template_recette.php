@@ -69,9 +69,9 @@ if (
 
     <div class="pdf-nav">
         <?php if ($recipeUrl !== ''): ?>
-            <a href="<?= htmlspecialchars($recipeUrl, ENT_QUOTES, 'UTF-8') ?>">Retour à la fiche recette</a>
+            <a class="pdf-nav-button" href="<?= htmlspecialchars($recipeUrl, ENT_QUOTES, 'UTF-8') ?>">Retour à la fiche recette</a>
         <?php endif; ?>
-        <a href="<?= htmlspecialchars($homeUrl, ENT_QUOTES, 'UTF-8') ?>">Retour à l'accueil</a>
+        <a class="pdf-nav-button pdf-nav-button-secondary" href="<?= htmlspecialchars($homeUrl, ENT_QUOTES, 'UTF-8') ?>">Retour à l'accueil</a>
     </div>
 
     <div class="header">

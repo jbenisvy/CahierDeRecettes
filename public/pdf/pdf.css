@@ -19,20 +19,27 @@ body {
 
 .pdf-nav {
     text-align: center;
-    margin-bottom: 8px;
+    margin-bottom: 12px;
 }
 
-.pdf-nav a {
+.pdf-nav-button {
     display: inline-block;
-    margin: 0 4px 5px 4px;
-    padding: 7px 12px;
-    border: 1px solid #1f4638;
-    border-radius: 4px;
+    min-width: 170px;
+    margin: 0 5px 7px 5px;
+    padding: 11px 18px;
+    border: 2px solid #1f4638;
+    border-radius: 7px;
     background: #1f4638;
     color: #ffffff;
-    font-size: 9pt;
+    font-size: 11pt;
     font-weight: bold;
     text-decoration: none;
+    text-align: center;
+}
+
+.pdf-nav-button-secondary {
+    background: #fff3e3;
+    color: #1f4638;
 }
 
 /* ===============================
